@@ -1,0 +1,60 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+lib/BaseLibrary/.vs
+lib/BaseLibrary/ApStateSystem/x64
+lib/BaseLibrary/PtBase/x64
+lib/BaseLibrary/x64
+VScriptEditor/.idea
+VScriptEditor/obj
+VScriptEditor/Logs
+VScriptEditor/Library
+*.bak
+*.bak
+lib/BaseLibrary/StatePython/x64
+*.user
+lib/BaseLibrary/stConsole/x64
+*.idb
+*.pdb
+*.lastbuildstate
+lib/BaseLibrary/ConsoleUnityTest/x64/Debug
+lib/BaseLibrary/ConsoleUnityTest/x64/Release
+VScriptEditor/Temp
+lib/BaseLibrary/testconsole/Debug
+lib/BaseLibrary/testconsole/Release
+lib/BaseLibrary/testconsole/x64
+lib/BaseLibrary/libcurl/build
+lib/BaseLibrary/libcurl
+lib/BaseLibrary/openssl-1.0.2u-x64_86-win64
+lib/BaseLibrary/openssl-1.0.2u-x64_86-win64_LinkLibs
+lib/BaseLibrary/.DS_Store
+.DS_Store
