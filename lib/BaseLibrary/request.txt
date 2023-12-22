@@ -1,0 +1,7 @@
+{
+"code": "COD0001",
+"emMaterial": "GL0.6T",
+"emCategory1": "철재",
+"emCategory2": "철판부품",
+"emCategory3": "판금가공"
+}

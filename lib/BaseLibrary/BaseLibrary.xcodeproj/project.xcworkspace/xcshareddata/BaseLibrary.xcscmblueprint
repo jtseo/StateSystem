@@ -1,0 +1,34 @@
+{
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "aefe59f8-1414-ea42-9ea0-71352710f22b++1103" : {
+
+    },
+    "aefe59f8-1414-ea42-9ea0-71352710f22b++1316" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "aefe59f8-1414-ea42-9ea0-71352710f22b++1103" : 9223372036854775807,
+    "aefe59f8-1414-ea42-9ea0-71352710f22b++1316" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E3293388-2CA1-421B-B22C-D11B5B37CE95",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "aefe59f8-1414-ea42-9ea0-71352710f22b++1103" : "BaseLibrary\/",
+    "aefe59f8-1414-ea42-9ea0-71352710f22b++1316" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "BaseLibrary",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "BaseLibrary.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/192.168.1.3\/svn\/battledungeon",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "aefe59f8-1414-ea42-9ea0-71352710f22b++1103"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/192.168.1.3\/svn\/battledungeon",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "aefe59f8-1414-ea42-9ea0-71352710f22b++1316"
+    }
+  ]
+}

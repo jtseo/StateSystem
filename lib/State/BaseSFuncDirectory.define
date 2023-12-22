@@ -1,0 +1,7 @@
+﻿../BaseLibrary/PtBase/BaseSFuncDirectory
+L_SS_LC	fileCast_nF	INT32	EnumStateEvent	event cast current files
+L_SS_LC	folerCreate_varF	INT32	EnumVariableDefine	create folder in current folder
+L_SS_LC	folerCurrentPush_varF	INT32	EnumVariableDefine	push current path and change new path
+L_SS_LC	folerCurrentPop_varF	INT32	EnumVariableDefine	pop pushed path 
+L_LA	fileCopy_avarIf	STRING	EnumVariableDefine	copy (to, from)
+L_LA	DirectoryListGet_varIf	INT32	EnumVariableDefine	get dir list on fallow variable seperated by ','

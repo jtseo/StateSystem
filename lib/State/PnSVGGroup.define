@@ -1,0 +1,10 @@
+﻿../BaseLibrary/BaseLibrary/PnSVGGroup
+L_SS_LC	event_receiver_nF	INT32	EnumStateEvent	sample
+L_SS_LC	variable_receiver_nF	INT32	EnumVariableDefine	sample
+L_SS_LC	titleblockExtract_strF	STRING		Extract titleblock
+L_SS_LC	otherMake_strF	STRING		extract other except current block
+L_LA	outboundExtract_strIf	STRING		extract outbound
+L_SS_LC	limitMake_strF	STRING		make limit line by vector
+L_SS_LC	polygonExtract_strF	STRING		extract polygon for Drawing Area
+L_SS_LC	excelPush_strF	STRING		push exel tree in child excel class
+L_SS_LC	limitObjectRemove_strF	STRING		remove object in bound

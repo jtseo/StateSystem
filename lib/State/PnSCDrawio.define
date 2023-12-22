@@ -1,0 +1,4 @@
+﻿../BaseLibrary/BaseLibrary/PnSCDrawio	EnumStateEvent	L_SS_LC	L_LA	INT32	EnumVariableDefine
+L_SS_LC	SVG2Drawio_varF	INT32	EnumVariableDefine	convert svg file to drawio
+L_LA	loadCheck_nIf	INT32		check to success to load file
+L_SS_LC	drawio2SVG_varF	INT32	EnumVariableDefine	convert drawio to svg

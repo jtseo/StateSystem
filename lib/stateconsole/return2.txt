@@ -1,0 +1,15 @@
+﻿HTTP/1.1 200 OK
+Date: Thu, 02 Nov 2023 23:55:07 GMT
+Content-Type: application/json;
+Content-Length: 317
+
+[
+  {
+    "userId": 1,
+    "id": 1,
+    "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+    "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+  }
+]
+
+

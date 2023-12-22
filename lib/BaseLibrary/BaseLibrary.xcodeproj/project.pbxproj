@@ -1,0 +1,1828 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 53;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C103ADBF264D6A6300704889 /* BaseSFuncDirectory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C103ADBC264D6A6300704889 /* BaseSFuncDirectory.cpp */; };
+		C104607A2644208D0077FB2A /* BaseTextEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C104606F2644208D0077FB2A /* BaseTextEditor.cpp */; };
+		C12501082AEDC08900AB0052 /* BaseSCCurl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12501032AEDC08900AB0052 /* BaseSCCurl.cpp */; };
+		C12501092AEDC08900AB0052 /* BaseSCCurl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12501032AEDC08900AB0052 /* BaseSCCurl.cpp */; };
+		C125010A2AEDC08900AB0052 /* BaseSCCurl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12501032AEDC08900AB0052 /* BaseSCCurl.cpp */; };
+		C12501122AEDDFAE00AB0052 /* BaseSCTcpSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12501102AEDDFAE00AB0052 /* BaseSCTcpSession.cpp */; };
+		C12501132AEDDFAE00AB0052 /* BaseSCTcpSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12501102AEDDFAE00AB0052 /* BaseSCTcpSession.cpp */; };
+		C12501142AEDDFAE00AB0052 /* BaseSCTcpSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12501102AEDDFAE00AB0052 /* BaseSCTcpSession.cpp */; };
+		C12501152AEDDFAE00AB0052 /* BaseSCTcp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12501112AEDDFAE00AB0052 /* BaseSCTcp.cpp */; };
+		C12501162AEDDFAE00AB0052 /* BaseSCTcp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12501112AEDDFAE00AB0052 /* BaseSCTcp.cpp */; };
+		C12501172AEDDFAE00AB0052 /* BaseSCTcp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12501112AEDDFAE00AB0052 /* BaseSCTcp.cpp */; };
+		C12A32562AB894770094D3E6 /* base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32542AB894770094D3E6 /* base.cpp */; };
+		C12A32582AB894770094D3E6 /* base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32542AB894770094D3E6 /* base.cpp */; };
+		C12A32592AB894770094D3E6 /* base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32542AB894770094D3E6 /* base.cpp */; };
+		C12A32752AB895350094D3E6 /* BaseResFilterIP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325B2AB895340094D3E6 /* BaseResFilterIP.cpp */; };
+		C12A32772AB895350094D3E6 /* BaseResFilterIP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325B2AB895340094D3E6 /* BaseResFilterIP.cpp */; };
+		C12A32792AB895350094D3E6 /* BaseResManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325C2AB895340094D3E6 /* BaseResManager.cpp */; };
+		C12A327B2AB895350094D3E6 /* BaseResManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325C2AB895340094D3E6 /* BaseResManager.cpp */; };
+		C12A327D2AB895350094D3E6 /* BaseSFuncXML.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325D2AB895340094D3E6 /* BaseSFuncXML.cpp */; };
+		C12A327F2AB895350094D3E6 /* BaseSFuncXML.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325D2AB895340094D3E6 /* BaseSFuncXML.cpp */; };
+		C12A32812AB895350094D3E6 /* BaseSpaceOrganizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325E2AB895340094D3E6 /* BaseSpaceOrganizer.cpp */; };
+		C12A32832AB895350094D3E6 /* BaseSpaceOrganizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325E2AB895340094D3E6 /* BaseSpaceOrganizer.cpp */; };
+		C12A32852AB895350094D3E6 /* BaseSetString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325F2AB895340094D3E6 /* BaseSetString.cpp */; };
+		C12A32872AB895350094D3E6 /* BaseSetString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325F2AB895340094D3E6 /* BaseSetString.cpp */; };
+		C12A32892AB895350094D3E6 /* base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32602AB895340094D3E6 /* base64.cpp */; };
+		C12A328B2AB895350094D3E6 /* base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32602AB895340094D3E6 /* base64.cpp */; };
+		C12A328D2AB895350094D3E6 /* BaseCircleQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32612AB895340094D3E6 /* BaseCircleQueue.cpp */; };
+		C12A328F2AB895350094D3E6 /* BaseCircleQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32612AB895340094D3E6 /* BaseCircleQueue.cpp */; };
+		C12A32912AB895350094D3E6 /* BaseMemoryPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32622AB895350094D3E6 /* BaseMemoryPool.cpp */; };
+		C12A32932AB895350094D3E6 /* BaseMemoryPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32622AB895350094D3E6 /* BaseMemoryPool.cpp */; };
+		C12A32952AB895350094D3E6 /* BaseResGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32632AB895350094D3E6 /* BaseResGrid.cpp */; };
+		C12A32972AB895350094D3E6 /* BaseResGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32632AB895350094D3E6 /* BaseResGrid.cpp */; };
+		C12A32992AB895350094D3E6 /* BaseActionStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32642AB895350094D3E6 /* BaseActionStack.cpp */; };
+		C12A329B2AB895350094D3E6 /* BaseActionStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32642AB895350094D3E6 /* BaseActionStack.cpp */; };
+		C12A329D2AB895350094D3E6 /* BaseDStructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32652AB895350094D3E6 /* BaseDStructure.cpp */; };
+		C12A329F2AB895350094D3E6 /* BaseDStructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32652AB895350094D3E6 /* BaseDStructure.cpp */; };
+		C12A32A12AB895350094D3E6 /* BaseFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32662AB895350094D3E6 /* BaseFile.cpp */; };
+		C12A32A32AB895350094D3E6 /* BaseFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32662AB895350094D3E6 /* BaseFile.cpp */; };
+		C12A32A52AB895350094D3E6 /* BaseNetConnector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32672AB895350094D3E6 /* BaseNetConnector.cpp */; };
+		C12A32A72AB895350094D3E6 /* BaseNetConnector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32672AB895350094D3E6 /* BaseNetConnector.cpp */; };
+		C12A32A92AB895350094D3E6 /* BaseResResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32682AB895350094D3E6 /* BaseResResource.cpp */; };
+		C12A32AB2AB895350094D3E6 /* BaseResResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32682AB895350094D3E6 /* BaseResResource.cpp */; };
+		C12A32AD2AB895350094D3E6 /* BaseSFParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32692AB895350094D3E6 /* BaseSFParser.cpp */; };
+		C12A32AF2AB895350094D3E6 /* BaseSFParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32692AB895350094D3E6 /* BaseSFParser.cpp */; };
+		C12A32B12AB895350094D3E6 /* BaseRecognitionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326A2AB895350094D3E6 /* BaseRecognitionManager.cpp */; };
+		C12A32B32AB895350094D3E6 /* BaseRecognitionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326A2AB895350094D3E6 /* BaseRecognitionManager.cpp */; };
+		C12A32B92AB895350094D3E6 /* BaseSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326C2AB895350094D3E6 /* BaseSocket.cpp */; };
+		C12A32BB2AB895350094D3E6 /* BaseSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326C2AB895350094D3E6 /* BaseSocket.cpp */; };
+		C12A32BD2AB895350094D3E6 /* BaseResDStructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326D2AB895350094D3E6 /* BaseResDStructure.cpp */; };
+		C12A32BF2AB895350094D3E6 /* BaseResDStructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326D2AB895350094D3E6 /* BaseResDStructure.cpp */; };
+		C12A32C12AB895350094D3E6 /* BaseEventHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326E2AB895350094D3E6 /* BaseEventHandler.cpp */; };
+		C12A32C32AB895350094D3E6 /* BaseEventHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326E2AB895350094D3E6 /* BaseEventHandler.cpp */; };
+		C12A32C52AB895350094D3E6 /* BaseMemoryPool3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326F2AB895350094D3E6 /* BaseMemoryPool3.cpp */; };
+		C12A32C72AB895350094D3E6 /* BaseMemoryPool3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326F2AB895350094D3E6 /* BaseMemoryPool3.cpp */; };
+		C12A32C92AB895350094D3E6 /* BaseSCTableGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32702AB895350094D3E6 /* BaseSCTableGrid.cpp */; };
+		C12A32CB2AB895350094D3E6 /* BaseSCTableGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32702AB895350094D3E6 /* BaseSCTableGrid.cpp */; };
+		C12A32CD2AB895350094D3E6 /* BaseObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32712AB895350094D3E6 /* BaseObject.cpp */; };
+		C12A32CF2AB895350094D3E6 /* BaseObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32712AB895350094D3E6 /* BaseObject.cpp */; };
+		C12A32D12AB895350094D3E6 /* BaseEventManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32722AB895350094D3E6 /* BaseEventManager.cpp */; };
+		C12A32D32AB895350094D3E6 /* BaseEventManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32722AB895350094D3E6 /* BaseEventManager.cpp */; };
+		C12A32D52AB895350094D3E6 /* BaseRecognitionPrjVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32732AB895350094D3E6 /* BaseRecognitionPrjVector.cpp */; };
+		C12A32D72AB895350094D3E6 /* BaseRecognitionPrjVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32732AB895350094D3E6 /* BaseRecognitionPrjVector.cpp */; };
+		C12A32FA2AB8959C0094D3E6 /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32D82AB8959B0094D3E6 /* Matrix4.cpp */; };
+		C12A32FC2AB8959C0094D3E6 /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32D82AB8959B0094D3E6 /* Matrix4.cpp */; };
+		C12A32FD2AB8959C0094D3E6 /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32D82AB8959B0094D3E6 /* Matrix4.cpp */; };
+		C12A32FF2AB8959C0094D3E6 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32D92AB8959B0094D3E6 /* Vector3.cpp */; };
+		C12A33012AB8959C0094D3E6 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32D92AB8959B0094D3E6 /* Vector3.cpp */; };
+		C12A33022AB8959C0094D3E6 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32D92AB8959B0094D3E6 /* Vector3.cpp */; };
+		C12A33042AB8959C0094D3E6 /* BaseStateMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DA2AB8959B0094D3E6 /* BaseStateMain.cpp */; };
+		C12A33062AB8959C0094D3E6 /* BaseStateMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DA2AB8959B0094D3E6 /* BaseStateMain.cpp */; };
+		C12A33072AB8959C0094D3E6 /* BaseStateMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DA2AB8959B0094D3E6 /* BaseStateMain.cpp */; };
+		C12A33092AB8959C0094D3E6 /* lodepng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DB2AB8959B0094D3E6 /* lodepng.cpp */; };
+		C12A330B2AB8959C0094D3E6 /* lodepng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DB2AB8959B0094D3E6 /* lodepng.cpp */; };
+		C12A330C2AB8959C0094D3E6 /* lodepng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DB2AB8959B0094D3E6 /* lodepng.cpp */; };
+		C12A33112AB8959C0094D3E6 /* BaseResFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DC2AB8959B0094D3E6 /* BaseResFile.cpp */; };
+		C12A33132AB8959C0094D3E6 /* Defines.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DD2AB8959B0094D3E6 /* Defines.cpp */; };
+		C12A33152AB8959C0094D3E6 /* Defines.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DD2AB8959B0094D3E6 /* Defines.cpp */; };
+		C12A33162AB8959C0094D3E6 /* Defines.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DD2AB8959B0094D3E6 /* Defines.cpp */; };
+		C12A33182AB8959C0094D3E6 /* BaseTextEditorText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DE2AB8959B0094D3E6 /* BaseTextEditorText.cpp */; };
+		C12A331A2AB8959C0094D3E6 /* BaseTextEditorText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DE2AB8959B0094D3E6 /* BaseTextEditorText.cpp */; };
+		C12A331B2AB8959C0094D3E6 /* BaseTextEditorText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DE2AB8959B0094D3E6 /* BaseTextEditorText.cpp */; };
+		C12A331D2AB8959C0094D3E6 /* BaseStateSpace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DF2AB8959B0094D3E6 /* BaseStateSpace.cpp */; };
+		C12A331F2AB8959C0094D3E6 /* BaseStateSpace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DF2AB8959B0094D3E6 /* BaseStateSpace.cpp */; };
+		C12A33202AB8959C0094D3E6 /* BaseStateSpace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DF2AB8959B0094D3E6 /* BaseStateSpace.cpp */; };
+		C12A33222AB8959C0094D3E6 /* hashstr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E02AB8959B0094D3E6 /* hashstr.cpp */; };
+		C12A33242AB8959C0094D3E6 /* hashstr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E02AB8959B0094D3E6 /* hashstr.cpp */; };
+		C12A33252AB8959C0094D3E6 /* hashstr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E02AB8959B0094D3E6 /* hashstr.cpp */; };
+		C12A33272AB8959C0094D3E6 /* EncodeCodeFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E12AB8959B0094D3E6 /* EncodeCodeFile.cpp */; };
+		C12A33292AB8959C0094D3E6 /* EncodeCodeFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E12AB8959B0094D3E6 /* EncodeCodeFile.cpp */; };
+		C12A332A2AB8959C0094D3E6 /* EncodeCodeFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E12AB8959B0094D3E6 /* EncodeCodeFile.cpp */; };
+		C12A332C2AB8959C0094D3E6 /* MD52.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E22AB8959B0094D3E6 /* MD52.cpp */; };
+		C12A332E2AB8959C0094D3E6 /* MD52.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E22AB8959B0094D3E6 /* MD52.cpp */; };
+		C12A332F2AB8959C0094D3E6 /* MD52.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E22AB8959B0094D3E6 /* MD52.cpp */; };
+		C12A33312AB8959C0094D3E6 /* BaseState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E32AB8959B0094D3E6 /* BaseState.cpp */; };
+		C12A33332AB8959C0094D3E6 /* BaseState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E32AB8959B0094D3E6 /* BaseState.cpp */; };
+		C12A33342AB8959C0094D3E6 /* BaseState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E32AB8959B0094D3E6 /* BaseState.cpp */; };
+		C12A33382AB8959C0094D3E6 /* BaseSFuncDirectory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E42AB8959B0094D3E6 /* BaseSFuncDirectory.cpp */; };
+		C12A33392AB8959C0094D3E6 /* BaseSFuncDirectory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E42AB8959B0094D3E6 /* BaseSFuncDirectory.cpp */; };
+		C12A333B2AB8959C0094D3E6 /* Fixed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E52AB8959B0094D3E6 /* Fixed.cpp */; };
+		C12A333D2AB8959C0094D3E6 /* Fixed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E52AB8959B0094D3E6 /* Fixed.cpp */; };
+		C12A333E2AB8959C0094D3E6 /* Fixed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E52AB8959B0094D3E6 /* Fixed.cpp */; };
+		C12A33402AB8959C0094D3E6 /* BaseUIWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E62AB8959B0094D3E6 /* BaseUIWindow.cpp */; };
+		C12A33422AB8959C0094D3E6 /* BaseUIWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E62AB8959B0094D3E6 /* BaseUIWindow.cpp */; };
+		C12A33432AB8959C0094D3E6 /* BaseUIWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E62AB8959B0094D3E6 /* BaseUIWindow.cpp */; };
+		C12A33452AB8959C0094D3E6 /* BaseXML.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E72AB8959B0094D3E6 /* BaseXML.cpp */; };
+		C12A33472AB8959C0094D3E6 /* BaseXML.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E72AB8959B0094D3E6 /* BaseXML.cpp */; };
+		C12A33482AB8959C0094D3E6 /* BaseXML.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E72AB8959B0094D3E6 /* BaseXML.cpp */; };
+		C12A334A2AB8959C0094D3E6 /* EncoderOperator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E82AB8959B0094D3E6 /* EncoderOperator.cpp */; };
+		C12A334C2AB8959C0094D3E6 /* EncoderOperator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E82AB8959B0094D3E6 /* EncoderOperator.cpp */; };
+		C12A334D2AB8959C0094D3E6 /* EncoderOperator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E82AB8959B0094D3E6 /* EncoderOperator.cpp */; };
+		C12A334F2AB8959C0094D3E6 /* BaseTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E92AB8959B0094D3E6 /* BaseTime.cpp */; };
+		C12A33512AB8959C0094D3E6 /* BaseTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E92AB8959B0094D3E6 /* BaseTime.cpp */; };
+		C12A33522AB8959C0094D3E6 /* BaseTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E92AB8959B0094D3E6 /* BaseTime.cpp */; };
+		C12A33542AB8959C0094D3E6 /* BaseTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EA2AB8959B0094D3E6 /* BaseTree.cpp */; };
+		C12A33562AB8959C0094D3E6 /* BaseTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EA2AB8959B0094D3E6 /* BaseTree.cpp */; };
+		C12A33572AB8959C0094D3E6 /* BaseTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EA2AB8959B0094D3E6 /* BaseTree.cpp */; };
+		C12A33592AB8959C0094D3E6 /* BaseStringTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EB2AB8959B0094D3E6 /* BaseStringTable.cpp */; };
+		C12A335B2AB8959C0094D3E6 /* BaseStringTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EB2AB8959B0094D3E6 /* BaseStringTable.cpp */; };
+		C12A335C2AB8959C0094D3E6 /* BaseStringTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EB2AB8959B0094D3E6 /* BaseStringTable.cpp */; };
+		C12A335E2AB8959C0094D3E6 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EC2AB8959C0094D3E6 /* stdafx.cpp */; };
+		C12A33602AB8959C0094D3E6 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EC2AB8959C0094D3E6 /* stdafx.cpp */; };
+		C12A33612AB8959C0094D3E6 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EC2AB8959C0094D3E6 /* stdafx.cpp */; };
+		C12A33662AB8959C0094D3E6 /* BaseTextEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32ED2AB8959C0094D3E6 /* BaseTextEditor.cpp */; };
+		C12A33682AB8959C0094D3E6 /* BaseWFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EE2AB8959C0094D3E6 /* BaseWFile.cpp */; };
+		C12A336A2AB8959C0094D3E6 /* BaseWFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EE2AB8959C0094D3E6 /* BaseWFile.cpp */; };
+		C12A336B2AB8959C0094D3E6 /* BaseWFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EE2AB8959C0094D3E6 /* BaseWFile.cpp */; };
+		C12A336D2AB8959C0094D3E6 /* Quater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EF2AB8959C0094D3E6 /* Quater.cpp */; };
+		C12A336F2AB8959C0094D3E6 /* Quater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EF2AB8959C0094D3E6 /* Quater.cpp */; };
+		C12A33702AB8959C0094D3E6 /* Quater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EF2AB8959C0094D3E6 /* Quater.cpp */; };
+		C12A33722AB8959C0094D3E6 /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F02AB8959C0094D3E6 /* Matrix3.cpp */; };
+		C12A33742AB8959C0094D3E6 /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F02AB8959C0094D3E6 /* Matrix3.cpp */; };
+		C12A33752AB8959C0094D3E6 /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F02AB8959C0094D3E6 /* Matrix3.cpp */; };
+		C12A33772AB8959C0094D3E6 /* BaseStateFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F12AB8959C0094D3E6 /* BaseStateFunc.cpp */; };
+		C12A337A2AB8959C0094D3E6 /* BaseStateFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F12AB8959C0094D3E6 /* BaseStateFunc.cpp */; };
+		C12A337C2AB8959C0094D3E6 /* SPLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F22AB8959C0094D3E6 /* SPLine.cpp */; };
+		C12A337E2AB8959C0094D3E6 /* SPLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F22AB8959C0094D3E6 /* SPLine.cpp */; };
+		C12A337F2AB8959C0094D3E6 /* SPLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F22AB8959C0094D3E6 /* SPLine.cpp */; };
+		C12A33812AB8959C0094D3E6 /* BaseUIManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F32AB8959C0094D3E6 /* BaseUIManager.cpp */; };
+		C12A33832AB8959C0094D3E6 /* BaseUIManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F32AB8959C0094D3E6 /* BaseUIManager.cpp */; };
+		C12A33842AB8959C0094D3E6 /* BaseUIManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F32AB8959C0094D3E6 /* BaseUIManager.cpp */; };
+		C12A33862AB8959C0094D3E6 /* ResTif.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F42AB8959C0094D3E6 /* ResTif.cpp */; };
+		C12A33882AB8959C0094D3E6 /* ResTif.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F42AB8959C0094D3E6 /* ResTif.cpp */; };
+		C12A33892AB8959C0094D3E6 /* ResTif.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F42AB8959C0094D3E6 /* ResTif.cpp */; };
+		C12A338B2AB8959C0094D3E6 /* BaseStateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F52AB8959C0094D3E6 /* BaseStateManager.cpp */; };
+		C12A338D2AB8959C0094D3E6 /* BaseStateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F52AB8959C0094D3E6 /* BaseStateManager.cpp */; };
+		C12A338E2AB8959C0094D3E6 /* BaseStateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F52AB8959C0094D3E6 /* BaseStateManager.cpp */; };
+		C12A33902AB8959C0094D3E6 /* BaseSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F62AB8959C0094D3E6 /* BaseSystem.cpp */; };
+		C12A33922AB8959C0094D3E6 /* BaseSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F62AB8959C0094D3E6 /* BaseSystem.cpp */; };
+		C12A33932AB8959C0094D3E6 /* BaseSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F62AB8959C0094D3E6 /* BaseSystem.cpp */; };
+		C12A33952AB8959C0094D3E6 /* allocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F72AB8959C0094D3E6 /* allocator.cpp */; };
+		C12A33972AB8959C0094D3E6 /* allocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F72AB8959C0094D3E6 /* allocator.cpp */; };
+		C12A33982AB8959C0094D3E6 /* allocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F72AB8959C0094D3E6 /* allocator.cpp */; };
+		C12A339A2AB8959C0094D3E6 /* seedx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F82AB8959C0094D3E6 /* seedx.cpp */; };
+		C12A339C2AB8959C0094D3E6 /* seedx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F82AB8959C0094D3E6 /* seedx.cpp */; };
+		C12A339D2AB8959C0094D3E6 /* seedx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F82AB8959C0094D3E6 /* seedx.cpp */; };
+		C12A339E2AB895D60094D3E6 /* BaseSFuncXML.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325D2AB895340094D3E6 /* BaseSFuncXML.cpp */; };
+		C12A339F2AB895D60094D3E6 /* BaseDStructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32652AB895350094D3E6 /* BaseDStructure.cpp */; };
+		C12A33A02AB895D60094D3E6 /* BaseSCTableGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32702AB895350094D3E6 /* BaseSCTableGrid.cpp */; };
+		C12A33A22AB895D60094D3E6 /* BaseMemoryPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32622AB895350094D3E6 /* BaseMemoryPool.cpp */; };
+		C12A33A32AB895D60094D3E6 /* BaseResFilterIP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325B2AB895340094D3E6 /* BaseResFilterIP.cpp */; };
+		C12A33A42AB895D60094D3E6 /* BaseRecognitionPrjVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32732AB895350094D3E6 /* BaseRecognitionPrjVector.cpp */; };
+		C12A33A52AB895D60094D3E6 /* BaseNetConnector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32672AB895350094D3E6 /* BaseNetConnector.cpp */; };
+		C12A33A62AB895D60094D3E6 /* BaseResDStructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326D2AB895350094D3E6 /* BaseResDStructure.cpp */; };
+		C12A33A72AB895D60094D3E6 /* BaseResResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32682AB895350094D3E6 /* BaseResResource.cpp */; };
+		C12A33A82AB895D60094D3E6 /* base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32602AB895340094D3E6 /* base64.cpp */; };
+		C12A33A92AB895D60094D3E6 /* BaseSFParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32692AB895350094D3E6 /* BaseSFParser.cpp */; };
+		C12A33AA2AB895D60094D3E6 /* BaseSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326C2AB895350094D3E6 /* BaseSocket.cpp */; };
+		C12A33AB2AB895D60094D3E6 /* BaseSetString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325F2AB895340094D3E6 /* BaseSetString.cpp */; };
+		C12A33AC2AB895D60094D3E6 /* KISA_SHA256.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1DEBBC924927FA100BD0DFB /* KISA_SHA256.cpp */; };
+		C12A33AD2AB895D60094D3E6 /* BaseCircleQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32612AB895340094D3E6 /* BaseCircleQueue.cpp */; };
+		C12A33AE2AB895D60094D3E6 /* BaseSpaceOrganizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325E2AB895340094D3E6 /* BaseSpaceOrganizer.cpp */; };
+		C12A33AF2AB895D60094D3E6 /* BaseEventHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326E2AB895350094D3E6 /* BaseEventHandler.cpp */; };
+		C12A33B02AB895D60094D3E6 /* BaseResGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32632AB895350094D3E6 /* BaseResGrid.cpp */; };
+		C12A33B12AB895D60094D3E6 /* BaseEventManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32722AB895350094D3E6 /* BaseEventManager.cpp */; };
+		C12A33B22AB895D60094D3E6 /* BaseObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32712AB895350094D3E6 /* BaseObject.cpp */; };
+		C12A33B32AB895D60094D3E6 /* BaseResManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325C2AB895340094D3E6 /* BaseResManager.cpp */; };
+		C12A33B42AB895D60094D3E6 /* BaseRecognitionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326A2AB895350094D3E6 /* BaseRecognitionManager.cpp */; };
+		C12A33B52AB895D60094D3E6 /* BaseActionStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32642AB895350094D3E6 /* BaseActionStack.cpp */; };
+		C12A33B62AB895D60094D3E6 /* BaseMemoryPool3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326F2AB895350094D3E6 /* BaseMemoryPool3.cpp */; };
+		C12A33B72AB895D60094D3E6 /* BaseFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32662AB895350094D3E6 /* BaseFile.cpp */; };
+		C12A33BA2AB8966A0094D3E6 /* BaseHttp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33B82AB8966A0094D3E6 /* BaseHttp.cpp */; };
+		C12A33BC2AB8966A0094D3E6 /* BaseHttp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33B82AB8966A0094D3E6 /* BaseHttp.cpp */; };
+		C12A33BD2AB8966A0094D3E6 /* BaseHttp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33B82AB8966A0094D3E6 /* BaseHttp.cpp */; };
+		C12A33C02AB896880094D3E6 /* BaseJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33BE2AB896880094D3E6 /* BaseJson.cpp */; };
+		C12A33C22AB896880094D3E6 /* BaseJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33BE2AB896880094D3E6 /* BaseJson.cpp */; };
+		C12A33C32AB896880094D3E6 /* BaseJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33BE2AB896880094D3E6 /* BaseJson.cpp */; };
+		C12A33C82AB89FEB0094D3E6 /* StateManagerPnID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33C42AB89FEB0094D3E6 /* StateManagerPnID.cpp */; };
+		C12A33CA2AB89FEB0094D3E6 /* StateManagerPnID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33C42AB89FEB0094D3E6 /* StateManagerPnID.cpp */; };
+		C12A33CB2AB89FEB0094D3E6 /* StateManagerPnID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33C42AB89FEB0094D3E6 /* StateManagerPnID.cpp */; };
+		C12A33CD2AB89FEB0094D3E6 /* BaseInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33C52AB89FEB0094D3E6 /* BaseInterface.cpp */; };
+		C12A33CF2AB89FEB0094D3E6 /* BaseInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33C52AB89FEB0094D3E6 /* BaseInterface.cpp */; };
+		C12A33D02AB89FEB0094D3E6 /* BaseInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33C52AB89FEB0094D3E6 /* BaseInterface.cpp */; };
+		C12A33D22AB89FEB0094D3E6 /* pch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33C62AB89FEB0094D3E6 /* pch.cpp */; };
+		C12A33D42AB89FEB0094D3E6 /* pch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33C62AB89FEB0094D3E6 /* pch.cpp */; };
+		C12A33D52AB89FEB0094D3E6 /* pch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33C62AB89FEB0094D3E6 /* pch.cpp */; };
+		C12B34E82AEAB99700EE242E /* Crypto in Frameworks */ = {isa = PBXBuildFile; productRef = C12B34E72AEAB99700EE242E /* Crypto */; };
+		C12FF62F2B0A04C100758F3E /* KISA_SHA256.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1DEBBC924927FA100BD0DFB /* KISA_SHA256.cpp */; };
+		C13AC6F12B23ECE400A43D66 /* BaseSCJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C13AC6F02B23ECE400A43D66 /* BaseSCJson.cpp */; };
+		C13AC6F32B23ED3900A43D66 /* BaseSCJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C13AC6F02B23ECE400A43D66 /* BaseSCJson.cpp */; };
+		C13AC6F42B23ED3B00A43D66 /* BaseSCJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C13AC6F02B23ECE400A43D66 /* BaseSCJson.cpp */; };
+		C13AC6F52B23ED3F00A43D66 /* BaseSCJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C13AC6F02B23ECE400A43D66 /* BaseSCJson.cpp */; };
+		C13AC6F62B23ED4000A43D66 /* BaseSCJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C13AC6F02B23ECE400A43D66 /* BaseSCJson.cpp */; };
+		C15AD68D2AC03387002202C8 /* ApStateSystemIos.m in Sources */ = {isa = PBXBuildFile; fileRef = C15AD68C2AC03387002202C8 /* ApStateSystemIos.m */; };
+		C15AD68E2AC03387002202C8 /* ApStateSystemIos.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C15AD68B2AC03387002202C8 /* ApStateSystemIos.h */; };
+		C15AD6922AC033B0002202C8 /* BaseCircleQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32612AB895340094D3E6 /* BaseCircleQueue.cpp */; };
+		C15AD6932AC033B0002202C8 /* StateManagerPnID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33C42AB89FEB0094D3E6 /* StateManagerPnID.cpp */; };
+		C15AD6942AC033B0002202C8 /* BaseFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32662AB895350094D3E6 /* BaseFile.cpp */; };
+		C15AD6952AC033B0002202C8 /* BaseActionStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32642AB895350094D3E6 /* BaseActionStack.cpp */; };
+		C15AD6962AC033B0002202C8 /* BaseMemoryPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32622AB895350094D3E6 /* BaseMemoryPool.cpp */; };
+		C15AD6972AC033B0002202C8 /* BaseEventHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326E2AB895350094D3E6 /* BaseEventHandler.cpp */; };
+		C15AD6982AC033B0002202C8 /* BaseJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33BE2AB896880094D3E6 /* BaseJson.cpp */; };
+		C15AD6992AC033B0002202C8 /* BaseInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33C52AB89FEB0094D3E6 /* BaseInterface.cpp */; };
+		C15AD69A2AC033B0002202C8 /* base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32602AB895340094D3E6 /* base64.cpp */; };
+		C15AD69B2AC033B0002202C8 /* pch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33C62AB89FEB0094D3E6 /* pch.cpp */; };
+		C15AD69C2AC033B0002202C8 /* BaseHttp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33B82AB8966A0094D3E6 /* BaseHttp.cpp */; };
+		C15AD69D2AC033B0002202C8 /* BaseDStructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32652AB895350094D3E6 /* BaseDStructure.cpp */; };
+		C15AD69E2AC033B0002202C8 /* BaseEventManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32722AB895350094D3E6 /* BaseEventManager.cpp */; };
+		C15AD69F2AC033BA002202C8 /* BaseStateMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DA2AB8959B0094D3E6 /* BaseStateMain.cpp */; };
+		C15AD6A02AC033BA002202C8 /* BaseSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F62AB8959C0094D3E6 /* BaseSystem.cpp */; };
+		C15AD6A12AC033BA002202C8 /* BaseMemoryPool3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326F2AB895350094D3E6 /* BaseMemoryPool3.cpp */; };
+		C15AD6A22AC033BA002202C8 /* BaseResResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32682AB895350094D3E6 /* BaseResResource.cpp */; };
+		C15AD6A32AC033BA002202C8 /* BaseStateSpace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DF2AB8959B0094D3E6 /* BaseStateSpace.cpp */; };
+		C15AD6A42AC033BA002202C8 /* BaseTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EA2AB8959B0094D3E6 /* BaseTree.cpp */; };
+		C15AD6A52AC033BA002202C8 /* BaseWFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EE2AB8959C0094D3E6 /* BaseWFile.cpp */; };
+		C15AD6A62AC033BA002202C8 /* BaseResDStructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326D2AB895350094D3E6 /* BaseResDStructure.cpp */; };
+		C15AD6A72AC033BA002202C8 /* BaseTextEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32ED2AB8959C0094D3E6 /* BaseTextEditor.cpp */; };
+		C15AD6A82AC033BA002202C8 /* BaseStateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F52AB8959C0094D3E6 /* BaseStateManager.cpp */; };
+		C15AD6A92AC033BA002202C8 /* BaseNetConnector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32672AB895350094D3E6 /* BaseNetConnector.cpp */; };
+		C15AD6AA2AC033BA002202C8 /* BaseUIWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E62AB8959B0094D3E6 /* BaseUIWindow.cpp */; };
+		C15AD6AB2AC033BA002202C8 /* BaseXML.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E72AB8959B0094D3E6 /* BaseXML.cpp */; };
+		C15AD6AC2AC033BA002202C8 /* BaseResFilterIP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325B2AB895340094D3E6 /* BaseResFilterIP.cpp */; };
+		C15AD6AD2AC033BA002202C8 /* BaseState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E32AB8959B0094D3E6 /* BaseState.cpp */; };
+		C15AD6AE2AC033BA002202C8 /* allocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F72AB8959C0094D3E6 /* allocator.cpp */; };
+		C15AD6AF2AC033BA002202C8 /* BaseSetString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325F2AB895340094D3E6 /* BaseSetString.cpp */; };
+		C15AD6B02AC033BA002202C8 /* BaseResGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32632AB895350094D3E6 /* BaseResGrid.cpp */; };
+		C15AD6B12AC033BA002202C8 /* BaseTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E92AB8959B0094D3E6 /* BaseTime.cpp */; };
+		C15AD6B22AC033BA002202C8 /* BaseStringTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EB2AB8959B0094D3E6 /* BaseStringTable.cpp */; };
+		C15AD6B32AC033BA002202C8 /* BaseRecognitionPrjVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32732AB895350094D3E6 /* BaseRecognitionPrjVector.cpp */; };
+		C15AD6B42AC033BA002202C8 /* BaseRecognitionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326A2AB895350094D3E6 /* BaseRecognitionManager.cpp */; };
+		C15AD6B52AC033BA002202C8 /* BaseTextEditorText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DE2AB8959B0094D3E6 /* BaseTextEditorText.cpp */; };
+		C15AD6B62AC033BA002202C8 /* BaseUIManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F32AB8959C0094D3E6 /* BaseUIManager.cpp */; };
+		C15AD6B72AC033BA002202C8 /* Defines.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DD2AB8959B0094D3E6 /* Defines.cpp */; };
+		C15AD6B82AC033BA002202C8 /* BaseSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326C2AB895350094D3E6 /* BaseSocket.cpp */; };
+		C15AD6B92AC033BA002202C8 /* BaseSFuncXML.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325D2AB895340094D3E6 /* BaseSFuncXML.cpp */; };
+		C15AD6BA2AC033BA002202C8 /* BaseObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32712AB895350094D3E6 /* BaseObject.cpp */; };
+		C15AD6BB2AC033BA002202C8 /* BaseResManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325C2AB895340094D3E6 /* BaseResManager.cpp */; };
+		C15AD6BC2AC033BA002202C8 /* BaseResFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DC2AB8959B0094D3E6 /* BaseResFile.cpp */; };
+		C15AD6BD2AC033BA002202C8 /* BaseSFuncDirectory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E42AB8959B0094D3E6 /* BaseSFuncDirectory.cpp */; };
+		C15AD6BE2AC033BA002202C8 /* BaseSFParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32692AB895350094D3E6 /* BaseSFParser.cpp */; };
+		C15AD6BF2AC033BA002202C8 /* BaseStateFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F12AB8959C0094D3E6 /* BaseStateFunc.cpp */; };
+		C15AD6C02AC033BA002202C8 /* BaseSCTableGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32702AB895350094D3E6 /* BaseSCTableGrid.cpp */; };
+		C15AD6C12AC03400002202C8 /* lodepng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DB2AB8959B0094D3E6 /* lodepng.cpp */; };
+		C15AD6C22AC03400002202C8 /* seedx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F82AB8959C0094D3E6 /* seedx.cpp */; };
+		C15AD6C32AC03400002202C8 /* Quater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EF2AB8959C0094D3E6 /* Quater.cpp */; };
+		C15AD6C42AC03400002202C8 /* EncoderOperator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E82AB8959B0094D3E6 /* EncoderOperator.cpp */; };
+		C15AD6C52AC03400002202C8 /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F02AB8959C0094D3E6 /* Matrix3.cpp */; };
+		C15AD6C62AC03400002202C8 /* ResTif.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F42AB8959C0094D3E6 /* ResTif.cpp */; };
+		C15AD6C72AC03400002202C8 /* SPLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F22AB8959C0094D3E6 /* SPLine.cpp */; };
+		C15AD6C82AC03400002202C8 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EC2AB8959C0094D3E6 /* stdafx.cpp */; };
+		C15AD6C92AC03400002202C8 /* EncodeCodeFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E12AB8959B0094D3E6 /* EncodeCodeFile.cpp */; };
+		C15AD6CA2AC03400002202C8 /* hashstr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E02AB8959B0094D3E6 /* hashstr.cpp */; };
+		C15AD6CB2AC03400002202C8 /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32D82AB8959B0094D3E6 /* Matrix4.cpp */; };
+		C15AD6CC2AC03400002202C8 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32D92AB8959B0094D3E6 /* Vector3.cpp */; };
+		C15AD6CD2AC03400002202C8 /* base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32542AB894770094D3E6 /* base.cpp */; };
+		C15AD6CE2AC03400002202C8 /* MD52.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E22AB8959B0094D3E6 /* MD52.cpp */; };
+		C15AD6CF2AC03400002202C8 /* BaseSpaceOrganizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325E2AB895340094D3E6 /* BaseSpaceOrganizer.cpp */; };
+		C15AD6D02AC03400002202C8 /* Fixed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E52AB8959B0094D3E6 /* Fixed.cpp */; };
+		C15AD6D52AC03425002202C8 /* BaseSCMysql.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15AD6D12AC03425002202C8 /* BaseSCMysql.cpp */; };
+		C15AD71D2AC0370D002202C8 /* BaseEventHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326E2AB895350094D3E6 /* BaseEventHandler.cpp */; };
+		C15AD71E2AC0370D002202C8 /* lodepng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DB2AB8959B0094D3E6 /* lodepng.cpp */; };
+		C15AD71F2AC0370D002202C8 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32D92AB8959B0094D3E6 /* Vector3.cpp */; };
+		C15AD7202AC0370D002202C8 /* BaseResManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325C2AB895340094D3E6 /* BaseResManager.cpp */; };
+		C15AD7212AC0370D002202C8 /* BaseSCTableGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32702AB895350094D3E6 /* BaseSCTableGrid.cpp */; };
+		C15AD7222AC0370D002202C8 /* BaseResFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DC2AB8959B0094D3E6 /* BaseResFile.cpp */; };
+		C15AD7232AC0370D002202C8 /* BaseSFuncDirectory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C103ADBC264D6A6300704889 /* BaseSFuncDirectory.cpp */; };
+		C15AD7242AC0370D002202C8 /* BaseTextEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C104606F2644208D0077FB2A /* BaseTextEditor.cpp */; };
+		C15AD7252AC0370D002202C8 /* BaseSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F62AB8959C0094D3E6 /* BaseSystem.cpp */; };
+		C15AD7262AC0370D002202C8 /* BaseJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33BE2AB896880094D3E6 /* BaseJson.cpp */; };
+		C15AD7272AC0370D002202C8 /* BaseNetConnector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32672AB895350094D3E6 /* BaseNetConnector.cpp */; };
+		C15AD7282AC0370D002202C8 /* ResTif.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F42AB8959C0094D3E6 /* ResTif.cpp */; };
+		C15AD7292AC0370D002202C8 /* BaseXML.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C10460862644228A0077FB2A /* BaseXML.cpp */; };
+		C15AD72A2AC0370D002202C8 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EC2AB8959C0094D3E6 /* stdafx.cpp */; };
+		C15AD72B2AC0370D002202C8 /* BaseStateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F52AB8959C0094D3E6 /* BaseStateManager.cpp */; };
+		C15AD72C2AC0370D002202C8 /* EncoderOperator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E82AB8959B0094D3E6 /* EncoderOperator.cpp */; };
+		C15AD72D2AC0370D002202C8 /* BaseRecognitionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326A2AB895350094D3E6 /* BaseRecognitionManager.cpp */; };
+		C15AD72E2AC0370D002202C8 /* BaseSFParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32692AB895350094D3E6 /* BaseSFParser.cpp */; };
+		C15AD72F2AC0370D002202C8 /* base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32602AB895340094D3E6 /* base64.cpp */; };
+		C15AD7302AC0370D002202C8 /* BaseMemoryPool3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326F2AB895350094D3E6 /* BaseMemoryPool3.cpp */; };
+		C15AD7312AC0370D002202C8 /* BaseSpaceOrganizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325E2AB895340094D3E6 /* BaseSpaceOrganizer.cpp */; };
+		C15AD7322AC0370D002202C8 /* BaseResDStructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326D2AB895350094D3E6 /* BaseResDStructure.cpp */; };
+		C15AD7332AC0370D002202C8 /* BaseRecognitionPrjVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32732AB895350094D3E6 /* BaseRecognitionPrjVector.cpp */; };
+		C15AD7342AC0370D002202C8 /* BaseResFilterIP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325B2AB895340094D3E6 /* BaseResFilterIP.cpp */; };
+		C15AD7352AC0370D002202C8 /* BaseStateSpace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DF2AB8959B0094D3E6 /* BaseStateSpace.cpp */; };
+		C15AD7362AC0370D002202C8 /* BaseState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E32AB8959B0094D3E6 /* BaseState.cpp */; };
+		C15AD7382AC0370D002202C8 /* BaseFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32662AB895350094D3E6 /* BaseFile.cpp */; };
+		C15AD7392AC0370D002202C8 /* BaseTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E92AB8959B0094D3E6 /* BaseTime.cpp */; };
+		C15AD73A2AC0370D002202C8 /* BaseCircleQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32612AB895340094D3E6 /* BaseCircleQueue.cpp */; };
+		C15AD73B2AC0370D002202C8 /* Fixed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E52AB8959B0094D3E6 /* Fixed.cpp */; };
+		C15AD73C2AC0370D002202C8 /* MD52.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E22AB8959B0094D3E6 /* MD52.cpp */; };
+		C15AD73D2AC0370D002202C8 /* BaseStateMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DA2AB8959B0094D3E6 /* BaseStateMain.cpp */; };
+		C15AD73E2AC0370D002202C8 /* seedx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F82AB8959C0094D3E6 /* seedx.cpp */; };
+		C15AD73F2AC0370D002202C8 /* BaseSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A326C2AB895350094D3E6 /* BaseSocket.cpp */; };
+		C15AD7402AC0370D002202C8 /* BaseDStructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32652AB895350094D3E6 /* BaseDStructure.cpp */; };
+		C15AD7412AC0370D002202C8 /* Quater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EF2AB8959C0094D3E6 /* Quater.cpp */; };
+		C15AD7422AC0370D002202C8 /* BaseTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EA2AB8959B0094D3E6 /* BaseTree.cpp */; };
+		C15AD7432AC0370D002202C8 /* BaseUIManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F32AB8959C0094D3E6 /* BaseUIManager.cpp */; };
+		C15AD7442AC0370D002202C8 /* BaseTextEditorText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DE2AB8959B0094D3E6 /* BaseTextEditorText.cpp */; };
+		C15AD7452AC0370D002202C8 /* allocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F72AB8959C0094D3E6 /* allocator.cpp */; };
+		C15AD7462AC0370E002202C8 /* BaseResResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32682AB895350094D3E6 /* BaseResResource.cpp */; };
+		C15AD7472AC0370E002202C8 /* BaseStateFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C104606E2644208D0077FB2A /* BaseStateFunc.cpp */; };
+		C15AD7482AC0370E002202C8 /* BaseSetString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325F2AB895340094D3E6 /* BaseSetString.cpp */; };
+		C15AD7492AC0370E002202C8 /* BaseWFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EE2AB8959C0094D3E6 /* BaseWFile.cpp */; };
+		C15AD74A2AC0370E002202C8 /* hashstr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E02AB8959B0094D3E6 /* hashstr.cpp */; };
+		C15AD74B2AC0370E002202C8 /* BaseStringTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EB2AB8959B0094D3E6 /* BaseStringTable.cpp */; };
+		C15AD74C2AC0370E002202C8 /* BaseResGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32632AB895350094D3E6 /* BaseResGrid.cpp */; };
+		C15AD74D2AC0370E002202C8 /* BaseUIWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E62AB8959B0094D3E6 /* BaseUIWindow.cpp */; };
+		C15AD74E2AC0370E002202C8 /* BaseActionStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32642AB895350094D3E6 /* BaseActionStack.cpp */; };
+		C15AD74F2AC0370E002202C8 /* BaseEventManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32722AB895350094D3E6 /* BaseEventManager.cpp */; };
+		C15AD7502AC0370E002202C8 /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F02AB8959C0094D3E6 /* Matrix3.cpp */; };
+		C15AD7512AC0370E002202C8 /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32D82AB8959B0094D3E6 /* Matrix4.cpp */; };
+		C15AD7522AC0370E002202C8 /* BaseSFuncXML.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325D2AB895340094D3E6 /* BaseSFuncXML.cpp */; };
+		C15AD7532AC0370E002202C8 /* Defines.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DD2AB8959B0094D3E6 /* Defines.cpp */; };
+		C15AD7542AC0370E002202C8 /* BaseObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32712AB895350094D3E6 /* BaseObject.cpp */; };
+		C15AD7552AC0370E002202C8 /* BaseHttp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33B82AB8966A0094D3E6 /* BaseHttp.cpp */; };
+		C15AD7562AC0370E002202C8 /* BaseMemoryPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32622AB895350094D3E6 /* BaseMemoryPool.cpp */; };
+		C15AD7572AC0370E002202C8 /* base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32542AB894770094D3E6 /* base.cpp */; };
+		C15AD7582AC0370E002202C8 /* SPLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F22AB8959C0094D3E6 /* SPLine.cpp */; };
+		C15AD7592AC0370E002202C8 /* EncodeCodeFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E12AB8959B0094D3E6 /* EncodeCodeFile.cpp */; };
+		C15AD75B2AC0371F002202C8 /* BaseInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33C52AB89FEB0094D3E6 /* BaseInterface.cpp */; };
+		C15AD75C2AC0371F002202C8 /* StateManagerPnID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33C42AB89FEB0094D3E6 /* StateManagerPnID.cpp */; };
+		C15AD75D2AC03724002202C8 /* pch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33C62AB89FEB0094D3E6 /* pch.cpp */; };
+		C15AD7632AC03C87002202C8 /* BaseSCMysql.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15AD6D12AC03425002202C8 /* BaseSCMysql.cpp */; };
+		C1AA8E122AF709D100CEE2FA /* BaseSCHttpD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8E112AF709D100CEE2FA /* BaseSCHttpD.cpp */; };
+		C1E04FD32658B51C0058CD21 /* BaseTextEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C104606F2644208D0077FB2A /* BaseTextEditor.cpp */; };
+		C1E04FD62658B51C0058CD21 /* KISA_SHA256.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1DEBBC924927FA100BD0DFB /* KISA_SHA256.cpp */; };
+		C1E04FD82658B51C0058CD21 /* BaseStateFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C104606E2644208D0077FB2A /* BaseStateFunc.cpp */; };
+		C1E04FED2658B51C0058CD21 /* BaseResFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1F05EF6216F1E9F00F4349C /* BaseResFile.cpp */; };
+		C1E738472AF4DCAA00FD9B32 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15AD7182AC036D4002202C8 /* main.cpp */; };
+		C1F05F06216F202A00F4349C /* BaseResFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1F05EF6216F1E9F00F4349C /* BaseResFile.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C15AD6872AC03387002202C8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				C15AD68E2AC03387002202C8 /* ApStateSystemIos.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C15AD7142AC036D3002202C8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		C1E04FAE2658B4090058CD21 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		C1F05EFA216F1F7F00F4349C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C103ADBC264D6A6300704889 /* BaseSFuncDirectory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSFuncDirectory.cpp; path = PtBase/BaseSFuncDirectory.cpp; sourceTree = SOURCE_ROOT; };
+		C103ADBD264D6A6300704889 /* BaseSFuncDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseSFuncDirectory.h; path = PtBase/BaseSFuncDirectory.h; sourceTree = SOURCE_ROOT; };
+		C104606E2644208D0077FB2A /* BaseStateFunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseStateFunc.cpp; path = PtBase/BaseStateFunc.cpp; sourceTree = SOURCE_ROOT; };
+		C104606F2644208D0077FB2A /* BaseTextEditor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseTextEditor.cpp; path = PtBase/BaseTextEditor.cpp; sourceTree = SOURCE_ROOT; };
+		C10460702644208D0077FB2A /* BaseTextEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseTextEditor.h; path = PtBase/BaseTextEditor.h; sourceTree = SOURCE_ROOT; };
+		C10460712644208D0077FB2A /* BaseSFuncXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseSFuncXML.h; path = PtBase/BaseSFuncXML.h; sourceTree = SOURCE_ROOT; };
+		C10460732644208D0077FB2A /* BaseTextEditorText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseTextEditorText.h; path = PtBase/BaseTextEditorText.h; sourceTree = SOURCE_ROOT; };
+		C10460742644208D0077FB2A /* BaseTextEditorText.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseTextEditorText.cpp; path = PtBase/BaseTextEditorText.cpp; sourceTree = SOURCE_ROOT; };
+		C10460752644208D0077FB2A /* BaseStateFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseStateFunc.h; path = PtBase/BaseStateFunc.h; sourceTree = SOURCE_ROOT; };
+		C10460852644228A0077FB2A /* BaseXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseXML.h; path = PtBase/BaseXML.h; sourceTree = SOURCE_ROOT; };
+		C10460862644228A0077FB2A /* BaseXML.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseXML.cpp; path = PtBase/BaseXML.cpp; sourceTree = SOURCE_ROOT; };
+		C12501032AEDC08900AB0052 /* BaseSCCurl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSCCurl.cpp; path = PtBase/BaseSCCurl.cpp; sourceTree = SOURCE_ROOT; };
+		C125010E2AEDC4F700AB0052 /* BaseSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseSocket.h; path = PtBase/BaseSocket.h; sourceTree = SOURCE_ROOT; };
+		C125010F2AEDC4F700AB0052 /* BaseSCCurl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseSCCurl.h; path = PtBase/BaseSCCurl.h; sourceTree = SOURCE_ROOT; };
+		C12501102AEDDFAE00AB0052 /* BaseSCTcpSession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSCTcpSession.cpp; path = PtBase/BaseSCTcpSession.cpp; sourceTree = SOURCE_ROOT; };
+		C12501112AEDDFAE00AB0052 /* BaseSCTcp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSCTcp.cpp; path = PtBase/BaseSCTcp.cpp; sourceTree = SOURCE_ROOT; };
+		C12501182AEDDFDB00AB0052 /* BaseSCTcpSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseSCTcpSession.h; path = PtBase/BaseSCTcpSession.h; sourceTree = SOURCE_ROOT; };
+		C12501192AEDDFDB00AB0052 /* BaseSCTcp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseSCTcp.h; path = PtBase/BaseSCTcp.h; sourceTree = SOURCE_ROOT; };
+		C12A324F2AB893EA0094D3E6 /* ApStateSystem.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApStateSystem.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		C12A32542AB894770094D3E6 /* base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = base.cpp; path = PtBase/base.cpp; sourceTree = SOURCE_ROOT; };
+		C12A325B2AB895340094D3E6 /* BaseResFilterIP.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseResFilterIP.cpp; path = PtBase/BaseResFilterIP.cpp; sourceTree = SOURCE_ROOT; };
+		C12A325C2AB895340094D3E6 /* BaseResManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseResManager.cpp; path = PtBase/BaseResManager.cpp; sourceTree = SOURCE_ROOT; };
+		C12A325D2AB895340094D3E6 /* BaseSFuncXML.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSFuncXML.cpp; path = PtBase/BaseSFuncXML.cpp; sourceTree = SOURCE_ROOT; };
+		C12A325E2AB895340094D3E6 /* BaseSpaceOrganizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSpaceOrganizer.cpp; path = PtBase/BaseSpaceOrganizer.cpp; sourceTree = SOURCE_ROOT; };
+		C12A325F2AB895340094D3E6 /* BaseSetString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSetString.cpp; path = PtBase/BaseSetString.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32602AB895340094D3E6 /* base64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = base64.cpp; path = PtBase/base64.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32612AB895340094D3E6 /* BaseCircleQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseCircleQueue.cpp; path = PtBase/BaseCircleQueue.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32622AB895350094D3E6 /* BaseMemoryPool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseMemoryPool.cpp; path = PtBase/BaseMemoryPool.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32632AB895350094D3E6 /* BaseResGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseResGrid.cpp; path = PtBase/BaseResGrid.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32642AB895350094D3E6 /* BaseActionStack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseActionStack.cpp; path = PtBase/BaseActionStack.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32652AB895350094D3E6 /* BaseDStructure.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseDStructure.cpp; path = PtBase/BaseDStructure.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32662AB895350094D3E6 /* BaseFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseFile.cpp; path = PtBase/BaseFile.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32672AB895350094D3E6 /* BaseNetConnector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseNetConnector.cpp; path = PtBase/BaseNetConnector.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32682AB895350094D3E6 /* BaseResResource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseResResource.cpp; path = PtBase/BaseResResource.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32692AB895350094D3E6 /* BaseSFParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSFParser.cpp; path = PtBase/BaseSFParser.cpp; sourceTree = SOURCE_ROOT; };
+		C12A326A2AB895350094D3E6 /* BaseRecognitionManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseRecognitionManager.cpp; path = PtBase/BaseRecognitionManager.cpp; sourceTree = SOURCE_ROOT; };
+		C12A326C2AB895350094D3E6 /* BaseSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSocket.cpp; path = PtBase/BaseSocket.cpp; sourceTree = SOURCE_ROOT; };
+		C12A326D2AB895350094D3E6 /* BaseResDStructure.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseResDStructure.cpp; path = PtBase/BaseResDStructure.cpp; sourceTree = SOURCE_ROOT; };
+		C12A326E2AB895350094D3E6 /* BaseEventHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseEventHandler.cpp; path = PtBase/BaseEventHandler.cpp; sourceTree = SOURCE_ROOT; };
+		C12A326F2AB895350094D3E6 /* BaseMemoryPool3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseMemoryPool3.cpp; path = PtBase/BaseMemoryPool3.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32702AB895350094D3E6 /* BaseSCTableGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSCTableGrid.cpp; path = PtBase/BaseSCTableGrid.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32712AB895350094D3E6 /* BaseObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseObject.cpp; path = PtBase/BaseObject.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32722AB895350094D3E6 /* BaseEventManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseEventManager.cpp; path = PtBase/BaseEventManager.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32732AB895350094D3E6 /* BaseRecognitionPrjVector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseRecognitionPrjVector.cpp; path = PtBase/BaseRecognitionPrjVector.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32D82AB8959B0094D3E6 /* Matrix4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Matrix4.cpp; path = PtBase/Matrix4.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32D92AB8959B0094D3E6 /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector3.cpp; path = PtBase/Vector3.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32DA2AB8959B0094D3E6 /* BaseStateMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseStateMain.cpp; path = PtBase/BaseStateMain.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32DB2AB8959B0094D3E6 /* lodepng.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lodepng.cpp; path = PtBase/lodepng.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32DC2AB8959B0094D3E6 /* BaseResFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseResFile.cpp; path = PtBase/BaseResFile.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32DD2AB8959B0094D3E6 /* Defines.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Defines.cpp; path = PtBase/Defines.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32DE2AB8959B0094D3E6 /* BaseTextEditorText.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseTextEditorText.cpp; path = PtBase/BaseTextEditorText.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32DF2AB8959B0094D3E6 /* BaseStateSpace.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseStateSpace.cpp; path = PtBase/BaseStateSpace.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32E02AB8959B0094D3E6 /* hashstr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = hashstr.cpp; path = PtBase/hashstr.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32E12AB8959B0094D3E6 /* EncodeCodeFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EncodeCodeFile.cpp; path = PtBase/EncodeCodeFile.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32E22AB8959B0094D3E6 /* MD52.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MD52.cpp; path = PtBase/MD52.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32E32AB8959B0094D3E6 /* BaseState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseState.cpp; path = PtBase/BaseState.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32E42AB8959B0094D3E6 /* BaseSFuncDirectory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSFuncDirectory.cpp; path = PtBase/BaseSFuncDirectory.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32E52AB8959B0094D3E6 /* Fixed.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Fixed.cpp; path = PtBase/Fixed.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32E62AB8959B0094D3E6 /* BaseUIWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseUIWindow.cpp; path = PtBase/BaseUIWindow.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32E72AB8959B0094D3E6 /* BaseXML.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseXML.cpp; path = PtBase/BaseXML.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32E82AB8959B0094D3E6 /* EncoderOperator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EncoderOperator.cpp; path = PtBase/EncoderOperator.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32E92AB8959B0094D3E6 /* BaseTime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseTime.cpp; path = PtBase/BaseTime.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32EA2AB8959B0094D3E6 /* BaseTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseTree.cpp; path = PtBase/BaseTree.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32EB2AB8959B0094D3E6 /* BaseStringTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseStringTable.cpp; path = PtBase/BaseStringTable.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32EC2AB8959C0094D3E6 /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = stdafx.cpp; path = PtBase/stdafx.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32ED2AB8959C0094D3E6 /* BaseTextEditor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseTextEditor.cpp; path = PtBase/BaseTextEditor.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32EE2AB8959C0094D3E6 /* BaseWFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseWFile.cpp; path = PtBase/BaseWFile.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32EF2AB8959C0094D3E6 /* Quater.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Quater.cpp; path = PtBase/Quater.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32F02AB8959C0094D3E6 /* Matrix3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Matrix3.cpp; path = PtBase/Matrix3.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32F12AB8959C0094D3E6 /* BaseStateFunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseStateFunc.cpp; path = PtBase/BaseStateFunc.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32F22AB8959C0094D3E6 /* SPLine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SPLine.cpp; path = PtBase/SPLine.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32F32AB8959C0094D3E6 /* BaseUIManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseUIManager.cpp; path = PtBase/BaseUIManager.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32F42AB8959C0094D3E6 /* ResTif.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ResTif.cpp; path = PtBase/ResTif.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32F52AB8959C0094D3E6 /* BaseStateManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseStateManager.cpp; path = PtBase/BaseStateManager.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32F62AB8959C0094D3E6 /* BaseSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSystem.cpp; path = PtBase/BaseSystem.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32F72AB8959C0094D3E6 /* allocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = allocator.cpp; path = PtBase/allocator.cpp; sourceTree = SOURCE_ROOT; };
+		C12A32F82AB8959C0094D3E6 /* seedx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = seedx.cpp; path = PtBase/seedx.cpp; sourceTree = SOURCE_ROOT; };
+		C12A33B82AB8966A0094D3E6 /* BaseHttp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseHttp.cpp; path = PtBase/BaseHttp.cpp; sourceTree = SOURCE_ROOT; };
+		C12A33BE2AB896880094D3E6 /* BaseJson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseJson.cpp; path = PtBase/BaseJson.cpp; sourceTree = SOURCE_ROOT; };
+		C12A33C42AB89FEB0094D3E6 /* StateManagerPnID.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StateManagerPnID.cpp; path = ApStateSystem/StateManagerPnID.cpp; sourceTree = SOURCE_ROOT; };
+		C12A33C52AB89FEB0094D3E6 /* BaseInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseInterface.cpp; path = ApStateSystem/BaseInterface.cpp; sourceTree = SOURCE_ROOT; };
+		C12A33C62AB89FEB0094D3E6 /* pch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = pch.cpp; path = ApStateSystem/pch.cpp; sourceTree = SOURCE_ROOT; };
+		C13AC6F02B23ECE400A43D66 /* BaseSCJson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSCJson.cpp; path = PtExtend/BaseSCJson.cpp; sourceTree = SOURCE_ROOT; };
+		C13AC6F22B23ECFC00A43D66 /* BaseSCJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseSCJson.h; path = PtExtend/BaseSCJson.h; sourceTree = SOURCE_ROOT; };
+		C15AD6892AC03387002202C8 /* libApStateSystemIos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libApStateSystemIos.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C15AD68B2AC03387002202C8 /* ApStateSystemIos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApStateSystemIos.h; sourceTree = "<group>"; };
+		C15AD68C2AC03387002202C8 /* ApStateSystemIos.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApStateSystemIos.m; sourceTree = "<group>"; };
+		C15AD6D12AC03425002202C8 /* BaseSCMysql.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSCMysql.cpp; path = PtBase/BaseSCMysql.cpp; sourceTree = SOURCE_ROOT; };
+		C15AD7162AC036D3002202C8 /* stateconsole */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = stateconsole; sourceTree = BUILT_PRODUCTS_DIR; };
+		C15AD7182AC036D4002202C8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C15AD7622AC03BB0002202C8 /* stateconsole.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = stateconsole.entitlements; sourceTree = "<group>"; };
+		C1AA8E102AF709D100CEE2FA /* BaseSCHttpD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseSCHttpD.h; path = PtExtend/BaseSCHttpD.h; sourceTree = SOURCE_ROOT; };
+		C1AA8E112AF709D100CEE2FA /* BaseSCHttpD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSCHttpD.cpp; path = PtExtend/BaseSCHttpD.cpp; sourceTree = SOURCE_ROOT; };
+		C1C24F31241515F200E9A88F /* KISA_SHA256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KISA_SHA256.h; path = PtBase/KISA_SHA256.h; sourceTree = SOURCE_ROOT; };
+		C1DEBBC724927DE800BD0DFB /* BaseActionStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseActionStack.h; path = PtBase/BaseActionStack.h; sourceTree = SOURCE_ROOT; };
+		C1DEBBC924927FA100BD0DFB /* KISA_SHA256.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KISA_SHA256.cpp; path = PtBase/KISA_SHA256.cpp; sourceTree = SOURCE_ROOT; };
+		C1E04FB02658B4090058CD21 /* strun */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = strun; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1EAB8A82AFA813E005E30C2 /* BaseNetConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseNetConnector.h; path = PtBase/BaseNetConnector.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8A92AFA813E005E30C2 /* BaseSCMysql.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseSCMysql.h; path = PtBase/BaseSCMysql.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8AA2AFA813E005E30C2 /* BaseTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseTemplate.h; path = PtBase/BaseTemplate.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8AB2AFA813E005E30C2 /* BaseSCTableGrid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseSCTableGrid.h; path = PtBase/BaseSCTableGrid.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8AC2AFA813E005E30C2 /* BaseTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseTree.h; path = PtBase/BaseTree.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8AD2AFA813E005E30C2 /* BaseDStructure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseDStructure.h; path = PtBase/BaseDStructure.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8AE2AFA813E005E30C2 /* BaseStringTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseStringTable.h; path = PtBase/BaseStringTable.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8AF2AFA813E005E30C2 /* BaseEventHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseEventHandler.h; path = PtBase/BaseEventHandler.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8B02AFA813E005E30C2 /* BaseRecognitionPrjVector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseRecognitionPrjVector.h; path = PtBase/BaseRecognitionPrjVector.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8B12AFA813E005E30C2 /* BaseResFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseResFile.h; path = PtBase/BaseResFile.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8B22AFA813E005E30C2 /* BaseEventManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseEventManager.h; path = PtBase/BaseEventManager.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8B32AFA813E005E30C2 /* BaseResDStructure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseResDStructure.h; path = PtBase/BaseResDStructure.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8B42AFA813E005E30C2 /* BaseResResource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseResResource.h; path = PtBase/BaseResResource.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8B52AFA813E005E30C2 /* BaseSFParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseSFParser.h; path = PtBase/BaseSFParser.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8B62AFA813E005E30C2 /* BaseRecognitionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseRecognitionManager.h; path = PtBase/BaseRecognitionManager.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8B72AFA813E005E30C2 /* BaseFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseFile.h; path = PtBase/BaseFile.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8B82AFA813E005E30C2 /* BaseStateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseStateManager.h; path = PtBase/BaseStateManager.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8B92AFA813E005E30C2 /* BaseObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseObject.h; path = PtBase/BaseObject.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8BA2AFA813E005E30C2 /* BaseStructure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseStructure.h; path = PtBase/BaseStructure.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8BB2AFA813E005E30C2 /* BaseResManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseResManager.h; path = PtBase/BaseResManager.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8BC2AFA813E005E30C2 /* BaseState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseState.h; path = PtBase/BaseState.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8BD2AFA813F005E30C2 /* BaseSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseSystem.h; path = PtBase/BaseSystem.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8BE2AFA813F005E30C2 /* BaseStateSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseStateSpace.h; path = PtBase/BaseStateSpace.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8BF2AFA813F005E30C2 /* BaseStateMain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseStateMain.h; path = PtBase/BaseStateMain.h; sourceTree = SOURCE_ROOT; };
+		C1EAB8C02AFA813F005E30C2 /* BaseStructureRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseStructureRender.h; path = PtBase/BaseStructureRender.h; sourceTree = SOURCE_ROOT; };
+		C1F05EF6216F1E9F00F4349C /* BaseResFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseResFile.cpp; path = PtBase/BaseResFile.cpp; sourceTree = SOURCE_ROOT; };
+		C1F05EFC216F1F7F00F4349C /* libBaseLibraryIos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBaseLibraryIos.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C12A324C2AB893EA0094D3E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C15AD6862AC03387002202C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C15AD7132AC036D3002202C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1E04FAD2658B4090058CD21 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1F05EF9216F1F7F00F4349C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C12B34E82AEAB99700EE242E /* Crypto in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C15AD68A2AC03387002202C8 /* ApStateSystemIos */ = {
+			isa = PBXGroup;
+			children = (
+				C15AD68B2AC03387002202C8 /* ApStateSystemIos.h */,
+				C15AD68C2AC03387002202C8 /* ApStateSystemIos.m */,
+			);
+			path = ApStateSystemIos;
+			sourceTree = "<group>";
+		};
+		C15AD7172AC036D4002202C8 /* stateconsole */ = {
+			isa = PBXGroup;
+			children = (
+				C1AA8E112AF709D100CEE2FA /* BaseSCHttpD.cpp */,
+				C1AA8E102AF709D100CEE2FA /* BaseSCHttpD.h */,
+				C15AD7622AC03BB0002202C8 /* stateconsole.entitlements */,
+				C15AD7182AC036D4002202C8 /* main.cpp */,
+			);
+			path = stateconsole;
+			sourceTree = "<group>";
+		};
+		C1F7D6E51BCE38E800473CAE = {
+			isa = PBXGroup;
+			children = (
+				C1F7D6F01BCE38E800473CAE /* BaseLibrary */,
+				C15AD68A2AC03387002202C8 /* ApStateSystemIos */,
+				C15AD7172AC036D4002202C8 /* stateconsole */,
+				C1F7D6EF1BCE38E800473CAE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C1F7D6EF1BCE38E800473CAE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C1F05EFC216F1F7F00F4349C /* libBaseLibraryIos.a */,
+				C1E04FB02658B4090058CD21 /* strun */,
+				C12A324F2AB893EA0094D3E6 /* ApStateSystem.bundle */,
+				C15AD6892AC03387002202C8 /* libApStateSystemIos.a */,
+				C15AD7162AC036D3002202C8 /* stateconsole */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C1F7D6F01BCE38E800473CAE /* BaseLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				C12A33C52AB89FEB0094D3E6 /* BaseInterface.cpp */,
+				C12A33C62AB89FEB0094D3E6 /* pch.cpp */,
+				C12A33C42AB89FEB0094D3E6 /* StateManagerPnID.cpp */,
+				C1F7D7951BCE400200473CAE /* Header */,
+				C1F7D7961BCE401A00473CAE /* Source */,
+			);
+			path = BaseLibrary;
+			sourceTree = "<group>";
+		};
+		C1F7D7951BCE400200473CAE /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				C13AC6F22B23ECFC00A43D66 /* BaseSCJson.h */,
+				C1EAB8AD2AFA813E005E30C2 /* BaseDStructure.h */,
+				C1EAB8AF2AFA813E005E30C2 /* BaseEventHandler.h */,
+				C1EAB8B22AFA813E005E30C2 /* BaseEventManager.h */,
+				C1EAB8B72AFA813E005E30C2 /* BaseFile.h */,
+				C1EAB8A82AFA813E005E30C2 /* BaseNetConnector.h */,
+				C1EAB8B92AFA813E005E30C2 /* BaseObject.h */,
+				C1EAB8B62AFA813E005E30C2 /* BaseRecognitionManager.h */,
+				C1EAB8B02AFA813E005E30C2 /* BaseRecognitionPrjVector.h */,
+				C1EAB8B32AFA813E005E30C2 /* BaseResDStructure.h */,
+				C1EAB8B12AFA813E005E30C2 /* BaseResFile.h */,
+				C1EAB8BB2AFA813E005E30C2 /* BaseResManager.h */,
+				C1EAB8B42AFA813E005E30C2 /* BaseResResource.h */,
+				C1EAB8A92AFA813E005E30C2 /* BaseSCMysql.h */,
+				C1EAB8AB2AFA813E005E30C2 /* BaseSCTableGrid.h */,
+				C1EAB8B52AFA813E005E30C2 /* BaseSFParser.h */,
+				C1EAB8BC2AFA813E005E30C2 /* BaseState.h */,
+				C1EAB8BF2AFA813F005E30C2 /* BaseStateMain.h */,
+				C1EAB8B82AFA813E005E30C2 /* BaseStateManager.h */,
+				C1EAB8BE2AFA813F005E30C2 /* BaseStateSpace.h */,
+				C1EAB8AE2AFA813E005E30C2 /* BaseStringTable.h */,
+				C1EAB8BA2AFA813E005E30C2 /* BaseStructure.h */,
+				C1EAB8C02AFA813F005E30C2 /* BaseStructureRender.h */,
+				C1EAB8BD2AFA813F005E30C2 /* BaseSystem.h */,
+				C1EAB8AA2AFA813E005E30C2 /* BaseTemplate.h */,
+				C1EAB8AC2AFA813E005E30C2 /* BaseTree.h */,
+				C12501192AEDDFDB00AB0052 /* BaseSCTcp.h */,
+				C12501182AEDDFDB00AB0052 /* BaseSCTcpSession.h */,
+				C125010F2AEDC4F700AB0052 /* BaseSCCurl.h */,
+				C125010E2AEDC4F700AB0052 /* BaseSocket.h */,
+				C10460852644228A0077FB2A /* BaseXML.h */,
+				C1C24F31241515F200E9A88F /* KISA_SHA256.h */,
+				C10460712644208D0077FB2A /* BaseSFuncXML.h */,
+				C10460752644208D0077FB2A /* BaseStateFunc.h */,
+				C10460702644208D0077FB2A /* BaseTextEditor.h */,
+				C10460732644208D0077FB2A /* BaseTextEditorText.h */,
+				C1DEBBC724927DE800BD0DFB /* BaseActionStack.h */,
+				C103ADBD264D6A6300704889 /* BaseSFuncDirectory.h */,
+			);
+			name = Header;
+			sourceTree = "<group>";
+		};
+		C1F7D7961BCE401A00473CAE /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				C13AC6F02B23ECE400A43D66 /* BaseSCJson.cpp */,
+				C12501112AEDDFAE00AB0052 /* BaseSCTcp.cpp */,
+				C12501102AEDDFAE00AB0052 /* BaseSCTcpSession.cpp */,
+				C12501032AEDC08900AB0052 /* BaseSCCurl.cpp */,
+				C15AD6D12AC03425002202C8 /* BaseSCMysql.cpp */,
+				C12A33BE2AB896880094D3E6 /* BaseJson.cpp */,
+				C12A33B82AB8966A0094D3E6 /* BaseHttp.cpp */,
+				C12A32602AB895340094D3E6 /* base64.cpp */,
+				C12A32642AB895350094D3E6 /* BaseActionStack.cpp */,
+				C12A32612AB895340094D3E6 /* BaseCircleQueue.cpp */,
+				C12A32652AB895350094D3E6 /* BaseDStructure.cpp */,
+				C12A326E2AB895350094D3E6 /* BaseEventHandler.cpp */,
+				C12A32722AB895350094D3E6 /* BaseEventManager.cpp */,
+				C12A32662AB895350094D3E6 /* BaseFile.cpp */,
+				C12A32622AB895350094D3E6 /* BaseMemoryPool.cpp */,
+				C12A326F2AB895350094D3E6 /* BaseMemoryPool3.cpp */,
+				C12A32672AB895350094D3E6 /* BaseNetConnector.cpp */,
+				C12A32712AB895350094D3E6 /* BaseObject.cpp */,
+				C12A326A2AB895350094D3E6 /* BaseRecognitionManager.cpp */,
+				C12A32732AB895350094D3E6 /* BaseRecognitionPrjVector.cpp */,
+				C12A326D2AB895350094D3E6 /* BaseResDStructure.cpp */,
+				C12A325B2AB895340094D3E6 /* BaseResFilterIP.cpp */,
+				C12A32632AB895350094D3E6 /* BaseResGrid.cpp */,
+				C12A325C2AB895340094D3E6 /* BaseResManager.cpp */,
+				C12A32682AB895350094D3E6 /* BaseResResource.cpp */,
+				C12A32702AB895350094D3E6 /* BaseSCTableGrid.cpp */,
+				C12A325F2AB895340094D3E6 /* BaseSetString.cpp */,
+				C12A32692AB895350094D3E6 /* BaseSFParser.cpp */,
+				C12A325D2AB895340094D3E6 /* BaseSFuncXML.cpp */,
+				C12A326C2AB895350094D3E6 /* BaseSocket.cpp */,
+				C12A32F72AB8959C0094D3E6 /* allocator.cpp */,
+				C12A32DC2AB8959B0094D3E6 /* BaseResFile.cpp */,
+				C12A32E42AB8959B0094D3E6 /* BaseSFuncDirectory.cpp */,
+				C12A32E32AB8959B0094D3E6 /* BaseState.cpp */,
+				C12A32F12AB8959C0094D3E6 /* BaseStateFunc.cpp */,
+				C12A32DA2AB8959B0094D3E6 /* BaseStateMain.cpp */,
+				C12A32F52AB8959C0094D3E6 /* BaseStateManager.cpp */,
+				C12A32DF2AB8959B0094D3E6 /* BaseStateSpace.cpp */,
+				C12A32EB2AB8959B0094D3E6 /* BaseStringTable.cpp */,
+				C12A32F62AB8959C0094D3E6 /* BaseSystem.cpp */,
+				C12A32ED2AB8959C0094D3E6 /* BaseTextEditor.cpp */,
+				C12A32DE2AB8959B0094D3E6 /* BaseTextEditorText.cpp */,
+				C12A32E92AB8959B0094D3E6 /* BaseTime.cpp */,
+				C12A32EA2AB8959B0094D3E6 /* BaseTree.cpp */,
+				C12A32F32AB8959C0094D3E6 /* BaseUIManager.cpp */,
+				C12A32E62AB8959B0094D3E6 /* BaseUIWindow.cpp */,
+				C12A32EE2AB8959C0094D3E6 /* BaseWFile.cpp */,
+				C12A32E72AB8959B0094D3E6 /* BaseXML.cpp */,
+				C12A32DD2AB8959B0094D3E6 /* Defines.cpp */,
+				C12A32E12AB8959B0094D3E6 /* EncodeCodeFile.cpp */,
+				C12A32E82AB8959B0094D3E6 /* EncoderOperator.cpp */,
+				C12A32E52AB8959B0094D3E6 /* Fixed.cpp */,
+				C12A32E02AB8959B0094D3E6 /* hashstr.cpp */,
+				C12A32DB2AB8959B0094D3E6 /* lodepng.cpp */,
+				C12A32F02AB8959C0094D3E6 /* Matrix3.cpp */,
+				C12A32D82AB8959B0094D3E6 /* Matrix4.cpp */,
+				C12A32E22AB8959B0094D3E6 /* MD52.cpp */,
+				C12A32EF2AB8959C0094D3E6 /* Quater.cpp */,
+				C12A32F42AB8959C0094D3E6 /* ResTif.cpp */,
+				C12A32F82AB8959C0094D3E6 /* seedx.cpp */,
+				C12A32F22AB8959C0094D3E6 /* SPLine.cpp */,
+				C12A32EC2AB8959C0094D3E6 /* stdafx.cpp */,
+				C12A32D92AB8959B0094D3E6 /* Vector3.cpp */,
+				C12A325E2AB895340094D3E6 /* BaseSpaceOrganizer.cpp */,
+				C12A32542AB894770094D3E6 /* base.cpp */,
+				C10460862644228A0077FB2A /* BaseXML.cpp */,
+				C103ADBC264D6A6300704889 /* BaseSFuncDirectory.cpp */,
+				C1DEBBC924927FA100BD0DFB /* KISA_SHA256.cpp */,
+				C1F05EF6216F1E9F00F4349C /* BaseResFile.cpp */,
+				C104606E2644208D0077FB2A /* BaseStateFunc.cpp */,
+				C104606F2644208D0077FB2A /* BaseTextEditor.cpp */,
+				C10460742644208D0077FB2A /* BaseTextEditorText.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C12A324E2AB893EA0094D3E6 /* ApStateSystem */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C12A32502AB893EA0094D3E6 /* Build configuration list for PBXNativeTarget "ApStateSystem" */;
+			buildPhases = (
+				C12A324B2AB893EA0094D3E6 /* Sources */,
+				C12A324C2AB893EA0094D3E6 /* Frameworks */,
+				C12A324D2AB893EA0094D3E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ApStateSystem;
+			productName = ApStateSystem;
+			productReference = C12A324F2AB893EA0094D3E6 /* ApStateSystem.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		C15AD6882AC03387002202C8 /* ApStateSystemIos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C15AD6912AC03387002202C8 /* Build configuration list for PBXNativeTarget "ApStateSystemIos" */;
+			buildPhases = (
+				C15AD6852AC03387002202C8 /* Sources */,
+				C15AD6862AC03387002202C8 /* Frameworks */,
+				C15AD6872AC03387002202C8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ApStateSystemIos;
+			productName = ApStateSystemIos;
+			productReference = C15AD6892AC03387002202C8 /* libApStateSystemIos.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C15AD7152AC036D3002202C8 /* stateconsole */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C15AD71A2AC036D4002202C8 /* Build configuration list for PBXNativeTarget "stateconsole" */;
+			buildPhases = (
+				C15AD7122AC036D3002202C8 /* Sources */,
+				C15AD7132AC036D3002202C8 /* Frameworks */,
+				C15AD7142AC036D3002202C8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = stateconsole;
+			productName = stateconsole;
+			productReference = C15AD7162AC036D3002202C8 /* stateconsole */;
+			productType = "com.apple.product-type.tool";
+		};
+		C1E04FAF2658B4090058CD21 /* strun */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1E04FB62658B4090058CD21 /* Build configuration list for PBXNativeTarget "strun" */;
+			buildPhases = (
+				C1E04FAC2658B4090058CD21 /* Sources */,
+				C1E04FAD2658B4090058CD21 /* Frameworks */,
+				C1E04FAE2658B4090058CD21 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = strun;
+			productName = strun;
+			productReference = C1E04FB02658B4090058CD21 /* strun */;
+			productType = "com.apple.product-type.tool";
+		};
+		C1F05EFB216F1F7F00F4349C /* BaseLibraryIos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1F05F02216F1F7F00F4349C /* Build configuration list for PBXNativeTarget "BaseLibraryIos" */;
+			buildPhases = (
+				C1F05EF8216F1F7F00F4349C /* Sources */,
+				C1F05EF9216F1F7F00F4349C /* Frameworks */,
+				C1F05EFA216F1F7F00F4349C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BaseLibraryIos;
+			packageProductDependencies = (
+				C12B34E72AEAB99700EE242E /* Crypto */,
+			);
+			productName = BaseLibraryIos;
+			productReference = C1F05EFC216F1F7F00F4349C /* libBaseLibraryIos.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C1F7D6E61BCE38E800473CAE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				KnownAssetTags = (
+					New,
+				);
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				ORGANIZATIONNAME = "Jung Tae Seo";
+				TargetAttributes = {
+					C12A324E2AB893EA0094D3E6 = {
+						CreatedOnToolsVersion = 14.3;
+						DevelopmentTeam = XR2UN87UM6;
+						ProvisioningStyle = Automatic;
+					};
+					C15AD6882AC03387002202C8 = {
+						CreatedOnToolsVersion = 14.3;
+						DevelopmentTeam = XR2UN87UM6;
+						ProvisioningStyle = Automatic;
+					};
+					C15AD7152AC036D3002202C8 = {
+						CreatedOnToolsVersion = 14.3;
+						DevelopmentTeam = XR2UN87UM6;
+						ProvisioningStyle = Automatic;
+					};
+					C1E04FAF2658B4090058CD21 = {
+						CreatedOnToolsVersion = 12.4;
+						DevelopmentTeam = XR2UN87UM6;
+						ProvisioningStyle = Automatic;
+					};
+					C1F05EFB216F1F7F00F4349C = {
+						CreatedOnToolsVersion = 10.0;
+						DevelopmentTeam = XR2UN87UM6;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C1F7D6E91BCE38E800473CAE /* Build configuration list for PBXProject "BaseLibrary" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C1F7D6E51BCE38E800473CAE;
+			packageReferences = (
+				C12B34E62AEAB99700EE242E /* XCRemoteSwiftPackageReference "swift-crypto" */,
+			);
+			productRefGroup = C1F7D6EF1BCE38E800473CAE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C1F05EFB216F1F7F00F4349C /* BaseLibraryIos */,
+				C1E04FAF2658B4090058CD21 /* strun */,
+				C12A324E2AB893EA0094D3E6 /* ApStateSystem */,
+				C15AD6882AC03387002202C8 /* ApStateSystemIos */,
+				C15AD7152AC036D3002202C8 /* stateconsole */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C12A324D2AB893EA0094D3E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C12A324B2AB893EA0094D3E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C12A33A32AB895D60094D3E6 /* BaseResFilterIP.cpp in Sources */,
+				C12A33B52AB895D60094D3E6 /* BaseActionStack.cpp in Sources */,
+				C12A33752AB8959C0094D3E6 /* Matrix3.cpp in Sources */,
+				C12A33B42AB895D60094D3E6 /* BaseRecognitionManager.cpp in Sources */,
+				C12A339D2AB8959C0094D3E6 /* seedx.cpp in Sources */,
+				C12A33842AB8959C0094D3E6 /* BaseUIManager.cpp in Sources */,
+				C12A33482AB8959C0094D3E6 /* BaseXML.cpp in Sources */,
+				C12A33B12AB895D60094D3E6 /* BaseEventManager.cpp in Sources */,
+				C12A32592AB894770094D3E6 /* base.cpp in Sources */,
+				C12A33702AB8959C0094D3E6 /* Quater.cpp in Sources */,
+				C12A33B02AB895D60094D3E6 /* BaseResGrid.cpp in Sources */,
+				C12A33AC2AB895D60094D3E6 /* KISA_SHA256.cpp in Sources */,
+				C12A338E2AB8959C0094D3E6 /* BaseStateManager.cpp in Sources */,
+				C12A33A72AB895D60094D3E6 /* BaseResResource.cpp in Sources */,
+				C12A33982AB8959C0094D3E6 /* allocator.cpp in Sources */,
+				C12A33A42AB895D60094D3E6 /* BaseRecognitionPrjVector.cpp in Sources */,
+				C12A333E2AB8959C0094D3E6 /* Fixed.cpp in Sources */,
+				C12A33A62AB895D60094D3E6 /* BaseResDStructure.cpp in Sources */,
+				C12A33B22AB895D60094D3E6 /* BaseObject.cpp in Sources */,
+				C12A33432AB8959C0094D3E6 /* BaseUIWindow.cpp in Sources */,
+				C12A33B32AB895D60094D3E6 /* BaseResManager.cpp in Sources */,
+				C12A33A22AB895D60094D3E6 /* BaseMemoryPool.cpp in Sources */,
+				C12A337A2AB8959C0094D3E6 /* BaseStateFunc.cpp in Sources */,
+				C12A33B72AB895D60094D3E6 /* BaseFile.cpp in Sources */,
+				C12A33BD2AB8966A0094D3E6 /* BaseHttp.cpp in Sources */,
+				C12A33252AB8959C0094D3E6 /* hashstr.cpp in Sources */,
+				C12A33022AB8959C0094D3E6 /* Vector3.cpp in Sources */,
+				C12A33AF2AB895D60094D3E6 /* BaseEventHandler.cpp in Sources */,
+				C12A330C2AB8959C0094D3E6 /* lodepng.cpp in Sources */,
+				C12A33392AB8959C0094D3E6 /* BaseSFuncDirectory.cpp in Sources */,
+				C12A33CB2AB89FEB0094D3E6 /* StateManagerPnID.cpp in Sources */,
+				C12A33AE2AB895D60094D3E6 /* BaseSpaceOrganizer.cpp in Sources */,
+				C12A336B2AB8959C0094D3E6 /* BaseWFile.cpp in Sources */,
+				C12A339E2AB895D60094D3E6 /* BaseSFuncXML.cpp in Sources */,
+				C12A33A82AB895D60094D3E6 /* base64.cpp in Sources */,
+				C12A331B2AB8959C0094D3E6 /* BaseTextEditorText.cpp in Sources */,
+				C12A33D02AB89FEB0094D3E6 /* BaseInterface.cpp in Sources */,
+				C12A335C2AB8959C0094D3E6 /* BaseStringTable.cpp in Sources */,
+				C12501092AEDC08900AB0052 /* BaseSCCurl.cpp in Sources */,
+				C12A33C32AB896880094D3E6 /* BaseJson.cpp in Sources */,
+				C12A32FD2AB8959C0094D3E6 /* Matrix4.cpp in Sources */,
+				C12A33662AB8959C0094D3E6 /* BaseTextEditor.cpp in Sources */,
+				C13AC6F42B23ED3B00A43D66 /* BaseSCJson.cpp in Sources */,
+				C12A33B62AB895D60094D3E6 /* BaseMemoryPool3.cpp in Sources */,
+				C12A33522AB8959C0094D3E6 /* BaseTime.cpp in Sources */,
+				C12A33072AB8959C0094D3E6 /* BaseStateMain.cpp in Sources */,
+				C12A337F2AB8959C0094D3E6 /* SPLine.cpp in Sources */,
+				C12A33202AB8959C0094D3E6 /* BaseStateSpace.cpp in Sources */,
+				C12A33AB2AB895D60094D3E6 /* BaseSetString.cpp in Sources */,
+				C12A33162AB8959C0094D3E6 /* Defines.cpp in Sources */,
+				C12501162AEDDFAE00AB0052 /* BaseSCTcp.cpp in Sources */,
+				C12A33A52AB895D60094D3E6 /* BaseNetConnector.cpp in Sources */,
+				C12A33892AB8959C0094D3E6 /* ResTif.cpp in Sources */,
+				C12A339F2AB895D60094D3E6 /* BaseDStructure.cpp in Sources */,
+				C12A33D52AB89FEB0094D3E6 /* pch.cpp in Sources */,
+				C12A332F2AB8959C0094D3E6 /* MD52.cpp in Sources */,
+				C12A33112AB8959C0094D3E6 /* BaseResFile.cpp in Sources */,
+				C12A33A92AB895D60094D3E6 /* BaseSFParser.cpp in Sources */,
+				C12A33AA2AB895D60094D3E6 /* BaseSocket.cpp in Sources */,
+				C12A33572AB8959C0094D3E6 /* BaseTree.cpp in Sources */,
+				C12A33A02AB895D60094D3E6 /* BaseSCTableGrid.cpp in Sources */,
+				C12A332A2AB8959C0094D3E6 /* EncodeCodeFile.cpp in Sources */,
+				C12A33612AB8959C0094D3E6 /* stdafx.cpp in Sources */,
+				C12A334D2AB8959C0094D3E6 /* EncoderOperator.cpp in Sources */,
+				C12A33342AB8959C0094D3E6 /* BaseState.cpp in Sources */,
+				C12A33AD2AB895D60094D3E6 /* BaseCircleQueue.cpp in Sources */,
+				C12A33932AB8959C0094D3E6 /* BaseSystem.cpp in Sources */,
+				C12501132AEDDFAE00AB0052 /* BaseSCTcpSession.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C15AD6852AC03387002202C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C15AD6B92AC033BA002202C8 /* BaseSFuncXML.cpp in Sources */,
+				C15AD6AD2AC033BA002202C8 /* BaseState.cpp in Sources */,
+				C15AD69C2AC033B0002202C8 /* BaseHttp.cpp in Sources */,
+				C15AD6B42AC033BA002202C8 /* BaseRecognitionManager.cpp in Sources */,
+				C15AD6B82AC033BA002202C8 /* BaseSocket.cpp in Sources */,
+				C15AD6C82AC03400002202C8 /* stdafx.cpp in Sources */,
+				C15AD6CD2AC03400002202C8 /* base.cpp in Sources */,
+				C15AD6992AC033B0002202C8 /* BaseInterface.cpp in Sources */,
+				C15AD6B12AC033BA002202C8 /* BaseTime.cpp in Sources */,
+				C15AD6C22AC03400002202C8 /* seedx.cpp in Sources */,
+				C15AD6A52AC033BA002202C8 /* BaseWFile.cpp in Sources */,
+				C15AD6942AC033B0002202C8 /* BaseFile.cpp in Sources */,
+				C13AC6F52B23ED3F00A43D66 /* BaseSCJson.cpp in Sources */,
+				C15AD6A82AC033BA002202C8 /* BaseStateManager.cpp in Sources */,
+				C15AD6BD2AC033BA002202C8 /* BaseSFuncDirectory.cpp in Sources */,
+				C15AD69F2AC033BA002202C8 /* BaseStateMain.cpp in Sources */,
+				C15AD6C72AC03400002202C8 /* SPLine.cpp in Sources */,
+				C15AD6CF2AC03400002202C8 /* BaseSpaceOrganizer.cpp in Sources */,
+				C15AD6972AC033B0002202C8 /* BaseEventHandler.cpp in Sources */,
+				C15AD6C12AC03400002202C8 /* lodepng.cpp in Sources */,
+				C15AD69B2AC033B0002202C8 /* pch.cpp in Sources */,
+				C15AD69E2AC033B0002202C8 /* BaseEventManager.cpp in Sources */,
+				C15AD6982AC033B0002202C8 /* BaseJson.cpp in Sources */,
+				C15AD6B02AC033BA002202C8 /* BaseResGrid.cpp in Sources */,
+				C15AD6A32AC033BA002202C8 /* BaseStateSpace.cpp in Sources */,
+				C15AD6C42AC03400002202C8 /* EncoderOperator.cpp in Sources */,
+				C15AD6A12AC033BA002202C8 /* BaseMemoryPool3.cpp in Sources */,
+				C15AD6C62AC03400002202C8 /* ResTif.cpp in Sources */,
+				C15AD6C02AC033BA002202C8 /* BaseSCTableGrid.cpp in Sources */,
+				C15AD6AC2AC033BA002202C8 /* BaseResFilterIP.cpp in Sources */,
+				C15AD6CB2AC03400002202C8 /* Matrix4.cpp in Sources */,
+				C15AD6AA2AC033BA002202C8 /* BaseUIWindow.cpp in Sources */,
+				C15AD6C32AC03400002202C8 /* Quater.cpp in Sources */,
+				C15AD6A72AC033BA002202C8 /* BaseTextEditor.cpp in Sources */,
+				C15AD6952AC033B0002202C8 /* BaseActionStack.cpp in Sources */,
+				C15AD6AF2AC033BA002202C8 /* BaseSetString.cpp in Sources */,
+				C15AD6922AC033B0002202C8 /* BaseCircleQueue.cpp in Sources */,
+				C15AD6C92AC03400002202C8 /* EncodeCodeFile.cpp in Sources */,
+				C15AD68D2AC03387002202C8 /* ApStateSystemIos.m in Sources */,
+				C15AD6BA2AC033BA002202C8 /* BaseObject.cpp in Sources */,
+				C15AD6932AC033B0002202C8 /* StateManagerPnID.cpp in Sources */,
+				C15AD6A22AC033BA002202C8 /* BaseResResource.cpp in Sources */,
+				C15AD6B52AC033BA002202C8 /* BaseTextEditorText.cpp in Sources */,
+				C15AD6D02AC03400002202C8 /* Fixed.cpp in Sources */,
+				C15AD6C52AC03400002202C8 /* Matrix3.cpp in Sources */,
+				C15AD6BC2AC033BA002202C8 /* BaseResFile.cpp in Sources */,
+				C15AD6CE2AC03400002202C8 /* MD52.cpp in Sources */,
+				C15AD6A62AC033BA002202C8 /* BaseResDStructure.cpp in Sources */,
+				C15AD69D2AC033B0002202C8 /* BaseDStructure.cpp in Sources */,
+				C15AD6B22AC033BA002202C8 /* BaseStringTable.cpp in Sources */,
+				C15AD6A42AC033BA002202C8 /* BaseTree.cpp in Sources */,
+				C15AD6CC2AC03400002202C8 /* Vector3.cpp in Sources */,
+				C15AD6CA2AC03400002202C8 /* hashstr.cpp in Sources */,
+				C15AD6B72AC033BA002202C8 /* Defines.cpp in Sources */,
+				C15AD69A2AC033B0002202C8 /* base64.cpp in Sources */,
+				C15AD6A92AC033BA002202C8 /* BaseNetConnector.cpp in Sources */,
+				C15AD6BE2AC033BA002202C8 /* BaseSFParser.cpp in Sources */,
+				C15AD6B32AC033BA002202C8 /* BaseRecognitionPrjVector.cpp in Sources */,
+				C15AD6AB2AC033BA002202C8 /* BaseXML.cpp in Sources */,
+				C15AD6BF2AC033BA002202C8 /* BaseStateFunc.cpp in Sources */,
+				C15AD6BB2AC033BA002202C8 /* BaseResManager.cpp in Sources */,
+				C15AD6B62AC033BA002202C8 /* BaseUIManager.cpp in Sources */,
+				C15AD6AE2AC033BA002202C8 /* allocator.cpp in Sources */,
+				C15AD6962AC033B0002202C8 /* BaseMemoryPool.cpp in Sources */,
+				C15AD6A02AC033BA002202C8 /* BaseSystem.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C15AD7122AC036D3002202C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C15AD75C2AC0371F002202C8 /* StateManagerPnID.cpp in Sources */,
+				C15AD7282AC0370D002202C8 /* ResTif.cpp in Sources */,
+				C15AD75D2AC03724002202C8 /* pch.cpp in Sources */,
+				C15AD7242AC0370D002202C8 /* BaseTextEditor.cpp in Sources */,
+				C15AD7442AC0370D002202C8 /* BaseTextEditorText.cpp in Sources */,
+				C15AD74D2AC0370E002202C8 /* BaseUIWindow.cpp in Sources */,
+				C15AD72D2AC0370D002202C8 /* BaseRecognitionManager.cpp in Sources */,
+				C15AD7382AC0370D002202C8 /* BaseFile.cpp in Sources */,
+				C15AD7252AC0370D002202C8 /* BaseSystem.cpp in Sources */,
+				C15AD7572AC0370E002202C8 /* base.cpp in Sources */,
+				C15AD7422AC0370D002202C8 /* BaseTree.cpp in Sources */,
+				C15AD71E2AC0370D002202C8 /* lodepng.cpp in Sources */,
+				C15AD73E2AC0370D002202C8 /* seedx.cpp in Sources */,
+				C15AD7522AC0370E002202C8 /* BaseSFuncXML.cpp in Sources */,
+				C15AD7312AC0370D002202C8 /* BaseSpaceOrganizer.cpp in Sources */,
+				C15AD75B2AC0371F002202C8 /* BaseInterface.cpp in Sources */,
+				C15AD7292AC0370D002202C8 /* BaseXML.cpp in Sources */,
+				C15AD74F2AC0370E002202C8 /* BaseEventManager.cpp in Sources */,
+				C15AD7592AC0370E002202C8 /* EncodeCodeFile.cpp in Sources */,
+				C15AD7212AC0370D002202C8 /* BaseSCTableGrid.cpp in Sources */,
+				C15AD73B2AC0370D002202C8 /* Fixed.cpp in Sources */,
+				C15AD7332AC0370D002202C8 /* BaseRecognitionPrjVector.cpp in Sources */,
+				C1E738472AF4DCAA00FD9B32 /* main.cpp in Sources */,
+				C15AD72E2AC0370D002202C8 /* BaseSFParser.cpp in Sources */,
+				C15AD72F2AC0370D002202C8 /* base64.cpp in Sources */,
+				C15AD72C2AC0370D002202C8 /* EncoderOperator.cpp in Sources */,
+				C15AD7302AC0370D002202C8 /* BaseMemoryPool3.cpp in Sources */,
+				C15AD7222AC0370D002202C8 /* BaseResFile.cpp in Sources */,
+				C12FF62F2B0A04C100758F3E /* KISA_SHA256.cpp in Sources */,
+				C12501142AEDDFAE00AB0052 /* BaseSCTcpSession.cpp in Sources */,
+				C15AD71D2AC0370D002202C8 /* BaseEventHandler.cpp in Sources */,
+				C15AD7272AC0370D002202C8 /* BaseNetConnector.cpp in Sources */,
+				C15AD72A2AC0370D002202C8 /* stdafx.cpp in Sources */,
+				C15AD7532AC0370E002202C8 /* Defines.cpp in Sources */,
+				C15AD7432AC0370D002202C8 /* BaseUIManager.cpp in Sources */,
+				C15AD7542AC0370E002202C8 /* BaseObject.cpp in Sources */,
+				C15AD71F2AC0370D002202C8 /* Vector3.cpp in Sources */,
+				C15AD73D2AC0370D002202C8 /* BaseStateMain.cpp in Sources */,
+				C15AD7472AC0370E002202C8 /* BaseStateFunc.cpp in Sources */,
+				C15AD7632AC03C87002202C8 /* BaseSCMysql.cpp in Sources */,
+				C15AD7322AC0370D002202C8 /* BaseResDStructure.cpp in Sources */,
+				C15AD7392AC0370D002202C8 /* BaseTime.cpp in Sources */,
+				C15AD7352AC0370D002202C8 /* BaseStateSpace.cpp in Sources */,
+				C15AD74B2AC0370E002202C8 /* BaseStringTable.cpp in Sources */,
+				C15AD7462AC0370E002202C8 /* BaseResResource.cpp in Sources */,
+				C15AD7262AC0370D002202C8 /* BaseJson.cpp in Sources */,
+				C15AD7502AC0370E002202C8 /* Matrix3.cpp in Sources */,
+				C15AD74A2AC0370E002202C8 /* hashstr.cpp in Sources */,
+				C15AD7492AC0370E002202C8 /* BaseWFile.cpp in Sources */,
+				C15AD7342AC0370D002202C8 /* BaseResFilterIP.cpp in Sources */,
+				C15AD7512AC0370E002202C8 /* Matrix4.cpp in Sources */,
+				C1AA8E122AF709D100CEE2FA /* BaseSCHttpD.cpp in Sources */,
+				C15AD74E2AC0370E002202C8 /* BaseActionStack.cpp in Sources */,
+				C15AD72B2AC0370D002202C8 /* BaseStateManager.cpp in Sources */,
+				C15AD7202AC0370D002202C8 /* BaseResManager.cpp in Sources */,
+				C15AD7562AC0370E002202C8 /* BaseMemoryPool.cpp in Sources */,
+				C15AD7402AC0370D002202C8 /* BaseDStructure.cpp in Sources */,
+				C15AD7362AC0370D002202C8 /* BaseState.cpp in Sources */,
+				C15AD7232AC0370D002202C8 /* BaseSFuncDirectory.cpp in Sources */,
+				C15AD7582AC0370E002202C8 /* SPLine.cpp in Sources */,
+				C15AD73C2AC0370D002202C8 /* MD52.cpp in Sources */,
+				C15AD7552AC0370E002202C8 /* BaseHttp.cpp in Sources */,
+				C15AD73A2AC0370D002202C8 /* BaseCircleQueue.cpp in Sources */,
+				C15AD74C2AC0370E002202C8 /* BaseResGrid.cpp in Sources */,
+				C12501172AEDDFAE00AB0052 /* BaseSCTcp.cpp in Sources */,
+				C15AD7482AC0370E002202C8 /* BaseSetString.cpp in Sources */,
+				C125010A2AEDC08900AB0052 /* BaseSCCurl.cpp in Sources */,
+				C15AD7452AC0370D002202C8 /* allocator.cpp in Sources */,
+				C13AC6F32B23ED3900A43D66 /* BaseSCJson.cpp in Sources */,
+				C15AD73F2AC0370D002202C8 /* BaseSocket.cpp in Sources */,
+				C15AD7412AC0370D002202C8 /* Quater.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1E04FAC2658B4090058CD21 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C12A33832AB8959C0094D3E6 /* BaseUIManager.cpp in Sources */,
+				C12A32A72AB895350094D3E6 /* BaseNetConnector.cpp in Sources */,
+				C12A32772AB895350094D3E6 /* BaseResFilterIP.cpp in Sources */,
+				C12A32832AB895350094D3E6 /* BaseSpaceOrganizer.cpp in Sources */,
+				C12A33882AB8959C0094D3E6 /* ResTif.cpp in Sources */,
+				C12A331F2AB8959C0094D3E6 /* BaseStateSpace.cpp in Sources */,
+				C12A33742AB8959C0094D3E6 /* Matrix3.cpp in Sources */,
+				C12A331A2AB8959C0094D3E6 /* BaseTextEditorText.cpp in Sources */,
+				C12A33CF2AB89FEB0094D3E6 /* BaseInterface.cpp in Sources */,
+				C12A32932AB895350094D3E6 /* BaseMemoryPool.cpp in Sources */,
+				C1E04FED2658B51C0058CD21 /* BaseResFile.cpp in Sources */,
+				C12A33382AB8959C0094D3E6 /* BaseSFuncDirectory.cpp in Sources */,
+				C1E04FD32658B51C0058CD21 /* BaseTextEditor.cpp in Sources */,
+				C12A33422AB8959C0094D3E6 /* BaseUIWindow.cpp in Sources */,
+				C12A32582AB894770094D3E6 /* base.cpp in Sources */,
+				C12A333D2AB8959C0094D3E6 /* Fixed.cpp in Sources */,
+				C12A33472AB8959C0094D3E6 /* BaseXML.cpp in Sources */,
+				C12A332E2AB8959C0094D3E6 /* MD52.cpp in Sources */,
+				C12A32A32AB895350094D3E6 /* BaseFile.cpp in Sources */,
+				C12A32CB2AB895350094D3E6 /* BaseSCTableGrid.cpp in Sources */,
+				C13AC6F62B23ED4000A43D66 /* BaseSCJson.cpp in Sources */,
+				C12A32BF2AB895350094D3E6 /* BaseResDStructure.cpp in Sources */,
+				C12A33152AB8959C0094D3E6 /* Defines.cpp in Sources */,
+				C1E04FD82658B51C0058CD21 /* BaseStateFunc.cpp in Sources */,
+				C12A33602AB8959C0094D3E6 /* stdafx.cpp in Sources */,
+				C12A32972AB895350094D3E6 /* BaseResGrid.cpp in Sources */,
+				C12A339C2AB8959C0094D3E6 /* seedx.cpp in Sources */,
+				C12A32AF2AB895350094D3E6 /* BaseSFParser.cpp in Sources */,
+				C12A33242AB8959C0094D3E6 /* hashstr.cpp in Sources */,
+				C12A336A2AB8959C0094D3E6 /* BaseWFile.cpp in Sources */,
+				C12A32C32AB895350094D3E6 /* BaseEventHandler.cpp in Sources */,
+				C12A328F2AB895350094D3E6 /* BaseCircleQueue.cpp in Sources */,
+				C15AD6D52AC03425002202C8 /* BaseSCMysql.cpp in Sources */,
+				C12A33332AB8959C0094D3E6 /* BaseState.cpp in Sources */,
+				C1E04FD62658B51C0058CD21 /* KISA_SHA256.cpp in Sources */,
+				C12A32CF2AB895350094D3E6 /* BaseObject.cpp in Sources */,
+				C12A327B2AB895350094D3E6 /* BaseResManager.cpp in Sources */,
+				C12A33D42AB89FEB0094D3E6 /* pch.cpp in Sources */,
+				C12A328B2AB895350094D3E6 /* base64.cpp in Sources */,
+				C12501152AEDDFAE00AB0052 /* BaseSCTcp.cpp in Sources */,
+				C12501122AEDDFAE00AB0052 /* BaseSCTcpSession.cpp in Sources */,
+				C12A32D32AB895350094D3E6 /* BaseEventManager.cpp in Sources */,
+				C12A33562AB8959C0094D3E6 /* BaseTree.cpp in Sources */,
+				C12A33512AB8959C0094D3E6 /* BaseTime.cpp in Sources */,
+				C12A33CA2AB89FEB0094D3E6 /* StateManagerPnID.cpp in Sources */,
+				C12A33C22AB896880094D3E6 /* BaseJson.cpp in Sources */,
+				C12A33972AB8959C0094D3E6 /* allocator.cpp in Sources */,
+				C12A33012AB8959C0094D3E6 /* Vector3.cpp in Sources */,
+				C12A329B2AB895350094D3E6 /* BaseActionStack.cpp in Sources */,
+				C12A327F2AB895350094D3E6 /* BaseSFuncXML.cpp in Sources */,
+				C12A329F2AB895350094D3E6 /* BaseDStructure.cpp in Sources */,
+				C12A32B32AB895350094D3E6 /* BaseRecognitionManager.cpp in Sources */,
+				C12501082AEDC08900AB0052 /* BaseSCCurl.cpp in Sources */,
+				C12A32D72AB895350094D3E6 /* BaseRecognitionPrjVector.cpp in Sources */,
+				C12A33292AB8959C0094D3E6 /* EncodeCodeFile.cpp in Sources */,
+				C12A32872AB895350094D3E6 /* BaseSetString.cpp in Sources */,
+				C12A335B2AB8959C0094D3E6 /* BaseStringTable.cpp in Sources */,
+				C12A334C2AB8959C0094D3E6 /* EncoderOperator.cpp in Sources */,
+				C12A336F2AB8959C0094D3E6 /* Quater.cpp in Sources */,
+				C12A330B2AB8959C0094D3E6 /* lodepng.cpp in Sources */,
+				C12A337E2AB8959C0094D3E6 /* SPLine.cpp in Sources */,
+				C12A32C72AB895350094D3E6 /* BaseMemoryPool3.cpp in Sources */,
+				C12A33922AB8959C0094D3E6 /* BaseSystem.cpp in Sources */,
+				C12A33062AB8959C0094D3E6 /* BaseStateMain.cpp in Sources */,
+				C12A338D2AB8959C0094D3E6 /* BaseStateManager.cpp in Sources */,
+				C12A32AB2AB895350094D3E6 /* BaseResResource.cpp in Sources */,
+				C12A33BC2AB8966A0094D3E6 /* BaseHttp.cpp in Sources */,
+				C12A32BB2AB895350094D3E6 /* BaseSocket.cpp in Sources */,
+				C12A32FC2AB8959C0094D3E6 /* Matrix4.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1F05EF8216F1F7F00F4349C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C12A33BA2AB8966A0094D3E6 /* BaseHttp.cpp in Sources */,
+				C12A334A2AB8959C0094D3E6 /* EncoderOperator.cpp in Sources */,
+				C12A33772AB8959C0094D3E6 /* BaseStateFunc.cpp in Sources */,
+				C12A327D2AB895350094D3E6 /* BaseSFuncXML.cpp in Sources */,
+				C12A33812AB8959C0094D3E6 /* BaseUIManager.cpp in Sources */,
+				C12A33722AB8959C0094D3E6 /* Matrix3.cpp in Sources */,
+				C12A32952AB895350094D3E6 /* BaseResGrid.cpp in Sources */,
+				C12A32D52AB895350094D3E6 /* BaseRecognitionPrjVector.cpp in Sources */,
+				C12A32B12AB895350094D3E6 /* BaseRecognitionManager.cpp in Sources */,
+				C12A33452AB8959C0094D3E6 /* BaseXML.cpp in Sources */,
+				C12A32912AB895350094D3E6 /* BaseMemoryPool.cpp in Sources */,
+				C12A33222AB8959C0094D3E6 /* hashstr.cpp in Sources */,
+				C104607A2644208D0077FB2A /* BaseTextEditor.cpp in Sources */,
+				C12A339A2AB8959C0094D3E6 /* seedx.cpp in Sources */,
+				C12A33272AB8959C0094D3E6 /* EncodeCodeFile.cpp in Sources */,
+				C12A32A12AB895350094D3E6 /* BaseFile.cpp in Sources */,
+				C12A32752AB895350094D3E6 /* BaseResFilterIP.cpp in Sources */,
+				C12A32CD2AB895350094D3E6 /* BaseObject.cpp in Sources */,
+				C12A32C12AB895350094D3E6 /* BaseEventHandler.cpp in Sources */,
+				C12A33182AB8959C0094D3E6 /* BaseTextEditorText.cpp in Sources */,
+				C12A337C2AB8959C0094D3E6 /* SPLine.cpp in Sources */,
+				C12A33682AB8959C0094D3E6 /* BaseWFile.cpp in Sources */,
+				C12A32FF2AB8959C0094D3E6 /* Vector3.cpp in Sources */,
+				C12A33952AB8959C0094D3E6 /* allocator.cpp in Sources */,
+				C12A336D2AB8959C0094D3E6 /* Quater.cpp in Sources */,
+				C12A33092AB8959C0094D3E6 /* lodepng.cpp in Sources */,
+				C12A32792AB895350094D3E6 /* BaseResManager.cpp in Sources */,
+				C12A33402AB8959C0094D3E6 /* BaseUIWindow.cpp in Sources */,
+				C12A32FA2AB8959C0094D3E6 /* Matrix4.cpp in Sources */,
+				C12A33862AB8959C0094D3E6 /* ResTif.cpp in Sources */,
+				C12A33042AB8959C0094D3E6 /* BaseStateMain.cpp in Sources */,
+				C12A32992AB895350094D3E6 /* BaseActionStack.cpp in Sources */,
+				C12A32A92AB895350094D3E6 /* BaseResResource.cpp in Sources */,
+				C12A32A52AB895350094D3E6 /* BaseNetConnector.cpp in Sources */,
+				C12A32B92AB895350094D3E6 /* BaseSocket.cpp in Sources */,
+				C12A335E2AB8959C0094D3E6 /* stdafx.cpp in Sources */,
+				C12A33592AB8959C0094D3E6 /* BaseStringTable.cpp in Sources */,
+				C12A32812AB895350094D3E6 /* BaseSpaceOrganizer.cpp in Sources */,
+				C12A328D2AB895350094D3E6 /* BaseCircleQueue.cpp in Sources */,
+				C12A32C92AB895350094D3E6 /* BaseSCTableGrid.cpp in Sources */,
+				C12A33542AB8959C0094D3E6 /* BaseTree.cpp in Sources */,
+				C12A33D22AB89FEB0094D3E6 /* pch.cpp in Sources */,
+				C13AC6F12B23ECE400A43D66 /* BaseSCJson.cpp in Sources */,
+				C12A32AD2AB895350094D3E6 /* BaseSFParser.cpp in Sources */,
+				C12A32892AB895350094D3E6 /* base64.cpp in Sources */,
+				C12A329D2AB895350094D3E6 /* BaseDStructure.cpp in Sources */,
+				C12A338B2AB8959C0094D3E6 /* BaseStateManager.cpp in Sources */,
+				C12A32562AB894770094D3E6 /* base.cpp in Sources */,
+				C12A334F2AB8959C0094D3E6 /* BaseTime.cpp in Sources */,
+				C12A33312AB8959C0094D3E6 /* BaseState.cpp in Sources */,
+				C12A33C82AB89FEB0094D3E6 /* StateManagerPnID.cpp in Sources */,
+				C12A33C02AB896880094D3E6 /* BaseJson.cpp in Sources */,
+				C12A33132AB8959C0094D3E6 /* Defines.cpp in Sources */,
+				C12A333B2AB8959C0094D3E6 /* Fixed.cpp in Sources */,
+				C103ADBF264D6A6300704889 /* BaseSFuncDirectory.cpp in Sources */,
+				C12A32BD2AB895350094D3E6 /* BaseResDStructure.cpp in Sources */,
+				C1F05F06216F202A00F4349C /* BaseResFile.cpp in Sources */,
+				C12A32D12AB895350094D3E6 /* BaseEventManager.cpp in Sources */,
+				C12A32C52AB895350094D3E6 /* BaseMemoryPool3.cpp in Sources */,
+				C12A33CD2AB89FEB0094D3E6 /* BaseInterface.cpp in Sources */,
+				C12A32852AB895350094D3E6 /* BaseSetString.cpp in Sources */,
+				C12A332C2AB8959C0094D3E6 /* MD52.cpp in Sources */,
+				C12A331D2AB8959C0094D3E6 /* BaseStateSpace.cpp in Sources */,
+				C12A33902AB8959C0094D3E6 /* BaseSystem.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C12A32512AB893EA0094D3E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = XR2UN87UM6;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"BASELIBRARY_EXPORTS=1",
+					"_MAC=1",
+					"_DEBUG=1",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "/opt/homebrew/opt/mysql@5.7/include/mysql";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Jung Tae Seo. All rights reserved.";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LIBRARY_SEARCH_PATHS = "/opt/homebrew/Cellar/mysql@5.7/5.7.35/lib";
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = oddeyesoft.ApStateSystem;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "\U001b\U001barm64";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		C12A32522AB893EA0094D3E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = XR2UN87UM6;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"BASELIBRARY_EXPORTS=1",
+					"_MAC=1",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "/opt/homebrew/opt/mysql@5.7/include/mysql";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Jung Tae Seo. All rights reserved.";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LIBRARY_SEARCH_PATHS = "/opt/homebrew/Cellar/mysql@5.7/5.7.35/lib";
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = oddeyesoft.ApStateSystem;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = arm64;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		C15AD68F2AC03387002202C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XR2UN87UM6;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"BASELIBRARY_EXPORTS=1",
+					"_IOS=1",
+					"_DEBUG=1",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C15AD6902AC03387002202C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XR2UN87UM6;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"BASELIBRARY_EXPORTS=1",
+					"_IOS=1",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 arm64e";
+			};
+			name = Release;
+		};
+		C15AD71B2AC036D4002202C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = stateconsole/stateconsole.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = XR2UN87UM6;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"_MAC=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"/opt/homebrew/opt/mysql@5.7/include/mysql",
+					"\"/Volumes/SamSSD 1/archipin/libmicrohttpd/src/include\"",
+					/opt/homebrew/opt/curl/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/opt/gnutls/lib,
+					"/opt/homebrew/Cellar/mysql@5.7/5.7.44/lib",
+					"\"/Volumes/SamSSD 1/archipin/StateSystem/lib/BaseLibrary/stateconsole\"",
+					/opt/homebrew/opt/curl/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"-lgnutls",
+					"-lmysqlclient",
+					"-lmysqld",
+					"-lmicrohttpd",
+					"-lcurl",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = arm64;
+			};
+			name = Debug;
+		};
+		C15AD71C2AC036D4002202C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = stateconsole/stateconsole.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = XR2UN87UM6;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = "_MAC=1";
+				HEADER_SEARCH_PATHS = (
+					"/opt/homebrew/opt/mysql@5.7/include/mysql",
+					"\"/Volumes/SamSSD 1/archipin/libmicrohttpd/src/include\"",
+					/opt/homebrew/opt/curl/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/opt/gnutls/lib,
+					"/opt/homebrew/Cellar/mysql@5.7/5.7.44/lib",
+					"\"/Volumes/SamSSD 1/archipin/StateSystem/lib/BaseLibrary/stateconsole\"",
+					/opt/homebrew/opt/curl/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"-lgnutls",
+					"-lmysqlclient",
+					"-lmysqld",
+					"-lmicrohttpd",
+					"-lcurl",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = arm64;
+			};
+			name = Release;
+		};
+		C1E04FB42658B4090058CD21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = XR2UN87UM6;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C1E04FB52658B4090058CD21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = XR2UN87UM6;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C1F05F03216F1F7F00F4349C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BITCODE_GENERATION_MODE = bitcode;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XR2UN87UM6;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-fembed-bitcode";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-fembed-bitcode",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C1F05F04216F1F7F00F4349C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BITCODE_GENERATION_MODE = bitcode;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XR2UN87UM6;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MTL_FAST_MATH = YES;
+				OTHER_CFLAGS = "-fembed-bitcode";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-fembed-bitcode",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
+			};
+			name = Release;
+		};
+		C1F7D6F21BCE38E800473CAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"_DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				VALID_ARCHS = arm64;
+			};
+			name = Debug;
+		};
+		C1F7D6F31BCE38E800473CAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				VALID_ARCHS = arm64;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C12A32502AB893EA0094D3E6 /* Build configuration list for PBXNativeTarget "ApStateSystem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C12A32512AB893EA0094D3E6 /* Debug */,
+				C12A32522AB893EA0094D3E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C15AD6912AC03387002202C8 /* Build configuration list for PBXNativeTarget "ApStateSystemIos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C15AD68F2AC03387002202C8 /* Debug */,
+				C15AD6902AC03387002202C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C15AD71A2AC036D4002202C8 /* Build configuration list for PBXNativeTarget "stateconsole" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C15AD71B2AC036D4002202C8 /* Debug */,
+				C15AD71C2AC036D4002202C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1E04FB62658B4090058CD21 /* Build configuration list for PBXNativeTarget "strun" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1E04FB42658B4090058CD21 /* Debug */,
+				C1E04FB52658B4090058CD21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1F05F02216F1F7F00F4349C /* Build configuration list for PBXNativeTarget "BaseLibraryIos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1F05F03216F1F7F00F4349C /* Debug */,
+				C1F05F04216F1F7F00F4349C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1F7D6E91BCE38E800473CAE /* Build configuration list for PBXProject "BaseLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1F7D6F21BCE38E800473CAE /* Debug */,
+				C1F7D6F31BCE38E800473CAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C12B34E62AEAB99700EE242E /* XCRemoteSwiftPackageReference "swift-crypto" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-crypto.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C12B34E72AEAB99700EE242E /* Crypto */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C12B34E62AEAB99700EE242E /* XCRemoteSwiftPackageReference "swift-crypto" */;
+			productName = Crypto;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = C1F7D6E61BCE38E800473CAE /* Project object */;
+}

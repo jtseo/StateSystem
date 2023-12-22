@@ -1,0 +1,35 @@
+﻿../BaseLibrary/FursysCamConverter/FusSCCADtoCAM	EnumStateEvent	EnumVariableDefine
+L_LA	load_varIf	INT32	EnumVariableDefine	load dxf or dwg file
+L_LA	save_varIf	INT32	EnumVariableDefine	save dxf file with layered or blocked
+L_SS_LC	objCast_nF	INT32	EnumStateEvent	cast event attached by object
+L_SS_LC	layerSet_strF	STRING		if not exist, add layer
+L_SS_LC	blockSet_strF	STRING		if not exist, add added
+L_SS_LC	drawingObjSet_nF	INT32		set objects on drawing[0]
+L_LA	mprSave_varIf	INT32	EnumVariableDefine	save mpr file
+L_SS_LC	scale_fF	FLOAT		apply scale (ex: unit change)
+L_SS_LC	equipCast_nF	INT32	EnumStateEvent	cast equip list
+L_LA	equipRotOptionCheck_strIf	STRING		equip option check for Rotation & Mirror
+L_SS_LC	xxlSave_varF	INT32	EnumVariableDefine	save xxl
+L_SS_LC	drawingRotate_varF	INT32	EnumVariableDefine	rotate degree
+L_SS_LC	drawingMirrorLR_varF	INT32	EnumVariableDefine	mirror by y-axi, as variable is '1'
+L_SS_LC	addQuatation_varF	INT32	EnumVariableDefine	add quatation on variable
+L_SS_LC	mprThickSet_nF	INT32		auto added
+L_SS_LC	xcsSave_varF	INT32	EnumVariableDefine	save xcs
+L_SS_LC	layerHide_strF	STRING		hide layer
+L_SS_LC	msgfileCreate_strF	STRING		make file and save param
+L_SS_LC	mprBHX500_nF	INT32		auto added
+L_SS_LC	PathSourceSet_varF	INT32	EnumVariableDefine	set source path and get filename on first param
+L_SS_LC	PathTargetSet_varF	INT32	EnumVariableDefine	set target path and get name on first param
+L_SS_LC	PathWriteGet_varF	INT32	EnumVariableDefine	add target path and get full path on first param
+L_LA	edgeIs_nIf	INT32		check the edge is
+L_SS_LC	msgfileAppend_strF	STRING		append msg on the file
+L_SS_LC	Restore_nF	INT32		restore dwg file
+L_SS_LC	Backup_nF	INT32		backup dwg file to reatore for the transform
+L_SS_LC	layerHideLine_strF	STRING		hide layer with only lines(not cicle)
+L_SS_LC	layerHideParse_strF	STRING		hide layer include this string.
+L_LA	casingSave_varIf	INT32	EnumVariableDefine	save casing file
+L_SS_LC	casingLoad_varF	INT32	EnumVariableDefine	load casing support file
+L_LA	uploadProgram_varIf	INT32	EnumVariableDefine	upload cam program with server ip
+L_LA	uploadCasing_varIf	INT32	EnumVariableDefine	upload casing file with server ip
+L_SS_LC	drawingFrontRotationExtract_strF	STRING		the rotation of front drawing extract from drawing
+L_SS_LC	drawingFrontRotateGet_varF	INT32	EnumVariableDefine	get rotation of front drawing

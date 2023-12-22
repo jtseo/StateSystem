@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "BaseStateSpace::actor_event_process(STStateActor&amp;, BaseDStructureValue*, int):BaseStateSpace.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_cstrName">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BaseStateSpace::OnEvent_(BaseDStructureValue*, BaseState const*):BaseStateSpace.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_pstlvActorCurrent">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BaseState::context_get():BaseState.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "BaseDStructureValue::event_process(BaseDStructureValue*, BaseDStructureValue*, int, int*):BaseDStructure.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "BaseDStructureValue::regist_event_func(BaseStateSpace*):BaseDStructure.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_stlVBool">
+            </PersistentString>
+            <PersistentString
+               value = "m_pdstBase-&gt;sm_stlMnpEventProcessor">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BaseStateSpace::actor_event_regist(STStateActor):BaseStateSpace.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "BaseState::OnStart(BaseDStructureValue*):BaseState.cpp">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

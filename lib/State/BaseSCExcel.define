@@ -1,0 +1,4 @@
+﻿../BaseLibrary/PtBase/BaseSCExcel
+L_SS_LC	event_receiver_nF	INT32	EnumStateEvent	sample
+L_SS_LC	variable_receiver_nF	INT32	EnumVariableDefine	sample
+L_LA	loadCheck_nIf	INT32		check success to load excel text or not

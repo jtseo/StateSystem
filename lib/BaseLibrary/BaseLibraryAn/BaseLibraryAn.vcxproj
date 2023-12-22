@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM64">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM64">
+      <Configuration>Release</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x86">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x86">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7e518bb9-d72e-462d-b556-2fa6b5d31439}</ProjectGuid>
+    <Keyword>Android</Keyword>
+    <RootNamespace>BaseLibraryAn</RootNamespace>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <ApplicationType>Android</ApplicationType>
+    <ApplicationTypeRevision>1.0</ApplicationTypeRevision>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>Clang_3_6</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>Clang_3_6</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>Clang_3_6</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>Clang_3_6</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>Clang_3_6</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>Clang_3_6</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>Clang_3_6</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>Clang_3_6</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\PtBase\base.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\base64.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseCircleQueue.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseDStructure.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseEventManager.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseFile.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseHttp.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseMemoryPool.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseMemoryPool3.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseNetConnector.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseObject.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseResDStructure.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseResFilterIP.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseResManager.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseResResource.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseSetString.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseSocket.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseSpaceOrganizer.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseState.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseStateMain.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseStateManager.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseStateSpace.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseStringTable.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseSystem.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseTime.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseTree.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseWFile.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\DebugContext.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\Defines.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\EncodeCodeFile.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\EncoderOperator.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\Fixed.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\hashstr.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\lodepng.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\Matrix3.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\Matrix4.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\md5.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\MD52.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\Quater.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\ResTif.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\seedx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\SPLine.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\Vector3.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="BaseLibraryAn.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\PtBase\base.h" />
+    <ClInclude Include="..\PtBase\base64.h" />
+    <ClInclude Include="..\PtBase\BaseCircleQueue.h" />
+    <ClInclude Include="..\PtBase\BaseDStructure.h" />
+    <ClInclude Include="..\PtBase\BaseEventManager.h" />
+    <ClInclude Include="..\PtBase\BaseFile.h" />
+    <ClInclude Include="..\PtBase\BaseHttp.h" />
+    <ClInclude Include="..\PtBase\BaseMemoryPool.h" />
+    <ClInclude Include="..\PtBase\BaseMemoryPool3.h" />
+    <ClInclude Include="..\PtBase\BaseNetConnector.h" />
+    <ClInclude Include="..\PtBase\BaseObject.h" />
+    <ClInclude Include="..\PtBase\BaseResDStructure.h" />
+    <ClInclude Include="..\PtBase\BaseResFilterIP.h" />
+    <ClInclude Include="..\PtBase\BaseResManager.h" />
+    <ClInclude Include="..\PtBase\BaseResResource.h" />
+    <ClInclude Include="..\PtBase\BaseSetString.h" />
+    <ClInclude Include="..\PtBase\BaseSocket.h" />
+    <ClInclude Include="..\PtBase\BaseSpaceOrganizer.h" />
+    <ClInclude Include="..\PtBase\BaseSStructure.h" />
+    <ClInclude Include="..\PtBase\BaseState.h" />
+    <ClInclude Include="..\PtBase\BaseStateMain.h" />
+    <ClInclude Include="..\PtBase\BaseStateManager.h" />
+    <ClInclude Include="..\PtBase\BaseStateSpace.h" />
+    <ClInclude Include="..\PtBase\BaseStringTable.h" />
+    <ClInclude Include="..\PtBase\BaseStructure.h" />
+    <ClInclude Include="..\PtBase\BaseStructureRender.h" />
+    <ClInclude Include="..\PtBase\BaseSystem.h" />
+    <ClInclude Include="..\PtBase\BaseTemplate.h" />
+    <ClInclude Include="..\PtBase\BaseTime.h" />
+    <ClInclude Include="..\PtBase\BaseTree.h" />
+    <ClInclude Include="..\PtBase\BaseUIBoard.h" />
+    <ClInclude Include="..\PtBase\BaseUIManager.h" />
+    <ClInclude Include="..\PtBase\BaseUIWindow.h" />
+    <ClInclude Include="..\PtBase\BaseWFile.h" />
+    <ClInclude Include="..\PtBase\CIMAP.h" />
+    <ClInclude Include="..\PtBase\CSmtp.h" />
+    <ClInclude Include="..\PtBase\DebugContext.h" />
+    <ClInclude Include="..\PtBase\Defines.h" />
+    <ClInclude Include="..\PtBase\EncodeCodeFile.h" />
+    <ClInclude Include="..\PtBase\EncoderOperator.h" />
+    <ClInclude Include="..\PtBase\Fixed.h" />
+    <ClInclude Include="..\PtBase\hashstr.h" />
+    <ClInclude Include="..\PtBase\lodepng.h" />
+    <ClInclude Include="..\PtBase\Matrix3.h" />
+    <ClInclude Include="..\PtBase\Matrix4.h" />
+    <ClInclude Include="..\PtBase\md5.h" />
+    <ClInclude Include="..\PtBase\MD52.h" />
+    <ClInclude Include="..\PtBase\PTAllocator.h" />
+    <ClInclude Include="..\PtBase\Quater.h" />
+    <ClInclude Include="..\PtBase\resource.h" />
+    <ClInclude Include="..\PtBase\ResTif.h" />
+    <ClInclude Include="..\PtBase\seedx.h" />
+    <ClInclude Include="..\PtBase\seedxex.h" />
+    <ClInclude Include="..\PtBase\SPLine.h" />
+    <ClInclude Include="..\PtBase\stdafx.h" />
+    <ClInclude Include="..\PtBase\targetver.h" />
+    <ClInclude Include="..\PtBase\Vector3.h" />
+    <ClInclude Include="BaseLibraryAn.h" />
+    <ClInclude Include="pch.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

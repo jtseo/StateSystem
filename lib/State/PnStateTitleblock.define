@@ -1,0 +1,8 @@
+../BaseLibrary/BaseLibrary/PnStateTitleblock
+L_SS_LC	text_info_cast_nF	INT32	EnumStateEvent	cast text information for each
+L_SS_LC	textMakeTitle_nF	INT32		other text to titleblock out of drawing boundbox
+L_SS_LC	titleRemove_nF	INT32		remove titleblock
+L_SS_LC	contents_save_varF	INT32	EnumVariableDefine	save title to contents for filesave.
+L_SS_LC	merge_varF	INT32	EnumVariableDefine	merge with target file
+L_SS_LC	contentsBackup_nF	INT32		backup current analysysed title block
+L_SS_LC	contentsRestore_nF	INT32		restore contents by backuped contents

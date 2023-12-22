@@ -1,0 +1,7 @@
+﻿../BaseLibrary/PtBase/BaseSCMysql	EnumStateEvent	EnumVariableDefine
+L_SS_LC	querySelect_strF	STRING		select
+L_SS_LC	queryUpdate_strF	STRING		update
+L_SS_LC	queryDelete_strF	STRING		delete
+L_SS_LC	queryAdd_strF	STRING		add
+L_SS_LC	querySearch_strF	STRING		search like %%
+L_SS_LC	keyAdd_astrF	STRING		add key list to search

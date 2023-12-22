@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="BaseLibraryAn.cpp" />
+    <ClCompile Include="..\PtBase\base.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\base64.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseCircleQueue.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseDStructure.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseEventManager.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseFile.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseHttp.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseMemoryPool.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseMemoryPool3.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseNetConnector.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseObject.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseResDStructure.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseResFilterIP.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseResManager.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseResResource.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseSetString.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseSocket.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseSpaceOrganizer.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseState.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseStateMain.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseStateManager.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseStateSpace.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseStringTable.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseSystem.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseTime.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseTree.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\BaseWFile.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\DebugContext.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\Defines.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\EncodeCodeFile.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\EncoderOperator.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\Fixed.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\hashstr.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\lodepng.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\Matrix3.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\Matrix4.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\md5.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\MD52.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\Quater.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\ResTif.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\seedx.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\SPLine.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\stdafx.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtBase\Vector3.cpp">
+      <Filter>PtBase</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BaseLibraryAn.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="..\PtBase\base.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\base64.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseCircleQueue.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseDStructure.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseEventManager.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseFile.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseHttp.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseMemoryPool.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseMemoryPool3.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseNetConnector.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseObject.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseResDStructure.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseResFilterIP.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseResManager.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseResResource.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseSetString.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseSocket.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseSpaceOrganizer.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseSStructure.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseState.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseStateMain.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseStateManager.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseStateSpace.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseStringTable.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseStructure.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseStructureRender.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseSystem.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseTemplate.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseTime.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseTree.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseUIManager.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseUIBoard.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseUIWindow.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\BaseWFile.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\CIMAP.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\CSmtp.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\DebugContext.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\Defines.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\EncodeCodeFile.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\EncoderOperator.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\Fixed.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\hashstr.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\lodepng.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\Matrix3.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\Matrix4.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\md5.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\MD52.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\PTAllocator.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\Quater.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\resource.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\ResTif.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\seedx.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\seedxex.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\SPLine.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\stdafx.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\targetver.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtBase\Vector3.h">
+      <Filter>PtBaseH</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="PtBase">
+      <UniqueIdentifier>{d59b43d0-4336-4b55-b2b3-788edcc69b8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PtBaseH">
+      <UniqueIdentifier>{07e6a2c7-bbe1-432f-abff-ad5f2b3f787a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

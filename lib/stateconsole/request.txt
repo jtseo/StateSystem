@@ -1,0 +1,5 @@
+GET /posts HTTP/1.1
+user-agent: Dart/3.1 (dart:io)
+host: jsonplaceholder.typicode.com
+
+

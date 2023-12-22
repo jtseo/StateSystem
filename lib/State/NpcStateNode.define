@@ -1,0 +1,9 @@
+../BaseLibrary/PtBase/NpcStateNode	EnumStateEvent	EnumVariableDefine
+L_LA	MissionIdCheck_nIf	INT32		check mission for npc
+L_LA	RoutineWalkCheck_nIf	INT32	check variable
+L_LA	RoutineArriveCheck_nIf	INT32	check variable
+L_LA	RoutineInDialogCheck_nIf	INT32	check variable
+L_LA	WalkArrivedCheck_nIf	INT32	check variable
+L_LA	WalkActivatedCheck_nIf	INT32	check variable
+L_LA	WalkWalkCheck_nIf	INT32	check variable
+L_LA	WalkTimelineCheck_nIf	INT32	check variable
