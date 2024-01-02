@@ -1,0 +1,473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="allocator.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="base.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="base64.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseActionStack.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseCircleQueue.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseDStructure.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseEmail.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseEventHandler.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseEventManager.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseFile.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseHttp.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseJson.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseMemoryPool.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseMemoryPool3.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseNetConnector.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseObject.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseResDStructure.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseResFile.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseResFilterIP.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseResGrid.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseResManager.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseResResource.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSocket.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSpaceOrganizer.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseState.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseStateMain.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseStateManager.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseStateSpace.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseStringTable.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSystem.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseTextEditor.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseTextEditorText.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseTime.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseTree.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseUIManager.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseUIWindow.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseWFile.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseXML.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="CIMAP.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="CSmtp.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugContext.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="Defines.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="EncodeCodeFile.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="EncoderOperator.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="Fixed.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="hashstr.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="KISA_SHA256.c">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="lodepng.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix3.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix4.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="md5.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="MD52.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="Quater.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="ResTif.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="seedx.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="SPLine.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseRecognitionManager.cpp">
+      <Filter>baseState</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseRecognitionPrjVector.cpp">
+      <Filter>baseState</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSCCurl.cpp">
+      <Filter>baseState</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSCDBFile.cpp">
+      <Filter>baseState</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSCExcel.cpp">
+      <Filter>baseState</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtExtend\BaseSCJson.cpp">
+      <Filter>baseState</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSCTableGrid.cpp">
+      <Filter>baseState</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSCTcp.cpp">
+      <Filter>baseState</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSCTcpSession.cpp">
+      <Filter>baseState</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSetString.cpp">
+      <Filter>baseState</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSFParser.cpp">
+      <Filter>baseState</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSFuncDirectory.cpp">
+      <Filter>baseState</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSFuncXML.cpp">
+      <Filter>baseState</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseStateFunc.cpp">
+      <Filter>baseState</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtExtend\DevCashReader.cpp">
+      <Filter>extend</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="base.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base64.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseActionStack.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseCircleQueue.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseDStructure.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseEmail.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Z:\Users\jtseo\coint\trunk\lib\BaseLibrary\PtBase\BaseEventHandler.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseEventManager.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseFile.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseFileDiffer.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseHttp.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseMemoryPool.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseMemoryPool3.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseNetConnector.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseObject.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseResDStructure.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseResFile.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseResFilterIP.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseResGrid.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseResManager.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseResResource.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSocket.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSpaceOrganizer.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSStructure.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseState.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseStateMain.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseStateManager.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseStateSpace.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseStringTable.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseStructure.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseStructureRender.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSystem.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseTemplate.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseTextEditor.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseTextEditorText.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseTime.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseTree.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseUIBoard.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseUIManager.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseUIWindow.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseWFile.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseXML.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="CIMAP.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="CSmtp.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugContext.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Defines.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="EncodeCodeFile.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="EncoderOperator.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Fixed.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="hashstr.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="KISA_SHA256.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="lodepng.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix3.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix4.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="md5.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="MD52.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="PTAllocator.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Quater.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="ResTif.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="seedx.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="SPLine.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseRecognitionManager.h">
+      <Filter>baseState</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseRecognitionPrjVector.h">
+      <Filter>baseState</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSCCurl.h">
+      <Filter>baseState</Filter>
+    </ClInclude>
+    <ClInclude Include="Z:\Users\jtseo\coint\trunk\lib\BaseLibrary\PtBase\BaseSCDBFile.h">
+      <Filter>baseState</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSCExcel.h">
+      <Filter>baseState</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtExtend\BaseSCJson.h">
+      <Filter>baseState</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSCTableGrid.h">
+      <Filter>baseState</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSetString.h">
+      <Filter>baseState</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSFParser.h">
+      <Filter>baseState</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSFuncDirectory.h">
+      <Filter>baseState</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseStateFunc.h">
+      <Filter>baseState</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtExtend\DevCashReader.h">
+      <Filter>extend</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="base">
+      <UniqueIdentifier>{468f8dc6-0216-4d1f-a7c2-045bc9371c7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="extend">
+      <UniqueIdentifier>{64b0471c-27a0-4e88-aaed-f3c280535ea7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="baseState">
+      <UniqueIdentifier>{bbb0bb86-11df-49a3-af5a-485cbc8e4eb8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt">
+      <Filter>base</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

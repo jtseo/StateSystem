@@ -163,7 +163,8 @@ int BaseTextEditor::Create()
     STLString columnname = _columnName;
     m_definePath = "State/";
 #ifdef _WIN32
-    STLString filepath = "../";
+    m_definePath = "../State/";
+    STLString filepath = "";
 #else
     STLString filepath;
 #endif
@@ -311,7 +312,7 @@ int BaseTextEditor::updateStart_varIf()
 
     STLString path;
 #ifdef _WIN32
-    path = "../";
+    //path = "../";
 #endif
     path += filepath;
     STLString bak_str = path + ".bak";
@@ -654,6 +655,9 @@ int BaseTextEditor::classPathSet_varF()
 {
 	m_className = (const char*)paramVariableGet();
 	m_definePath = "State/";
+#ifdef _WIN32
+    m_definePath = "../State/";
+#endif
 	m_definePath += m_className;
 	m_definePath += ".define";
 	return 1;
