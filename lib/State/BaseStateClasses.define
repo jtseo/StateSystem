@@ -23,3 +23,4 @@ StateDummy	support StateDummy
 BaseSCHttpD	support class
 BaseSCHttpDSession	support class
 BaseSCJson	support class
+DevCashReader	support class
