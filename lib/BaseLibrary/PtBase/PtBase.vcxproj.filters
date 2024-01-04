@@ -181,9 +181,6 @@
     <ClCompile Include="BaseRecognitionPrjVector.cpp">
       <Filter>baseState</Filter>
     </ClCompile>
-    <ClCompile Include="BaseSCCurl.cpp">
-      <Filter>baseState</Filter>
-    </ClCompile>
     <ClCompile Include="BaseSCDBFile.cpp">
       <Filter>baseState</Filter>
     </ClCompile>
@@ -218,6 +215,9 @@
       <Filter>baseState</Filter>
     </ClCompile>
     <ClCompile Include="..\PtExtend\DevCashReader.cpp">
+      <Filter>extend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtExtend\SerialPort.cpp">
       <Filter>extend</Filter>
     </ClCompile>
   </ItemGroup>
@@ -451,6 +451,9 @@
       <Filter>baseState</Filter>
     </ClInclude>
     <ClInclude Include="..\PtExtend\DevCashReader.h">
+      <Filter>extend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtExtend\SerialPort.h">
       <Filter>extend</Filter>
     </ClInclude>
   </ItemGroup>

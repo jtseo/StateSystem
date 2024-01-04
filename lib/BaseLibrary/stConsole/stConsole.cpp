@@ -55,11 +55,15 @@ int s_eventstack[10];
 #include "../PtBase/BaseXML.h"
 #include "../StatePython/StatePython.h"
 
-#include "../PtBase/BaseSCCurl.h"
+//#include "../PtBase/BaseSCCurl.h"
+#include "../PtExtend/SerialPort.h"
+#include "../PtExtend/DevCashReader.h"
 
 int main()
 {
-	BaseSCCurl crl;
+	CSerialPort serial;
+	DevCashReader read;
+	//BaseSCCurl crl;
 
 	//StatePython *python = (StatePython*)StatePython::CreatorCallback(NULL);
 

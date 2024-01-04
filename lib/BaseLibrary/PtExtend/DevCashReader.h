@@ -1,5 +1,7 @@
 ﻿#pragma once
 #include "../PtBase/BaseStateFunc.h"
+#include "SerialPort.h"
+
 class DevCashReader :
     public BaseStateFunc
 {
@@ -12,6 +14,12 @@ class DevCashReader :
         STDEF_SFENUM(DataComplete_nIf),
         STDEF_SFENUM(DataGet_varF),
         STDEF_SFENUM(DataWriteSet_varF),
+        STDEF_SFENUM(ConfigWrite_nF),
+        STDEF_SFENUM(CashReadStart_nF),
+        STDEF_SFENUM(MoneyGet_varIf),
+        STDEF_SFENUM(CashReadStop_nF),
+        STDEF_SFENUM(PortInit_nF),
+        STDEF_SFENUM(DataFullCheck_nIf),
         //#SF_EnumInsert
         EnumExtentionMax
     };
@@ -29,10 +37,20 @@ public:
     int DataComplete_nIf();
     int DataGet_varF();
     int DataWriteSet_varF();
+    int ConfigWrite_nF();
+    int CashReadStart_nF();
+    int MoneyGet_varIf();
+    int CashReadStop_nF();
+    int PortInit_nF();
+    int DataFullCheck_nIf();
     //#SF_FuncHeaderInsert
 
     // User defin area from here
 protected:
+    STLVcChar m_datas;
+    CSerialPort m_serial;
+    char m_packet[5];
+    bool PacketMake(const char* _str, char* _packet);
     // support for text analysis
 public:
 protected:
