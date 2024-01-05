@@ -33,4 +33,6 @@ public:
     bool WriteBytes(const char *_data, int size);
     bool SetCommunicationTimeouts(DWORD ReadIntervalTimeout, DWORD ReadTotalTimeoutMultiplier, DWORD ReadTotalTimeoutConstant, DWORD WriteTotalTimeoutMultiplier, DWORD WriteTotalTimeoutConstant);
     bool Configure_Port(unsigned int BaudRate, unsigned char ByteSize, unsigned int fParity, unsigned char Parity, unsigned char StopBits);
+
+    void Dispay(const char* _pre, const char* _data);
 };

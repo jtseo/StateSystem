@@ -21,7 +21,7 @@
 
 #define STATE_MAX_PACKET	(65000) // it can't be over the unsigned short size (64k) and some of headers are included on the size. so resonable size of pure data is 65000.
 
-#define TRACE_PACKET_DEBUG
+//#define TRACE_PACKET_DEBUG
 const unsigned short s_nSizeHeader = sizeof(unsigned int) * 2 + sizeof(unsigned short);
 
 bool BaseNetManager::sm_bTracePacket = false;
@@ -2623,7 +2623,7 @@ void BaseNetManager::end()
 bool BaseNetManager::send(UINT32 _nIndex, char *_pData, UINT16 _nSize, UINT16 _nType)
 {
 #ifdef _DEBUG
-	printf("~");
+	//printf("~");
 #endif
 	char *pQueue	= PT_Alloc(char, _nSize + QUEUE_SIZE_HEADER);
 	*((UINT32*)pQueue)	= _nIndex;

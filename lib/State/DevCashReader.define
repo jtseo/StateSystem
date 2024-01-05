@@ -10,3 +10,4 @@ L_LA	MoneyGet_varIf	INT32	EnumVariableDefine	auto added
 L_SS_LC	CashReadStop_nF	INT32		auto added
 L_SS_LC	PortInit_nF	INT32		auto added
 L_LA	DataFullCheck_nIf	INT32		auto added
+L_SS_LC	DataReset_nF	INT32		auto added

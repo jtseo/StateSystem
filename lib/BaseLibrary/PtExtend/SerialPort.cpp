@@ -1,6 +1,8 @@
 #include "SerialPort.h"
 #include <iostream>
 
+#include "../PtBase/base.h"
+
 using namespace std;
 
 // *******************************************
@@ -28,7 +30,7 @@ bool CSerialPort::OpenPort(std::string portname)
 {
     std::string port = "//./";
     port += portname;
-    m_hComm = CreateFile(port.c_str(), GENERIC_READ | GENERIC_WRITE, 0, 0, OPEN_EXISTING, 0, 0);
+    m_hComm = CreateFile((const char*)port.c_str(), GENERIC_READ | GENERIC_WRITE, 0, 0, OPEN_EXISTING, 0, 0);
 
     if (m_hComm == INVALID_HANDLE_VALUE)
         return false;
@@ -44,7 +46,7 @@ bool CSerialPort::Configure_Port(unsigned int BaudRate, unsigned char ByteSize, 
 {
     if ((m_bPortReady = GetCommState(m_hComm, &m_dcb)) == 0)
     {
-        ::OutputDebugString("GetCommState Error");
+        ::OutputDebugString((const char*)"GetCommState Error");
         CloseHandle(m_hComm);
 
         return false;
@@ -114,10 +116,22 @@ bool CSerialPort::SetCommunicationTimeouts(DWORD ReadIntervalTimeout,
     return true;
 }
 
+void CSerialPort::Dispay(const char *_pre, const char* _data)
+{
+    char buf[5];
+    for (int i = 0; i < 4; i++)
+    {
+        buf[i] = *_data;
+        _data++;
+    }
+    buf[4] = 0;
 
+    g_SendMessage (LOG_MSG, "%s%s\n", _pre, buf);
+}
 
 bool CSerialPort::WriteBytes(const char* _data, int size)
 {
+    Dispay("w-", _data);
     bool ret = true;
     for (int i = 0; i < size; i++)
     {

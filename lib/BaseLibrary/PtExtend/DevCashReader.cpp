@@ -61,6 +61,7 @@ int DevCashReader::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, i
 		STDEF_SFREGIST(CashReadStop_nF);
 		STDEF_SFREGIST(PortInit_nF);
 		STDEF_SFREGIST(DataFullCheck_nIf);
+		STDEF_SFREGIST(DataReset_nF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -114,6 +115,7 @@ int DevCashReader::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		STDEF_SFFUNCALL(CashReadStop_nF);
 		STDEF_SFFUNCALL(PortInit_nF);
 		STDEF_SFFUNCALL(DataFullCheck_nIf);
+		STDEF_SFFUNCALL(DataReset_nF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -174,6 +176,7 @@ int DevCashReader::DataGet_varF()
 	if (m_datas.size() < 5)
 		return 0;
 
+	m_serial.Dispay("r-", (const char*)& m_datas[0]);
 	const char* cmd = (const char*) & m_datas.at(1);
 	char buf[4];
 	buf[3] = 0;
@@ -273,6 +276,11 @@ int DevCashReader::DataFullCheck_nIf()
 {
 	if (m_datas.size() < 5) // check data length
 		return 0;
+	return 1;
+}
+int DevCashReader::DataReset_nF()
+{
+	m_datas.clear();
 	return 1;
 }
 //#SF_functionInsert
