@@ -58,3 +58,5 @@ lib/BaseLibrary/openssl-1.0.2u-x64_86-win64
 lib/BaseLibrary/openssl-1.0.2u-x64_86-win64_LinkLibs
 lib/BaseLibrary/.DS_Store
 .DS_Store
+VScriptEditor/.vs
+VScriptEditor/.vsconfig
