@@ -1120,7 +1120,7 @@ bool CSmtp::ConnectRemoteServer(const char* szServer, const unsigned short nPort
 				delete[] a2;
 
 				//send the response
-				if(strstr(RecvBuf, "charset")>=0) sprintf(SendBuf, "charset=utf-8,username=\"%s\"", m_sLogin.c_str());
+				if(strstr(RecvBuf, "charset")!=NULL) sprintf(SendBuf, "charset=utf-8,username=\"%s\"", m_sLogin.c_str());
 				else sprintf(SendBuf, "username=\"%s\"", m_sLogin.c_str());
 				if(!realm.empty()){
 					sprintf(RecvBuf, ",realm=\"%s\"", realm.c_str());

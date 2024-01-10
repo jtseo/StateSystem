@@ -427,8 +427,8 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>../../SDK</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <LanguageStandard>Default</LanguageStandard>
-      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -591,7 +591,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\PtExtend\BaseSCJson.h" />
+    <ClInclude Include="..\PtExtend\DevCamera.h" />
     <ClInclude Include="..\PtExtend\DevCashReader.h" />
+    <ClInclude Include="..\PtExtend\DevPrinter.h" />
     <ClInclude Include="..\PtExtend\SerialPort.h" />
     <ClInclude Include="base.h" />
     <ClInclude Include="base64.h" />
@@ -671,7 +673,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\PtExtend\BaseSCJson.cpp" />
+    <ClCompile Include="..\PtExtend\DevCamera.cpp" />
     <ClCompile Include="..\PtExtend\DevCashReader.cpp" />
+    <ClCompile Include="..\PtExtend\DevPrinter.cpp" />
     <ClCompile Include="..\PtExtend\SerialPort.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>

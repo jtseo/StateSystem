@@ -379,6 +379,8 @@ int BaseTextEditor::updateSearch_formatIf()
 
 int BaseTextEditor::updateAdd_formatF()
 {
+    if (m_updatefileWrite == NULL)
+        return 0;
     STLString add_str = paramFormatGet();
     m_updatefileWrite->write_asc_string(add_str.c_str(), 0);
     m_updatefileWrite->write_asc_line();
@@ -388,27 +390,27 @@ int BaseTextEditor::updateAdd_formatF()
 int BaseTextEditor::updateEnd_nF()
 {
     STLString buff;
-	if(m_updatefileRead)
-	{
-		while(m_updatefileRead->read_asc_line())
-		{
-			buff = m_updatefileRead->read_asc_str();
-			
-			m_updatefileWrite->write_asc_string(buff.c_str(), 0);
-			m_updatefileWrite->write_asc_line();
-		}
-		
-		m_updatefileRead->CloseFile();
-		if (m_updatefileRead)
-			PT_OFree(m_updatefileRead);
-		m_updatefileRead = NULL;
-	}
+    if (!m_updatefileRead)
+        return 0;
 	
+    while(m_updatefileRead->read_asc_line())
+	{
+		buff = m_updatefileRead->read_asc_str();
+			
+		m_updatefileWrite->write_asc_string(buff.c_str(), 0);
+		m_updatefileWrite->write_asc_line();
+	}
+
     m_updatefileWrite->CloseFile();
     if (m_updatefileWrite)
         PT_OFree(m_updatefileWrite);
     m_updatefileWrite = NULL;
-    return 1;
+
+	m_updatefileRead->CloseFile();
+	if (m_updatefileRead)
+		PT_OFree(m_updatefileRead);
+	m_updatefileRead = NULL;
+	return 1;
 }
 
 int BaseTextEditor::classNameGet_varF()
@@ -508,12 +510,12 @@ int BaseTextEditor::_replaceString(STLString &_loading, STLString &_target, STLS
 	if (pos == STLString::npos)
 	{
 		out = _loading.substr(_pos, _loading.size() - _pos);
-		m_updatefileWrite->write_asc_string(out.c_str(), 0);
+		m_updatefileWrite->Write(out.c_str(), out.size());
 		return 0;
 	}else{
 		out = _loading.substr(_pos, pos - _pos);
 		out += _replace;
-		m_updatefileWrite->write_asc_string(out.c_str(), 0);
+		m_updatefileWrite->Write(out.c_str(), out.size());
 		if(_loading.size() > pos+_target.size())
 			return 1+_replaceString(_loading, _target, _replace, pos+_target.size());
 	}
@@ -670,7 +672,8 @@ int BaseTextEditor::definePathSet_varF()
 
 int BaseTextEditor::defineClassPathGet_varF()
 {
-	const char* path = "State/BaseStateClasses.define";
+    // it's will need to update for MacOS
+	const char* path = "../State/BaseStateClasses.define";
 	if(!paramVariableSet(path))
 		return 0;
 	return 1;
