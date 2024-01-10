@@ -24,3 +24,5 @@ BaseSCHttpD	support class
 BaseSCHttpDSession	support class
 BaseSCJson	support class
 DevCashReader	support class
+DevPrinter	support printer
+DevCamera	support class
