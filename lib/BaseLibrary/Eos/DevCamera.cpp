@@ -1,5 +1,32 @@
 ﻿#include "stdafx.h"
 
+#include <list>
+#include <vector>
+#include <map>
+#include <vector>
+#include <string>
+#include <deque>
+#include <queue>
+#include <set>
+#include <unordered_set>
+//#include <codecvt>
+
+#include <assert.h>
+#include <algorithm>
+//#include <objbase.h> 
+#include <afxwin.h>
+
+#include "../PtBase/base.h"
+
+#include "../PtBase/Vector3.h"
+#include "../PtBase/Matrix3.h"
+#include "../PtBase/Matrix4.h"
+
+#include "../PtBase/BaseObject.h"
+
+#include "../PtBase/hashstr.h"
+#include "../PtBase/BaseDStructure.h"
+
 #include "../PtBase/BaseStateFunc.h"
 #include "../PtBase/BaseObject.h"
 #include "../PtBase/BaseState.h"
@@ -15,6 +42,8 @@
 #include "../PtBase/BaseResManager.h"
 #include "../PtBase/BaseTime.h"
 #include "../PtBase/BaseStringTable.h"
+
+#include "CameraControl.h"
 
 PtObjectCpp(DevCamera);
 
@@ -49,7 +78,11 @@ int DevCamera::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, int _
 		//#SF_FuncRegistStart
 		//func_str = _class_name + ".text_info_cast_nF";	(*_func_hash)[Enumtext_info_cast_nF] = STRTOHASH(func_str.c_str());		BaseDStructure::processor_list_add(func_str.c_str(), _func, __FILE__, __LINE__);
 		//STDEF_SFREGIST(Open_varF);
-		//#SF_FuncRegistInsert
+		STDEF_SFREGIST(TakeAPicture_nF);
+		STDEF_SFREGIST(PreviewStart_nF);
+		STDEF_SFREGIST(PreviewStop_nF);
+		STDEF_SFREGIST(EventProcess_nF);
+        //#SF_FuncRegistInsert
 
 		return _size;
 	}
@@ -69,6 +102,7 @@ void DevCamera::init()
 
 void DevCamera::release()
 {
+	CCameraControlApp::Instance()->UnInitInstance();
 }
 
 BaseStateFuncEx* DevCamera::CreatorCallback(const void* _param)
@@ -91,6 +125,10 @@ int DevCamera::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		//#SF_FuncCallStart
 		if (m_func_hash == s_func_hash_a[Enum_ext_start])        return 0;
 		//STDEF_SFFUNCALL(Open_varF);
+		STDEF_SFFUNCALL(TakeAPicture_nF);
+		STDEF_SFFUNCALL(PreviewStart_nF);
+		STDEF_SFFUNCALL(PreviewStop_nF);
+		STDEF_SFFUNCALL(EventProcess_nF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -113,8 +151,50 @@ int DevCamera::Create()
 		return 0;
     //GroupLevelSet(0);
 
+	getCameraController()->run();
 
     return 1;
 }
 
+int DevCamera::TakeAPicture_nF()
+{
+	CameraController* ctr = getCameraController();
+	if (ctr == NULL)
+		return 0;
+
+	ActionEvent evt("TakePicture");
+	ctr->actionPerformed(evt);
+
+	return 1;
+}
+
+int DevCamera::PreviewStart_nF()
+{
+	CameraController* ctr = getCameraController();
+	if (ctr == NULL)
+		return 0;
+
+	ActionEvent evt("startEVF");
+	ctr->actionPerformed(evt);
+	return 1;
+}
+
+int DevCamera::PreviewStop_nF()
+{
+	CameraController* ctr = getCameraController();
+	if (ctr == NULL)
+		return 0;
+
+	ActionEvent evt("endEVF");
+	ctr->actionPerformed(evt);
+	return 1;
+}
+
+int DevCamera::EventProcess_nF()
+{
+	//PeekMessage(&msg, NULL, 0, 0, PM_REMOVE);
+	AfxPumpMessage();
+
+	return 1;
+}
 //#SF_functionInsert

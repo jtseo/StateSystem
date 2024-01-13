@@ -591,7 +591,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\PtExtend\BaseSCJson.h" />
-    <ClInclude Include="..\PtExtend\DevCamera.h" />
     <ClInclude Include="..\PtExtend\DevCashReader.h" />
     <ClInclude Include="..\PtExtend\DevPrinter.h" />
     <ClInclude Include="..\PtExtend\SerialPort.h" />
@@ -673,7 +672,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\PtExtend\BaseSCJson.cpp" />
-    <ClCompile Include="..\PtExtend\DevCamera.cpp" />
     <ClCompile Include="..\PtExtend\DevCashReader.cpp" />
     <ClCompile Include="..\PtExtend\DevPrinter.cpp" />
     <ClCompile Include="..\PtExtend\SerialPort.cpp">

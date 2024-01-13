@@ -67,6 +67,16 @@ DevPrinter::~DevPrinter()
 void DevPrinter::init()
 {
 	BaseStateFunc::init();
+
+
+	DevPrinter devPrint;
+
+	// Example: Load a bitmap from a file
+	//HBITMAP hBitmap = (HBITMAP)LoadImage(NULL, "test.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+	//devPrint.Print("Microsoft Print to PDF", 0, hBitmap);
+	//devPrint.Print("DS-RX1 (1 복사)", 1, hBitmap);
+	//devPrint.Print("DS-RX1", 1, hBitmap);
+
 }
 
 void DevPrinter::release()
@@ -132,3 +142,4 @@ int DevPrinter::NameSet_strF()
 }
 
 //#SF_functionInsert
+
