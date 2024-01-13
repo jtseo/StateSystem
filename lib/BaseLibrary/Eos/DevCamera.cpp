@@ -198,3 +198,18 @@ int DevCamera::EventProcess_nF()
 	return 1;
 }
 //#SF_functionInsert
+
+void DevCamera::EventCastPicture(CameraEvent* _evt)
+{
+
+}
+
+void DevCamera::EventCastPreview(CameraEvent* _evt)
+{
+
+}
+
+void DevCamera::EventCastProperty(CameraEvent* _evt)
+{
+
+}
