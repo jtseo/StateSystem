@@ -3,3 +3,5 @@ L_SS_LC	TakeAPicture_nF	INT32		auto added
 L_SS_LC	PreviewStart_nF	INT32		auto added
 L_SS_LC	PreviewStop_nF	INT32		auto added
 L_SS_LC	EventProcess_nF	INT32		auto added
+L_SS_LC	EventCastEnale_nF	INT32		auto added
+L_SS_LC	TextImageCast_nF	INT32		auto added

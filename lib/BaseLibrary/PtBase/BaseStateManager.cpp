@@ -277,6 +277,8 @@ int BaseStateManagerLogic::init(void *_applet)
 {	
 	int	nRet=0;
 	
+	m_thread_index = mpool_get().thread_index_get();
+
 	static int	s_iId = 0;
 	if(s_iId == 0)
 	{
@@ -780,7 +782,7 @@ void BaseStateManagerLogic::push_event(BaseDStructureValue *_pdstEvent, int _pri
 #endif
 	m_eventManager_p->push_event(_pdstEvent, _priority_n);
 	
-	if(m_queueAccessLock.size_data() == 0)
+	if(m_queueAccessLock.size_data() == 0 && mpool_get().thread_current_check(m_thread_index))
 		OnUpdate(0);
 }
 

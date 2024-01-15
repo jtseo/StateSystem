@@ -189,6 +189,7 @@ protected:
 	unsigned		m_nTimeCur;
 	unsigned		m_nTimeEventSequence;
 	bool			m_eventSkip_b;
+	int				m_thread_index;
 
 	STLVpStateSpace	m_stlVpStateSpace;
 public:

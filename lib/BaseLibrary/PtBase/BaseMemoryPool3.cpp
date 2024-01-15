@@ -713,7 +713,7 @@ bool BaseMemoryPoolSingle::free_add(void *_point)
 		return false;
 	}
 #ifdef _DEBUG
-	observe_check(_point);
+	//observe_check(_point);
 #endif
 	return m_queueFree.push(_point);
 }
@@ -917,6 +917,24 @@ bool	BaseMemoryPoolMultiThread::thread_main_check()
 	return false;
 }
 
+int BaseMemoryPoolMultiThread::thread_index_get()
+{
+	BaseMemoryPoolSingle* pPoolSingle = NULL;
+	pPoolSingle = (BaseMemoryPoolSingle*)TlsGetValue(s_dwTlsIndex);// 쓰레드별 메모리 풀이 따로 있다.
+
+	return pPoolSingle->index_get();
+}
+
+bool BaseMemoryPoolMultiThread::thread_current_check(int _thread)
+{
+	BaseMemoryPoolSingle* pPoolSingle = NULL;
+	pPoolSingle = (BaseMemoryPoolSingle*)TlsGetValue(s_dwTlsIndex);// 쓰레드별 메모리 풀이 따로 있다.
+
+	if(_thread == pPoolSingle->index_get())
+		return true;
+	return false;
+}
+
 INT32 BaseMemoryPoolMultiThread::memory_total_size()
 {
 	return sm_memory_total_size;
@@ -1008,7 +1026,8 @@ void *BaseMemoryPoolMultiThread::malloc(size_t _nSize, const char *_strFileName,
 	static char s_strBuf[255];
 	static char s_nLineCnt;
 	char *pRet	= (char*)pPoolSingle->malloc(_nSize, _strFileName, _nLine);
-	
+	//if(_nSize > 3024000)
+	//	pPoolSingle->observe_push(pRet);
 	s_nLineCnt	= _nLine;
 	strcpy(s_strBuf, _strFileName);
 #else
@@ -1196,6 +1215,34 @@ void BaseMemoryPoolMultiThread::display_info()
 	}
 }
 
+INT64 BaseMemoryPoolMultiThread::get_alloc(int _size)
+{
+	if (_size == 0)
+		return 0;
+
+	char* buf = PT_Alloc(char, _size+4);
+	*((int*)buf) = _size;
+	INT64 ref = (INT64)(buf+4);
+	return ref;
+}
+
+void* BaseMemoryPoolMultiThread::get_mem(INT64 _ref, int* _size)
+{
+	if (_ref == 0)
+		return NULL;
+	char* buf = (char*)_ref;
+	*_size = *((int*)(buf - 4));
+	return buf;
+}
+
+void BaseMemoryPoolMultiThread::free_mem(INT64 _ref)
+{
+	if (_ref == 0)
+		return;
+	char* buf = (char*)_ref;
+	buf -= 4;
+	PT_Free(buf);
+}
 
 void BaseMemoryPoolMultiThread::auto_free(void *_point)
 {

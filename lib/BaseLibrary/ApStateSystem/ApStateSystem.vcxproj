@@ -137,7 +137,7 @@
       <AdditionalLibraryDirectories>../../SDK/lib</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(OutDir)$(TargetName)$(TargetExt)" "../../VScriptEditor/VScriptEditor_Data/Plugins/x86_64"</Command>
+      <Command>copy "$(OutDir)$(TargetName)$(TargetExt)" "C:\projects\photobooth\UnitTest/photobooth_Data/Plugins/x86_64"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

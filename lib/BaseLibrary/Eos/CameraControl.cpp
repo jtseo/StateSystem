@@ -24,6 +24,38 @@
 #include "Camera/CameraEventListener.h"
 #include "CameraControl.h"
 
+
+#include <list>
+#include <vector>
+#include <map>
+#include <vector>
+#include <string>
+#include <deque>
+#include <queue>
+#include <set>
+#include <unordered_set>
+//#include <codecvt>
+
+#include <assert.h>
+#include <algorithm>
+#include <afxwin.h>
+#include <atlimage.h>
+
+#include "../PtBase/base.h"
+
+#include "../PtBase/Vector3.h"
+#include "../PtBase/Matrix3.h"
+#include "../PtBase/Matrix4.h"
+
+#include "../PtBase/BaseObject.h"
+
+#include "../PtBase/hashstr.h"
+
+#include "../PtBase/BaseDStructure.h"
+#include "../PtBase/BaseState.h"
+#include "../PtBase/BaseStateManager.h"
+
+
 #include <Windows.h>
 
 #ifdef _DEBUG
@@ -49,7 +81,11 @@ CCameraControlApp* CCameraControlApp::Instance()
 // CCameraControlApp initialization
 BOOL CCameraControlApp::InitInstance()
 {
-
+	_controller = NULL;
+	_model = NULL;
+	m_refAlloc = 0;
+	m_eventCastEnable = true;
+	m_active = false;
 	EdsError	 err = EDS_ERR_OK;
 	EdsCameraListRef cameraList = NULL;
 	EdsUInt32	 count = 0;
@@ -126,7 +162,7 @@ BOOL CCameraControlApp::InitInstance()
 		//CCameraControlDlg			view;
 		
 		_controller->setCameraModel(_model);
-		//_model->addObserver(&view);
+		_model->addObserver(this);
 		// Send Model Event to view	
 		//view.setCameraController(_controller);
 
@@ -187,8 +223,152 @@ void CCameraControlApp::UnInitInstance()
 		_controller = NULL;
 	}
 
+	if (m_refAlloc)
+		mpool_get().free_mem(m_refAlloc);
+	m_refAlloc = 0;
+	ms_instance = NULL;
 }
 
+void CCameraControlApp::update(Observable* from, CameraEvent* e)
+{
+	EventCastPicture(e);
+	EventCastPreview(e);
+	EventCastProperty(e);
+}
+
+void CCameraControlApp::EventCastPicture(CameraEvent* _evt)
+{
+
+}
+
+#include <atlimage.h>
+#include <vector>
+
+std::vector<unsigned char> ExtractImageData(CImage& image, int _scale)
+{
+	// Prepare the container for the image data
+	std::vector<unsigned char> imageData;
+
+	// Ensure the image is not compressed and is in a 24 or 32-bit format
+	if (image.GetBPP() != 24 && image.GetBPP() != 32)
+	{
+		return imageData;
+	}
+	
+	int width = image.GetWidth();
+	int height = image.GetHeight();
+	int pitch = image.GetPitch() * -1;
+	int bytesPerPixel = image.GetBPP() / 8;
+
+	unsigned char* rawData = (unsigned char*)image.GetBits();
+
+	int step = _scale;
+	for (int y = 0; y < height; y+=step)
+	{
+		for (int x = 0; x < width; x+=step)
+		{
+			COLORREF col = image.GetPixel(x, y); // r, g, b, a
+			imageData.push_back(GetRValue(col));
+			imageData.push_back(GetGValue(col));
+			imageData.push_back(GetBValue(col));
+			imageData.push_back(255);
+		}
+	}
+
+	return imageData;
+}
+
+#include "../PtBase/BaseFile.h"
+
+void CCameraControlApp::EventCastPreview(CameraEvent* _evt)
+{
+	std::string event = _evt->getEvent();
+
+	if (event == "EvfDataChanged")
+	{
+		EVF_DATASET data = *static_cast<EVF_DATASET*>(_evt->getArg());
+
+		//EdsInt32 propertyID = kEdsPropID_FocusInfo;
+		//fireEvent("get_Property", &propertyID);
+		EdsUInt64 size;
+
+		unsigned char* pbyteImage = NULL;
+
+		// Get image (JPEG) pointer.
+		EdsGetPointer(data.stream, (EdsVoid**)&pbyteImage);
+
+		if (pbyteImage != NULL && m_eventCastEnable)
+		{
+			EdsGetLength(data.stream, &size);
+
+			int scale = 1;
+			//std::vector<unsigned char> raw = ExtractImageData(image, scale);
+			int w = 960;// image.GetWidth() / scale;
+			int h = 640;// image.GetHeight() / scale;
+
+			BaseStateManager* manager = BaseStateManager::get_manager();
+			BaseDStructureValue* evt = manager->make_event_state(STRTOHASH("CamRevPreview"));
+			if (m_refAlloc != 0)
+				mpool_get().free_mem(m_refAlloc);
+			m_refAlloc = mpool_get().get_alloc(size);
+			char* buf = (char*)m_refAlloc;
+			memcpy(buf, pbyteImage, size);
+			evt->set_alloc("MemRef_nV", &m_refAlloc);
+			evt->set_alloc("ImageHeight_nV", &h);
+			evt->set_alloc("ImageWidth_nV", &w);
+
+			m_eventCastEnable = false;
+			manager->post_event(evt);
+		}
+
+		CameraController* ctr = getCameraController();
+		if (ctr == NULL)
+			return;
+		// Download image data.
+		ActionEvent evt("downloadEVF");
+		ctr->actionPerformed(evt);
+	}
+}
+
+void CCameraControlApp::EventCastEnable() 
+{
+	m_eventCastEnable = true;
+}
+
+void CCameraControlApp::EventCastProperty(CameraEvent* _evt)
+{
+	// it's in thread
+	std::string event = _evt->getEvent();
+
+	if (event == "PropertyChanged")
+	{
+		EdsInt32 proeprtyID = *static_cast<EdsInt32*>(_evt->getArg());
+		if (proeprtyID == kEdsPropID_Evf_OutputDevice)
+		{
+			CameraModel* model = getCameraModel();
+			EdsUInt32 device = model->getEvfOutputDevice();
+
+			CameraController* ctr = getCameraController();
+			if (ctr == NULL)
+				return;
+
+			// PC live view has started.
+			if (!m_active && (device & kEdsEvfOutputDevice_PC) != 0)
+			{
+				m_active = TRUE;
+				// Start download of image data.
+				ActionEvent evt("downloadEVF");
+				ctr->actionPerformed(evt);
+			}
+
+			// PC live view has ended.
+			if (m_active && (device & kEdsEvfOutputDevice_PC) == 0)
+			{
+				m_active = FALSE;
+			}
+		}
+	}
+}
 
 CameraModel* cameraModelFactory(EdsCameraRef camera, EdsDeviceInfo deviceInfo)
 {

@@ -179,6 +179,8 @@ public:
 	static void hold_shutdown_dec();
 	bool	thread_main_check();
 	void	thread_main_set();
+	static int thread_index_get();
+	static bool thread_current_check(int _thread);
 
 	static INT32 memory_total_size();
 	static INT32	sm_memory_total_size;
@@ -194,6 +196,10 @@ public:
 	void auto_free(void *_point);
 	void auto_ofree(void *_point);
 	void auto_update();
+
+	INT64 get_alloc(int _size);
+	void* get_mem(INT64 _ref, int *_size);
+	void free_mem(INT64 _ref);
 protected:
 	// ------------------------ end of auto free
 };

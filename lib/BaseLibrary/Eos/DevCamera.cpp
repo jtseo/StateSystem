@@ -66,7 +66,6 @@ int DevCamera::GetObjectId()
 DevCamera::DevCamera()
 {
 	m_nObjectId = GetObjectId();
-
 	StateFuncRegist(s_class_name, &s_func_hash_a, EnumExtentionMax, DevCamera::FunctionProcessor);
 }
 
@@ -82,6 +81,8 @@ int DevCamera::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, int _
 		STDEF_SFREGIST(PreviewStart_nF);
 		STDEF_SFREGIST(PreviewStop_nF);
 		STDEF_SFREGIST(EventProcess_nF);
+		STDEF_SFREGIST(EventCastEnale_nF);
+		STDEF_SFREGIST(TextImageCast_nF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -102,6 +103,13 @@ void DevCamera::init()
 
 void DevCamera::release()
 {
+	CameraController* ctr = getCameraController();
+	if (ctr == NULL)
+		return;
+
+	ActionEvent evt("closing");
+	ctr->actionPerformed(evt);
+
 	CCameraControlApp::Instance()->UnInitInstance();
 }
 
@@ -129,6 +137,8 @@ int DevCamera::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		STDEF_SFFUNCALL(PreviewStart_nF);
 		STDEF_SFFUNCALL(PreviewStop_nF);
 		STDEF_SFFUNCALL(EventProcess_nF);
+		STDEF_SFFUNCALL(EventCastEnale_nF);
+		STDEF_SFFUNCALL(TextImageCast_nF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -151,7 +161,9 @@ int DevCamera::Create()
 		return 0;
     //GroupLevelSet(0);
 
-	getCameraController()->run();
+	CameraController* camCtr = getCameraController();
+	if(camCtr)
+		camCtr->run();
 
     return 1;
 }
@@ -190,6 +202,8 @@ int DevCamera::PreviewStop_nF()
 	return 1;
 }
 
+#include "../PtBase/BaseFile.h"
+
 int DevCamera::EventProcess_nF()
 {
 	//PeekMessage(&msg, NULL, 0, 0, PM_REMOVE);
@@ -197,19 +211,36 @@ int DevCamera::EventProcess_nF()
 
 	return 1;
 }
+
+int DevCamera::EventCastEnale_nF()
+{
+	CCameraControlApp::Instance()->EventCastEnable();
+	return 1;
+}
+
+int DevCamera::TextImageCast_nF()
+{
+	if (m_refAlloc)
+		mpool_get().free_mem(m_refAlloc);
+
+	BaseFile file;
+	if (file.OpenFile("C:\\projects\\photobooth\\prevew.jpg", BaseFile::OPEN_READ))
+		return 0;
+	int size = file.get_size_file();
+	m_refAlloc = mpool_get().get_alloc(size);
+	file.Read((void*)m_refAlloc, size);
+	file.CloseFile();
+
+	int w = 960, h = 640;
+
+	BaseStateManager* manager = BaseStateManager::get_manager();
+	BaseDStructureValue* evt = manager->make_event_state(STRTOHASH("CamRevPreview"));
+	evt->set_alloc("MemRef_nV", &m_refAlloc);
+	evt->set_alloc("ImageHeight_nV", &h);
+	evt->set_alloc("ImageWidth_nV", &w);
+
+	manager->post_event(evt);
+
+	return 1;
+}
 //#SF_functionInsert
-
-void DevCamera::EventCastPicture(CameraEvent* _evt)
-{
-
-}
-
-void DevCamera::EventCastPreview(CameraEvent* _evt)
-{
-
-}
-
-void DevCamera::EventCastProperty(CameraEvent* _evt)
-{
-
-}

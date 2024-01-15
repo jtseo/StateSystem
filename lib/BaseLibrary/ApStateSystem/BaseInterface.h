@@ -21,6 +21,7 @@ extern "C" DLLEXPORT void manager_weakup(void *_pManager);
 extern "C" DLLEXPORT char *static_translate(const char *_str);
 extern "C" DLLEXPORT void *static_variable_make_string(void *_pdsvBase, void *_pdsvEvent, void *_pdsvContext, const char *_strFormat);
 extern "C" DLLEXPORT int static_variable_param_int_get(void *_pdsvBase, void *_pdsvEvent, void *_pdsvContext, int _nSeq, void *_pdsvDefault);
+extern "C" DLLEXPORT INT64 static_variable_param_int64_get(void *_pdsvBase, void *_pdsvEvent, void *_pdsvContext, int _nSeq, void *_pdsvDefault);
 extern "C" DLLEXPORT char *static_variable_param_string_get(void *_pdsvBase, void *_pdsvEvent, void *_pdsvContext, int _nSeq, void *_pdsvDefault);
 
 extern "C" DLLEXPORT bool static_variable_param_void_set(void* _pdsvBase, void* _pdsvEvent, void* _pdsvContext, int _nSeq, void* _pdsvDefault, const void* _void_p, int _cnt);
@@ -83,6 +84,8 @@ extern "C" DLLEXPORT bool dsv_set_float_array(void* _pdst, const char* _strColNa
 extern "C" DLLEXPORT bool dsv_set_void(void* _pdst, int _hash, const void *_pValue, INT32 _nCount);
 extern "C" DLLEXPORT bool dsv_get_int2(void *_pdst, int _nHash, INT32 *_pnLong);
 extern "C" DLLEXPORT bool dsv_get_int(void *_pdst, const char *_strColName, INT32 *_pnInt);
+extern "C" DLLEXPORT bool dsv_get_int64(void *_pdst, const char *_strColName, INT64 *_pnInt);
+extern "C" DLLEXPORT bool dsv_get_int642(void *_pdst, int _key, INT64 *_pnInt);
 extern "C" DLLEXPORT bool dsv_get_int_array(void *_pdst, const char *_strColName, const INT32 **_ppnIntArray, INT32 *_pnCount);
 extern "C" DLLEXPORT bool dsv_set_ptr(void * _pdst, int _hash, void *_pPtr, int _cnt);
 extern "C" DLLEXPORT bool dsv_set_int(void *_pdst, const char *_strColName, INT32 _nValue);
@@ -113,6 +116,10 @@ extern "C" DLLEXPORT void* dsv_copy_get(void* _dsv_p);
 extern "C" DLLEXPORT void dsv_delete(void *_dsv_p);
 extern "C" DLLEXPORT void * dsv_event_group_make(void *_dsv_p, int _evt, int _groupId, int _id);
 extern "C" DLLEXPORT void dsv_group_id_set(void* _dsv_p, int _groupId, int _id);
+
+extern "C" DLLEXPORT INT64 g_get_alloc(int _nCnt, const char *_data);
+extern "C" DLLEXPORT void* g_get_ldata(INT64 _nRef, int* _pnCnt);
+extern "C" DLLEXPORT void g_free_data(INT64 _nRef);
 
 extern "C" DLLEXPORT void *dst_create();
 extern "C" DLLEXPORT void dst_delete(void *_pdst);

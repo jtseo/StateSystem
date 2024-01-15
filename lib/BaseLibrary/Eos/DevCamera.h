@@ -14,6 +14,8 @@ class DevCamera :
         STDEF_SFENUM(PreviewStart_nF),
         STDEF_SFENUM(PreviewStop_nF),
         STDEF_SFENUM(EventProcess_nF),
+        STDEF_SFENUM(EventCastEnale_nF),
+        STDEF_SFENUM(TextImageCast_nF),
         //#SF_EnumInsert
         EnumExtentionMax
     };
@@ -30,14 +32,13 @@ public:
     int PreviewStart_nF();
     int PreviewStop_nF();
     int EventProcess_nF();
+    int EventCastEnale_nF();
+    int TextImageCast_nF();
     //#SF_FuncHeaderInsert
 
-    // User defin area from here
-    void EventCastPicture(CameraEvent* _evt);
-    void EventCastPreview(CameraEvent* _evt);
-    void EventCastProperty(CameraEvent* _evt);
 protected:
     // support for text analysis
+    INT64 m_refAlloc;
 public:
 protected:
 };

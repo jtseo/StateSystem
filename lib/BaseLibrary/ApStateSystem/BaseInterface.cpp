@@ -506,6 +506,26 @@ bool dsv_get_int2(void* _pdst, int _nHash, INT32* _pnLong)
 	return false;
 }
 
+bool dsv_get_int642(void* _pdst, int _key, INT64* _pnInt)
+{
+	BaseDStructureValue* pdst = ((BaseDStructureValue*)_pdst);
+	const void* data;
+	if (pdst->get_local_seq(_key, &data))
+	{
+		*_pnInt = *((INT64*)data);
+		return true;
+	}
+	return false;
+}
+
+bool dsv_get_int64(void* _pdst, const char* _strColName, INT64* _pnInt)
+{
+	BaseDStructureValue* pdst = ((BaseDStructureValue*)_pdst);
+	if (pdst->get_local_seq(_strColName, ((void*)_pnInt)))
+		return true;
+	return false;
+}
+
 bool dsv_get_int(void* _pdst, const char* _strColName, INT32* _pnInt)
 {
 	BaseDStructureValue* pdst = ((BaseDStructureValue*)_pdst);
@@ -667,6 +687,14 @@ void* static_variable_make_string(void* _pdsvBase, void* _pdsvEvent, void* _pdsv
 	BaseState::VariableStringMake((const BaseDStructureValue*)_pdsvBase, (BaseDStructureValue*)_pdsvContext, (BaseDStructureValue*)_pdsvEvent, ret, 4096);
 	PT_AFree(ret);
 	return ret;
+}
+
+INT64 static_variable_param_int64_get(void* _pdsvBase, void* _pdsvEvent, void* _pdsvContext, int _nSeq, void* _pdsvDefault)
+{
+	const INT64* nValue = (const INT64*)BaseState::VariableGet((const BaseDStructureValue*)_pdsvBase, (BaseDStructureValue*)_pdsvContext, (BaseDStructureValue*)_pdsvEvent, _nSeq, (BaseDStructureValue*)_pdsvDefault);
+	if (nValue == NULL)
+		return -999999;
+	return *nValue;
 }
 
 int static_variable_param_int_get(void* _pdsvBase, void* _pdsvEvent, void* _pdsvContext, int _nSeq, void* _pdsvDefault)
@@ -925,6 +953,24 @@ bool dsv_add_ldata(void* _pdst, const char* _strColName, const char* _data, int 
 		pdst->add_alloc(_strColName, (const void*)_data);
 	}
 	return true;
+}
+
+INT64 g_get_alloc(int _nCnt, const char* _data)
+{
+	INT64 ref = mpool_get().get_alloc(_nCnt);
+	if(ref != 0)
+		memcpy((void*)ref, _data, _nCnt);
+	return ref;
+}
+
+void* g_get_ldata(INT64 _nRef, int* _pnCnt)
+{
+	return mpool_get().get_mem(_nRef, _pnCnt);
+}
+
+void g_free_data(INT64 _nRef)
+{
+	mpool_get().free_mem(_nRef);
 }
 
 void* dsv_get_ldata(void* _pdst, INT32 _nKey, int* _pnCnt)
