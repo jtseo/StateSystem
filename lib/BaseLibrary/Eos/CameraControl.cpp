@@ -321,18 +321,19 @@ void CCameraControlApp::EventCastPreview(CameraEvent* _evt)
 			manager->post_event(evt);
 		}
 
-		CameraController* ctr = getCameraController();
-		if (ctr == NULL)
-			return;
-		// Download image data.
-		ActionEvent evt("downloadEVF");
-		ctr->actionPerformed(evt);
 	}
 }
 
 void CCameraControlApp::EventCastEnable() 
 {
 	m_eventCastEnable = true;
+
+	CameraController* ctr = getCameraController();
+	if (ctr == NULL)
+		return;
+	// Download image data.
+	ActionEvent evt("downloadEVF");
+	ctr->actionPerformed(evt);
 }
 
 void CCameraControlApp::EventCastProperty(CameraEvent* _evt)
