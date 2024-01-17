@@ -83,6 +83,7 @@ int DevCamera::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, int _
 		STDEF_SFREGIST(EventProcess_nF);
 		STDEF_SFREGIST(EventCastEnale_nF);
 		STDEF_SFREGIST(TextImageCast_nF);
+		STDEF_SFREGIST(PreviewRequest_nF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -110,7 +111,7 @@ void DevCamera::release()
 	ActionEvent evt("closing");
 	ctr->actionPerformed(evt);
 
-	CCameraControlApp::Instance()->UnInitInstance();
+	CCameraControl::Instance()->UnInitInstance();
 }
 
 BaseStateFuncEx* DevCamera::CreatorCallback(const void* _param)
@@ -139,6 +140,7 @@ int DevCamera::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		STDEF_SFFUNCALL(EventProcess_nF);
 		STDEF_SFFUNCALL(EventCastEnale_nF);
 		STDEF_SFFUNCALL(TextImageCast_nF);
+		STDEF_SFFUNCALL(PreviewRequest_nF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -161,6 +163,7 @@ int DevCamera::Create()
 		return 0;
     //GroupLevelSet(0);
 
+	CCameraControl::Reset();
 	CameraController* camCtr = getCameraController();
 	if(camCtr)
 		camCtr->run();
@@ -188,11 +191,38 @@ int DevCamera::PreviewStart_nF()
 
 	ActionEvent evt("startEVF");
 	ctr->actionPerformed(evt);
+
+	m_stop_thread = false;
+	BaseSystem::createthread(update_, 0, this);
+	
 	return 1;
+}
+
+DEF_ThreadCallBack(DevCamera::update)
+//void __cdecl DevCamera::update(void *_pCam)
+{
+	PT_ThreadStart(THTYPE_CHARGE_RECEIVE);
+	DevCamera* pCam = (DevCamera*)_pParam;
+
+	mpool_get().hold_shutdown_inc();
+	do {
+		BaseSystem::Sleep(20);
+		//AfxPumpMessage();
+		MSG msg;
+		PeekMessage(&msg, NULL, 0, 0, PM_REMOVE);
+	} while (!pCam->stop_thread() && !mpool_get().is_terminated());
+
+	PT_ThreadEnd(THTYPE_CHARGE_RECEIVE);
+
+	mpool_get().hold_shutdown_dec();
+	BaseSystem::endthread();
+	//_endthread();
+	DEF_ThreadReturn;
 }
 
 int DevCamera::PreviewStop_nF()
 {
+	m_stop_thread = true;
 	CameraController* ctr = getCameraController();
 	if (ctr == NULL)
 		return 0;
@@ -202,45 +232,52 @@ int DevCamera::PreviewStop_nF()
 	return 1;
 }
 
+bool DevCamera::stop_thread()
+{
+	return m_stop_thread;
+}
+
 #include "../PtBase/BaseFile.h"
 
 int DevCamera::EventProcess_nF()
 {
 	//PeekMessage(&msg, NULL, 0, 0, PM_REMOVE);
-	AfxPumpMessage();
+	//AfxPumpMessage();
 
 	return 1;
 }
 
 int DevCamera::EventCastEnale_nF()
 {
-	CCameraControlApp::Instance()->EventCastEnable();
+	CCameraControl::Instance()->EventCastEnable();
 	return 1;
 }
 
 int DevCamera::TextImageCast_nF()
 {
-	if (m_refAlloc)
-		mpool_get().free_mem(m_refAlloc);
-
 	BaseFile file;
 	if (file.OpenFile("C:\\projects\\photobooth\\prevew.jpg", BaseFile::OPEN_READ))
 		return 0;
 	int size = file.get_size_file();
-	m_refAlloc = mpool_get().get_alloc(size);
-	file.Read((void*)m_refAlloc, size);
+	INT64 refAlloc = mpool_get().get_alloc(size);
+	file.Read((void*)refAlloc, size);
 	file.CloseFile();
 
 	int w = 960, h = 640;
 
 	BaseStateManager* manager = BaseStateManager::get_manager();
 	BaseDStructureValue* evt = manager->make_event_state(STRTOHASH("CamRevPreview"));
-	evt->set_alloc("MemRef_nV", &m_refAlloc);
+	evt->set_alloc("MemRef_nV", &refAlloc);
 	evt->set_alloc("ImageHeight_nV", &h);
 	evt->set_alloc("ImageWidth_nV", &w);
 
 	manager->post_event(evt);
 
+	return 1;
+}
+int DevCamera::PreviewRequest_nF()
+{
+	CCameraControl::Instance()->PreviewRequest();
 	return 1;
 }
 //#SF_functionInsert

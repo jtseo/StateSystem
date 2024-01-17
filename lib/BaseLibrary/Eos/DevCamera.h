@@ -16,6 +16,7 @@ class DevCamera :
         STDEF_SFENUM(EventProcess_nF),
         STDEF_SFENUM(EventCastEnale_nF),
         STDEF_SFENUM(TextImageCast_nF),
+        STDEF_SFENUM(PreviewRequest_nF),
         //#SF_EnumInsert
         EnumExtentionMax
     };
@@ -34,12 +35,16 @@ public:
     int EventProcess_nF();
     int EventCastEnale_nF();
     int TextImageCast_nF();
+    int PreviewRequest_nF();
     //#SF_FuncHeaderInsert
 
 protected:
     // support for text analysis
-    INT64 m_refAlloc;
+
+    bool m_stop_thread;
+    static DEF_ThreadCallBack(update);
 public:
+    bool stop_thread();
 protected:
 };
 

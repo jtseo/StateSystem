@@ -65,25 +65,41 @@
 
 CameraModel* cameraModelFactory(EdsCameraRef camera, EdsDeviceInfo deviceInfo);
 
-CCameraControlApp* CCameraControlApp::ms_instance = NULL;
+CCameraControl* CCameraControl::ms_instance = NULL;
 
 
-CCameraControlApp* CCameraControlApp::Instance()
+CCameraControl::CCameraControl()
+{
+
+}
+
+CCameraControl::~CCameraControl()
+{
+	UnInitInstance();
+}
+
+void CCameraControl::Reset()
+{
+	if (ms_instance != NULL)
+		delete ms_instance;
+	ms_instance = NULL;
+}
+
+CCameraControl* CCameraControl::Instance()
 {
 	if (ms_instance == NULL)
 	{
-		ms_instance = new CCameraControlApp();
+		ms_instance = new CCameraControl();
 		ms_instance->InitInstance();
 	}
 
 	return ms_instance;
 }
 // CCameraControlApp initialization
-BOOL CCameraControlApp::InitInstance()
+BOOL CCameraControl::InitInstance()
 {
 	_controller = NULL;
 	_model = NULL;
-	m_refAlloc = 0;
 	m_eventCastEnable = true;
 	m_active = false;
 	EdsError	 err = EDS_ERR_OK;
@@ -194,7 +210,7 @@ BOOL CCameraControlApp::InitInstance()
 	return FALSE;
 }
 
-void CCameraControlApp::UnInitInstance()
+void CCameraControl::UnInitInstance()
 {
 
 	//Release Camera
@@ -223,23 +239,16 @@ void CCameraControlApp::UnInitInstance()
 		_controller = NULL;
 	}
 
-	if (m_refAlloc)
-		mpool_get().free_mem(m_refAlloc);
-	m_refAlloc = 0;
 	ms_instance = NULL;
 }
 
-void CCameraControlApp::update(Observable* from, CameraEvent* e)
+void CCameraControl::update(Observable* from, CameraEvent* e)
 {
 	EventCastPicture(e);
 	EventCastPreview(e);
 	EventCastProperty(e);
 }
 
-void CCameraControlApp::EventCastPicture(CameraEvent* _evt)
-{
-
-}
 
 #include <atlimage.h>
 #include <vector>
@@ -280,7 +289,27 @@ std::vector<unsigned char> ExtractImageData(CImage& image, int _scale)
 
 #include "../PtBase/BaseFile.h"
 
-void CCameraControlApp::EventCastPreview(CameraEvent* _evt)
+void CCameraControl::EventCastPicture(CameraEvent* _evt)
+{
+	std::string event = _evt->getEvent();
+
+	if (event == "DownloadComplete")
+	{
+		const char *filename = (const char*)_evt->getArg();
+
+		BaseStateManager* manager = BaseStateManager::get_manager();
+		BaseDStructureValue* evt = manager->make_event_state(STRTOHASH("CamRevPicture"));
+		evt->set_alloc("PicturePath_strV", (void*)filename);
+
+		manager->post_event(evt);
+	}
+}
+
+#include <opencv2/opencv.hpp>
+
+using namespace cv;
+
+void CCameraControl::EventCastPreview(CameraEvent* _evt)
 {
 	std::string event = _evt->getEvent();
 
@@ -300,20 +329,27 @@ void CCameraControlApp::EventCastPreview(CameraEvent* _evt)
 		if (pbyteImage != NULL && m_eventCastEnable)
 		{
 			EdsGetLength(data.stream, &size);
+			std::vector<uchar> jpgData;
+			jpgData.resize(size);
+			memcpy(&jpgData[0], pbyteImage, size);
 
+			Mat orgImg = imdecode(Mat(jpgData), IMREAD_COLOR);
+			Mat resizeImg;
+			
 			int scale = 1;
 			//std::vector<unsigned char> raw = ExtractImageData(image, scale);
 			int w = 960;// image.GetWidth() / scale;
 			int h = 640;// image.GetHeight() / scale;
 
+			resize(orgImg, resizeImg, Size(w / 2, h / 2));
+			imencode(".jpg", resizeImg, jpgData);
+
 			BaseStateManager* manager = BaseStateManager::get_manager();
 			BaseDStructureValue* evt = manager->make_event_state(STRTOHASH("CamRevPreview"));
-			if (m_refAlloc != 0)
-				mpool_get().free_mem(m_refAlloc);
-			m_refAlloc = mpool_get().get_alloc(size);
-			char* buf = (char*)m_refAlloc;
-			memcpy(buf, pbyteImage, size);
-			evt->set_alloc("MemRef_nV", &m_refAlloc);
+			INT64 ref = mpool_get().get_alloc((int)jpgData.size());
+			char* buf = (char*)ref;
+			memcpy(buf, &jpgData[0], jpgData.size());
+			evt->set_alloc("MemRef_nV", &ref);
 			evt->set_alloc("ImageHeight_nV", &h);
 			evt->set_alloc("ImageWidth_nV", &w);
 
@@ -321,13 +357,18 @@ void CCameraControlApp::EventCastPreview(CameraEvent* _evt)
 			manager->post_event(evt);
 		}
 
+		PreviewRequest();
+
 	}
 }
 
-void CCameraControlApp::EventCastEnable() 
+void CCameraControl::EventCastEnable() 
 {
 	m_eventCastEnable = true;
+}
 
+void CCameraControl::PreviewRequest()
+{
 	CameraController* ctr = getCameraController();
 	if (ctr == NULL)
 		return;
@@ -336,7 +377,7 @@ void CCameraControlApp::EventCastEnable()
 	ctr->actionPerformed(evt);
 }
 
-void CCameraControlApp::EventCastProperty(CameraEvent* _evt)
+void CCameraControl::EventCastProperty(CameraEvent* _evt)
 {
 	// it's in thread
 	std::string event = _evt->getEvent();

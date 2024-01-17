@@ -23,12 +23,12 @@ class DownloadCommand : public Command
 {
 private:
 	EdsDirectoryItemRef _directoryItem;
-
+	
 public:
 	DownloadCommand(CameraModel *model, EdsDirectoryItemRef dirItem) 
 			: _directoryItem(dirItem), Command(model){}
 
-
+	std::string	m_filename;
 	virtual ~DownloadCommand()
 	{
 		//Release item
@@ -66,6 +66,7 @@ public:
 		//Set Progress
 		if(err == EDS_ERR_OK)
 		{
+			m_filename = dirItemInfo.szFileName;
 			err = EdsSetProgressCallback(stream, ProgressFunc, kEdsProgressOption_Periodically, this);
 		}
 
@@ -99,7 +100,7 @@ public:
 		// Forwarding completion notification
 		if( err == EDS_ERR_OK)
 		{
-			CameraEvent e("DownloadComplete", &err);
+			CameraEvent e("DownloadComplete", (void*)m_filename.c_str());
 			_model->notifyObservers(&e);
 		}
 

@@ -6203,6 +6203,23 @@ STDEF_FUNC(BaseSystemTerminate_nF)
 	return 1;
 }
 
+STDEF_FUNC(BaseMemoryFree_varF)
+{
+	const int* hash;
+	STDEF_GETLOCAL_R(_pdsvBase, BaseMemoryFree_varF, hash);
+
+	STDEF_BaseState(state_p);
+	BaseDStructureValue* variable_pdsv = state_p->variable_get();
+	const INT64* refer;// = (const INT64*)BaseState::VariableGet(_pdsvBase, _pdsvContext, _pdsvEvent, 0, variable_pdsv);
+	if (!variable_pdsv->get(*hash, (const void**)&refer))
+		return 0;
+	if (!refer)
+		return 0;
+
+	mpool_get().free_mem(*refer);
+	return 1;
+}
+
 STDEF_FUNC(BaseEventPriorityUpdate_nF)
 {
 	const int* linkIndex_pn;

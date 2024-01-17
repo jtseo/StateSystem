@@ -21,9 +21,11 @@
 // CCameraControlApp:
 // CCameraControlApp dialog used for App About
 
-class CCameraControlApp : public Observer
+class CCameraControl : public Observer
 {
 public:
+	CCameraControl();
+	~CCameraControl();
 
 // Overrides
 public:
@@ -36,10 +38,12 @@ public:
 	friend CameraController* getController();
 	friend CameraModel* getModel();
 
-	static CCameraControlApp* Instance();
+	static CCameraControl* Instance();
+	static void Reset();
 	void EventCastEnable();
+	void PreviewRequest();
 private:
-	static CCameraControlApp* ms_instance;
+	static CCameraControl* ms_instance;
 	EdsCameraRef m_camera = NULL;
 	bool		 m_isSDKLoaded = false;
 
@@ -52,8 +56,7 @@ private:
 	void EventCastProperty(CameraEvent* _evt);
 	bool m_active;
 	bool m_eventCastEnable;
-	INT64 m_refAlloc = 0;
 };
 
-inline CameraController* getCameraController() {return CCameraControlApp::Instance()->_controller;}
-inline CameraModel* getCameraModel() {return CCameraControlApp::Instance()->_model;}
+inline CameraController* getCameraController() {return CCameraControl::Instance()->_controller;}
+inline CameraModel* getCameraModel() {return CCameraControl::Instance()->_model;}

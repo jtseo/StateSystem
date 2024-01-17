@@ -246,7 +246,10 @@ void BaseMemoryPoolBlock::increase_free_mem(const char* _filename, int _line)
 	}
 	INT32 nSizeAllocate;
 
-	nSizeAllocate	= m_nCountOfItem*2 - m_nCountOfItem;
+	if(m_nSizeOfItem > 500000 && m_nCountOfItem > 5)
+		nSizeAllocate = 5;
+	else
+		nSizeAllocate	= m_nCountOfItem*2 - m_nCountOfItem;
 	if(nSizeAllocate == 0)
 	{
 		nSizeAllocate	= m_nSizeInit;
@@ -1026,7 +1029,7 @@ void *BaseMemoryPoolMultiThread::malloc(size_t _nSize, const char *_strFileName,
 	static char s_strBuf[255];
 	static char s_nLineCnt;
 	char *pRet	= (char*)pPoolSingle->malloc(_nSize, _strFileName, _nLine);
-	//if(_nSize > 3024000)
+	//if(_nSize > 1024000)
 	//	pPoolSingle->observe_push(pRet);
 	s_nLineCnt	= _nLine;
 	strcpy(s_strBuf, _strFileName);
