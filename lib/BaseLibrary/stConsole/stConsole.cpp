@@ -59,11 +59,11 @@ int s_eventstack[10];
 #include "../PtExtend/SerialPort.h"
 #include "../PtExtend/DevCashReader.h"
 #include "../PtExtend/DevPrinter.h"
-#include "../Eos/DevCamera.h"
+//#include "../Eos/DevCamera.h"
 
 int main()
 {
-	DevCamera cam;
+	//DevCamera cam;
 	CSerialPort serial;
 	DevCashReader read;
 	DevPrinter prt;
@@ -151,30 +151,38 @@ STDEF_FUNC(TestclientFunc_nF)
 	if (*param_pn == 0)
 	{
 		BaseFile file;
-		file.OpenFile("dump.txt");
-
-		STLString str;
-		file.Read(&str);
-		
-		BaseDStructureValue* evt = pManager->make_event_state("PnIDS_TextCast");
-		dsv_add_string(evt, "TempString2_strV", str.c_str());
-
+		file.OpenFile("sample.jfif");
+		int size = file.get_size_file();
+		char* buf = PT_Alloc(char, size);
+		file.Read(buf, size);
 		file.CloseFile();
+
+		BaseDStructureValue* evt = pManager->make_event_state("PnIDS_TextCast");
+		evt->set_mass(STRTOHASH("SampleData"), buf, size);
+
 		pManager->post_event(evt);
+
+
+		evt = pManager->make_event_state("PnIDS_TextCast");
+		evt->set_mass(STRTOHASH("SampleData"), buf, size);
+
+		pManager->post_event(evt);
+
+		PT_Free(buf);
 	}
 	else {
 		BaseFile file;
-		file.OpenFile("dumpRev.txt", BaseFile::OPEN_WRITE);
+		file.OpenFile("sampleout.jfif", BaseFile::OPEN_WRITE);
 
 		STDEF_BaseState(state_p);
 		BaseDStructureValue* variable = state_p->variable_get();
-		
+
 		int size = 0;
-		const char* data = (const char*)dsv_get_string(variable, "TempString2_strV");
+		const char* data;
+		if (!variable->get_mass(STRTOHASH("SampleData"), (const void**)&data, &size))
+			return 0;
 		if (data != NULL)
 		{
-			size = (int)strlen(data);
-
 			file.Write(data, size);
 		}
 		file.CloseFile();

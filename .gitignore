@@ -61,3 +61,4 @@ lib/BaseLibrary/.DS_Store
 VScriptEditor/.vs
 VScriptEditor/.vsconfig
 lib/BaseLibrary/Eos/x64
+lib/BaseLibrary/PtBase/Debug
