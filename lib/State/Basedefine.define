@@ -639,3 +639,4 @@ L	BaseLinkIndex_nV	INT32		it's for link indexing(used by BaseEventPriorityUpdate
 L_SS_LC	BaseTimeGet_varF	INT32	EnumVariableDefine	get timeGetTime
 L	BasePos_v3	ARRAY_FLOAT		3D position 
 L	PnPosition_v3	ARRAY_FLOAT		pos
+L_SS_LC	BaseMemoryFree_varF	INT32	EnumVariableDefine	free memory by reference

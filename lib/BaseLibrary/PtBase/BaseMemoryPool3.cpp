@@ -188,8 +188,11 @@ void BaseMemoryPoolBlock::release()
 
 void *BaseMemoryPoolBlock::get_new_item(bool *_pbUpdate, const char *_filename, int _line)
 {
-	if(m_nCountAllocatedItem >= m_nCountOfItem)
-		increase_free_mem(_filename, _line);
+	if (m_nCountAllocatedItem >= m_nCountOfItem)
+	{
+		if (!increase_free_mem(_filename, _line))
+			return NULL;
+	}
 
 	char *pNextPoint	= *((char**)m_pPointAllocatable);
 	if(pNextPoint == 0 && m_nCountAllocatedItem < m_nCountOfItem)
@@ -234,7 +237,7 @@ bool BaseMemoryPoolBlock::is_init()
 	return true;
 }
 
-void BaseMemoryPoolBlock::increase_free_mem(const char* _filename, int _line)
+bool BaseMemoryPoolBlock::increase_free_mem(const char* _filename, int _line)
 {
 #ifdef _DEBUG
 	B_ASSERT(m_nPointNull < __MEMORYPOOL_SIZE_BLOCK);
@@ -273,6 +276,7 @@ void BaseMemoryPoolBlock::increase_free_mem(const char* _filename, int _line)
 				fprintf_s(pf, "from:%s, line:%d\n", _filename, _line);
 			fclose(pf);
 		}
+		return false;
 		//g_SendMessage(LOG_MSG_POPUP, "Memory fail to allocate %d, allocated cnt %d\n", m_nSizeOfItem, m_nCountAllocatedItem);
 	}
 
@@ -285,6 +289,7 @@ void BaseMemoryPoolBlock::increase_free_mem(const char* _filename, int _line)
 	m_pPointAllocatable	= m_paPullMemory[m_nPointNull];
 
 	m_nPointNull++;
+	return true;
 }
 
 void BaseMemoryPoolBlock::display_info()
@@ -606,6 +611,8 @@ void *BaseMemoryPoolSingle::malloc(size_t _nSize, const char *_strFileName, INT3
 
 	bbyte*pRet;
 	pRet	= (bbyte*)m_sMemoryLayer[nSizeShift].get_new_item(&m_bUpdate, _strFileName, _nLine);
+	if (!pRet)
+		return NULL;
 
 	*((INT32*)(pRet-4))	= (INT32)_nSize;
 	*((const unsigned char**)(pRet-12))	= (const unsigned char*)_strFileName;
@@ -1036,6 +1043,8 @@ void *BaseMemoryPoolMultiThread::malloc(size_t _nSize, const char *_strFileName,
 #else
 	char *pRet	= (char*)pPoolSingle->malloc(_nSize);
 #endif
+	if (!pRet)
+		return NULL;
 	
 	*((unsigned short*)(pRet-(SIZE_HEADER+SIZE_THREADID)))	= pPoolSingle->index_get(); // 할당된 메모리에 쓰레드 인덱스를 넣는다.
 	return (void*)pRet;

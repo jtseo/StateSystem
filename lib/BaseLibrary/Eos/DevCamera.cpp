@@ -84,6 +84,7 @@ int DevCamera::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, int _
 		STDEF_SFREGIST(EventCastEnale_nF);
 		STDEF_SFREGIST(TextImageCast_nF);
 		STDEF_SFREGIST(PreviewRequest_nF);
+		STDEF_SFREGIST(StreamFree_varF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -141,6 +142,7 @@ int DevCamera::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		STDEF_SFFUNCALL(EventCastEnale_nF);
 		STDEF_SFFUNCALL(TextImageCast_nF);
 		STDEF_SFFUNCALL(PreviewRequest_nF);
+		STDEF_SFFUNCALL(StreamFree_varF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -206,7 +208,7 @@ DEF_ThreadCallBack(DevCamera::update)
 
 	mpool_get().hold_shutdown_inc();
 	do {
-		BaseSystem::Sleep(20);
+		BaseSystem::Sleep(40);
 		//AfxPumpMessage();
 		MSG msg;
 		PeekMessage(&msg, NULL, 0, 0, PM_REMOVE);
@@ -259,25 +261,31 @@ int DevCamera::TextImageCast_nF()
 	if (file.OpenFile("C:\\projects\\photobooth\\prevew.jpg", BaseFile::OPEN_READ))
 		return 0;
 	int size = file.get_size_file();
-	INT64 refAlloc = mpool_get().get_alloc(size);
-	file.Read((void*)refAlloc, size);
+	//INT64 refAlloc = mpool_get().get_alloc(size);
+	//file.Read((void*)refAlloc, size);
 	file.CloseFile();
 
 	int w = 960, h = 640;
 
-	BaseStateManager* manager = BaseStateManager::get_manager();
-	BaseDStructureValue* evt = manager->make_event_state(STRTOHASH("CamRevPreview"));
-	evt->set_alloc("MemRef_nV", &refAlloc);
-	evt->set_alloc("ImageHeight_nV", &h);
-	evt->set_alloc("ImageWidth_nV", &w);
+	//BaseStateManager* manager = BaseStateManager::get_manager();
+	//BaseDStructureValue* evt = manager->make_event_state(STRTOHASH("CamRevPreview"));
+	//evt->set_alloc("MemRef_nV", &refAlloc);
+	//evt->set_alloc("ImageHeight_nV", &h);
+	//evt->set_alloc("ImageWidth_nV", &w);
 
-	manager->post_event(evt);
+	//manager->post_event(evt);
 
 	return 1;
 }
 int DevCamera::PreviewRequest_nF()
 {
 	CCameraControl::Instance()->PreviewRequest();
+	return 1;
+}
+
+int DevCamera::StreamFree_varF()
+{
+	CCameraControl::Instance()->StreamFree();
 	return 1;
 }
 //#SF_functionInsert

@@ -24,7 +24,6 @@
 #include "Camera/CameraEventListener.h"
 #include "CameraControl.h"
 
-
 #include <list>
 #include <vector>
 #include <map>
@@ -70,7 +69,6 @@ CCameraControl* CCameraControl::ms_instance = NULL;
 
 CCameraControl::CCameraControl()
 {
-
 }
 
 CCameraControl::~CCameraControl()
@@ -309,6 +307,17 @@ void CCameraControl::EventCastPicture(CameraEvent* _evt)
 
 using namespace cv;
 
+void CCameraControl::StreamFree()
+{
+	void* point = NULL;
+	do {
+		if (point)
+			PT_Free(point);
+		point = BaseCircleQueue::stream_get()->pop();
+		BaseCircleQueue::streamSize_get()->pop();
+	} while (point);
+}
+
 void CCameraControl::EventCastPreview(CameraEvent* _evt)
 {
 	std::string event = _evt->getEvent();
@@ -326,7 +335,7 @@ void CCameraControl::EventCastPreview(CameraEvent* _evt)
 		// Get image (JPEG) pointer.
 		EdsGetPointer(data.stream, (EdsVoid**)&pbyteImage);
 
-		if (pbyteImage != NULL && m_eventCastEnable)
+		if (pbyteImage != NULL && BaseCircleQueue::stream_get()->size_data() < 10)
 		{
 			EdsGetLength(data.stream, &size);
 			std::vector<uchar> jpgData;
@@ -344,19 +353,29 @@ void CCameraControl::EventCastPreview(CameraEvent* _evt)
 			resize(orgImg, resizeImg, Size(w / 2, h / 2));
 			imencode(".jpg", resizeImg, jpgData);
 
+			int imgS = jpgData.size();
+			
 			BaseStateManager* manager = BaseStateManager::get_manager();
 			BaseDStructureValue* evt = manager->make_event_state(STRTOHASH("CamRevPreview"));
-			INT64 ref = mpool_get().get_alloc((int)jpgData.size());
-			char* buf = (char*)ref;
+			char *buf = PT_Alloc(char, jpgData.size());
 			memcpy(buf, &jpgData[0], jpgData.size());
+
+			BaseCircleQueue::stream_get()->push(buf);
+			BaseCircleQueue::streamSize_get()->push((void*)imgS);
+			BaseFile file;
+			file.OpenFile("test.jpg", BaseFile::OPEN_WRITE);
+			file.Write(buf, imgS);
+			file.CloseFile();
+			INT64 ref = (INT64) buf;
 			evt->set_alloc("MemRef_nV", &ref);
+			evt->set_alloc("ImageSize_nV", &imgS);
 			evt->set_alloc("ImageHeight_nV", &h);
 			evt->set_alloc("ImageWidth_nV", &w);
 
-			m_eventCastEnable = false;
 			manager->post_event(evt);
 		}
 
+		BaseSystem::Sleep(50);
 		PreviewRequest();
 
 	}

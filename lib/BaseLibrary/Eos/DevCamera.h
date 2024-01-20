@@ -17,6 +17,7 @@ class DevCamera :
         STDEF_SFENUM(EventCastEnale_nF),
         STDEF_SFENUM(TextImageCast_nF),
         STDEF_SFENUM(PreviewRequest_nF),
+        STDEF_SFENUM(StreamFree_varF),
         //#SF_EnumInsert
         EnumExtentionMax
     };
@@ -36,6 +37,7 @@ public:
     int EventCastEnale_nF();
     int TextImageCast_nF();
     int PreviewRequest_nF();
+    int StreamFree_varF();
     //#SF_FuncHeaderInsert
 
 protected:

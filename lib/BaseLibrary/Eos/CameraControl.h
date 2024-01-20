@@ -18,8 +18,7 @@
 #include "Camera/CameraController.h"
 #include "Camera/CameraModel.h"
 
-// CCameraControlApp:
-// CCameraControlApp dialog used for App About
+class BaseCircleQueue;
 
 class CCameraControl : public Observer
 {
@@ -37,6 +36,7 @@ public:
 
 	friend CameraController* getController();
 	friend CameraModel* getModel();
+	void StreamFree();
 
 	static CCameraControl* Instance();
 	static void Reset();
@@ -56,6 +56,7 @@ private:
 	void EventCastProperty(CameraEvent* _evt);
 	bool m_active;
 	bool m_eventCastEnable;
+public:
 };
 
 inline CameraController* getCameraController() {return CCameraControl::Instance()->_controller;}

@@ -955,6 +955,24 @@ bool dsv_add_ldata(void* _pdst, const char* _strColName, const char* _data, int 
 	return true;
 }
 
+INT64 g_stream_get(INT64 _queue)
+{
+	if (_queue == 0)
+		return 0;
+
+	BaseCircleQueue* queue = (BaseCircleQueue*)_queue;
+
+	INT64 data = 0, last = 0;
+	do {
+		if (data && last)
+			g_free_data(last);
+		last = data;
+		data = (INT64)queue->pop();
+	} while (data);
+
+	return last;
+}
+
 INT64 g_get_alloc(int _nCnt, const char* _data)
 {
 	INT64 ref = mpool_get().get_alloc(_nCnt);
@@ -963,14 +981,29 @@ INT64 g_get_alloc(int _nCnt, const char* _data)
 	return ref;
 }
 
-void* g_get_ldata(INT64 _nRef, int* _pnCnt)
-{
-	return mpool_get().get_mem(_nRef, _pnCnt);
-}
-
 void g_free_data(INT64 _nRef)
 {
 	mpool_get().free_mem(_nRef);
+}
+
+void* g_get_ldata(INT64 _nRef, int* _pnCnt)
+{
+	if(!BaseCircleQueue::stream_get())
+		return NULL;
+
+	void *point = BaseCircleQueue::stream_get()->top();
+	int siz = (int)BaseCircleQueue::streamSize_get()->top();
+
+	while (BaseCircleQueue::stream_get()->size_data() > 1)
+	{
+		point = BaseCircleQueue::stream_get()->pop();
+		BaseCircleQueue::streamSize_get()->pop();
+		PT_Free(point);
+	}
+
+	*_pnCnt = (int) BaseCircleQueue::streamSize_get()->top();
+	return BaseCircleQueue::stream_get()->top();
+	//return mpool_get().get_mem(_nRef, _pnCnt);
 }
 
 void* dsv_get_ldata(void* _pdst, INT32 _nKey, int* _pnCnt)

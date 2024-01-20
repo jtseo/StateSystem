@@ -254,3 +254,20 @@ INT32 BaseCircleQueue::size_data()
 		return 0;
 	return (INT32)m_pnCountPushed->get();
 }
+
+BaseCircleQueue* BaseCircleQueue::ms_queue = NULL;
+BaseCircleQueue* BaseCircleQueue::stream_get()
+{
+	if (ms_queue == NULL)
+		ms_queue = new BaseCircleQueue(" stream ", 100);
+	return ms_queue;
+}
+
+BaseCircleQueue* ms_queueSize = NULL;
+BaseCircleQueue* BaseCircleQueue::streamSize_get()
+{
+
+	if (ms_queueSize == NULL)
+		ms_queueSize = new BaseCircleQueue(" stream ", 100);
+	return ms_queueSize;
+}

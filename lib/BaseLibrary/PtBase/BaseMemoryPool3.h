@@ -26,7 +26,7 @@ protected:
 	void *get_new_item(bool *_pbUpdate, const char* _filename, int _line);
 	void delete_item(void *_pItem);
 
-	void	increase_free_mem(const char* _filename, int _line);
+	bool	increase_free_mem(const char* _filename, int _line);
 	INT32		m_nSizeInit;
 	INT32		m_nSizeOfItem;
 	INT32		m_nCountOfItem;

@@ -25,6 +25,8 @@ public:
 	}
 	INT32 size_data();
 	static void qsleep(int _mili);
+
+	
 protected:
 #ifdef DEF_QLOCK
 	CRITICAL_SECTION	m_lock;
@@ -37,7 +39,11 @@ protected:
 	
 	UINT32				m_nSize;
 	void				**m_parrayQueue;
-	
+
+	static BaseCircleQueue* ms_queue;
+public:
+	static BaseCircleQueue *stream_get();
+	static BaseCircleQueue* streamSize_get();
 private:
 
 	char	m_strCalledPos[256];

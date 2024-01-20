@@ -29,6 +29,8 @@ extern "C" DLLEXPORT const void *static_variable_param_void_get(void* _pdsvBase,
 
 extern "C" DLLEXPORT int system_memory_alloc_size();
 
+extern "C" DLLEXPORT INT64 g_stream_get(INT64 _queue);
+
 extern "C" DLLEXPORT wchar_t *sys_towide(const char*_in, wchar_t*_out, int _size);
 extern "C" DLLEXPORT char* sys_toutf8(const wchar_t* _in, char* _out, int _size);
 
