@@ -46,9 +46,9 @@
             filePath = "ApStateSystem/StateManagerPnID.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "StateManagerPnID::manager_create()"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "StateManagerPnID::~StateManagerPnID()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -78,7 +78,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4957"
             endingLineNumber = "4957"
-            landmarkName = "BaseDStructureValue::logger_send(_event_index, _keyMain, _key, _state_serial, _link, _groupID_m, _event_serial)"
+            landmarkName = "BaseDStructureValue::variable_transit(_dsv_p)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -992,7 +992,7 @@ void* g_get_ldata(INT64 _nRef, int* _pnCnt)
 		return NULL;
 
 	void *point = BaseCircleQueue::stream_get()->top();
-	int siz = (int)BaseCircleQueue::streamSize_get()->top();
+	BaseCircleQueue::streamSize_get()->top();
 
 	while (BaseCircleQueue::stream_get()->size_data() > 1)
 	{
@@ -1001,7 +1001,8 @@ void* g_get_ldata(INT64 _nRef, int* _pnCnt)
 		PT_Free(point);
 	}
 
-	*_pnCnt = (int) BaseCircleQueue::streamSize_get()->top();
+	INT64 siz = (INT64)BaseCircleQueue::streamSize_get()->top();
+	*_pnCnt = (int)siz;
 	return BaseCircleQueue::stream_get()->top();
 	//return mpool_get().get_mem(_nRef, _pnCnt);
 }

@@ -10,7 +10,6 @@
 		C103ADBF264D6A6300704889 /* BaseSFuncDirectory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C103ADBC264D6A6300704889 /* BaseSFuncDirectory.cpp */; };
 		C104607A2644208D0077FB2A /* BaseTextEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C104606F2644208D0077FB2A /* BaseTextEditor.cpp */; };
 		C12501082AEDC08900AB0052 /* BaseSCCurl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12501032AEDC08900AB0052 /* BaseSCCurl.cpp */; };
-		C12501092AEDC08900AB0052 /* BaseSCCurl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12501032AEDC08900AB0052 /* BaseSCCurl.cpp */; };
 		C125010A2AEDC08900AB0052 /* BaseSCCurl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12501032AEDC08900AB0052 /* BaseSCCurl.cpp */; };
 		C12501122AEDDFAE00AB0052 /* BaseSCTcpSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12501102AEDDFAE00AB0052 /* BaseSCTcpSession.cpp */; };
 		C12501132AEDDFAE00AB0052 /* BaseSCTcpSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12501102AEDDFAE00AB0052 /* BaseSCTcpSession.cpp */; };
@@ -943,7 +942,6 @@
 				C12A331B2AB8959C0094D3E6 /* BaseTextEditorText.cpp in Sources */,
 				C12A33D02AB89FEB0094D3E6 /* BaseInterface.cpp in Sources */,
 				C12A335C2AB8959C0094D3E6 /* BaseStringTable.cpp in Sources */,
-				C12501092AEDC08900AB0052 /* BaseSCCurl.cpp in Sources */,
 				C12A33C32AB896880094D3E6 /* BaseJson.cpp in Sources */,
 				C12A32FD2AB8959C0094D3E6 /* Matrix4.cpp in Sources */,
 				C12A33662AB8959C0094D3E6 /* BaseTextEditor.cpp in Sources */,

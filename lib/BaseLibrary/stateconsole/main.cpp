@@ -174,7 +174,7 @@ int main(int argc, const char *argv[])
 #endif
 		//printf(".");
 		
-		if (s_mpool.is_terminated())
+		if (mpool_get().is_terminated())
 			return 1;
 
 		if (manager->system_terminate_check())

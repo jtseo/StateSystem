@@ -66,21 +66,25 @@ void StateManagerPnID::release_manager(bool _reset)
 #include "../PtBase/BaseTextEditor.h"
 #include "../PtBase/BaseTextEditorText.h"
 #include "../PtExtend/BaseSCJson.h"
+//#include "../PtBase/BaseSFParser.h"
+
+#ifdef _WIN32
 #include "../PtExtend/DevCashReader.h"
 #include "../PtExtend/DevPrinter.h"
 #include "../Eos/DevCamera.h"
-//#include "../PtBase/BaseSFParser.h"
+#endif
 
 StateManagerPnID::StateManagerPnID(void *_applet) :BaseStateManager(_applet)
 {
 	BaseSFuncDirectory dir;
 	BaseTextEditor te;
 	BaseSCJson json;
+	//BaseSFParser paser;
+#ifdef _WIN32
 	DevCashReader devRed;
 	DevPrinter devPrt;
 	DevCamera devCam;
-	//BaseSFParser paser;
-	
+#endif
 }
 
 void StateManagerPnID::set_root_path(const char *_strPath)
