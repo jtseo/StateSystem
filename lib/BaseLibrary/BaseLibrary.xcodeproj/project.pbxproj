@@ -1293,7 +1293,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"BASELIBRARY_EXPORTS=1",
 					"_MAC=1",
-					"_DEBUG=1",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = "/opt/homebrew/opt/mysql@5.7/include/mysql";
@@ -1310,7 +1309,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "\U001b\U001barm64";
+				VALID_ARCHS = arm64;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;

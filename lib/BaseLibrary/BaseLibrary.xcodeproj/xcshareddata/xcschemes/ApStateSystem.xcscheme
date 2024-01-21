@@ -30,20 +30,20 @@
       shouldAutocreateTestPlan = "YES">
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "YES"
-      customWorkingDirectory = "/Volumes/SamSSD 1/archipin/StateSystem/lib"
+      customWorkingDirectory = "/Volumes/SamSSD 1/oddeye/oddeyesoft/projects/photobooth"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
       <PathRunnable
          runnableDebuggingMode = "0"
-         BundleIdentifier = "com.oddeyesoft.VScriptEditor"
-         FilePath = "/Volumes/SamSSD 1/archipin/StateSystem/lib/VScriptEditor64.app">
+         BundleIdentifier = "com.DefaultCompany.2DProject"
+         FilePath = "/Volumes/SamSSD 1/oddeye/oddeyesoft/projects/photobooth/PhotoMac.app">
       </PathRunnable>
       <LocationScenarioReference
          identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
