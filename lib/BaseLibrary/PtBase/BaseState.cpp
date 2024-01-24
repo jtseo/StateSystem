@@ -6109,7 +6109,6 @@ STDEF_FUNC(BaseVariableFileLoad_astrF)
 	int hash = STRTOHASH(var_astr[0].c_str());
 
 	BaseFile file;
-
 	if (file.OpenFile(var_astr[1].c_str(), BaseFile::OPEN_READ))
 		return 0;
 
@@ -6120,6 +6119,7 @@ STDEF_FUNC(BaseVariableFileLoad_astrF)
 	file.Read(buff, size_n);
 
 	file.CloseFile();
+
 
 	int index = BaseDStructure::get_index(hash);
 

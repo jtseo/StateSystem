@@ -154,6 +154,8 @@ STDEF_FUNC(TestclientFunc_nF)
 		file.OpenFile("sample.jfif");
 		int size = file.get_size_file();
 		char* buf = PT_Alloc(char, size);
+		if (!buf)
+			return 0;
 		file.Read(buf, size);
 		file.CloseFile();
 

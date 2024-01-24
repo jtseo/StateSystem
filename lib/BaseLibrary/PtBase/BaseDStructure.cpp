@@ -4772,16 +4772,22 @@ int BaseDStructureValue::get_colum(int _nSequence)const
 }
 
 void* BaseDStructureValue::dump_make_space_(unsigned short _nSizeMore)
-{// �����͸� �־�� �� �� �ʿ��� ������ �� �����.
+{//
 	if(m_nSize + _nSizeMore <= m_nSizeDump)
 		return ((char*)m_pVoid)+m_nSize;
 
 	int nSizeOfDump	= m_nSizeDump*2;
-	if(nSizeOfDump < 8)// �ּ� size�� 8����Ʈ�� �Ѵ�. 64bit �ý��� ����
+	if(nSizeOfDump < 8)//
 		nSizeOfDump	= 8;
 
-	while(nSizeOfDump < m_nSize+_nSizeMore)
-		nSizeOfDump	*= 2;
+	while (nSizeOfDump < m_nSize + _nSizeMore)
+	{
+		if (nSizeOfDump >= LIMIT_STR)
+		{
+			nSizeOfDump += LIMIT_STR * 2;
+		}else
+			nSizeOfDump *= 2;
+	}
 
 	dump_refragment(nSizeOfDump);
 

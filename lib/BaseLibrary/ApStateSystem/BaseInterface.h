@@ -104,7 +104,7 @@ extern "C" DLLEXPORT bool dsv_set_string(void *_pdst, const char *_strColName, c
 extern "C" DLLEXPORT bool dsv_set_string2(void *_pdst, INT32 _nHash, const char *_strValue);
 extern "C" DLLEXPORT bool dsv_add_string(void *_pdst, const char *_strColName, const char *_strValue);
 extern "C" DLLEXPORT bool dsv_add_ldata(void* _pdst, const char* _strColName, const char* _strValue, int _size);
-extern "C" DLLEXPORT void* dsv_get_ldata(void* _pdst, INT32 _nKey, int *_pnCnt);
+extern "C" DLLEXPORT const void* dsv_get_ldata(void* _pdst, INT32 _nKey, int *_pnCnt);
 extern "C" DLLEXPORT bool dsv_set_variable(void *_pManager, void *_pdst, const char *_strColName, INT32 _nValue);
 extern "C" DLLEXPORT bool dsv_set_variable2(void *_pManager, void *_pdst, int _nHash, INT32 _nValue);
 extern "C" DLLEXPORT bool dsv_set_variable_string(void *_pManager, void *_pdst, const char *_strColName, const char *_strValue);

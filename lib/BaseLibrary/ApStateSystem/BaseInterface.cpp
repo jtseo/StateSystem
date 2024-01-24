@@ -1007,44 +1007,17 @@ void* g_get_ldata(INT64 _nRef, int* _pnCnt)
 	//return mpool_get().get_mem(_nRef, _pnCnt);
 }
 
-void* dsv_get_ldata(void* _pdst, INT32 _nKey, int* _pnCnt)
+const void* dsv_get_ldata(void* _pdst, INT32 _nKey, int* _pnCnt)
 {
 	BaseDStructureValue* pdst = ((BaseDStructureValue*)_pdst);
-	short _nCnt = 0;
-	int seq = 0;
-	STLVpVoid stlData;
-	const char* strData = NULL;
-	bool bRet = pdst->get(_nKey, (const void**)&strData, &_nCnt, seq);
 
-	if (bRet) {
-		stlData.push_back((void*)strData);
-		int len = _nCnt;
-		while (_nCnt >= LIMIT_STR)
-		{
-			seq++;
-			if (!pdst->get(_nKey, (const void**)&strData, &_nCnt, seq))
-				break;
-			stlData.push_back((void*)strData);
-			len += _nCnt;
-		}
-
-		char* ret = PT_Alloc(char, len + 1);
-		PT_AFree(ret);
-
-		*_pnCnt = len;
-		char* retCpy = ret;
-		int rpt = 0;
-		while (len > 0)
-		{
-			int l = len >= LIMIT_STR ? LIMIT_STR : len;
-			memcpy(retCpy, (const char*)stlData[rpt], l);
-			retCpy += l;
-			len -= l;
-		}
-		return (void*)ret;
+	const void* ret2 = NULL;
+	if (!pdst->get_mass(_nKey, &ret2, _pnCnt))
+	{
+		return NULL;
 	}
 
-	return NULL;
+	return ret2;
 }
 
 bool dsv_get_ptr2(void* _pdst, int _hash, void** _pPtr, int* _cnt, int _seq)
