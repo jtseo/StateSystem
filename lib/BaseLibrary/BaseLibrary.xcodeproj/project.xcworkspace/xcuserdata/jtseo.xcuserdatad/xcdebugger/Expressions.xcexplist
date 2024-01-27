@@ -3,20 +3,15 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "BaseStateSpace::actor_event_process(STStateActor&amp;, BaseDStructureValue*, int):BaseStateSpace.cpp">
-         <PersistentStrings>
-            <PersistentString
-               value = "m_cstrName">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "BaseStateSpace::OnEvent_(BaseDStructureValue*, BaseState const*):BaseStateSpace.cpp">
          <PersistentStrings>
             <PersistentString
                value = "m_pstlvActorCurrent">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BaseState::OnStart(BaseDStructureValue*):BaseState.cpp">
       </ContextState>
       <ContextState
          contextName = "BaseState::context_get():BaseState.cpp">
@@ -28,10 +23,10 @@
          contextName = "BaseDStructureValue::regist_event_func(BaseStateSpace*):BaseDStructure.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "m_stlVBool">
+               value = "m_pdstBase-&gt;sm_stlMnpEventProcessor">
             </PersistentString>
             <PersistentString
-               value = "m_pdstBase-&gt;sm_stlMnpEventProcessor">
+               value = "m_stlVBool">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -39,7 +34,31 @@
          contextName = "BaseStateSpace::actor_event_regist(STStateActor):BaseStateSpace.cpp">
       </ContextState>
       <ContextState
-         contextName = "BaseState::OnStart(BaseDStructureValue*):BaseState.cpp">
+         contextName = "BaseState::VariableLoopCallbackStruct(bool, int, int, int const*, short, BaseDStructureValue const*, BaseDStructureValue*, BaseDStructureValue*, int (*)(int, BaseDStructureValue*, void const*, void const*, short, short)):BaseState.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "_pnValue[2]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BaseState::LinkProcess_(BaseDStructureValue*, BaseDStructureValue*, bool*):BaseState.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "BaseDStructureValue::set_alloc(int, void const*, short):BaseDStructure.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "(int*)_pVoid">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BaseStateSpace::actor_event_process(STStateActor&amp;, BaseDStructureValue*, int):BaseStateSpace.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_cstrName">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

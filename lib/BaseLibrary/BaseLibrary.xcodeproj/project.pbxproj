@@ -1293,6 +1293,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"BASELIBRARY_EXPORTS=1",
 					"_MAC=1",
+					"_DEBUG=1",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = "/opt/homebrew/opt/mysql@5.7/include/mysql";
