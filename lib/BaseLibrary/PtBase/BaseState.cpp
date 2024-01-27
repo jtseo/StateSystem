@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "BaseObject.h"
 #include "BaseState.h"
 #include "BaseStateMain.h"
@@ -3759,6 +3759,10 @@ int BaseState::VariableLoopCallbackStruct(bool bConst, int _nHashOp, int _nTypeO
 		pnValue2 = NULL;
 		_nTypeOp = TYPE_STRING;
 		nAddress2 = 2;
+	}
+	else if (_nCnt > 2 && _nTypeOp == TYPE_INT32){
+		pnValue2 = &_pnValue[1];
+		nCntCompare = _nCnt-1;
 	}
 	else if (_nTypeOp != TYPE_STRING) {
 		pnValue2 = (int*)&nValue1; nCntCompare = 1;
