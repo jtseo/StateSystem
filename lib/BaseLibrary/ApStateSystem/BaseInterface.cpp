@@ -861,6 +861,11 @@ bool dsv_set_ptr(void* _pdst, int _hash, void* _pPtr, int _cnt)
 	int type = BaseDStructure::get_type(nIndex);
 	short cnt = (short)_cnt;
 
+	if(_pPtr == NULL)
+	{
+		pdst->set_alloc(_hash, NULL, 0);
+		return true;
+	}
 	INT64 nPoint = (INT64)_pPtr;
 	pdst->set_alloc(_hash, (const void*)&nPoint, cnt);
 	return true;
