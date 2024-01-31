@@ -1,9 +1,0 @@
-﻿../BaseLibrary/BaseLibrary/PnDrawingAutoTagChanger
-L_SS_LC	event_receiver_nF	INT32	EnumStateEvent	sample
-L_SS_LC	variable_receiver_nF	INT32	EnumVariableDefine	sample
-L_SS_LC	propertyLoad_varIf	INT32	EnumVariableDefine	auto added
-L_SS_LC	AIPipeOrderMake_nF	INT32		make pipe exchange list for svg file
-L_SS_LC	AIPipeExchange_nF	INT32		exchange pipe by property info
-L_SS_LC	svgExport_varF	INT32	EnumVariableDefine	save svg file
-L_SS_LC	dwgExport_varF	INT32	EnumVariableDefine	save dwg file
-L_SS_LC	xmlConvert_nF	INT32		auto added

@@ -1,5 +1,0 @@
-﻿../BaseLibrary/PtBase/BaseSCDBFile	EnumStateEvent	EnumVariableDefine
-L_SS_LC	read_strF	STRING		read db by key(param value)
-L_SS_LC	update_strF	STRING		update by
-L_SS_LC	remove_strF	STRING		remove by
-L_SS_LC	create_strF	STRING		create by

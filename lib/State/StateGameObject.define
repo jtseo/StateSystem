@@ -1,7 +1,0 @@
-Assets/VLogger/scripts/Component/StateGameObject.cs	EnumStateEvent	EnumVariableDefine
-L_SS_LC	ActiveSet_nF	INT32		Show(1) or hide(0) 
-L_SS_LC	UIPanelChange_strF	STRING		Hide current & Show pannel
-L_SS_LC	AnimationOut_fF	FLOAT		Animation Out
-L_SS_LC	AnimationIn_fF	FLOAT		Animation In
-L_SS_LC	AnimationBack_fF	FLOAT		Animation In
-L_SS_LC	ImageUpdate_varF	INT32	EnumVariableDefine	Update RawImage with fallow image

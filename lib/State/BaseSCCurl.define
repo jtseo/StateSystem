@@ -1,5 +1,0 @@
-﻿../BaseLibrary/PtBase/BaseSCCurl	EnumStateEvent	EnumVariableDefine
-L_SS_LC	get_strF	STRING		get curl
-L_SS_LC	post_strF	INT32	EnumVariableDefine	post curl
-L_SS_LC	postEncode_varF	INT32	EnumVariableDefine	encode datas & post
-L_SS_LC	EmailSend_varF	INT32	EnumVariableDefine	send email server,id,password,mail

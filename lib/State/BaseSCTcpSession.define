@@ -1,4 +1,0 @@
-﻿../BaseLibrary/PtBase/BaseSCTcpSession	L_SS_LC	EnumStateEvent	EnumVariableDefine
-L_LA	apiEventCast_nIf	INT32		packet receive & event cast 
-L_SS_LC	apiReturn_varF	INT32	EnumVariableDefine	packet return json
-L_SS_LC	apiSendFile_strF	INT32		auto added
