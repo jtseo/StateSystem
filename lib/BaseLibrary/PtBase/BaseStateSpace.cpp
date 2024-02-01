@@ -849,7 +849,7 @@ void BaseStateSpace::OnUpdate(unsigned _nTimeDelta)
 		&& (unsigned)m_stlVStateActorTimer[0].nValue <= nTimeCur)
 	{
 		//g_SendMessage(LOG_MSG, "SAction:TimeoutCast SActive:%d SLink:%d Time:%d", m_stlVStateActorTimer[0].pState->get_key(), m_stlVStateActorTimer[0].pdstActor->get_key(), m_stlVStateActorTimer[0].nValue);
-		{
+		if(!m_stlVStateActorTimer[0].pState->is_skip()){
 			char strBuffer[255];
 					
 			sprintf_s(strBuffer, 255, "TimeOut TimeCur:%d TimeRev:%d, %s, %s", nTimeCur, m_stlVStateActorTimer[0].nValue, m_stlVStateActorTimer[0].pState->get_name().c_str(), m_stlVStateActorTimer[0].pdstActor->get_name_debug());

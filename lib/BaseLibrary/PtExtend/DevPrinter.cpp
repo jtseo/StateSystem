@@ -133,6 +133,8 @@ int DevPrinter::Create()
 
 int DevPrinter::Print_varIf()
 {
+	// print image; param printer.
+
 	return 1;
 }
 

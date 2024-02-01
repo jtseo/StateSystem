@@ -6034,7 +6034,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1055851644}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StateSystem.VLStateManager, Assembly-CSharp
         m_MethodName: ui_event_state_post
         m_Mode: 5
@@ -7470,7 +7470,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1055851644}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StateSystem.VLStateManager, Assembly-CSharp
         m_MethodName: ui_event_state_post
         m_Mode: 5
@@ -7500,7 +7500,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1055851644}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StateSystem.VLStateManager, Assembly-CSharp
         m_MethodName: ui_event_state_post
         m_Mode: 5
@@ -14138,7 +14138,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 878590658}
   m_HandleRect: {fileID: 878590657}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -15133,7 +15133,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1055851644}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StateSystem.VLStateManager, Assembly-CSharp
         m_MethodName: ui_event_state_post
         m_Mode: 5
@@ -15533,7 +15533,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1643839858}
   m_Direction: 3
   m_Value: 0
-  m_Size: 0.9999836
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -18997,8 +18997,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1055851645}
-  - component: {fileID: 1055851644}
   - component: {fileID: 1055851646}
+  - component: {fileID: 1055851647}
   m_Layer: 0
   m_Name: StateManager
   m_TagString: Untagged
@@ -19006,21 +19006,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1055851644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1055851643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd486f05a7563d459bc54d01ce352bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DebugMode: 1
-  VScriptIP: localhost
-  ApplicationName: VScriptEditor
 --- !u!4 &1055851645
 Transform:
   m_ObjectHideFlags: 0
@@ -19045,7 +19030,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1055851643}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bce583600f559974e83c0677a8eca846, type: 3}
+  m_Script: {fileID: 11500000, guid: 99f70d485aa442269f06ef9abe572d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DebugMode: 1
+  VScriptIP: localhost
+  ApplicationName: VScriptEditor
+--- !u!114 &1055851647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055851643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ecd1a7c8e9b640d892c4ebc035d24c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1058459681
@@ -24907,7 +24907,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1055851644}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StateSystem.VLStateManager, Assembly-CSharp
         m_MethodName: ui_event_state_post
         m_Mode: 5
@@ -33782,7 +33782,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0003589063}
+  m_AnchoredPosition: {x: 0, y: 0.00003838539}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1965250280
@@ -35394,7 +35394,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ' VScript Ver. 06/24'
+  m_text: ' VScript v240201'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
@@ -36324,7 +36324,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1055851644}
+      objectReference: {fileID: 0}
     - target: {fileID: 6581904797920029119, guid: 900160f1497a74e9abd77a2ae44f6ced,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
