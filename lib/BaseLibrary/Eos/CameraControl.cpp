@@ -14,6 +14,8 @@
 *******************************************************************************/
 
 #include "stdafx.h"
+#ifndef VScriptBuild
+
 #include <objbase.h>
 
 #include "EDSDK.h"
@@ -442,3 +444,5 @@ CameraModel* cameraModelFactory(EdsCameraRef camera, EdsDeviceInfo deviceInfo)
 	// PTP protocol.
 	return new CameraModel(camera);
 }
+
+#endif

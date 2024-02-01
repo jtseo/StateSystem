@@ -1,5 +1,7 @@
 ﻿#include "stdafx.h"
 
+#ifndef VScriptBuild
+
 #include <list>
 #include <vector>
 #include <map>
@@ -289,3 +291,4 @@ int DevCamera::StreamFree_varF()
 	return 1;
 }
 //#SF_functionInsert
+#endif

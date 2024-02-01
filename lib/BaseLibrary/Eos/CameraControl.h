@@ -15,6 +15,8 @@
 
 #pragma once
 
+#ifndef VScriptBuild
+
 #include "Camera/CameraController.h"
 #include "Camera/CameraModel.h"
 
@@ -61,3 +63,4 @@ public:
 
 inline CameraController* getCameraController() {return CCameraControl::Instance()->_controller;}
 inline CameraModel* getCameraModel() {return CCameraControl::Instance()->_model;}
+#endif

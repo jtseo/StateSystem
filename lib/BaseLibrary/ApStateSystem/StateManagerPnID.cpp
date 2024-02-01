@@ -68,7 +68,8 @@ void StateManagerPnID::release_manager(bool _reset)
 #include "../PtExtend/BaseSCJson.h"
 //#include "../PtBase/BaseSFParser.h"
 
-#ifdef _WIN32
+#ifndef VScriptBuild
+
 #include "../PtExtend/DevCashReader.h"
 #include "../PtExtend/DevPrinter.h"
 #include "../Eos/DevCamera.h"
@@ -80,7 +81,8 @@ StateManagerPnID::StateManagerPnID(void *_applet) :BaseStateManager(_applet)
 	BaseTextEditor te;
 	BaseSCJson json;
 	//BaseSFParser paser;
-#ifdef _WIN32
+#ifndef VScriptBuild
+
 	DevCashReader devRed;
 	DevPrinter devPrt;
 	DevCamera devCam;

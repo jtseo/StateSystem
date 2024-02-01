@@ -1,6 +1,9 @@
 ﻿#pragma once
 #include "../PtBase/BaseStateFunc.h"
 
+
+#ifndef VScriptBuild
+
 class CameraEvent;
 
 class DevCamera :
@@ -50,3 +53,4 @@ public:
 protected:
 };
 
+#endif
