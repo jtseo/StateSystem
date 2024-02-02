@@ -7,6 +7,7 @@ using TMPro;
 using System.IO;
 
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 
 namespace StateSystem
 {
@@ -509,7 +510,12 @@ namespace StateSystem
                 if (VLStateManager.enum_get("EnumVariableDefine", hash, hash_name, ref name))
                     text_a[1] = name;
                 else
-                    text_a[1] = "Unknow";
+                {
+                    if (!m_state_dst.m_dstExtVariable.get_string(hash, 1, ref name))
+                        text_a[1] = "Unknow";
+                    else
+                        text_a[1] = name;
+                }
 
                 text_a[2] = str;
 
