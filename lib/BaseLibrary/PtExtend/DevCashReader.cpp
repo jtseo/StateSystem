@@ -59,9 +59,9 @@ int DevCashReader::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, i
 		STDEF_SFREGIST(CashReadStart_nF);
 		STDEF_SFREGIST(MoneyGet_varIf);
 		STDEF_SFREGIST(CashReadStop_nF);
-		STDEF_SFREGIST(PortInit_nF);
 		STDEF_SFREGIST(DataFullCheck_nIf);
 		STDEF_SFREGIST(DataReset_nF);
+		STDEF_SFREGIST(PortInit_nIf);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -113,9 +113,9 @@ int DevCashReader::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		STDEF_SFFUNCALL(CashReadStart_nF);
 		STDEF_SFFUNCALL(MoneyGet_varIf);
 		STDEF_SFFUNCALL(CashReadStop_nF);
-		STDEF_SFFUNCALL(PortInit_nF);
 		STDEF_SFFUNCALL(DataFullCheck_nIf);
 		STDEF_SFFUNCALL(DataReset_nF);
+		STDEF_SFFUNCALL(PortInit_nIf);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -256,7 +256,21 @@ int DevCashReader::CashReadStop_nF()
 		return 0;
 	return 1;
 }
-int DevCashReader::PortInit_nF()
+
+int DevCashReader::DataFullCheck_nIf()
+{
+	if (m_datas.size() < 5) // check data length
+		return 0;
+	return 1;
+}
+
+int DevCashReader::DataReset_nF()
+{
+	m_datas.clear();
+	return 1;
+}
+
+int DevCashReader::PortInit_nIf()
 {
 	int port = *(int*)m_param_value;
 	if (port < 0 || 10 < port)
@@ -270,17 +284,6 @@ int DevCashReader::PortInit_nF()
 
 	m_serial.Configure_Port(CBR_9600, 8, FALSE, NOPARITY, ONESTOPBIT);
 	m_serial.SetCommunicationTimeouts(10, 10, 10, 10, 10);
-	return 1;
-}
-int DevCashReader::DataFullCheck_nIf()
-{
-	if (m_datas.size() < 5) // check data length
-		return 0;
-	return 1;
-}
-int DevCashReader::DataReset_nF()
-{
-	m_datas.clear();
 	return 1;
 }
 //#SF_functionInsert

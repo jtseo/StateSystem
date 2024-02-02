@@ -59,11 +59,14 @@ int s_eventstack[10];
 #include "../PtExtend/SerialPort.h"
 #include "../PtExtend/DevCashReader.h"
 #include "../PtExtend/DevPrinter.h"
-//#include "../Eos/DevCamera.h"
+#include "../Eos/DevCamera.h"
 
 int main()
 {
-	//DevCamera cam;
+
+#ifndef VScriptBuild
+	DevCamera cam;
+#endif
 	CSerialPort serial;
 	DevCashReader read;
 	DevPrinter prt;

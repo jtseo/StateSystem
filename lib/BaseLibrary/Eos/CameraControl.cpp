@@ -364,10 +364,10 @@ void CCameraControl::EventCastPreview(CameraEvent* _evt)
 
 			BaseCircleQueue::stream_get()->push(buf);
 			BaseCircleQueue::streamSize_get()->push((void*)imgS);
-			BaseFile file;
-			file.OpenFile("test.jpg", BaseFile::OPEN_WRITE);
-			file.Write(buf, imgS);
-			file.CloseFile();
+			//BaseFile file;
+			//file.OpenFile("test.jpg", BaseFile::OPEN_WRITE);
+			//file.Write(buf, imgS);
+			//file.CloseFile();
 			INT64 ref = (INT64) buf;
 			evt->set_alloc("MemRef_nV", &ref);
 			evt->set_alloc("ImageSize_nV", &imgS);
@@ -377,7 +377,7 @@ void CCameraControl::EventCastPreview(CameraEvent* _evt)
 			manager->post_event(evt);
 		}
 
-		BaseSystem::Sleep(50);
+		BaseSystem::Sleep(33);
 		PreviewRequest();
 
 	}

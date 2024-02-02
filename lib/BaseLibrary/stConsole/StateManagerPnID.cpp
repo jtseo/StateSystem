@@ -66,6 +66,7 @@ void StateManagerPnID::release_manager(bool _reset)
 #include "../PtBase/BaseTextEditor.h"
 #include "../PtBase/BaseTextEditorText.h"
 #include "../PtExtend/BaseSCJson.h"
+#include "../PtExtend/BaseStateSystem.h"
 //#include "../PtBase/BaseSFParser.h"
 
 StateManagerPnID::StateManagerPnID(void* _applet) :BaseStateManager(_applet)
@@ -73,6 +74,7 @@ StateManagerPnID::StateManagerPnID(void* _applet) :BaseStateManager(_applet)
 	BaseSFuncDirectory dir;
 	BaseTextEditor te;
 	BaseSCJson json;
+	BaseStateSystem bsy;
 	//BaseSFParser paser;
 
 }

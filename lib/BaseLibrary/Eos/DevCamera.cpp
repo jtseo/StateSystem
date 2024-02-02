@@ -299,6 +299,7 @@ int DevCamera::StreamFree_varF()
 
 int DevCamera::PicturesRateAddapt_varF()
 {
+	
 	// read original
 	// cut ratio
 	// scale image

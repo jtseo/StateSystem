@@ -18,9 +18,9 @@ class DevCashReader :
         STDEF_SFENUM(CashReadStart_nF),
         STDEF_SFENUM(MoneyGet_varIf),
         STDEF_SFENUM(CashReadStop_nF),
-        STDEF_SFENUM(PortInit_nF),
         STDEF_SFENUM(DataFullCheck_nIf),
         STDEF_SFENUM(DataReset_nF),
+        STDEF_SFENUM(PortInit_nIf),
         //#SF_EnumInsert
         EnumExtentionMax
     };
@@ -42,9 +42,9 @@ public:
     int CashReadStart_nF();
     int MoneyGet_varIf();
     int CashReadStop_nF();
-    int PortInit_nF();
     int DataFullCheck_nIf();
     int DataReset_nF();
+    int PortInit_nIf();
     //#SF_FuncHeaderInsert
 
     // User defin area from here
