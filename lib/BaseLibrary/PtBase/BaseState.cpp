@@ -3890,8 +3890,8 @@ int BaseState::VariableLoopCallbackStruct(bool bConst, int _nHashOp, int _nTypeO
 				int size = _pdsvV1->get_mass_size(nHash);
 				_pdsvV1->logger_link_get()->m_logevent_p->logger_hand_variable(ha, (const void*)&size);
 			}
-			else {
-				_pdsvV1->logger_link_get()->m_logevent_p->logger_hand_variable(nHash, _pnValue, _nCnt);
+			else if(pnValue2){
+				_pdsvV1->logger_link_get()->m_logevent_p->logger_hand_variable(nHash, pnValue2, nCntCompare);
 			}
 		}
 	}

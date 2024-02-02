@@ -223,6 +223,9 @@
     <ClCompile Include="..\PtExtend\SerialPort.cpp">
       <Filter>extend</Filter>
     </ClCompile>
+    <ClCompile Include="..\PtExtend\BaseStateSystem.cpp">
+      <Filter>extend</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base.h">
@@ -460,6 +463,9 @@
       <Filter>extend</Filter>
     </ClInclude>
     <ClInclude Include="..\PtExtend\SerialPort.h">
+      <Filter>extend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtExtend\BaseStateSystem.h">
       <Filter>extend</Filter>
     </ClInclude>
   </ItemGroup>
