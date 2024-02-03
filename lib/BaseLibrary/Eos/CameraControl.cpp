@@ -340,28 +340,31 @@ void CCameraControl::EventCastPreview(CameraEvent* _evt)
 		if (pbyteImage != NULL && BaseCircleQueue::stream_get()->size_data() < 10)
 		{
 			EdsGetLength(data.stream, &size);
-			std::vector<uchar> jpgData;
-			jpgData.resize(size);
-			memcpy(&jpgData[0], pbyteImage, size);
+			//std::vector<uchar> jpgData;
+			//jpgData.resize(size);
+			//memcpy(&jpgData[0], pbyteImage, size);
 
-			Mat orgImg = imdecode(Mat(jpgData), IMREAD_COLOR);
-			Mat resizeImg;
-			
-			int scale = 1;
-			//std::vector<unsigned char> raw = ExtractImageData(image, scale);
+			//Mat orgImg = imdecode(Mat(jpgData), IMREAD_COLOR);
+			//Mat resizeImg;
+			//
+			//int scale = 1;
+			////std::vector<unsigned char> raw = ExtractImageData(image, scale);
 			int w = 960;// image.GetWidth() / scale;
 			int h = 640;// image.GetHeight() / scale;
 
-			resize(orgImg, resizeImg, Size(w / 2, h / 2));
-			imencode(".jpg", resizeImg, jpgData);
+			//resize(orgImg, resizeImg, Size(w / 2, h / 2));
+			//imencode(".jpg", resizeImg, jpgData);
 
-			int imgS = jpgData.size();
+			//int imgS = jpgData.size();
 			
 			BaseStateManager* manager = BaseStateManager::get_manager();
 			BaseDStructureValue* evt = manager->make_event_state(STRTOHASH("CamRevPreview"));
-			char *buf = PT_Alloc(char, jpgData.size());
-			memcpy(buf, &jpgData[0], jpgData.size());
+			//size = jpgData.size();
+			//pbyteImage = &jpgData[0];
+			char *buf = PT_Alloc(char, size);
+			memcpy(buf, pbyteImage, size);
 
+			int imgS = size;
 			BaseCircleQueue::stream_get()->push(buf);
 			BaseCircleQueue::streamSize_get()->push((void*)imgS);
 			//BaseFile file;
@@ -377,7 +380,7 @@ void CCameraControl::EventCastPreview(CameraEvent* _evt)
 			manager->post_event(evt);
 		}
 
-		BaseSystem::Sleep(33);
+		BaseSystem::Sleep(25);
 		PreviewRequest();
 
 	}
