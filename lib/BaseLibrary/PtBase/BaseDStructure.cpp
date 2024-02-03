@@ -33,13 +33,17 @@ STLMnInt	BaseDStructure::sm_stlMnDebugProcessorLine;
 int			BaseDStructure::sm_nDefineOriginalSize = 0;
 
 atomic_cnt	s_accessTicket(0);
-int s_accessCall_n = 0;
+atomic_cnt    s_accessCall_n(0);
 
 void s_typeaccess_in()
 {
 	int ticket = ++s_accessTicket;
 	ticket--;
-	while(ticket != s_accessCall_n);
+	while (ticket != s_accessCall_n.get()) {
+		char buf[255];
+		sprintf_s(buf, 255, "ticket: %x %7d %7d\n", &s_accessTicket, ticket, s_accessCall_n.get());
+		OutputDebugString(buf);
+	}
 }
 
 void s_typeaccess_out()
