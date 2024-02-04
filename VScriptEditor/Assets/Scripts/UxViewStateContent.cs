@@ -1138,6 +1138,9 @@ namespace StateSystem
             type[3] = VLStateManager.hash("state_call");
             int[] link_type_a = null;
 
+            if (m_dstMain == null)
+                return;
+
             int nKey;
             nKey = m_dstMain.key_first_get();
             do

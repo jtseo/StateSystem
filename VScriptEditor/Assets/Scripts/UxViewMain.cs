@@ -110,10 +110,10 @@ namespace StateSystem
 
             loader_scan.delete();
 
-            GameObject ViewBox;
-            ViewBox = GameObject.Find("ContentMain");
-            RectTransform rt = ViewBox.GetComponent<RectTransform>();
-            rt.sizeDelta = new Vector2(100, (nStep * nCnt + nStep) * m_mainCanvas.scaleFactor);
+            //GameObject ViewBox;
+            //ViewBox = GameObject.Find("ContentMain");
+            //RectTransform rt = ViewBox.GetComponent<RectTransform>();
+            //rt.sizeDelta = new Vector2(100, (nStep * nCnt + nStep) * m_mainCanvas.scaleFactor);
 
             return true;
         }
