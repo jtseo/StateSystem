@@ -205,6 +205,13 @@ BOOL CCameraControl::InitInstance()
 
 	}
 
+	if (err == EDS_ERR_OK)
+	{
+		BaseStateManager::get_manager()->post_event_state("CamInitialized");
+	}
+	else {
+		BaseStateManager::get_manager()->post_event_state("CamError");
+	}
 	// Since the dialog has been closed, return FALSE so that we exit the
 	//  application, rather than start the application's message pump.
 	return FALSE;
