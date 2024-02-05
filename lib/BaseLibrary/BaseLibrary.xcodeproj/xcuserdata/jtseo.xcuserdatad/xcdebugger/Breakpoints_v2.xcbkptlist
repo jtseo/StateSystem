@@ -103,8 +103,8 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4B826881-F947-4557-9AFB-8F6C58500CF3"
-            shouldBeEnabled = "Yes"
-            condition = "link == 465824644"
+            shouldBeEnabled = "No"
+            condition = "link == -1300832118"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PtBase/BaseState.cpp"
