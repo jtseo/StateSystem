@@ -4209,7 +4209,7 @@ STDEF_FUNC(BaseStateIdentify_nSE)
 	//	pdsvEvent->add_alloc(stlVParamList[i].first, &stlVParamList[i].second);
 
 	pSpace->post_event(pdsvEvent);
-	pState->EventSendReset(); // remove sent event so next casting will be sent new event.
+	pState->EventSendClear(); // remove sent event so next casting will be sent new event.
 	return 1;
 }
 
@@ -4261,7 +4261,7 @@ STDEF_FUNC(BaseStateEventMouseCast_nF)
 	pdsvEvent->set_alloc(HASH_STATE(BaseTransitionGoalMain), &nBroadCast);
 
 	pSpace->post_event(pdsvEvent);
-	pState->EventSendReset(); // remove sent event so next casting will be sent new event.
+	pState->EventSendClear(); // remove sent event so next casting will be sent new event.
 	return 1;
 }
 
@@ -4283,7 +4283,7 @@ STDEF_FUNC(BaseEventThreadReturn_nF)
 	pdsvEvent->set_alloc(HASH_STATE(BaseTransitionGoalMain), &nBroadCast);
 
 	pSpace->post_event(pdsvEvent);
-	pState->EventSendReset(); // remove sent event so next casting will be sent new event.
+	pState->EventSendClear(); // remove sent event so next casting will be sent new event.
 	return 1;
 }
 
@@ -4313,7 +4313,7 @@ STDEF_FUNC(BaseStateEventGlobalReturn_nF)
 	//	pdsvEvent->add_alloc(stlVParamList[i].first, &stlVParamList[i].second);
 
 	pSpace->post_event(pdsvEvent);
-	pState->EventSendReset(); // remove sent event so next casting will be sent new event.
+	pState->EventSendClear(); // remove sent event so next casting will be sent new event.
 	return 1;
 }
 
@@ -4336,7 +4336,7 @@ STDEF_FUNC(BaseStateEventCastWithIdentifier_nF)
 	pSpace->post_event(pdsvEvent);
 	pSpace->post_event_ui(*pnEvent);
 
-	pState->EventSendReset(); // remove sent event so next casting will be sent new event.
+	pState->EventSendClear(); // remove sent event so next casting will be sent new event.
 	return 1;
 }
 
@@ -4367,7 +4367,7 @@ STDEF_FUNC(BaseStateEventGlobalCast_nF)
 		pSpace->post_event(pdsvEvent);
 	pSpace->post_event_ui(*pnEvent);
 
-	pState->EventSendReset(); // remove sent event so next casting will be sent new event.
+	pState->EventSendClear(); // remove sent event so next casting will be sent new event.
 	return 1;
 }
 
@@ -4609,6 +4609,11 @@ BaseDStructureValue* BaseState::EventSendGet(int _nEvent, bool _bNew)
 	if (_nEvent != 0)
 		m_pdsvEventSend->set_alloc(nKeyState, &_nEvent);
 	return m_pdsvEventSend;
+}
+
+void BaseState::EventSendClear()
+{
+	m_pdsvEventSend = NULL;
 }
 
 void BaseState::EventSendReset()

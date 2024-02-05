@@ -599,6 +599,7 @@ public:
 	BaseDStructureValue *EventSendGet(int _nEvent = 0, bool _bNew = false);
 	BaseDStructureValue *EventSystemGet();
 	void EventSendReset();
+	void EventSendClear();
 protected:
 	BaseDStructureValue	*m_pdsvVariableNextReserve;
 	BaseDStructureValue	*m_pdsvVariable;
