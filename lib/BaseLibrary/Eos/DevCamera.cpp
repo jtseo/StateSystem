@@ -304,7 +304,7 @@ int DevCamera::PicturesRateAddapt_varF()
 	const char* filename = (const char*)paramVariableGet();
 	if (!filename)
 		return 0;
-	const int* sizexy = (const int*)paramFallowGet(1);
+	const int* sizexy = (const int*)paramFallowGet(0);
 	if (!sizexy)
 		return 0;
 	cv::Size newSize(sizexy[0], sizexy[1]);
