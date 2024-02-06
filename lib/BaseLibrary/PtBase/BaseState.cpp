@@ -854,6 +854,13 @@ void BaseState::LoggerSend(int _key, BaseDStructureValue *_link, const STLMnInt&
 	}
 }
 
+int getlink(int _link, bool _com)
+{
+	if(!_com)
+		return _link;
+	return 999;
+}
+
 int BaseState::LinkProcess_(BaseDStructureValue* pLink, BaseDStructureValue* _pdsvRecEvent, bool* _linkcomplete_b)
 {
 	STLMnInt    stlMnGroupIds;
@@ -868,6 +875,11 @@ int BaseState::LinkProcess_(BaseDStructureValue* pLink, BaseDStructureValue* _pd
 		g_SendMessage(LOG_MSG, "------ link for the timeout");
 	}
 #endif
+	if(link == 2065550397)
+	{
+		link = getlink(link, false);
+	}
+	fprintf(stderr, "link:%d \n", link);
 	if (_linkcomplete_b)
 		*_linkcomplete_b = false;
 
@@ -4209,6 +4221,7 @@ STDEF_FUNC(BaseStateIdentify_nSE)
 	//	pdsvEvent->add_alloc(stlVParamList[i].first, &stlVParamList[i].second);
 
 	pSpace->post_event(pdsvEvent);
+	
 	pState->EventSendClear(); // remove sent event so next casting will be sent new event.
 	return 1;
 }
@@ -4610,6 +4623,7 @@ BaseDStructureValue* BaseState::EventSendGet(int _nEvent, bool _bNew)
 		m_pdsvEventSend->set_alloc(nKeyState, &_nEvent);
 	return m_pdsvEventSend;
 }
+
 
 void BaseState::EventSendClear()
 {
