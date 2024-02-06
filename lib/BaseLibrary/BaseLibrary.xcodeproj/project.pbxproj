@@ -1291,8 +1291,8 @@
 				DEVELOPMENT_TEAM = XR2UN87UM6;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					"VScriptBuild=1",
 					"BASELIBRARY_EXPORTS=1",
-					"_MAC=1",
 					"_DEBUG=1",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1332,8 +1332,8 @@
 				DEVELOPMENT_TEAM = XR2UN87UM6;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					"VScriptBuild=1",
 					"BASELIBRARY_EXPORTS=1",
-					"_MAC=1",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = "/opt/homebrew/opt/mysql@5.7/include/mysql";
