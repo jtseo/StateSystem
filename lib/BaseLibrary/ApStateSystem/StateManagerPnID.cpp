@@ -66,6 +66,7 @@ void StateManagerPnID::release_manager(bool _reset)
 #include "../PtBase/BaseTextEditor.h"
 #include "../PtBase/BaseTextEditorText.h"
 #include "../PtExtend/BaseSCJson.h"
+#include "../PtExtend/ExtendOpenCV.h"
 //#include "../PtBase/BaseSFParser.h"
 
 #ifndef VScriptBuild
@@ -73,6 +74,7 @@ void StateManagerPnID::release_manager(bool _reset)
 #include "../PtExtend/DevCashReader.h"
 #include "../PtExtend/DevPrinter.h"
 #include "../Eos/DevCamera.h"
+
 #endif
 
 StateManagerPnID::StateManagerPnID(void *_applet) :BaseStateManager(_applet)
@@ -80,6 +82,7 @@ StateManagerPnID::StateManagerPnID(void *_applet) :BaseStateManager(_applet)
 	BaseSFuncDirectory dir;
 	BaseTextEditor te;
 	BaseSCJson json;
+	ExtendOpenCV extOpencv;
 	//BaseSFParser paser;
 #ifndef VScriptBuild
 

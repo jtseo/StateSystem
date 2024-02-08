@@ -301,45 +301,6 @@ int DevCamera::StreamFree_varF()
 
 int DevCamera::PicturesRateAddapt_varF()
 {
-	const char* filename = (const char*)paramVariableGet();
-	if (!filename)
-		return 0;
-	const int* sizexy = (const int*)paramFallowGet(0);
-	if (!sizexy)
-		return 0;
-	cv::Size newSize(sizexy[0], sizexy[1]);
-	float ratio = (float)sizexy[0] / (float)sizexy[1];
-	// read original
-	// cut ratio
-	// scale image
-
-	 // Read the image from the file
-	cv::Mat image = cv::imread(filename);
-	if (image.empty()) {
-		return 0;
-	}
-
-	// Crop the image with the specified ratio
-	int cropWidth, cropHeight;
-	if (image.cols > image.rows * ratio) {
-		cropHeight = image.rows;
-		cropWidth = static_cast<int>(cropHeight * ratio);
-	}
-	else {
-		cropWidth = image.cols;
-		cropHeight = static_cast<int>(cropWidth / ratio);
-	}
-	int x = (image.cols - cropWidth) / 2;
-	int y = (image.rows - cropHeight) / 2;
-	cv::Rect cropRegion(x, y, cropWidth, cropHeight);
-	cv::Mat croppedImage = image(cropRegion);
-
-	// Scale the image to the new size
-	cv::Mat scaledImage;
-	cv::resize(croppedImage, scaledImage, newSize);
-
-	cv::imwrite(filename, scaledImage);
-
 	return 1;
 }
 
@@ -351,103 +312,8 @@ int DevCamera::PhotoPrintMake_statevarF()// it will remove
 	return 1;
 }
 
-void overlayImage(cv::Mat& background, const cv::Mat& foreground, cv::Point2i location, double alpha = 0.5) {
-	for (int y = std::max(location.y, 0); y < background.rows; ++y) {
-		int fY = y - location.y; // 0 <= fY < foreground.rows
-		if (fY >= foreground.rows)
-			break;
-
-		for (int x = std::max(location.x, 0); x < background.cols; ++x) {
-			int fX = x - location.x; // 0 <= fX < foreground.cols
-			if (fX >= foreground.cols)
-				break;
-
-			// Blend the foreground and background pixels
-			double opacity = ((double)foreground.data[fY * foreground.step + fX * foreground.channels() + 3]) / 255. * alpha;
-			for (int c = 0; opacity > 0 && c < background.channels(); ++c) {
-				unsigned char foregroundPx = foreground.data[fY * foreground.step + fX * foreground.channels() + c];
-				unsigned char backgroundPx = background.data[y * background.step + x * background.channels() + c];
-				background.data[y * background.step + x * background.channels() + c] =
-					backgroundPx * (1. - opacity) + foregroundPx * opacity;
-			}
-		}
-	}
-}
-
-#include "nlohmann/json.hpp"
-#include <opencv2/opencv.hpp>
-
-//using namespace cv;
-using json = nlohmann::json;
-//
-// parseFrame(const char* _json)
-//{
-//	auto frame = json::parse(_json);
-//
-//	fr.numPic = frame["numPicture"];
-//	fr.size[0] = frame["size"]["x"];
-//	fr.size[1] = frame["size"]["y"];
-//	fr.picSize[0] = frame["pictureSize"]["x"];
-//	fr.picSize[1] = frame["pictureSize"]["y"];
-//	for (int i = 0; i < 8; i++)
-//		fr.pictures[i][0] = -1;
-//	for (int i = 0; i < frame["pictures"].size(); i++)
-//	{
-//		fr.pictures[i][0] = frame["pictures"][i]["x"];
-//		fr.pictures[i][1] = frame["pictures"][i]["y"];
-//	}
-//	fr.qrSize[0] = frame["qrSize"]["x"];
-//	fr.qrSize[1] = frame["qrSize"]["y"];
-//	fr.qrPos[0] = frame["qrPos"]["x"];
-//	fr.qrPos[1] = frame["qrPos"]["y"];
-//	fr.price = frame["price"];
-//
-//	return fr;
-//}
-
 int DevCamera::PhotoPrintOutMake_strF()
 {
-	const char* outfile = (const char*)m_param_value;
-	const char* frameType = (const char*)paramFallowGet(0);// design or origin
-	const int* framNum = (const int*)paramFallowGet(1);
-
-	cv::Size imageSize(800, 600); // Desired image size
-	std::vector<cv::Mat> smallImages; // Vector to hold small images
-	// Load small images (example)
-	// smallImages.push_back(cv::imread("path_to_small_image_1.png", cv::IMREAD_UNCHANGED));
-	// smallImages.push_back(cv::imread("path_to_small_image_2.png", cv::IMREAD_UNCHANGED));
-	// Load a background image with alpha channel
-	cv::Mat backgroundImage = cv::imread("path_to_background_image.png", cv::IMREAD_UNCHANGED);
-	std::string outputFilePath = "output_image.png"; // Path to save the final image
-
-	BaseFile file;
-	STLString path = "../";
-	path += frameType;
-	path += "/double_";
-	
-	if (file.OpenFile(path.c_str(), BaseFile::OPEN_READ))
-		return 0;
-	STLString json;
-	if (!file.Read(&json))
-		return 0;
-	auto frame = json::parse(json.c_str());
-		
-	cv::Mat image = cv::Mat::zeros(imageSize, CV_8UC3);
-
-	// Paste small images onto the blank image at specified locations
-	for (size_t i = 0; i < smallImages.size(); ++i) {
-		cv::Point2i location(i * 100, i * 50); // Example locations for each small image
-		smallImages[i].copyTo(image(cv::Rect(location.x, location.y, smallImages[i].cols, smallImages[i].rows)));
-	}
-
-	// Overlay the background image with alpha value
-	if (!backgroundImage.empty()) {
-		overlayImage(image, backgroundImage, cv::Point2i(0, 0), 0.5); // 50% opacity for the background image
-	}
-
-	// Save the composed image to a file
-	cv::imwrite(outputFilePath, image);
-
 	return 1;
 }
 //#SF_functionInsert

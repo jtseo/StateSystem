@@ -498,7 +498,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>CURL_STATICLIB;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../../SDK</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../SDK;../../SDK/opencv/Include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
@@ -692,7 +692,7 @@
       <PreprocessorDefinitions>CURL_STATICLIB;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>../../SDK</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../SDK;../../SDK/opencv/Include</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -730,6 +730,7 @@
     <ClInclude Include="..\PtExtend\BaseStateSystem.h" />
     <ClInclude Include="..\PtExtend\DevCashReader.h" />
     <ClInclude Include="..\PtExtend\DevPrinter.h" />
+    <ClInclude Include="..\PtExtend\ExtendOpenCV.h" />
     <ClInclude Include="..\PtExtend\SerialPort.h" />
     <ClInclude Include="base.h" />
     <ClInclude Include="base64.h" />
@@ -812,6 +813,7 @@
     <ClCompile Include="..\PtExtend\BaseStateSystem.cpp" />
     <ClCompile Include="..\PtExtend\DevCashReader.cpp" />
     <ClCompile Include="..\PtExtend\DevPrinter.cpp" />
+    <ClCompile Include="..\PtExtend\ExtendOpenCV.cpp" />
     <ClCompile Include="..\PtExtend\SerialPort.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='VSDebug|x64'">NotUsing</PrecompiledHeader>
