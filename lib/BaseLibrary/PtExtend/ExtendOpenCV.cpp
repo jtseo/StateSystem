@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 
 #include "../PtBase/BaseStateFunc.h"
 #include "../PtBase/BaseObject.h"
@@ -16,7 +16,7 @@
 #include "../PtBase/BaseTime.h"
 #include "../PtBase/BaseStringTable.h"
 
-#include <opencv2/opencv.hpp>
+#include "../../SDK/opencv/include/opencv2/opencv.hpp"
 
 PtObjectCpp(ExtendOpenCV);
 
@@ -53,6 +53,11 @@ int ExtendOpenCV::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, in
 		//STDEF_SFREGIST(Open_varF);
 		STDEF_SFREGIST(PictureRatioAdapt_varF);
 		STDEF_SFREGIST(PhotoPannelMake_strF);
+		STDEF_SFREGIST(QRCodeMake_varF);
+		STDEF_SFREGIST(PhotoPannelImgAdd_varF);
+		STDEF_SFREGIST(Rotate_varF);
+		STDEF_SFREGIST(DoubleMake_varF);
+		STDEF_SFREGIST(FilterApply_varF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -97,6 +102,11 @@ int ExtendOpenCV::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		//STDEF_SFFUNCALL(Open_varF);
 		STDEF_SFFUNCALL(PictureRatioAdapt_varF);
 		STDEF_SFFUNCALL(PhotoPannelMake_strF);
+		STDEF_SFFUNCALL(QRCodeMake_varF);
+		STDEF_SFFUNCALL(PhotoPannelImgAdd_varF);
+		STDEF_SFFUNCALL(Rotate_varF);
+		STDEF_SFFUNCALL(DoubleMake_varF);
+		STDEF_SFFUNCALL(FilterApply_varF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -134,7 +144,7 @@ int ExtendOpenCV::PictureRatioAdapt_varF()
 	cv::Size newSize(sizexy[0], sizexy[1]);
 	float ratio = (float)sizexy[0] / (float)sizexy[1];
 	// read original
-	// cut ratio
+	// cut ratio5
 	// scale image
 
 	 // Read the image from the file
@@ -167,7 +177,7 @@ int ExtendOpenCV::PictureRatioAdapt_varF()
 	return 1;
 }
 
-void overlayImage(cv::Mat& background, const cv::Mat& foreground, cv::Point2i location, double alpha = 0.5) {
+void overlayImage(cv::Mat& background, const cv::Mat& foreground, cv::Point2i location, double alpha = 0.5, bool _overwrite = false) {
 	for (int y = std::max(location.y, 0); y < background.rows; ++y) {
 		int fY = y - location.y; // 0 <= fY < foreground.rows
 		if (fY >= foreground.rows)
@@ -180,6 +190,8 @@ void overlayImage(cv::Mat& background, const cv::Mat& foreground, cv::Point2i lo
 
 			// Blend the foreground and background pixels
 			double opacity = ((double)foreground.data[fY * foreground.step + fX * foreground.channels() + 3]) / 255. * alpha;
+			if(_overwrite)
+				opacity = 1;
 			for (int c = 0; opacity > 0 && c < background.channels(); ++c) {
 				unsigned char foregroundPx = foreground.data[fY * foreground.step + fX * foreground.channels() + c];
 				unsigned char backgroundPx = background.data[y * background.step + x * background.channels() + c];
@@ -188,6 +200,175 @@ void overlayImage(cv::Mat& background, const cv::Mat& foreground, cv::Point2i lo
 			}
 		}
 	}
+}
+
+int ExtendOpenCV::FilterApply_varF()
+{
+	const char *filename = (const char*)paramVariableGet();
+	const int *filter = (const int*)paramFallowGet(1);
+	const int *option = (const int*)paramFallowGet(2);
+	
+	if(!filter)
+		return 0;
+	STLVString listFrom, listTo;
+	BaseFile::paser_list_seperate(filename, &listFrom, ",");
+	
+	for(int i=0; i<listFrom.size(); i++)
+	{
+		cv::Mat img = cv::imread(listFrom[i].c_str(), cv::IMREAD_UNCHANGED);
+		
+		PtVector3 col;
+		int pixel = img.channels();
+		for(int x=0; x<img.cols; x++)
+		{
+			for(int y=0; y<img.rows; y++)
+			{
+				for(int i=0; i<3; i++)
+					col[i] = img.data[y*img.step + x * pixel+i]/255;
+				
+				switch(*filter)
+				{
+					case 0: // org;
+						break;
+					case 1: // bright;
+						for(int i=0; i<3; i++)
+							col += (float)*option/100.f;
+						break;
+					case 2: // dark;
+						for(int i=0; i<3; i++)
+							col -= (float)*option/100.f;
+						break;
+					case 3: // b/w;
+					{
+						float avg = 0;
+						avg = col[0] +  col[1] + col[2];
+						avg /= 3.f;
+						for(int i=0; i<3; i++)
+							col[i] = avg;
+					}
+						break;
+					case 4:
+						break;
+				}
+				
+				for(int i=0; i<3; i++)
+					img.data[y*img.step + x * pixel+i] = (int)((float)col[i]*255.f);
+			}
+		}
+		STLString to = BaseFile::get_filenamefull(listFrom[i]);
+		to += "filter";
+		char ext[10];
+		if(BaseFile::get_filext(listFrom[i].c_str(), ext, 10))
+			to += ext;
+		cv::imwrite(to.c_str(), img);
+		
+		listTo.push_back(to);
+	}
+	char namesTo[255];
+	BaseFile::paser_list_merge(namesTo, 255, listTo, ",");
+	if(!paramFallowSet(1, namesTo))
+		return 0;
+	return 1;
+}
+
+int ExtendOpenCV::DoubleMake_varF()
+{
+	const char *filename = (const char*)paramVariableGet();
+	
+	cv::Mat img = cv::imread(filename);
+	
+	cv::Size newSize(img.size[0], img.size[1]*2);
+	cv::Mat doubleImg = cv::Mat::zeros(newSize, CV_8UC3);
+
+	img.copyTo(doubleImg(cv::Rect(0, 0, img.cols, img.rows)));
+	img.copyTo(doubleImg(cv::Rect(0, img.rows, img.cols, img.rows)));
+	
+	// Save the composed image to a file
+	cv::imwrite(filename, doubleImg);
+	return 1;
+}
+
+int ExtendOpenCV::Rotate_varF()
+{
+	const char *imagePath = (const char*)paramVariableGet();
+	const int *rot = (const int*)paramFallowGet(0);
+	
+	cv::Mat image = cv::imread(imagePath);
+
+	if (image.empty()) {
+		std::cerr << "Error: Image not found." << std::endl;
+		return 0;
+	}
+
+	// Step 2: Check if the image is in portrait mode (height > width)
+	if (image.rows <= image.cols)
+		return 0;
+	// Step 3: Rotate the image to landscape mode
+	cv::Mat rotatedImage;
+	
+	// Rotate clockwise 90 degrees
+	if(*rot == 1)
+		cv::rotate(image, rotatedImage, cv::ROTATE_90_CLOCKWISE);
+	else
+		cv::rotate(image, rotatedImage, cv::ROTATE_90_COUNTERCLOCKWISE);
+	
+	// Step 4: Save the rotated image
+	if (!cv::imwrite(imagePath, rotatedImage))
+		return 0;
+
+	return 1;
+}
+
+int ExtendOpenCV::PhotoPannelImgAdd_varF()
+{
+	const char *pannelName = (const char*)paramVariableGet();
+	const char *imageName = (const char*)paramFallowGet(0);
+	const int *pos = (const int *)paramFallowGet(1);
+	const int *overwrite = (const int*)paramFallowGet(2);
+	
+	if(!imageName || !pos)
+		return 0;
+	
+	// Load a background image with alpha channel
+	cv::Mat backgroundImage = cv::imread(pannelName, cv::IMREAD_UNCHANGED);
+	std::string outputFilePath = pannelName; // Path to save the final image
+	cv::Mat img = cv::imread(imageName);
+
+	overlayImage(backgroundImage, img, cv::Point2i(pos[0], pos[1]), 1, *overwrite==1);
+
+	// Save the composed image to a file
+	cv::imwrite(outputFilePath, backgroundImage);
+	
+	return 1;
+}
+
+int ExtendOpenCV::QRCodeMake_varF()
+{
+	const char *url = (const char*)paramVariableGet();
+	const char *filepath = (const char*)paramFallowGet(0);
+	const int *size = (const int*)paramFallowGet(1);
+	
+	if(!url || !filepath || !size)
+		return 0;
+	
+	std::string cmd = "qrencode -o ";
+	cmd += filepath;
+	cmd += " ";
+	cmd += url;
+	
+	cv::Mat qrCodeImage;
+
+	BaseSystem::run_shell_command(cmd.c_str());
+	
+	cv::Size newSize(size[0], size[1]);
+	cv::Mat imgQr = cv::imread(filepath);
+	// Scale the image to the new size
+	cv::Mat scaledImage;
+	cv::resize(imgQr, scaledImage, newSize);
+
+	cv::imwrite(filepath, scaledImage);
+	
+	return 1;
 }
 
 int ExtendOpenCV::PhotoPannelMake_strF()
@@ -225,6 +406,9 @@ int ExtendOpenCV::PhotoPannelMake_strF()
 	for (int i = 0; i < pictures.size(); i++)
 	{
 		STLString path = root + pictures[i];
+#ifdef _MAC
+		path = pictures[i];
+#endif
 		smallImages.push_back(cv::imread(path.c_str(), cv::IMREAD_UNCHANGED));
 	}
 	// Load a background image with alpha channel

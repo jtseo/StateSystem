@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 
 #ifndef _WIN32
 #include <pthread.h>
@@ -14,7 +14,7 @@
 #include <math.h>
 #include <vector>
 
-#if defined(ANDROID) || defined(_IOS)
+#if defined(ANDROID) || defined(_IOS) || defined(_MAC)
 #define DEF_MOBILE
 #endif
 

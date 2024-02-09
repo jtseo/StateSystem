@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include "../PtBase/BaseStateFunc.h"
 class ExtendOpenCV :
     public BaseStateFunc
@@ -9,6 +9,11 @@ class ExtendOpenCV :
         //STDEF_SFENUM(Open_varF),
         STDEF_SFENUM(PictureRatioAdapt_varF),
         STDEF_SFENUM(PhotoPannelMake_strF),
+        STDEF_SFENUM(QRCodeMake_varF),
+        STDEF_SFENUM(PhotoPannelImgAdd_varF),
+        STDEF_SFENUM(Rotate_varF),
+        STDEF_SFENUM(DoubleMake_varF),
+        STDEF_SFENUM(FilterApply_varF),
         //#SF_EnumInsert
         EnumExtentionMax
     };
@@ -23,6 +28,11 @@ public:
     virtual int Create();
     int PictureRatioAdapt_varF();
     int PhotoPannelMake_strF();
+    int QRCodeMake_varF();
+    int PhotoPannelImgAdd_varF();
+    int Rotate_varF();
+    int DoubleMake_varF();
+    int FilterApply_varF();
     //#SF_FuncHeaderInsert
 
     // User defin area from here
