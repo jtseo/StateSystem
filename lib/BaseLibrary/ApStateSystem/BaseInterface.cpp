@@ -200,6 +200,7 @@ void manager_close(void* _pManager)
 	s_fnDebugOutEvent = NULL;
 	s_fnActionStackPush = NULL;
 	g_SendMessageSetDebugOut(NULL);
+	BaseEventHandler::release((StateManagerPnID*)_pManager);
 	((StateManagerPnID*)_pManager)->release_manager();
 
 	BaseDStructure::static_clear();

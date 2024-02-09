@@ -166,32 +166,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9C6D59DE-5BDD-492A-85F0-3335DA9DE383"
-            shouldBeEnabled = "Yes"
+            uuid = "F2E5D501-9990-4C72-9D93-DE47453E9850"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PtExtend/ExtendOpenCV.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
-            landmarkName = "ExtendOpenCV::PhotoPannelMake_strF()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8BBA7E27-5826-4BF7-9D4B-C3A083F5C54A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PtExtend/ExtendOpenCV.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
-            landmarkName = "ExtendOpenCV::PhotoPannelMake_strF()"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
+            landmarkName = "ExtendOpenCV::DoubleMake_varF()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -1323,7 +1323,6 @@
 					"-lopencv_core",
 					"-lopencv_imgcodecs",
 					"-lopencv_imgproc",
-					"-lqrencode",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = oddeyesoft.ApStateSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1375,7 +1374,6 @@
 					"-lopencv_core",
 					"-lopencv_imgcodecs",
 					"-lopencv_imgproc",
-					"-lqrencode",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = oddeyesoft.ApStateSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
