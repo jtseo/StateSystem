@@ -2452,8 +2452,10 @@ char* BaseFile::paser_list_merge(char* _ret, int _size, const STLVString& _str_a
 	{
 		if (i == 0)
 			strcpy_s(_ret, _size, _str_a[i].c_str());
-		else
+		else{
+			strcat_s(_ret, _size, _seperator);
 			strcat_s(_ret, _size, _str_a[i].c_str());
+		}
 	}
 
 	return _ret;
