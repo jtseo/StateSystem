@@ -346,7 +346,7 @@ void dsv_event_cast_reset(void* _pdsv)
 	if (pState == NULL)
 		return;
 
-	pState->EventSendReset();
+	pState->EventSendClear();
 }
 
 void* dsv_event_cast_get(void* _pdsv, int _event, bool _new)
