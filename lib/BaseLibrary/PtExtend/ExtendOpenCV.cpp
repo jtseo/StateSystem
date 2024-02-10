@@ -215,7 +215,9 @@ int ExtendOpenCV::FilterApply_varF()
 	
 	for(int i=0; i<listFrom.size(); i++)
 	{
-		cv::Mat img = cv::imread(listFrom[i].c_str(), cv::IMREAD_UNCHANGED);
+		STLString path = "../Pictures/";
+		path += listFrom[i];
+		cv::Mat img = cv::imread(path.c_str(), cv::IMREAD_UNCHANGED);
 		
 		PtVector3 col;
 		int pixel = img.channels();
@@ -224,21 +226,19 @@ int ExtendOpenCV::FilterApply_varF()
 			for(int y=0; y<img.rows; y++)
 			{
 				for(int i=0; i<3; i++)
-					col[i] = img.data[y*img.step + x * pixel+i]/255;
+					col[i] = (float)img.data[y*img.step + x * pixel+i]/255.f;
 				
 				switch(*filter)
 				{
 					case 0: // org;
 						break;
 					case 1: // bright;
-						for(int i=0; i<3; i++)
-							col += (float)*option/100.f;
+						col *= (float)*option/100.f;
 						break;
 					case 2: // dark;
-						for(int i=0; i<3; i++)
-							col -= (float)*option/100.f;
+						col *= (float)*option/100.f;
 						break;
-					case 3: // b/w;
+					case 3: // gray;
 					{
 						float avg = 0;
 						avg = col[0] +  col[1] + col[2];
@@ -251,22 +251,30 @@ int ExtendOpenCV::FilterApply_varF()
 						break;
 				}
 				
-				for(int i=0; i<3; i++)
-					img.data[y*img.step + x * pixel+i] = (int)((float)col[i]*255.f);
+				for(int i=0; i<3; i++){
+					if(col[i] < 0)
+						col[i] = 0;
+					if(col[i] > 1)
+						col[i] = 1;
+					img.data[y*img.step + x * pixel+i] = (int)(col[i]*255.f);
+				}
 			}
 		}
-		STLString to = BaseFile::get_filenamefull(listFrom[i]);
-		to += "filter";
-		char ext[10];
-		if(BaseFile::get_filext(listFrom[i].c_str(), ext, 10))
-			to += ext;
-		cv::imwrite(to.c_str(), img);
-		
+		char buff[255];
+		BaseFile::get_filename(listFrom[i].c_str(), buff, 255);
+		STLString to = buff;
+		if(to.find("filter") == STLString::npos)
+			to += "filter";
+		if(BaseFile::get_filext(listFrom[i].c_str(), buff, 255))
+			to += buff;
 		listTo.push_back(to);
+		path = "../Pictures/";
+		path += to;
+		cv::imwrite(path.c_str(), img);
 	}
 	char namesTo[255];
 	BaseFile::paser_list_merge(namesTo, 255, listTo, ",");
-	if(!paramFallowSet(1, namesTo))
+	if(!paramFallowSet(0, namesTo))
 		return 0;
 	return 1;
 }
@@ -386,7 +394,7 @@ int ExtendOpenCV::PhotoPannelMake_strF()
 	imgPath += "../";
 	imgPath += backImageName;
 	const char* pictureNames = NULL;
-	if (!m_state_variable->get(STRTOHASH("PhotoPicturePaths"), (const void**)&pictureNames))
+	if (!m_state_variable->get(STRTOHASH("PhotoPictureFilteredPaths"), (const void**)&pictureNames))
 		return 0;
 	STLVString pictures;
 	BaseFile::paser_list_seperate(pictureNames, &pictures, ",");
@@ -402,13 +410,10 @@ int ExtendOpenCV::PhotoPannelMake_strF()
 	cv::Size imageSize(photoSize[0], photoSize[1]); // Desired image size
 	std::vector<cv::Mat> smallImages; // Vector to hold small images
 	// Load small images (example)
-	root += "../frame/";
+	root = "../Pictures/";
 	for (int i = 0; i < pictures.size(); i++)
 	{
 		STLString path = root + pictures[i];
-#ifdef _MAC
-		path = pictures[i];
-#endif
 		smallImages.push_back(cv::imread(path.c_str(), cv::IMREAD_UNCHANGED));
 	}
 	// Load a background image with alpha channel
