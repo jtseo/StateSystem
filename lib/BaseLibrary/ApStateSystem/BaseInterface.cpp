@@ -713,9 +713,10 @@ int system_memory_alloc_size()
 
 char* static_variable_param_string_get(void* _pdsvBase, void* _pdsvEvent, void* _pdsvContext, int _nSeq, void* _pdsvDefault)
 {
-	const char* strValue = (const char*)BaseState::VariableGet((const BaseDStructureValue*)_pdsvBase, (BaseDStructureValue*)_pdsvContext, (BaseDStructureValue*)_pdsvEvent, _nSeq, (BaseDStructureValue*)_pdsvDefault);
+	EDstType type;
+	const char* strValue = (const char*)BaseState::VariableGet((const BaseDStructureValue*)_pdsvBase, (BaseDStructureValue*)_pdsvContext, (BaseDStructureValue*)_pdsvEvent, _nSeq, (BaseDStructureValue*)_pdsvDefault, 0, &type);
 
-	if (strValue == NULL)
+	if (strValue == NULL || type != TYPE_STRING)
 		return NULL;
 
 	int l = (int)strlen(strValue) + 1;
@@ -742,6 +743,10 @@ void* dsv_get_string(void* _pdst, const char* _strColName)
 	BaseDStructureValue* pdsv = ((BaseDStructureValue*)_pdst);
 	int hash = STRTOHASH(_strColName);
 
+	int idx = pdsv->get_index(hash);
+	if(BaseDStructure::get_type(idx) != TYPE_STRING)
+		return NULL;
+	
 	short _nCnt = 0;
 	int seq = pdsv->sequence_get_local();
 	STLVpVoid stlData;
@@ -1342,10 +1347,15 @@ void* dst_get_string(void* _pdst, INT32 _nKey, INT32 _nSequence)
 {
 	BaseDStructure* pdst = ((BaseDStructure*)_pdst);
 	short _nCnt = 0;
+	
+	int idx = pdst->get_index(_nKey);
+	if(pdst->get_type(idx) != TYPE_STRING)
+		return NULL;
+	
 	STLVpVoid stlData;
 	const char* strData = NULL;
 	bool bRet = pdst->get(_nKey, _nSequence, (const void**)&strData, &_nCnt);
-
+	
 	if (bRet) {
 		stlData.push_back((void*)strData);
 		int l = (int)strlen(strData);

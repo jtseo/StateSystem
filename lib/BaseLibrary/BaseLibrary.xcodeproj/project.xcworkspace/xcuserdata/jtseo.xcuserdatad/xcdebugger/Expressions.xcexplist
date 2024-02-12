@@ -11,6 +11,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "BaseDStructureValue::dump_load(void*, char const*):BaseDStructure.cpp">
+      </ContextState>
+      <ContextState
          contextName = "BaseStateSpace::OnEvent_(BaseDStructureValue*, BaseState const*):BaseStateSpace.cpp">
          <PersistentStrings>
             <PersistentString
@@ -19,7 +22,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "BaseDStructureValue::add_alloc(int, void const*, short):BaseDStructure.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "(const int*)_pVoid">
+            </PersistentString>
+            <PersistentString
+               value = "(char *)_pVoid">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "BaseState::context_get():BaseState.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "ExtendOpenCV::FilterApply_varF():ExtendOpenCV.cpp">
       </ContextState>
       <ContextState
          contextName = "BaseEventHandler::event_push(BaseDStructureValue*, int):BaseEventHandler.cpp">
