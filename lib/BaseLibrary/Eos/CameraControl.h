@@ -58,6 +58,7 @@ private:
 	void EventCastProperty(CameraEvent* _evt);
 	bool m_active;
 	bool m_eventCastEnable;
+	unsigned int m_afmode;
 public:
 };
 

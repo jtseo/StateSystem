@@ -207,6 +207,14 @@ BOOL CCameraControl::InitInstance()
 
 	if (err == EDS_ERR_OK)
 	{
+		CameraController* ctr = getCameraController();
+		if (ctr != NULL)
+		{
+			m_afmode = 4;
+			ActionEvent evt("set_EvfAFMode", &m_afmode);
+			ctr->actionPerformed(evt);
+		}
+		
 		BaseStateManager::get_manager()->post_event_state("CamInitialized");
 	}
 	else {
