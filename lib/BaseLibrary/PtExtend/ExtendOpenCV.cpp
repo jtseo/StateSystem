@@ -284,13 +284,21 @@ int ExtendOpenCV::DoubleMake_varF()
 	const char *filename = (const char*)paramVariableGet();
 	
 	cv::Mat img = cv::imread(filename);
-	
+
+	if (img.size[1] > 600)
+		return 0;
+
 	cv::Size newSize(img.size[0], img.size[1]*2);
 	cv::Mat doubleImg = cv::Mat::zeros(newSize, CV_8UC3);
 
 	img.copyTo(doubleImg(cv::Rect(0, 0, img.cols, img.rows)));
 	img.copyTo(doubleImg(cv::Rect(0, img.rows, img.cols, img.rows)));
-	
+
+	int cnt = 2;
+	m_state_variable->get("PhotoNumOf", &cnt);
+	cnt /= 2;
+	m_state_variable->set_alloc("PhotoNumOf", &cnt);
+
 	// Save the composed image to a file
 	cv::imwrite(filename, doubleImg);
 	return 1;
@@ -312,14 +320,12 @@ int ExtendOpenCV::Rotate_varF()
 	if (image.rows <= image.cols)
 		return 0;
 	// Step 3: Rotate the image to landscape mode
-	cv::Mat rotatedImage;
+	cv::Size roSize(image.size[1], image.size[0]);
+	cv::Mat rotatedImage = cv::Mat::zeros(roSize, CV_8UC3);;
 	
-	// Rotate clockwise 90 degrees
-	if(*rot == 1)
-		cv::rotate(image, rotatedImage, cv::ROTATE_90_CLOCKWISE);
-	else
-		cv::rotate(image, rotatedImage, cv::ROTATE_90_COUNTERCLOCKWISE);
-	
+	cv::transpose(image, rotatedImage);
+	cv::flip(rotatedImage, rotatedImage, 0);
+
 	// Step 4: Save the rotated image
 	if (!cv::imwrite(imagePath, rotatedImage))
 		return 0;
