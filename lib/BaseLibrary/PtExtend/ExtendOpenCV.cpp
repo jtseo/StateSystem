@@ -58,6 +58,7 @@ int ExtendOpenCV::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, in
 		STDEF_SFREGIST(Rotate_varF);
 		STDEF_SFREGIST(DoubleMake_varF);
 		STDEF_SFREGIST(FilterApply_varF);
+		STDEF_SFREGIST(ConvertBmp_varF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -107,6 +108,7 @@ int ExtendOpenCV::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		STDEF_SFFUNCALL(Rotate_varF);
 		STDEF_SFFUNCALL(DoubleMake_varF);
 		STDEF_SFFUNCALL(FilterApply_varF);
+		STDEF_SFFUNCALL(ConvertBmp_varF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -202,6 +204,17 @@ void overlayImage(cv::Mat& background, const cv::Mat& foreground, cv::Point2i lo
 	}
 }
 
+int ExtendOpenCV::ConvertBmp_varF()
+{
+	const char* filename = (const char*)paramVariableGet();
+	const char* fileout = (const char*)paramFallowGet(0);
+
+	cv::Mat img = cv::imread(filename);
+	cv::imwrite(fileout, img);
+
+	return 1;
+}
+
 int ExtendOpenCV::FilterApply_varF()
 {
 	const char *filename = (const char*)paramVariableGet();
@@ -285,10 +298,10 @@ int ExtendOpenCV::DoubleMake_varF()
 	
 	cv::Mat img = cv::imread(filename);
 
-	if (img.size[1] > 600)
+	if (img.rows > 600)
 		return 0;
 
-	cv::Size newSize(img.size[0], img.size[1]*2);
+	cv::Size newSize(img.cols, img.rows*2);
 	cv::Mat doubleImg = cv::Mat::zeros(newSize, CV_8UC3);
 
 	img.copyTo(doubleImg(cv::Rect(0, 0, img.cols, img.rows)));

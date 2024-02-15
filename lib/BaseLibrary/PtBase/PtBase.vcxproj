@@ -729,6 +729,7 @@
     <ClInclude Include="..\PtExtend\BaseSCJson.h" />
     <ClInclude Include="..\PtExtend\BaseStateSystem.h" />
     <ClInclude Include="..\PtExtend\DevCashReader.h" />
+    <ClInclude Include="..\PtExtend\DevPrint.h" />
     <ClInclude Include="..\PtExtend\DevPrinter.h" />
     <ClInclude Include="..\PtExtend\ExtendOpenCV.h" />
     <ClInclude Include="..\PtExtend\SerialPort.h" />
@@ -813,6 +814,9 @@
     <ClCompile Include="..\PtExtend\BaseSCJson.cpp" />
     <ClCompile Include="..\PtExtend\BaseStateSystem.cpp" />
     <ClCompile Include="..\PtExtend\DevCashReader.cpp" />
+    <ClCompile Include="..\PtExtend\DevPrint.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="..\PtExtend\DevPrinter.cpp" />
     <ClCompile Include="..\PtExtend\ExtendOpenCV.cpp" />
     <ClCompile Include="..\PtExtend\SerialPort.cpp">

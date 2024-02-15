@@ -16,6 +16,8 @@
 #include "../PtBase/BaseTime.h"
 #include "../PtBase/BaseStringTable.h"
 
+#include <Windows.h>
+
 PtObjectCpp(DevPrinter);
 
 // define  BaseStateFunc::FuncSample
@@ -131,15 +133,21 @@ int DevPrinter::Create()
 	return 1;
 }
 
+#include "DevPrint.h"
+
 int DevPrinter::Print_varIf()
 {
 	// print image; param printer.
+	const char* filename = (const char*)paramVariableGet();
 
+	DevPrint(m_printer.c_str(), 1, filename);
 	return 1;
 }
 
 int DevPrinter::NameSet_strF()
 {
+	const char* printName = (const char*)m_param_value;
+	m_printer = printName;
 	return 1;
 }
 

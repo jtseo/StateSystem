@@ -229,6 +229,8 @@
     <ClCompile Include="..\PtExtend\ExtendOpenCV.cpp">
       <Filter>extend</Filter>
     </ClCompile>
+    <ClCompile Include="..\PtExtend\DevPrint.cpp">
+      <Filter>extend</Filter>
     <ClCompile Include="BaseSCMysql.cpp">
       <Filter>baseState</Filter>
     </ClCompile>
@@ -479,6 +481,8 @@
     </ClInclude>
     <ClInclude Include="BaseSCMysql.h">
       <Filter>baseState</Filter>
+    <ClInclude Include="..\PtExtend\DevPrint.h">
+      <Filter>extend</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

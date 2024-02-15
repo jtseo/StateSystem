@@ -28,6 +28,7 @@ public:
     // User defin area from here
 protected:
     // support for text analysis
+    STLString m_printer;
 public:
 protected:
 };
