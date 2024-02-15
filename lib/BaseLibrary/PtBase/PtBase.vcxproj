@@ -756,6 +756,7 @@
     <ClInclude Include="BaseResResource.h" />
     <ClInclude Include="BaseSCCurl.h" />
     <ClInclude Include="BaseSCExcel.h" />
+    <ClInclude Include="BaseSCMysql.h" />
     <ClInclude Include="BaseSCTableGrid.h" />
     <ClInclude Include="BaseSetString.h" />
     <ClInclude Include="BaseSFParser.h" />
@@ -869,6 +870,7 @@
     <ClCompile Include="BaseResResource.cpp" />
     <ClCompile Include="BaseSCDBFile.cpp" />
     <ClCompile Include="BaseSCExcel.cpp" />
+    <ClCompile Include="BaseSCMysql.cpp" />
     <ClCompile Include="BaseSCTableGrid.cpp" />
     <ClCompile Include="BaseSCTcp.cpp" />
     <ClCompile Include="BaseSCTcpSession.cpp" />
