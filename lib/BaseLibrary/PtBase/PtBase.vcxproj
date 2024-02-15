@@ -498,7 +498,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>CURL_STATICLIB;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../../SDK;../../SDK/opencv/Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../SDK;../../SDK/opencv/Include;../../SDK/mysql</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
