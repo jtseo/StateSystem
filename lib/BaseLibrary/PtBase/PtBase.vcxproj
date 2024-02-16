@@ -692,7 +692,7 @@
       <PreprocessorDefinitions>CURL_STATICLIB;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>../../SDK;../../SDK/opencv/Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../SDK;../../SDK/opencv/Include;../../SDK/mysql</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -816,6 +816,7 @@
     <ClCompile Include="..\PtExtend\DevCashReader.cpp" />
     <ClCompile Include="..\PtExtend\DevPrint.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\PtExtend\DevPrinter.cpp" />
     <ClCompile Include="..\PtExtend\ExtendOpenCV.cpp" />
