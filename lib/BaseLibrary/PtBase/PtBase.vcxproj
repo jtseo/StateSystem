@@ -522,7 +522,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>CURL_STATICLIB;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../../SDK;../../SDK/opencv/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../SDK;../../SDK/opencv/include;../../SDK/mysql</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
@@ -712,7 +712,7 @@
       <PreprocessorDefinitions>CURL_STATICLIB;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>../../SDK;../../SDK/opencv/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../SDK;../../SDK/opencv/include;../../SDK/mysql</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -817,6 +817,8 @@
     <ClCompile Include="..\PtExtend\DevPrint.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='VSDebug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='VSRelease|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\PtExtend\DevPrinter.cpp" />
     <ClCompile Include="..\PtExtend\ExtendOpenCV.cpp" />

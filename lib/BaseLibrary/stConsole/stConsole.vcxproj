@@ -212,7 +212,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Wldap32.lib;ws2_32.lib;crypt32.lib;winmm.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libmysql.lib;Wldap32.lib;ws2_32.lib;crypt32.lib;winmm.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../SDK/lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -254,7 +254,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Wldap32.lib;ws2_32.lib;crypt32.lib;winmm.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>mysql.lib;Wldap32.lib;ws2_32.lib;crypt32.lib;winmm.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../SDK/lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

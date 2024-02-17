@@ -239,7 +239,8 @@ DEF_ThreadCallBack(BaseSCMysql::update)
 			{
 				
 				field = mysql_fetch_field (res_set);
-				if(i == 0 && IS_NUM(field->type) && strcmp(field->name, "ct_id") == 0)
+				if(i == 0 && IS_NUM(field->type) && 
+					(strcmp(field->name, "ct_id") == 0 || strcmp(field->name, "id") == 0))
 				{
 					INT64 ct_id;
 					ct_id = BaseFile::get_longlong(row[i]);
