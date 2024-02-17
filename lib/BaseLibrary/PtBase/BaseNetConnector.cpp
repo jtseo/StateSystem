@@ -3170,15 +3170,6 @@ STDEF_FUNC(BaseNetEventReturn_nF)
 
 	int index = pState->identifier_get(HASH_STATE(Socket));
 
-	{
-		const char* data;
-		STDEF_GET(_pdsvEvent, "dbcolumn_filename", data);
-		STDEF_GET(_pdsvEvent, "dbcolumn_pnid_state", data);
-		const int* id;
-		STDEF_GET(_pdsvEvent, "dbcolumn_ct_id", id);
-		STDEF_GET(variable_state, "DatabaseQueryCount", id);
-	}
-
 	if (!base_net_event_send(pdsvEvent, index, pState->variable_get()))
 		return 0;
 
