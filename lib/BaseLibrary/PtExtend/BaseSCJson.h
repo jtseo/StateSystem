@@ -13,6 +13,8 @@ class BaseSCJson:
         STDEF_SFENUM(Get_varF),
         STDEF_SFENUM(JsonGet_varF),
         STDEF_SFENUM(MassMerge_astrF),
+        STDEF_SFENUM(clear_nF),
+        STDEF_SFENUM(JsonSet_varF),
         //#SF_EnumInsert
         EnumExtentionMax
     };
@@ -29,6 +31,8 @@ public:
     int Get_varF();
     int JsonGet_varF();
     int MassMerge_astrF();
+    int clear_nF();
+    int JsonSet_varF();
     //#SF_FuncHeaderInsert
 
     // User defin area from here

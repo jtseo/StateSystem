@@ -103,6 +103,12 @@ bool BaseJson::get(const STLString &_name, INT64 *_ret)
 	return true;
 }
 
+void BaseJson::clear()
+{
+	m_table_m.clear();
+	m_type_m.clear();
+}
+
 STLString BaseJson::get()
 {
 	STLString str = "{";

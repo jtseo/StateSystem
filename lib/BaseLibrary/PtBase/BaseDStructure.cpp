@@ -4112,6 +4112,7 @@ bool BaseDStructureValue::set_mass(int _nHash, const void* _pVoid)
 	int len = (int)strlen((const char*)_pVoid);
 	if (len > LIMIT_STR)
 	{
+		set_alloc(_nHash, NULL);
 		char* buf = PT_Alloc(char, LIMIT_STR + 1);
 		const char* start = (const char*)_pVoid;
 		for (int i = 0; i < len / LIMIT_STR; i++)
@@ -4131,7 +4132,7 @@ bool BaseDStructureValue::set_mass(int _nHash, const void* _pVoid)
 		PT_Free(buf);
 	}
 	else {
-		add_alloc(_nHash, _pVoid);
+		set_alloc(_nHash, _pVoid);
 	}
 	return true;
 }

@@ -20,6 +20,7 @@ public:
 	STLMstrStr::const_iterator begin() const;
 	STLMstrStr::const_iterator end() const;
 	void typeSet(const STLString& _name, const char* _type);// int, float, array
+	void clear();
 protected:
 	STLMstrStr	m_table_m;
 	STLMstrStr	m_type_m;

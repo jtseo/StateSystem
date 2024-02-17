@@ -363,7 +363,7 @@ int BaseSCMysql::queryUpdate_strF()
 	BaseJson json;
 	json.set(param);
 	
-	STLString ct_id_str = json["ct_id"];
+	STLString ct_id_str = json["id"];
 	if(ct_id_str.empty())
 		return 0;
 	
@@ -374,9 +374,9 @@ int BaseSCMysql::queryUpdate_strF()
 	bool first = true;
 	for(;it!=json.end();it++)
 	{
-		if(!first && it->first != "ct_id")
+		if(!first && it->first != "id")
 			q->query += " ,";
-		if(it->first == "ct_id")
+		if(it->first == "id")
 		{
 		}else{
 			first = false;
@@ -388,7 +388,7 @@ int BaseSCMysql::queryUpdate_strF()
 		}
 	}
 	
-	q->query += " where ct_id = ";
+	q->query += " where id = ";
 	q->query += ct_id_str;
 	
 	q->sc_mysql = this;
@@ -417,12 +417,12 @@ int BaseSCMysql::queryDelete_strF()
 	BaseJson json;
 	json.set(param);
 	
-	STLString ct_id_str = json["ct_id"];
+	STLString ct_id_str = json["id"];
 	if(ct_id_str.empty())
 		return 0;
 	
 	q->query = query;
-	q->query += " where ct_id = ";
+	q->query += " where id = ";
 	q->query += ct_id_str;
 	
 	q->sc_mysql = this;
@@ -578,9 +578,9 @@ int BaseSCMysql::querySelectPage_strF()
 			queryIn += " and";
 		else
 			first = false;
-		if(it->first == "ct_id")
+		if(it->first == "id")
 		{
-			queryIn += " ct_id = ";
+			queryIn += " id = ";
 			queryIn += it->second;
 		}else{
 			queryIn += " ";

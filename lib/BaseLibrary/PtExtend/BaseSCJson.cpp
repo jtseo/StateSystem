@@ -57,6 +57,8 @@ int BaseSCJson::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, int 
 		STDEF_SFREGIST(Get_varF);
 		STDEF_SFREGIST(JsonGet_varF);
 		STDEF_SFREGIST(MassMerge_astrF);
+		STDEF_SFREGIST(clear_nF);
+		STDEF_SFREGIST(JsonSet_varF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -103,6 +105,8 @@ int BaseSCJson::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		STDEF_SFFUNCALL(Get_varF);
 		STDEF_SFFUNCALL(JsonGet_varF);
 		STDEF_SFFUNCALL(MassMerge_astrF);
+		STDEF_SFFUNCALL(clear_nF);
+		STDEF_SFFUNCALL(JsonSet_varF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -176,6 +180,16 @@ int BaseSCJson::Add_varF()
 		m_json.set(name, buff);
 		m_json.typeSet(name, "float");
 	}
+	else if (type == TYPE_INT64)
+	{
+		const INT64* value = NULL;
+		if (!m_state_variable->get(*hash, (const void**)&value))
+			return 0;
+
+		sprintf_s(buff, 255, "%lld", *value);
+		m_json.set(name, buff);
+		m_json.typeSet(name, "int");
+	}
 
 	return 1;
 }
@@ -185,28 +199,36 @@ int BaseSCJson::Get_varF()
 	const int* hash = (const int*)m_param_value;
 	const char* name = (const char*)paramFallowGet(0);
 
-	BaseFile file;
-	if (!file.OpenFile("test.dmp", BaseFile::OPEN_READ))
+	int idx = BaseDStructure::get_index(*hash);
+	if (idx == -1)
+		return 0;
+
+	STLString nameStr = name;
+	const void* value = NULL;
+	STLString str;
+	int v1;
+	INT64 v2;
+	switch (BaseDStructure::type_get(idx).nType)
 	{
-		char buf[102400];
-
-		BaseDStructureValue* evt;
-		int size = 0;
-		do {
-			size = file.Read(buf, 102400);
-			evt = m_manager_p->make_event_state("TestDummy");
-			evt->set_mass(STRTOHASH("VoiceBlock"), buf, size);
-			m_manager_p->post_systemevent(evt);
-		} while (size > 0);
-
-		evt = m_manager_p->make_event_state("TestDummy");
-		m_manager_p->post_systemevent(evt);
-
-		file.CloseFile();
+	case TYPE_STRING:
+		str = m_json.get(nameStr);
+		value = str.c_str();
+		break;
+	case TYPE_INT32:
+		if (!m_json.get(name, &v1))
+			return 0;
+		value = &v1;
+		break;
+	case TYPE_INT64:
+		if (!m_json.get(name, &v2))
+			return 0;
+		value = &v2;
+		break;
 	}
-	
+	m_state_variable->set_alloc(*hash, (const void*)value);
 	return 1;
 }
+
 int BaseSCJson::JsonGet_varF()
 {
 	const int* hash = (const int*)m_param_value;
@@ -256,6 +278,20 @@ int BaseSCJson::MassMerge_astrF()
 		fclose(pf);
 	}
 
+	return 1;
+}
+
+int BaseSCJson::JsonSet_varF()
+{
+	const char* json = (const char*)paramVariableGet();
+	if (!m_json.set(json))
+		return 0;
+	return 1;
+}
+
+int BaseSCJson::clear_nF()
+{
+	m_json.clear();
 	return 1;
 }
 //#SF_functionInsert
