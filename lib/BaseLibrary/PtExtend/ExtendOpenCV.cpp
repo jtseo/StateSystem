@@ -378,14 +378,14 @@ int ExtendOpenCV::QRCodeMake_varF()
 	if(!url || !filepath || !size)
 		return 0;
 	
-	std::string cmd = "qrencode -o ";
+	std::string cmd = " -o ";
 	cmd += filepath;
 	cmd += " ";
 	cmd += url;
 	
 	cv::Mat qrCodeImage;
 
-	BaseSystem::run_shell_command(cmd.c_str());
+	BaseSystem::run_shell_command("open", "qrencode", cmd.c_str(), false);
 	
 	cv::Size newSize(size[0], size[1]);
 	cv::Mat imgQr = cv::imread(filepath);
