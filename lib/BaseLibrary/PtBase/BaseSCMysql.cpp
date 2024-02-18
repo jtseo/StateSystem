@@ -6,6 +6,7 @@
 //#include "../PtBase/BaseStateFunc.h"
 //#include "../PtBase/BaseObject.h"
 
+#include "BaseJson.h"
 #include "BaseSCMysql.h"
 #include "../PtBase/BaseState.h"
 #include "../PtBase/BaseFile.h"
@@ -19,7 +20,6 @@
 #include "../PtBase/BaseResManager.h"
 #include "../PtBase/BaseTime.h"
 #include "../PtBase/BaseStringTable.h"
-#include "BaseJson.h"
 
 PtObjectCpp(BaseSCMysql);
 
@@ -59,6 +59,8 @@ int BaseSCMysql::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, int
 		STDEF_SFREGIST(querySearch_strF);
 		STDEF_SFREGIST(querySelectPage_strF);
 		STDEF_SFREGIST(keyAdd_astrF);
+		STDEF_SFREGIST(procedureCall_formatF);
+		STDEF_SFREGIST(FileSave_varF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -110,6 +112,8 @@ int BaseSCMysql::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		STDEF_SFFUNCALL(querySearch_strF);
 		STDEF_SFFUNCALL(querySelectPage_strF);
 		STDEF_SFFUNCALL(keyAdd_astrF);
+		STDEF_SFFUNCALL(procedureCall_formatF);
+		STDEF_SFFUNCALL(FileSave_varF);
 		//#SF_FuncCallInsert
 
 		return 0;
@@ -363,8 +367,8 @@ int BaseSCMysql::queryUpdate_strF()
 	BaseJson json;
 	json.set(param);
 	
-	STLString ct_id_str = json["id"];
-	if(ct_id_str.empty())
+	STLString where = key_where(json);
+	if (where.empty())
 		return 0;
 	
 	q->query = query;
@@ -374,11 +378,10 @@ int BaseSCMysql::queryUpdate_strF()
 	bool first = true;
 	for(;it!=json.end();it++)
 	{
-		if(!first && it->first != "id")
-			q->query += " ,";
-		if(it->first == "id")
+		if (!key_is(it->first.c_str()))
 		{
-		}else{
+			if(!first)
+				q->query += " ,";
 			first = false;
 			q->query += " ";
 			q->query += it->first;
@@ -388,8 +391,8 @@ int BaseSCMysql::queryUpdate_strF()
 		}
 	}
 	
-	q->query += " where id = ";
-	q->query += ct_id_str;
+	q->query += " where";
+	q->query += where;
 	
 	q->sc_mysql = this;
 	q->type = DB_UPDATE;
@@ -548,6 +551,66 @@ int BaseSCMysql::querySearch_strF()
 	return 1;
 }
 
+int BaseSCMysql::FileSave_varF()
+{
+	int hash = *(int*)m_param_value;
+
+	const char* buff = NULL;
+	short cnt = 0;
+	int cnt2 = 0;
+
+	bool largeable = m_state_variable->get_base()->type_get(m_state_variable->get_base()->get_index(hash)).nType >= TYPE_STRING;
+
+	BaseFile file;
+
+	const char* filename = (const char*)paramFallowGet(0);
+	if (!filename)
+		return 0;
+	if (file.OpenFile(filename, BaseFile::OPEN_WRITE))
+		return 0;
+
+	if (largeable)
+	{
+		if (!m_state_variable->get_mass(hash, (const void**)&buff, &cnt2))
+			return 0;
+	}
+	else
+	{
+		if (!m_state_variable->get(hash, (const void**)&buff, &cnt))
+			return 0;
+	}
+
+	if (largeable)
+		file.Write(buff, cnt2);
+	else
+		file.Write(buff, (int)cnt);
+
+	file.CloseFile();
+	return 1;
+}
+
+int BaseSCMysql::procedureCall_formatF()
+{
+	ParamQuery* q;
+	PT_OAlloc(q, ParamQuery);
+	q->stateSerial = m_state_p->obj_serial_get();
+	
+	q->query = paramFormatGet();
+	if (q->query.empty())
+		return 0;
+	
+	q->sc_mysql = this;
+	q->type = DB_READ;
+
+	g_SendMessage(LOG_MSG, "query_lunch %p %s\n", q->query.c_str(), q->query.c_str());
+	if (BaseSystem::createthread(update_, 0, q) == -1) {
+		return 0;
+	}
+
+	return 1;
+}
+
+
 int BaseSCMysql::querySelectPage_strF()
 {
 	ParamQuery *q;
@@ -620,6 +683,30 @@ bool BaseSCMysql::key_is(const char *_str)
 	if(m_keys.find(_str) == m_keys.end())
 		return false;
 	return true;
+}
+
+STLString BaseSCMysql::key_where(BaseJson _json)
+{
+	STLSString::iterator it;
+	STLString ret;
+	it = m_keys.begin();
+	bool first = true;
+	for (; it != m_keys.end(); it++)
+	{
+		ret += " ";
+		if (!first)
+			ret += "and ";
+
+		STLString value = _json[it->c_str()];
+		if (value.empty())
+			continue;
+		ret += it->c_str();
+		ret += "= \"";
+		ret += value;
+		ret += "\"";
+		first = false;
+	}
+	return ret;
 }
 
 int BaseSCMysql::keyAdd_astrF()

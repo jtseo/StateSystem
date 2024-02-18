@@ -879,7 +879,6 @@ int BaseState::LinkProcess_(BaseDStructureValue* pLink, BaseDStructureValue* _pd
 	{
 		link = getlink(link, false);
 	}
-	fprintf(stderr, "link:%d \n", link);
 	if (_linkcomplete_b)
 		*_linkcomplete_b = false;
 

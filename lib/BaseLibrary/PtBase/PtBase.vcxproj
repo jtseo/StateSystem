@@ -875,6 +875,7 @@
     <ClCompile Include="BaseResGrid.cpp" />
     <ClCompile Include="BaseResManager.cpp" />
     <ClCompile Include="BaseResResource.cpp" />
+    <ClCompile Include="BaseSCCurl.cpp" />
     <ClCompile Include="BaseSCDBFile.cpp" />
     <ClCompile Include="BaseSCExcel.cpp" />
     <ClCompile Include="BaseSCMysql.cpp" />

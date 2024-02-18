@@ -4,7 +4,7 @@
 #include "../PtBase/BaseObject.h"
 #include "../PtBase/BaseState.h"
 #include "../PtBase/BaseFile.h"
-
+#include "../PtBase/BaseJson.h"
 #include "BaseSFParser.h"
 
 #include "../PtBase/BaseStateMain.h"
@@ -16,7 +16,6 @@
 #include "../PtBase/BaseTime.h"
 #include "../PtBase/BaseStringTable.h"
 #include "BaseSCMysql.h"
-#include "BaseJson.h"
 
 PtObjectCpp(BaseSFParser);
 // define  BaseStateFunc::FuncSample

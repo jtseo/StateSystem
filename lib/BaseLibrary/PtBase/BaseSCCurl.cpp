@@ -369,7 +369,7 @@ DEF_ThreadCallBack(BaseSCCurl::update)
     BaseSCCurl* scCurl = (BaseSCCurl*)_pParam;
 
     const int bufLen = 1024;
-    char* szUrl = "http://stackoverflow.com";
+	STLString url = "http://stackoverflow.com";
 
     bool end = false;
 #ifdef _WIN32
@@ -380,7 +380,7 @@ DEF_ThreadCallBack(BaseSCCurl::update)
     STLString data, header;
     if (!end)
     {
-        readUrl2(szUrl, &data, &header);
+        readUrl2((char*)url.c_str(), &data, &header);
         printf("returned from readUrl\n");
         printf("data returned:\n%s", data.c_str());
         if (!data.empty())

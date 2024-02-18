@@ -13,6 +13,8 @@ class BaseSCMysql :
         STDEF_SFENUM(querySearch_strF),
         STDEF_SFENUM(querySelectPage_strF),
         STDEF_SFENUM(keyAdd_astrF),
+        STDEF_SFENUM(procedureCall_formatF),
+        STDEF_SFENUM(FileSave_varF),
         //#SF_EnumInsert
         EnumExtentionMax
     };
@@ -37,6 +39,8 @@ public:
     int querySearch_strF();
     int querySelectPage_strF();
     int keyAdd_astrF();
+    int procedureCall_formatF();
+    int FileSave_varF();
     //#SF_FuncHeaderInsert
 
     // User defin area from here
@@ -54,6 +58,7 @@ protected:
 public:
 	bool key_add(const char *_str);
 	bool key_is(const char *_str);
+    STLString key_where(BaseJson _json);
 protected:
 	STLSString	m_keys;
     

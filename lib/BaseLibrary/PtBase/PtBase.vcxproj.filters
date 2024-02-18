@@ -235,6 +235,9 @@
     <ClCompile Include="Vector3.cpp">
       <Filter>etc</Filter>
     </ClCompile>
+    <ClCompile Include="BaseSCCurl.cpp">
+      <Filter>StateClass</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base.h">
