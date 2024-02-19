@@ -283,11 +283,11 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>opencv_world490.lib;EDSDK.lib;ws2_32.lib;crypt32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;crypt32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../SDK/lib</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(OutDir)$(TargetName)$(TargetExt)" "C:\projects\photobooth\PhotoWin/photobooth_Data/Plugins/x86_64"</Command>
+      <Command>copy "$(OutDir)$(TargetName)$(TargetExt)" "C:\fork\ProjectHL\PrototypeSii\Assets\VLogger\Plugins\Windows\x64"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='VSRelease|x64'">
@@ -309,7 +309,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>opencv_world490.lib;ws2_32.lib;crypt32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;crypt32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../SDK/lib</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
@@ -338,9 +338,6 @@
     <ClCompile Include="StateManagerPnID.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Eos\Eos.vcxproj">
-      <Project>{0adc4bfc-7797-4d71-948d-d05308434a4c}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\PtBase\PtBase.vcxproj">
       <Project>{9c4c682a-81bc-4937-9501-11e6d1953897}</Project>
     </ProjectReference>

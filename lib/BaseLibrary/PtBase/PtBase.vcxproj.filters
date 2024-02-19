@@ -166,9 +166,6 @@
     <ClCompile Include="..\PtExtend\DevPrinter.cpp">
       <Filter>Extend</Filter>
     </ClCompile>
-    <ClCompile Include="..\PtExtend\ExtendOpenCV.cpp">
-      <Filter>Extend</Filter>
-    </ClCompile>
     <ClCompile Include="..\PtExtend\SerialPort.cpp">
       <Filter>Extend</Filter>
     </ClCompile>
@@ -406,9 +403,6 @@
       <Filter>Extend</Filter>
     </ClInclude>
     <ClInclude Include="..\PtExtend\DevPrinter.h">
-      <Filter>Extend</Filter>
-    </ClInclude>
-    <ClInclude Include="..\PtExtend\ExtendOpenCV.h">
       <Filter>Extend</Filter>
     </ClInclude>
     <ClInclude Include="..\PtExtend\SerialPort.h">

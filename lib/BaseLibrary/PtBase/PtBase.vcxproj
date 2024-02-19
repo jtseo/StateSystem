@@ -731,7 +731,6 @@
     <ClInclude Include="..\PtExtend\DevCashReader.h" />
     <ClInclude Include="..\PtExtend\DevPrint.h" />
     <ClInclude Include="..\PtExtend\DevPrinter.h" />
-    <ClInclude Include="..\PtExtend\ExtendOpenCV.h" />
     <ClInclude Include="..\PtExtend\SerialPort.h" />
     <ClInclude Include="base.h" />
     <ClInclude Include="base64.h" />
@@ -821,7 +820,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='VSRelease|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\PtExtend\DevPrinter.cpp" />
-    <ClCompile Include="..\PtExtend\ExtendOpenCV.cpp" />
     <ClCompile Include="..\PtExtend\SerialPort.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='VSDebug|x64'">NotUsing</PrecompiledHeader>
