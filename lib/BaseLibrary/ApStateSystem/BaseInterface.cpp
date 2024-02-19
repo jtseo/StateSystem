@@ -1348,10 +1348,6 @@ void* dst_get_string(void* _pdst, INT32 _nKey, INT32 _nSequence)
 	BaseDStructure* pdst = ((BaseDStructure*)_pdst);
 	short _nCnt = 0;
 	
-	int idx = pdst->get_index(_nKey);
-	if(pdst->get_type(idx) != TYPE_STRING)
-		return NULL;
-	
 	STLVpVoid stlData;
 	const char* strData = NULL;
 	bool bRet = pdst->get(_nKey, _nSequence, (const void**)&strData, &_nCnt);
