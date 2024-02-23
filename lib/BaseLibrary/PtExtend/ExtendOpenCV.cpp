@@ -208,9 +208,20 @@ int ExtendOpenCV::ConvertBmp_varF()
 {
 	const char* filename = (const char*)paramVariableGet();
 	const char* fileout = (const char*)paramFallowGet(0);
+	const int* vertical = (const int*)paramFallowGet(1);
+	const int* horizon = (const int*)paramFallowGet(2);
 
+	int v = 0, h = 0;
+	if (vertical)
+		v = *vertical;
+	if (horizon)
+		h = *horizon;
 	cv::Mat img = cv::imread(filename);
-	cv::imwrite(fileout, img);
+
+	cv::Size imageSize(img.cols + h, img.rows - v);
+	cv::Mat offsetImg = cv::Mat::zeros(imageSize, CV_8UC3);
+	overlayImage(offsetImg, img, cv::Point2i(h, 0), 1, true);
+	cv::imwrite(fileout, offsetImg);
 
 	return 1;
 }

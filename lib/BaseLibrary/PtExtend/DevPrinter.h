@@ -9,6 +9,8 @@ class DevPrinter :
         //STDEF_SFENUM(Open_varF),
         STDEF_SFENUM(Print_varIf),
         STDEF_SFENUM(NameSet_strF),
+        STDEF_SFENUM(NameSet_varF),
+        STDEF_SFENUM(IsSmall_varIf),
         STDEF_SFENUM(PaperCountGet_varF),
         //#SF_EnumInsert
         EnumExtentionMax
@@ -24,6 +26,8 @@ public:
     virtual int Create();
     int Print_varIf();
     int NameSet_strF();
+    int NameSet_varF();
+    int IsSmall_varIf();
     int PaperCountGet_varF();
     //#SF_FuncHeaderInsert
 

@@ -53,6 +53,8 @@ int DevPrinter::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, int 
 		//STDEF_SFREGIST(Open_varF);
 		STDEF_SFREGIST(Print_varIf);
 		STDEF_SFREGIST(NameSet_strF);
+		STDEF_SFREGIST(NameSet_varF);
+		STDEF_SFREGIST(IsSmall_varIf);
 		STDEF_SFREGIST(PaperCountGet_varF);
         //#SF_FuncRegistInsert
 
@@ -108,6 +110,8 @@ int DevPrinter::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		//STDEF_SFFUNCALL(Open_varF);
 		STDEF_SFFUNCALL(Print_varIf);
 		STDEF_SFFUNCALL(NameSet_strF);
+		STDEF_SFFUNCALL(NameSet_varF);
+		STDEF_SFFUNCALL(IsSmall_varIf);
 		STDEF_SFFUNCALL(PaperCountGet_varF);
 		//#SF_FuncCallInsert
 		return 0;
@@ -143,6 +147,31 @@ int DevPrinter::Print_varIf()
 	const char* filename = (const char*)paramVariableGet();
 
 	DevPrint(m_printer.c_str(), 1, filename);
+	return 1;
+}
+
+int DevPrinter::NameSet_varF()
+{
+	const char* printName = (const char*)paramVariableGet();
+	m_printer = printName;
+	return 1;
+}
+
+int DevPrinter::IsSmall_varIf()
+{
+	const int* photoSize = (const int*)paramVariableGet();
+
+	if (photoSize == NULL)
+		return 0;
+
+	int min = 0;
+	min = photoSize[0];
+	if (min > photoSize[1])
+		min = photoSize[1];
+
+	if (min > 600)
+		return 0;
+
 	return 1;
 }
 
