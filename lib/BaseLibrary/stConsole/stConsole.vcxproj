@@ -259,8 +259,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\PtBase\BaseSCTcp.cpp" />
-    <ClCompile Include="..\PtBase\BaseSCTcpSession.cpp" />
     <ClCompile Include="BaseInterface.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="StateManagerPnID.cpp" />

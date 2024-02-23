@@ -67,12 +67,16 @@ void StateManagerPnID::release_manager(bool _reset)
 #include "../PtExtend/BaseStateSystem.h"
 #include "../PtBase/BaseSCMysql.h"
 
+#include <winsock2.h>
+#include "../PtBase/BaseSCTcp.h"
+
 StateManagerPnID::StateManagerPnID(void* _applet) :BaseStateManager(_applet)
 {
 	BaseSFuncDirectory dir;
 	BaseSCJson json;
 	BaseStateSystem bsy;
 	BaseSCMysql sql;
+	BaseSCTcp tcp;
 
 	//BaseSFParser paser;
 

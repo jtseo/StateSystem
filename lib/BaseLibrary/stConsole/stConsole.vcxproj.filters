@@ -30,12 +30,6 @@
     <ClCompile Include="StateManagerPnID.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\PtBase\BaseSCTcp.cpp">
-      <Filter>NewFilter1</Filter>
-    </ClCompile>
-    <ClCompile Include="..\PtBase\BaseSCTcpSession.cpp">
-      <Filter>NewFilter1</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseInterface.h">

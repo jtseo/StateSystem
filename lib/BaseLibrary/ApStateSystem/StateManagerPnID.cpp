@@ -62,9 +62,11 @@ void StateManagerPnID::release_manager(bool _reset)
 //	BaseDStructure::set_callback_fileclose(fnCallbackFileClose);
 //}
 
+#include <winsock2.h>
 #include "../PtBase/BaseSFuncDirectory.h"
 #include "../PtBase/BaseTextEditor.h"
 #include "../PtBase/BaseTextEditorText.h"
+#include "../PtBase/BaseSCTcp.h"
 #include "../PtExtend/BaseSCJson.h"
 #include "../PtExtend/ExtendOpenCV.h"
 //#include "../PtBase/BaseSFParser.h"
@@ -83,6 +85,7 @@ StateManagerPnID::StateManagerPnID(void *_applet) :BaseStateManager(_applet)
 	BaseTextEditor te;
 	BaseSCJson json;
 	ExtendOpenCV extOpencv;
+	BaseSCTcp tcp;
 	//BaseSFParser paser;
 #ifndef VScriptBuild
 

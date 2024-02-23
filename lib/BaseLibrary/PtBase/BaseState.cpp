@@ -3824,6 +3824,8 @@ int BaseState::VariableLoopCallbackStruct(bool bConst, int _nHashOp, int _nTypeO
 		if (fnProcessor == BaseState::ContextSet &&
 			_pdsvV1->get_base()->get_type(nIndex) == TYPE_INT32)// receive type is string and giver is a int, convert to string.
 		{
+			if (pnValue2 == NULL)
+				return 2; // 
 			int len = (int)strlen((const char*)pnValue2);
 			bool num = true;
 

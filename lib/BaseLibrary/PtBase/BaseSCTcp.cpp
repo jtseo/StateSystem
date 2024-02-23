@@ -269,6 +269,56 @@ DEF_ThreadCallBack(BaseSCTcp::update)
 #endif
 }
 
+
+DEF_ThreadCallBack(threadClient)
+//void __cdecl BaseNetManager::update(void *_pManager)
+{
+	PT_ThreadStart(THTYPE_BASE_TCP);
+	BaseSCTcp* pTcp = (BaseSCTcp*)_pParam;
+
+	char buff[MAX];
+	memset(buff, 0, MAX);
+
+	// read the message from client and copy it in buffer
+	int cnt = 0;
+	STLString accum;
+	do {
+		cnt = recv(pTcp->socketGet(), buff, (long)sizeof(buff), 0);
+		if (cnt > 0) {
+			buff[cnt] = 0;
+			accum += buff;
+		}
+		BaseSystem::Sleep(100);
+	} while (cnt == 0);
+
+	do {
+		cnt = recv(pTcp->socketGet(), buff, (long)sizeof(buff), 0);
+		if (cnt > 0) {
+			buff[cnt] = 0;
+			accum += buff;
+		}
+		BaseSystem::Sleep(100);
+	} while (cnt > 0);
+
+	printf("From client: %s\t To client \n", accum.c_str());
+
+	BaseDStructureValue *evt = pTcp->EventMakeThread(STRTOHASH("TCPReceive"));
+	evt->set_alloc("param1_str", accum.c_str());
+	pTcp->EventPostThread(evt);
+
+	//TCPReceive
+	//param1_str
+	// After chatting close the socket
+#ifdef _WIN32
+	closesocket(pTcp->socketGet());
+#else
+	close(pTcp->socketGet());
+#endif
+
+	PT_ThreadEnd(THTYPE_BASE_TCP);
+}
+
+
 int BaseSCTcp::connect_astrF()
 {
     UINT32 timeStart = BaseSystem::timeGetTime();
@@ -298,16 +348,13 @@ int BaseSCTcp::connect_astrF()
         //return 1;
     }
 	
-	SOCKET sockfd;
-#else
-	int sockfd;
 #endif
 	
     printf("Initialised.\n");
 
     // socket create and verification
-    sockfd = socket(AF_INET, SOCK_STREAM, 0);
-    if (sockfd == -1) {
+	m_sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    if (m_sockfd == -1) {
         printf("socket creation failed...\n");
         return 0;
     }
@@ -331,10 +378,10 @@ int BaseSCTcp::connect_astrF()
 	if (hp == NULL)
 	{
 #ifdef _WIN32
-		closesocket(sockfd);
+		closesocket(m_sockfd);
 		return NULL;
 #else
-		close(sockfd);
+		close(m_sockfd);
 		return -1;
 #endif
 	}
@@ -353,7 +400,7 @@ int BaseSCTcp::connect_astrF()
 	server.sin_family = AF_INET;
 	server.sin_port = htons(port_n);
 	
-    if (connect(sockfd, (struct sockaddr*)&server, sizeof(server)))
+    if (connect(m_sockfd, (struct sockaddr*)&server, sizeof(server)))
     {
         printf("Client: connect() - Failed to connect.\n");
 #ifdef _WIN32
@@ -367,21 +414,14 @@ int BaseSCTcp::connect_astrF()
         printf("Client: Can start sending and receiving data...\n");
     }
 
-    char buff[MAX];
-    int n;
-    // infinite loop for chat
-    //for (;;) {
-	memset(buff, 0, MAX);
-	n = 0;
-	
-	{
-		BaseFile file;
-		file.OpenFile("request.txt", BaseFile::OPEN_READ | BaseFile::OPEN_UTF8);
-		file.Read(buff, MAX);
-		file.CloseFile();
-	}
-	// and send that buffer to client
-	send(sockfd, buff, sizeof(buff), 0);
+	const char* packet = (const char*)paramFallowGet(0);
+	if (!packet)
+		return 0;
+
+	STLString sendPacket = packet;
+	sendPacket += "<EOF>";
+
+	send(m_sockfd, sendPacket.c_str(), sendPacket.size(), 0);
 
 	//// if msg contains "Exit" then server exit and chat ended.
 	//if (strncmp("exit", buff, 4) == 0) {
@@ -389,37 +429,7 @@ int BaseSCTcp::connect_astrF()
 	//    break;
 	//}
 
-	memset(buff, 0, MAX);
-
-	// read the message from client and copy it in buffer
-	int cnt = 0;
-	STLString accum;
-	do{
-		cnt = recv(sockfd, buff, (long)sizeof(buff), 0);
-		if(cnt>0){
-			buff[cnt] = 0;
-			accum += buff;
-		}
-	}while(cnt > 0);
-	//print buffer which contains the client contents
-	UINT32 timeArrive = BaseSystem::timeGetTime();
-	UINT32 resTime = timeArrive - timeStart;
-	printf("From client: %s\t To client : restime: %d\n", accum.c_str(), resTime);
-	{
-		BaseFile file;
-		file.OpenFile("return.txt", BaseFile::OPEN_WRITE | BaseFile::OPEN_UTF8);
-		file.write_asc_string(accum.c_str(), (int)accum.size());
-		file.write_asc_line();
-		file.CloseFile();
-	}
-//}
-
-    // After chatting close the socket
-#ifdef _WIN32
-    closesocket(sockfd);
-#else
-	close(sockfd);
-#endif
+	BaseSystem::createthread(threadClient_, 0, this);
 
 	return 1;
 }

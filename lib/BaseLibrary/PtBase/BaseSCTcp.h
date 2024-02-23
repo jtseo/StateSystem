@@ -42,5 +42,15 @@ public:
     STLString serverGet() { return m_server; }
 	int portGet() { return m_port; }
 
+
+#ifdef _WIN32
+    SOCKET m_sockfd;
+    SOCKET socketGet() { return m_sockfd; }
+#else
+    int m_sockfd;
+    int socketGet() { return m_sockfd; }
+#endif
+
+
 };
 
