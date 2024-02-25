@@ -207,12 +207,16 @@ bool DevCashReader::PacketMake(const char* _str, char* _packet)
 int DevCashReader::ConfigWrite_nF()
 {
 	int timeout = *(int*)m_param_value;
+	int conf = 7;
+	const int *conf_p = (int*)paramFallowGet(0);
+	if (conf_p)
+		conf = *conf_p;
 
 	m_serial.SetCommunicationTimeouts(timeout, timeout, timeout, timeout, timeout);
 	char cmd[3];
 	cmd[0] = 'S';
 	cmd[1] = 'C';
-	cmd[2] = 0xE; // 50000, 10000, 5000, 1000
+	cmd[2] = conf;
 	PacketMake(cmd, m_packet);
 	if (!m_serial.WriteBytes(m_packet, 5))
 		return 0;
