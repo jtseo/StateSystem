@@ -40,6 +40,9 @@ LOCAL_SRC_FILES := ../PtBase/base.cpp \
 ../PtBase/BaseStateFunc.cpp \
 ../PtBase/BaseEventHandler.cpp \
 ../PtBase/BaseSFuncDirectory.cpp \
+../PtBase/BaseTextEditor.cpp \
+../PtBase/base64.cpp \
+../PtExtend/BaseSCJson.cpp \
 ../ApStateSystem/BaseInterface.cpp \
 ../ApStateSystem/StateManagerPnID.cpp
 
