@@ -59,7 +59,9 @@ private:
 	bool m_active;
 	bool m_eventCastEnable;
 	unsigned int m_afmode;
+	int m_pictureSize[2];
 public:
+	void PictureSizeSet(int w, int h);
 };
 
 inline CameraController* getCameraController() {return CCameraControl::Instance()->_controller;}

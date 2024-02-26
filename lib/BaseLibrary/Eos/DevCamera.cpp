@@ -89,9 +89,7 @@ int DevCamera::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, int _
 		STDEF_SFREGIST(TextImageCast_nF);
 		STDEF_SFREGIST(PreviewRequest_nF);
 		STDEF_SFREGIST(StreamFree_varF);
-		STDEF_SFREGIST(PicturesRateAddapt_varF);
-		STDEF_SFREGIST(PhotoPrintMake_statevarF);
-		STDEF_SFREGIST(PhotoPrintOutMake_strF);
+		STDEF_SFREGIST(PictureSizeSet_varF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -150,9 +148,7 @@ int DevCamera::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		STDEF_SFFUNCALL(TextImageCast_nF);
 		STDEF_SFFUNCALL(PreviewRequest_nF);
 		STDEF_SFFUNCALL(StreamFree_varF);
-		STDEF_SFFUNCALL(PicturesRateAddapt_varF);
-		STDEF_SFFUNCALL(PhotoPrintMake_statevarF);
-		STDEF_SFFUNCALL(PhotoPrintOutMake_strF);
+		STDEF_SFFUNCALL(PictureSizeSet_varF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -299,21 +295,11 @@ int DevCamera::StreamFree_varF()
 	return 1;
 }
 
-int DevCamera::PicturesRateAddapt_varF()
+int DevCamera::PictureSizeSet_varF()
 {
-	return 1;
-}
+	const int* size_an = (const int*)paramVariableGet();
 
-int DevCamera::PhotoPrintMake_statevarF()// it will remove
-{
-	// empty image
-	// paste pictures
-	// paste backimage
-	return 1;
-}
-
-int DevCamera::PhotoPrintOutMake_strF()
-{
+	CCameraControl::Instance()->PictureSizeSet(size_an[0], size_an[1]);
 	return 1;
 }
 //#SF_functionInsert

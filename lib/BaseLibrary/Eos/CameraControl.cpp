@@ -98,6 +98,9 @@ CCameraControl* CCameraControl::Instance()
 // CCameraControlApp initialization
 BOOL CCameraControl::InitInstance()
 {
+	m_pictureSize[0] = 0;
+	m_pictureSize[1] = 0;
+
 	_controller = NULL;
 	_model = NULL;
 	m_eventCastEnable = true;
@@ -335,6 +338,28 @@ void CCameraControl::StreamFree()
 	} while (point);
 }
 
+void fitRatio(cv::Mat& _prev, cv::Mat* _out, cv::Size _newSize)
+{
+	float ratio = (float)_newSize.aspectRatio();
+	
+	 // Crop the image with the specified ratio
+	int cropWidth, cropHeight;
+	if (_prev.cols > _prev.rows * ratio) {
+		cropHeight = _prev.rows;
+		cropWidth = static_cast<int>(cropHeight * ratio);
+	}
+	else {
+		cropWidth = _prev.cols;
+		cropHeight = static_cast<int>(cropWidth / ratio);
+	}
+	int x = (_prev.cols - cropWidth) / 2;
+	int y = (_prev.rows - cropHeight) / 2;
+	cv::Rect cropRegion(x, y, cropWidth, cropHeight);
+	cv::Mat croppedImage = _prev(cropRegion);
+
+	cv::resize(croppedImage, *_out, _newSize);
+}
+
 void CCameraControl::EventCastPreview(CameraEvent* _evt)
 {
 	std::string event = _evt->getEvent();
@@ -355,31 +380,28 @@ void CCameraControl::EventCastPreview(CameraEvent* _evt)
 		if (pbyteImage != NULL && BaseCircleQueue::stream_get()->size_data() < 10)
 		{
 			EdsGetLength(data.stream, &size);
-			//std::vector<uchar> jpgData;
-			//jpgData.resize(size);
-			//memcpy(&jpgData[0], pbyteImage, size);
+			std::vector<uchar> jpgData;
+			jpgData.resize(size);
+			memcpy(&jpgData[0], pbyteImage, size);
 
-			//Mat orgImg = imdecode(Mat(jpgData), IMREAD_COLOR);
-			//Mat resizeImg;
-			//
-			//int scale = 1;
-			////std::vector<unsigned char> raw = ExtractImageData(image, scale);
-			int w = 960;// image.GetWidth() / scale;
-			int h = 640;// image.GetHeight() / scale;
+			Mat orgImg = imdecode(Mat(jpgData), IMREAD_COLOR);
+			
+			if(m_pictureSize[0] == 0)
+				return;
+			cv::Size newSz(m_pictureSize[0], m_pictureSize[1]);
+			Mat resizeImg;
 
-			//resize(orgImg, resizeImg, Size(w / 2, h / 2));
-			//imencode(".jpg", resizeImg, jpgData);
-
-			//int imgS = jpgData.size();
+			fitRatio(orgImg, &resizeImg, newSz);
+			
+			imencode(".jpg", resizeImg, jpgData);
+			int imgS = jpgData.size();
 			
 			BaseStateManager* manager = BaseStateManager::get_manager();
 			BaseDStructureValue* evt = manager->make_event_state(STRTOHASH("CamRevPreview"));
-			//size = jpgData.size();
-			//pbyteImage = &jpgData[0];
-			char *buf = PT_Alloc(char, size);
-			memcpy(buf, pbyteImage, size);
+			pbyteImage = &jpgData[0];
+			char *buf = PT_Alloc(char, imgS);
+			memcpy(buf, pbyteImage, imgS);
 
-			int imgS = size;
 			BaseCircleQueue::stream_get()->push(buf);
 			BaseCircleQueue::streamSize_get()->push((void*)imgS);
 			//BaseFile file;
@@ -389,8 +411,8 @@ void CCameraControl::EventCastPreview(CameraEvent* _evt)
 			INT64 ref = (INT64) buf;
 			evt->set_alloc("MemRef_nV", &ref);
 			evt->set_alloc("ImageSize_nV", &imgS);
-			evt->set_alloc("ImageHeight_nV", &h);
-			evt->set_alloc("ImageWidth_nV", &w);
+			evt->set_alloc("ImageHeight_nV", &newSz.height);
+			evt->set_alloc("ImageWidth_nV", &newSz.width);
 
 			manager->post_event(evt);
 		}
@@ -461,6 +483,12 @@ CameraModel* cameraModelFactory(EdsCameraRef camera, EdsDeviceInfo deviceInfo)
 
 	// PTP protocol.
 	return new CameraModel(camera);
+}
+
+void CCameraControl::PictureSizeSet(int w, int h)
+{
+	m_pictureSize[0] = w;
+	m_pictureSize[1] = h;
 }
 
 #endif
