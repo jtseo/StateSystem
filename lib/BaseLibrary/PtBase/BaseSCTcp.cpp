@@ -316,6 +316,7 @@ DEF_ThreadCallBack(threadClient)
 #endif
 
 	PT_ThreadEnd(THTYPE_BASE_TCP);
+	DEF_ThreadReturn;
 }
 
 
