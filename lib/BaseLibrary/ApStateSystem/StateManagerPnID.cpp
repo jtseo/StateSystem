@@ -68,6 +68,8 @@ void StateManagerPnID::release_manager(bool _reset)
 #include "../PtBase/BaseTextEditorText.h"
 #include "../PtBase/BaseSCTcp.h"
 #include "../PtExtend/BaseSCJson.h"
+
+#include "../../SDK/opencv/include/opencv2/opencv.hpp"
 #include "../PtExtend/ExtendOpenCV.h"
 //#include "../PtBase/BaseSFParser.h"
 

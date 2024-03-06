@@ -60,8 +60,18 @@ private:
 	bool m_eventCastEnable;
 	unsigned int m_afmode;
 	int m_pictureSize[2];
+
+	int m_currentSlot;
+	STLString m_layoutPath;
+	STLVVec2 m_picturePositions;
+	Mat m_layoutMat;
 public:
 	void PictureSizeSet(int w, int h);
+	bool PreviewLayoutSet(const char* _filepath, const STLVVec2& _positions);
+	void PreviewSlotSet(int _slot)
+	{
+		m_currentSlot = _slot;
+	}
 };
 
 inline CameraController* getCameraController() {return CCameraControl::Instance()->_controller;}

@@ -21,6 +21,7 @@ class DevCamera :
         STDEF_SFENUM(TextImageCast_nF),
         STDEF_SFENUM(PreviewRequest_nF),
         STDEF_SFENUM(StreamFree_varF),
+        STDEF_SFENUM(PreviewLayoutPos_nF),
         STDEF_SFENUM(PictureSizeSet_varF),
         //#SF_EnumInsert
         EnumExtentionMax
@@ -42,6 +43,7 @@ public:
     int TextImageCast_nF();
     int PreviewRequest_nF();
     int StreamFree_varF();
+    int PreviewLayoutPos_nF();
     int PictureSizeSet_varF();
     //#SF_FuncHeaderInsert
 

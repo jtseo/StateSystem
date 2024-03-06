@@ -5,6 +5,7 @@
 #include "../PtBase/BaseState.h"
 #include "../PtBase/BaseFile.h"
 
+#include "../../SDK/opencv/include/opencv2/opencv.hpp"
 #include "ExtendOpenCV.h"
 
 #include "../PtBase/BaseStateMain.h"
@@ -16,7 +17,6 @@
 #include "../PtBase/BaseTime.h"
 #include "../PtBase/BaseStringTable.h"
 
-#include "../../SDK/opencv/include/opencv2/opencv.hpp"
 
 PtObjectCpp(ExtendOpenCV);
 
@@ -179,7 +179,8 @@ int ExtendOpenCV::PictureRatioAdapt_varF()
 	return 1;
 }
 
-void overlayImage(cv::Mat& background, const cv::Mat& foreground, cv::Point2i location, double alpha = 0.5, bool _overwrite = false) {
+void ExtendOpenCV::overlayImage(cv::Mat& background, const cv::Mat& foreground, cv::Point2i location, double alpha, bool _overwrite) 
+{
 	for (int y = std::max(location.y, 0); y < background.rows; ++y) {
 		int fY = y - location.y; // 0 <= fY < foreground.rows
 		if (fY >= foreground.rows)
@@ -341,7 +342,7 @@ int ExtendOpenCV::Rotate_varF()
 	}
 
 	// Step 2: Check if the image is in portrait mode (height > width)
-	if (image.rows <= image.cols)
+	if (image.rows >= image.cols)
 		return 0;
 	// Step 3: Rotate the image to landscape mode
 	cv::Size roSize(image.size[1], image.size[0]);

@@ -24,7 +24,6 @@
 #include "Camera/CameraModelLegacy.h"
 #include "Camera/CameraController.h"
 #include "Camera/CameraEventListener.h"
-#include "CameraControl.h"
 
 #include <list>
 #include <vector>
@@ -56,8 +55,14 @@
 #include "../PtBase/BaseState.h"
 #include "../PtBase/BaseStateManager.h"
 
+#include <opencv2/opencv.hpp>
+
+using namespace cv;
+
+#include "CameraControl.h"
 
 #include <Windows.h>
+#include "../PtExtend/ExtendOpenCV.h"
 
 #ifdef _DEBUG
 //#define new DEBUG_NEW
@@ -323,9 +328,7 @@ void CCameraControl::EventCastPicture(CameraEvent* _evt)
 	}
 }
 
-#include <opencv2/opencv.hpp>
 
-using namespace cv;
 
 void CCameraControl::StreamFree()
 {
@@ -360,6 +363,7 @@ void fitRatio(cv::Mat& _prev, cv::Mat* _out, cv::Size _newSize)
 	cv::resize(croppedImage, *_out, _newSize);
 }
 
+
 void CCameraControl::EventCastPreview(CameraEvent* _evt)
 {
 	std::string event = _evt->getEvent();
@@ -392,6 +396,10 @@ void CCameraControl::EventCastPreview(CameraEvent* _evt)
 			Mat resizeImg;
 
 			fitRatio(orgImg, &resizeImg, newSz);
+
+			int slot = m_currentSlot % m_picturePositions.size();
+			Mat sub = m_layoutMat(cv::Rect(m_picturePositions[slot].x, m_picturePositions[slot].y, m_pictureSize[0], m_pictureSize[1]));
+			ExtendOpenCV::overlayImage(resizeImg, sub, cv::Point2i(0, 0), 1, false);
 			
 			imencode(".jpg", resizeImg, jpgData);
 			int imgS = jpgData.size();
@@ -489,6 +497,17 @@ void CCameraControl::PictureSizeSet(int w, int h)
 {
 	m_pictureSize[0] = w;
 	m_pictureSize[1] = h;
+}
+
+bool CCameraControl::PreviewLayoutSet(const char* _filepath, const STLVVec2& _positions)
+{
+	m_currentSlot = 0;
+	m_layoutPath = "../";
+	m_layoutPath += _filepath;
+	m_picturePositions = _positions;
+
+	m_layoutMat = cv::imread(m_layoutPath.c_str(), cv::IMREAD_UNCHANGED);
+	return true;
 }
 
 #endif

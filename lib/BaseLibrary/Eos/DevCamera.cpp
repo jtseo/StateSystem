@@ -45,9 +45,12 @@
 #include "../PtBase/BaseTime.h"
 #include "../PtBase/BaseStringTable.h"
 
+#include <opencv2/opencv.hpp>
+
+using namespace cv;
+
 #include "CameraControl.h"
 
-#include <opencv2/opencv.hpp>
 
 PtObjectCpp(DevCamera);
 
@@ -89,6 +92,7 @@ int DevCamera::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, int _
 		STDEF_SFREGIST(TextImageCast_nF);
 		STDEF_SFREGIST(PreviewRequest_nF);
 		STDEF_SFREGIST(StreamFree_varF);
+		STDEF_SFREGIST(PreviewLayoutPos_nF);
 		STDEF_SFREGIST(PictureSizeSet_varF);
         //#SF_FuncRegistInsert
 
@@ -148,6 +152,7 @@ int DevCamera::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		STDEF_SFFUNCALL(TextImageCast_nF);
 		STDEF_SFFUNCALL(PreviewRequest_nF);
 		STDEF_SFFUNCALL(StreamFree_varF);
+		STDEF_SFFUNCALL(PreviewLayoutPos_nF);
 		STDEF_SFFUNCALL(PictureSizeSet_varF);
 		//#SF_FuncCallInsert
 		return 0;
@@ -194,12 +199,21 @@ int DevCamera::TakeAPicture_nF()
 int DevCamera::PreviewStart_nF()
 {
 	CameraController* ctr = getCameraController();
+	const char* filepath = (const char*)paramFallowGet(0);
+	const int* positions = (const int*)paramFallowGet(1);
+	const int* count = (const int*)paramFallowGet(2);
+	
 	if (ctr == NULL)
 		return 0;
+
+	STLVVec2 pos_av2;
+	for (int i = 0; i < *count; i++)
+		pos_av2.push_back(PtVector2(*(positions + i * 2), *(positions + i * 2 + 1)));
 
 	ActionEvent evt("startEVF");
 	ctr->actionPerformed(evt);
 
+	CCameraControl::Instance()->PreviewLayoutSet(filepath, pos_av2);
 	m_stop_thread = false;
 	BaseSystem::createthread(update_, 0, this);
 	
@@ -292,6 +306,14 @@ int DevCamera::PreviewRequest_nF()
 int DevCamera::StreamFree_varF()
 {
 	CCameraControl::Instance()->StreamFree();
+	return 1;
+}
+
+int DevCamera::PreviewLayoutPos_nF()
+{
+	const int *slot = (const int*)paramVariableGet();
+
+	CCameraControl::Instance()->PreviewSlotSet(*slot);
 	return 1;
 }
 

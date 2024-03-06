@@ -41,6 +41,7 @@ public:
 protected:
     // support for text analysis
 public:
+    static void overlayImage(cv::Mat& background, const cv::Mat& foreground, cv::Point2i location, double alpha = 0.5, bool _overwrite = false);
 protected:
 };
 
