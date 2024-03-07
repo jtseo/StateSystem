@@ -398,9 +398,15 @@ int ExtendOpenCV::QRCodeMake_varF()
 	cv::Mat qrCodeImage;
 
 	BaseSystem::run_shell_command("open", "qrencode", cmd.c_str(), false);
-	
+	BaseSystem::Sleep(500);
 	cv::Size newSize(size[0], size[1]);
 	cv::Mat imgQr = cv::imread(filepath);
+	int cnt = 5;
+	while (imgQr.rows == 0)
+	{
+		BaseSystem::Sleep(10);
+		imgQr = cv::imread(filepath);
+	}
 	// Scale the image to the new size
 	cv::Mat scaledImage;
 	cv::resize(imgQr, scaledImage, newSize);
@@ -467,6 +473,12 @@ int ExtendOpenCV::PhotoPannelMake_strF()
 	// Save the composed image to a file
 	cv::imwrite(outputFilePath, image);
 
+	for (int i = 0; i < pictures.size(); i++)
+	{
+		STLString path = root;
+		path += pictures[i];
+		BaseSystem::file_delete(path.c_str());
+	}
 	return 1;
 }
 //#SF_functionInsert

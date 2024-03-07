@@ -53,6 +53,7 @@ int BaseSFuncDirectory::StateFuncRegist(STLString _class_name, STLVInt* _func_ha
 		func_str = _class_name + ".folerCurrentPush_varF";	(*_func_hash)[Enum_folerCurrentPush_varF] = STRTOHASH(func_str.c_str());		BaseDStructure::processor_list_add(func_str.c_str(), _func, __FILE__, __LINE__);
 		func_str = _class_name + ".folerCurrentPop_varF";	(*_func_hash)[Enum_folerCurrentPop_varF] = STRTOHASH(func_str.c_str());		BaseDStructure::processor_list_add(func_str.c_str(), _func, __FILE__, __LINE__);
 		STDEF_SFREGIST(fileCopy_avarIf);
+		STDEF_SFREGIST(fileDelete_varF);
 		STDEF_SFREGIST(DirectoryListGet_varIf);
         //#SF_FuncRegistInsert
 
@@ -104,6 +105,7 @@ int BaseSFuncDirectory::FunctionCall(const char* _class_name, STLVInt& _func_has
 		STDEF_SFFUNCALL(folerCurrentPush_varF);
 		STDEF_SFFUNCALL(folerCurrentPop_varF);
 		STDEF_SFFUNCALL(fileCopy_avarIf);
+		STDEF_SFFUNCALL(fileDelete_varF);
 		STDEF_SFFUNCALL(DirectoryListGet_varIf);
 		//#SF_FuncCallInsert
 		return 0;
@@ -208,6 +210,16 @@ int BaseSFuncDirectory::folerCurrentPop_varF()
 }
 int BaseSFuncDirectory::fileCopy_avarIf()
 {
+	return 1;
+}
+
+int BaseSFuncDirectory::fileDelete_varF()
+{
+	const char* path_str = (const char*)paramVariableGet();
+	if (!path_str)
+		return 0;
+
+	BaseSystem::file_delete(path_str);
 	return 1;
 }
 
