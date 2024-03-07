@@ -90,19 +90,31 @@ void BaseSocket::init(bool _bServer, const char *_strServer, unsigned short _nPo
 	{
 		fprintf(stderr, "Could not create socket.\n");
 		m_bSocketInit	= false;
-	}else{
-		m_bSocketInit	= true;
+	}
+	else {
+		m_bSocketInit = true;
 
-		port_number	= _nPort;
-		if(_strServer)
+		port_number = _nPort;
+		if (_strServer && strncmp(_strServer, "localhost", 9) != 0) {
 			strcpy_s(host_name, 255, _strServer);
-		else
+			if (address_convert((sockaddr_in*)m_sRemote, host_name, port_number)
+				== NULL)
+				return;
+		}else {
 			strcpy_s(host_name, 255, "localhost");
 
-		if(address_convert((sockaddr_in*)m_sRemote, host_name, port_number)
-		   == NULL)
-			return;
-		
+			if (!m_bServer) {
+				if (address_convert((sockaddr_in*)m_sRemote, host_name, port_number)
+					== NULL)
+					return;
+			}
+			else {
+				((struct sockaddr_in*)m_sRemote)->sin_family = AF_INET;
+				((struct sockaddr_in*)m_sRemote)->sin_addr.s_addr = INADDR_ANY;
+				((struct sockaddr_in*)m_sRemote)->sin_port = htons(port_number);
+			}
+		}
+
 		/* Clear out m_sLocal struct */
 		memset((void *)m_sLocal, '\0', sizeof(struct sockaddr_in));
 
