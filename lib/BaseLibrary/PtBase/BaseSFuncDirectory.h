@@ -13,6 +13,7 @@ class BaseSFuncDirectory :
         Enum_folerCurrentPop_varF,
         STDEF_SFENUM(fileCopy_avarIf),
         STDEF_SFENUM(fileDelete_varF),
+        STDEF_SFENUM(RunCLI_nF),
         STDEF_SFENUM(DirectoryListGet_varIf),
         //#SF_EnumInsert
         EnumExtentionMax
@@ -27,6 +28,7 @@ public:
     virtual int Create();
     int fileCopy_avarIf();
     int fileDelete_varF();
+    int RunCLI_nF();
     int DirectoryListGet_varIf();
     //#SF_FuncHeaderInsert
     int fileCast_nF();

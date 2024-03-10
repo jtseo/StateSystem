@@ -54,6 +54,7 @@ int BaseSFuncDirectory::StateFuncRegist(STLString _class_name, STLVInt* _func_ha
 		func_str = _class_name + ".folerCurrentPop_varF";	(*_func_hash)[Enum_folerCurrentPop_varF] = STRTOHASH(func_str.c_str());		BaseDStructure::processor_list_add(func_str.c_str(), _func, __FILE__, __LINE__);
 		STDEF_SFREGIST(fileCopy_avarIf);
 		STDEF_SFREGIST(fileDelete_varF);
+		STDEF_SFREGIST(RunCLI_nF);
 		STDEF_SFREGIST(DirectoryListGet_varIf);
         //#SF_FuncRegistInsert
 
@@ -106,6 +107,7 @@ int BaseSFuncDirectory::FunctionCall(const char* _class_name, STLVInt& _func_has
 		STDEF_SFFUNCALL(folerCurrentPop_varF);
 		STDEF_SFFUNCALL(fileCopy_avarIf);
 		STDEF_SFFUNCALL(fileDelete_varF);
+		STDEF_SFFUNCALL(RunCLI_nF);
 		STDEF_SFFUNCALL(DirectoryListGet_varIf);
 		//#SF_FuncCallInsert
 		return 0;
@@ -248,4 +250,32 @@ int BaseSFuncDirectory::DirectoryListGet_varIf()
 	paramFallowSet(1, ret.c_str());
 	return 1;
 }
+
+int BaseSFuncDirectory::RunCLI_nF()
+{
+	const int* show_pn = (const int*)m_param_value;
+
+	int show_n = 1;
+	char opr_str[10], cmd_str[1024] = "\0", param_str[2024] = "\0";
+	const char* param1_str;
+	const char* strValue = (const char*)paramFallowGet(0);
+	strcpy_s(opr_str, 10, strValue);
+	strValue = (const char*)paramFallowGet(1);
+	strcpy_s(cmd_str, 1024, strValue);
+	param1_str = (const char*)paramFallowGet(2);
+	strValue = (const char*)paramFallowGet(3);
+
+	if (strValue == NULL && param1_str != NULL)
+		strcpy_s(param_str, 2024, param1_str);
+	else if (strValue != NULL && param1_str != NULL)
+		sprintf_s(param_str, 2024, "\"%s\" \"%s\"", param1_str, strValue);
+
+	char param2[1024];
+	BaseSystem::tomulti(param_str, param2, 1024);
+
+	BaseSystem::run_shell_command(opr_str, cmd_str, param2, *show_pn != 0);
+
+	return 1;
+}
+
 //#SF_functionInsert
