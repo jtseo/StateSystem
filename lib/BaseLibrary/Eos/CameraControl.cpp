@@ -233,6 +233,40 @@ BOOL CCameraControl::InitInstance()
 	return FALSE;
 }
 
+void CCameraControl::FilterSkinOn_nF(int _mode)
+{
+	CameraController* ctr = getCameraController();
+	if (ctr != NULL)
+	{
+		if (_mode == 1)
+			m_filterSkin = 0x34;
+		else
+			m_filterSkin = 0x03;
+		ActionEvent evt("set_EvfAFMode", &m_filterSkin);
+		ctr->actionPerformed(evt);
+	}
+}
+
+void CCameraControl::AFocusOn_nF()
+{
+	CameraController* ctr = getCameraController();
+	if (ctr != NULL)
+	{
+		ActionEvent evt("evfAFOn");
+		ctr->actionPerformed(evt);
+	}
+}
+
+void CCameraControl::AFocusOff_nF()
+{
+	CameraController* ctr = getCameraController();
+	if (ctr != NULL)
+	{
+		ActionEvent evt("evfAFOff");
+		ctr->actionPerformed(evt);
+	}
+}
+
 void CCameraControl::UnInitInstance()
 {
 

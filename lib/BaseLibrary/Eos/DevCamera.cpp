@@ -93,6 +93,9 @@ int DevCamera::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, int _
 		STDEF_SFREGIST(PreviewRequest_nF);
 		STDEF_SFREGIST(StreamFree_varF);
 		STDEF_SFREGIST(PreviewLayoutPos_nF);
+		STDEF_SFREGIST(FilterSkinOn_nF);
+		STDEF_SFREGIST(AFocusOn_nF);
+		STDEF_SFREGIST(AFocusOff_nF);
 		STDEF_SFREGIST(PictureSizeSet_varF);
         //#SF_FuncRegistInsert
 
@@ -153,6 +156,9 @@ int DevCamera::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		STDEF_SFFUNCALL(PreviewRequest_nF);
 		STDEF_SFFUNCALL(StreamFree_varF);
 		STDEF_SFFUNCALL(PreviewLayoutPos_nF);
+		STDEF_SFFUNCALL(FilterSkinOn_nF);
+		STDEF_SFFUNCALL(AFocusOn_nF);
+		STDEF_SFFUNCALL(AFocusOff_nF);
 		STDEF_SFFUNCALL(PictureSizeSet_varF);
 		//#SF_FuncCallInsert
 		return 0;
@@ -314,6 +320,26 @@ int DevCamera::PreviewLayoutPos_nF()
 	const int *slot = (const int*)paramVariableGet();
 
 	CCameraControl::Instance()->PreviewSlotSet(*slot);
+	return 1;
+}
+
+int DevCamera::FilterSkinOn_nF()
+{
+	const int* mode = (const int*)m_param_value;
+
+	CCameraControl::Instance()->FilterSkinOn_nF(*mode);
+	return 1;
+}
+
+int DevCamera::AFocusOn_nF()
+{
+	CCameraControl::Instance()->AFocusOn_nF();
+	return 1;
+}
+
+int DevCamera::AFocusOff_nF()
+{
+	CCameraControl::Instance()->AFocusOff_nF();
 	return 1;
 }
 

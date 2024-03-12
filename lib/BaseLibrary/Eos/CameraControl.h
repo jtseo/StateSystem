@@ -72,6 +72,13 @@ public:
 	{
 		m_currentSlot = _slot;
 	}
+
+private:
+	int m_filterSkin;
+public:
+	void FilterSkinOn_nF(int _mode);
+	void AFocusOn_nF();
+	void AFocusOff_nF();
 };
 
 inline CameraController* getCameraController() {return CCameraControl::Instance()->_controller;}

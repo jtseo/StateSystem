@@ -22,6 +22,9 @@ class DevCamera :
         STDEF_SFENUM(PreviewRequest_nF),
         STDEF_SFENUM(StreamFree_varF),
         STDEF_SFENUM(PreviewLayoutPos_nF),
+        STDEF_SFENUM(FilterSkinOn_nF),
+        STDEF_SFENUM(AFocusOn_nF),
+        STDEF_SFENUM(AFocusOff_nF),
         STDEF_SFENUM(PictureSizeSet_varF),
         //#SF_EnumInsert
         EnumExtentionMax
@@ -44,6 +47,9 @@ public:
     int PreviewRequest_nF();
     int StreamFree_varF();
     int PreviewLayoutPos_nF();
+    int FilterSkinOn_nF();
+    int AFocusOn_nF();
+    int AFocusOff_nF();
     int PictureSizeSet_varF();
     //#SF_FuncHeaderInsert
 
