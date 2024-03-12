@@ -72,6 +72,7 @@ int BaseSCCurl::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, int 
 		STDEF_SFREGIST(post_strF);
 		STDEF_SFREGIST(postEncode_varF);
 		STDEF_SFREGIST(EmailSend_varF);
+		STDEF_SFREGIST(GoogleNotification_formatF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -118,6 +119,7 @@ int BaseSCCurl::FunctionCall(const char* _class_name, STLVInt& _func_hash)
         STDEF_SFFUNCALL(post_strF);
 		STDEF_SFFUNCALL(postEncode_varF);
 		STDEF_SFFUNCALL(EmailSend_varF);
+		STDEF_SFFUNCALL(GoogleNotification_formatF);
 		//#SF_FuncCallInsert
         return 0;
     }
@@ -548,6 +550,66 @@ static size_t payload_source(void *ptr, size_t size, size_t nmemb, void *userp)
 	uploads->erase(uploads->begin());
 		
 	return len;
+}
+
+int BaseSCCurl::GoogleNotification_formatF()
+{
+	STLString cmd = paramFormatGet();
+
+	STLVString list;
+	BaseFile::paser_list_seperate(cmd.c_str(), &list, "|");
+
+	STLString url = list[0];
+	STLString msg = list[1];
+
+	CURL* curl;
+	CURLcode res;
+	std::string readBuffer;
+
+	// The webhook URL of your Google Chat space
+	std::string webhookUrl = url.c_str();
+
+	// JSON payload for the message you want to send
+	std::string jsonData = "{\"text\": \"";
+	jsonData += msg.c_str();
+	jsonData += "\"}";
+
+	curl_global_init(CURL_GLOBAL_DEFAULT);
+
+	curl = curl_easy_init();
+	if (curl) {
+		struct curl_slist* headers = NULL;
+		headers = curl_slist_append(headers, "Content-Type: application/json");
+
+		curl_easy_setopt(curl, CURLOPT_URL, webhookUrl.c_str());
+		curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, jsonData.c_str());
+		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
+		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer); 
+		curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L); // Disable SSL peer verification
+		curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L); // Disable SSL host verification
+
+
+		// Perform the HTTP POST request
+		res = curl_easy_perform(curl);
+
+		// Check for errors
+		if (res != CURLE_OK) {
+			fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
+		}
+		else {
+			// Success, print the response
+			std::cout << readBuffer << std::endl;
+		}
+
+		// Cleanup
+		curl_slist_free_all(headers);
+		curl_easy_cleanup(curl);
+	}
+
+	curl_global_cleanup();
+
+	return 1;
 }
 
 int BaseSCCurl::EmailSend_varF()

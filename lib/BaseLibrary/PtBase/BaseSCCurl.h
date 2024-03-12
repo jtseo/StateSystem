@@ -10,6 +10,7 @@ class BaseSCCurl :
         STDEF_SFENUM(post_strF),
 		STDEF_SFENUM(postEncode_varF),
         STDEF_SFENUM(EmailSend_varF),
+        STDEF_SFENUM(GoogleNotification_formatF),
         //#SF_EnumInsert
         EnumExtentionMax
     };
@@ -25,6 +26,7 @@ public:
     int post_strF();
 	int postEncode_varF();
     int EmailSend_varF();
+    int GoogleNotification_formatF();
     //#SF_FuncHeaderInsert
 
     void event_post(STLString &_data, STLString &_header);

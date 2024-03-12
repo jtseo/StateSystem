@@ -66,6 +66,7 @@ void StateManagerPnID::release_manager(bool _reset)
 #include "../PtExtend/BaseSCJson.h"
 #include "../PtExtend/BaseStateSystem.h"
 #include "../PtBase/BaseSCMysql.h"
+#include "../PtBase/BaseSCCurl.h"
 
 #include <winsock2.h>
 #include "../PtBase/BaseSCTcp.h"
@@ -77,6 +78,7 @@ StateManagerPnID::StateManagerPnID(void* _applet) :BaseStateManager(_applet)
 	BaseStateSystem bsy;
 	BaseSCMysql sql;
 	BaseSCTcp tcp;
+	BaseSCCurl curl;
 
 	//BaseSFParser paser;
 

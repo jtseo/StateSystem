@@ -212,7 +212,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libmysql.lib;Wldap32.lib;ws2_32.lib;crypt32.lib;winmm.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ssleay32.lib;libeay32.lib;libcurl.lib;libmysql.lib;Wldap32.lib;ws2_32.lib;crypt32.lib;winmm.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../SDK/lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
