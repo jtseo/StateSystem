@@ -430,13 +430,12 @@ void CCameraControl::EventCastPreview(CameraEvent* _evt)
 			Mat resizeImg;
 
 			fitRatio(orgImg, &resizeImg, newSz);
+			flip(resizeImg, resizeImg, 1); // 1 is y axi
 
 			int slot = m_currentSlot % m_picturePositions.size();
 			Mat sub = m_layoutMat(cv::Rect(m_picturePositions[slot].x, m_picturePositions[slot].y, m_pictureSize[0], m_pictureSize[1]));
 			ExtendOpenCV::overlayImage(resizeImg, sub, cv::Point2i(0, 0), 1, false);
 
-			flip(resizeImg, resizeImg, 1); // 1 is y axi
-			
 			imencode(".jpg", resizeImg, jpgData);
 			int imgS = jpgData.size();
 			

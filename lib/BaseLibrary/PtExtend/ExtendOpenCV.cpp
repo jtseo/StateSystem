@@ -173,6 +173,7 @@ int ExtendOpenCV::PictureRatioAdapt_varF()
 	// Scale the image to the new size
 	cv::Mat scaledImage;
 	cv::resize(croppedImage, scaledImage, newSize);
+	cv::flip(scaledImage, scaledImage, 1);
 
 	cv::imwrite(filename, scaledImage);
 
@@ -205,6 +206,17 @@ void ExtendOpenCV::overlayImage(cv::Mat& background, const cv::Mat& foreground, 
 	}
 }
 
+void fillwhite(cv::Mat& background)
+{
+	for (int y = 0; y < background.rows; ++y) {
+		for (int x = 0; x < background.cols; ++x) {
+			for (int c = 0; c < background.channels(); ++c) {
+				background.data[y * background.step + x * background.channels() + c] = 0xff;
+			}
+		}
+	}
+}
+
 int ExtendOpenCV::ConvertBmp_varF()
 {
 	const char* filename = (const char*)paramVariableGet();
@@ -219,9 +231,10 @@ int ExtendOpenCV::ConvertBmp_varF()
 		h = *horizon;
 	cv::Mat img = cv::imread(filename);
 
-	cv::Size imageSize(img.cols + h, img.rows - v);
+	cv::Size imageSize(img.cols + h, img.rows + v);
 	cv::Mat offsetImg = cv::Mat::zeros(imageSize, CV_8UC3);
-	overlayImage(offsetImg, img, cv::Point2i(h, 0), 1, true);
+	fillwhite(offsetImg);
+	overlayImage(offsetImg, img, cv::Point2i(h, v), 1, true);
 	cv::imwrite(fileout, offsetImg);
 
 	return 1;
@@ -310,14 +323,14 @@ int ExtendOpenCV::DoubleMake_varF()
 	
 	cv::Mat img = cv::imread(filename);
 
-	if (img.rows > 600)
+	if (img.cols > 600)
 		return 0;
 
-	cv::Size newSize(img.cols, img.rows*2);
+	cv::Size newSize(img.cols*2, img.rows);
 	cv::Mat doubleImg = cv::Mat::zeros(newSize, CV_8UC3);
 
 	img.copyTo(doubleImg(cv::Rect(0, 0, img.cols, img.rows)));
-	img.copyTo(doubleImg(cv::Rect(0, img.rows, img.cols, img.rows)));
+	img.copyTo(doubleImg(cv::Rect(img.cols, 0, img.cols, img.rows)));
 
 	int cnt = 2;
 	m_state_variable->get("PhotoNumOf", &cnt);
