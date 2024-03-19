@@ -169,7 +169,7 @@ int DevPrinter::IsSmall_varIf()
 	if (min > photoSize[1])
 		min = photoSize[1];
 
-	if (min > 600)
+	if (min > 1200)
 		return 0;
 
 	return 1;
@@ -189,7 +189,7 @@ int DevPrinter::PaperCountGet_varF()
 		min = photoSize[1];
 
 	int retNumOf = *numOf;
-	if (min > 600)
+	if (min >1200)
 		retNumOf *= 2;
 
 	paramVariableSet(&retNumOf);
