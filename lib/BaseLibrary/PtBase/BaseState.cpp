@@ -3026,38 +3026,6 @@ int BaseState::ContextCheckEqual(int _nHash, BaseDStructureValue* _pdsvContext, 
 	return 0;
 }
 
-int copy(const char* input, const char* output) {
-
-	BaseFile filer, filew;
-
-	char buffer[4096];
-	int nRead = 0;
-
-	if (!filer.OpenFile(input, BaseFile::OPEN_READ))
-	{
-		if (!filew.OpenFile(output, BaseFile::OPEN_WRITE))
-		{
-			nRead = filer.Read(buffer, 4096);
-			while (nRead > 0)
-			{
-				filew.Write(buffer, nRead);
-				nRead = filer.Read(buffer, 4096);
-			}
-			nRead = (int)filew.get_size_file();
-			filew.CloseFile();
-		}
-		else {
-			filer.CloseFile();
-			return 0;
-		}
-		filer.CloseFile();
-	}
-	else {
-		return 0;
-	}
-	return nRead;
-}
-
 int BaseState::ContextFileCopy(int _nHash, BaseDStructureValue* _pdsvContext, const void* pVoidBase, const void* pVoidContext, short _nCnt, short _nSize)
 {
 	const char* strFile1 = (const char*)pVoidBase,
@@ -3067,7 +3035,7 @@ int BaseState::ContextFileCopy(int _nHash, BaseDStructureValue* _pdsvContext, co
 	BaseSystem::tomulti(strFile1, strPath1, 1024);
 	BaseSystem::tomulti(strFile2, strPath2, 1024);
 
-	if (copy(BaseStateManager::get_manager()->path_full_make(strPath1, 1024), BaseStateManager::get_manager()->path_full_make(strPath2, 1024)) > 0)
+	if (BaseFile::copy(BaseStateManager::get_manager()->path_full_make(strPath1, 1024), BaseStateManager::get_manager()->path_full_make(strPath2, 1024)) > 0)
 		return 1;
 	return 0;
 }
@@ -6027,7 +5995,7 @@ STDEF_FUNC(BaseFile2PathCopy_avarF)
 	char buff[512];
 	BaseSystem::tomulti(path, buff, 512);
 	BaseSystem::tomulti(pathTo, pathTo, 512);
-	if(copy(buff, pathTo) == 0)
+	if(BaseFile::copy(buff, pathTo) == 0)
 		return 0;
 
 	return 1;

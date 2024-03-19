@@ -55,6 +55,7 @@ int BaseSFuncDirectory::StateFuncRegist(STLString _class_name, STLVInt* _func_ha
 		STDEF_SFREGIST(fileCopy_avarIf);
 		STDEF_SFREGIST(fileDelete_varF);
 		STDEF_SFREGIST(RunCLI_nF);
+		STDEF_SFREGIST(FilenameExtChange_varF);
 		STDEF_SFREGIST(DirectoryListGet_varIf);
         //#SF_FuncRegistInsert
 
@@ -108,6 +109,7 @@ int BaseSFuncDirectory::FunctionCall(const char* _class_name, STLVInt& _func_has
 		STDEF_SFFUNCALL(fileCopy_avarIf);
 		STDEF_SFFUNCALL(fileDelete_varF);
 		STDEF_SFFUNCALL(RunCLI_nF);
+		STDEF_SFFUNCALL(FilenameExtChange_varF);
 		STDEF_SFFUNCALL(DirectoryListGet_varIf);
 		//#SF_FuncCallInsert
 		return 0;
@@ -212,6 +214,30 @@ int BaseSFuncDirectory::folerCurrentPop_varF()
 }
 int BaseSFuncDirectory::fileCopy_avarIf()
 {
+	const char* cpy = (const char*)m_param_value;
+	STLVString params;
+	if (BaseFile::paser_list_seperate(cpy, &params, ",") < 2)
+		return 0;
+
+	int hash[2];
+	hash[0] = STRTOHASH(params[0].c_str());
+	hash[1] = STRTOHASH(params[1].c_str());
+
+	char buff[255];
+	if (!m_state_variable->get(params[0].c_str(), buff))
+		return 0;
+	params[0] = buff;
+	if (!m_state_variable->get(params[1].c_str(), buff))
+		return 0;
+	params[1] = buff;
+
+	char filename[255], ext[255];
+	BaseFile::get_filename(params[0].c_str(), filename, 255);
+	STLString target = params[1];
+	target += filename;
+	BaseFile::get_filext(params[0].c_str(), ext, 255);
+	target += ext;
+	BaseFile::copy(params[0].c_str(), target.c_str());
 	return 1;
 }
 
@@ -222,6 +248,27 @@ int BaseSFuncDirectory::fileDelete_varF()
 		return 0;
 
 	BaseSystem::file_delete(path_str);
+	return 1;
+}
+
+int BaseSFuncDirectory::FilenameExtChange_varF()
+{
+	const char* filename = (const char*)paramVariableGet();
+	const char* ext = (const char*)paramFallowGet(0);
+
+	if (!ext || !filename)
+		return 0;
+
+	char buff[255];
+	strcpy_s(buff, 255, filename);
+	char* start = strrchr(buff, '.');
+	if (start == NULL)
+		return 0;
+	start++;
+	*start = NULL;
+	strcat_s(buff, 255, ext);
+
+	paramVariableSet(buff);
 	return 1;
 }
 

@@ -64,6 +64,7 @@ public:
 	static bool is_exist(const char *_pFilename);
 	int SaveFile(const char *_strFilename);
 	int CloseFile();
+	static int copy(const char* input, const char* output);
 
 	void *get_memory(size_t _nSize); // as close file, this point will deleted.
 	char *get_point(int _nSizeSkip);// return memory point without memory copy

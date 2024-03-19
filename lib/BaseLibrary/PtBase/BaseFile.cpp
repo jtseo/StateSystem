@@ -445,6 +445,39 @@ void BaseFile::exe_check()
 	m_bExeFile = false;
 }
 
+int BaseFile::copy(const char* input, const char* output)
+{
+
+	BaseFile filer, filew;
+
+	char buffer[4096];
+	int nRead = 0;
+
+	if (!filer.OpenFile(input, BaseFile::OPEN_READ))
+	{
+		if (!filew.OpenFile(output, BaseFile::OPEN_WRITE))
+		{
+			nRead = filer.Read(buffer, 4096);
+			while (nRead > 0)
+			{
+				filew.Write(buffer, nRead);
+				nRead = filer.Read(buffer, 4096);
+			}
+			nRead = (int)filew.get_size_file();
+			filew.CloseFile();
+		}
+		else {
+			filer.CloseFile();
+			return 0;
+		}
+		filer.CloseFile();
+	}
+	else {
+		return 0;
+	}
+	return nRead;
+}
+
 int BaseFile::CloseFile()
 {
 	if(m_pfFile)
