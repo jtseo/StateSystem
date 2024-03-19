@@ -159,6 +159,7 @@ int ExtendOpenCV::PictureRatioAdapt_varF()
 	int cropWidth, cropHeight;
 	if (image.cols > image.rows * ratio) {
 		cropHeight = image.rows;
+
 		cropWidth = static_cast<int>(cropHeight * ratio);
 	}
 	else {
@@ -170,10 +171,11 @@ int ExtendOpenCV::PictureRatioAdapt_varF()
 	cv::Rect cropRegion(x, y, cropWidth, cropHeight);
 	cv::Mat croppedImage = image(cropRegion);
 
+	cv::GaussianBlur(croppedImage, croppedImage, cv::Size(5, 5), 0);
 	// Scale the image to the new size
 	cv::Mat scaledImage;
-	cv::resize(croppedImage, scaledImage, newSize);
-	cv::flip(scaledImage, scaledImage, 1);
+	cv::resize(croppedImage, scaledImage, newSize, 0, 0, cv::INTER_AREA);
+	//cv::flip(scaledImage, scaledImage, 1); // already filiped at EventCastPicture
 
 	cv::imwrite(filename, scaledImage);
 
@@ -223,6 +225,7 @@ int ExtendOpenCV::ConvertBmp_varF()
 	const char* fileout = (const char*)paramFallowGet(0);
 	const int* vertical = (const int*)paramFallowGet(1);
 	const int* horizon = (const int*)paramFallowGet(2);
+	const char* flip = (const char*)paramFallowGet(3);
 
 	int v = 0, h = 0;
 	if (vertical)
@@ -235,6 +238,10 @@ int ExtendOpenCV::ConvertBmp_varF()
 	cv::Mat offsetImg = cv::Mat::zeros(imageSize, CV_8UC3);
 	fillwhite(offsetImg);
 	overlayImage(offsetImg, img, cv::Point2i(h, v), 1, true);
+	if (flip && strncmp(flip, "y_flip", 6) == 0)
+	{
+		cv::flip(offsetImg, offsetImg, 1);
+	}
 	cv::imwrite(fileout, offsetImg);
 
 	return 1;
@@ -323,7 +330,7 @@ int ExtendOpenCV::DoubleMake_varF()
 	
 	cv::Mat img = cv::imread(filename);
 
-	if (img.cols > 600)
+	if (img.cols > 1200)
 		return 0;
 
 	cv::Size newSize(img.cols*2, img.rows);

@@ -208,6 +208,7 @@ int DevCamera::PreviewStart_nF()
 	const char* filepath = (const char*)paramFallowGet(0);
 	const int* positions = (const int*)paramFallowGet(1);
 	const int* count = (const int*)paramFallowGet(2);
+	const float* scale = (const float*)paramFallowGet(3);
 	
 	if (ctr == NULL)
 		return 0;
@@ -219,7 +220,11 @@ int DevCamera::PreviewStart_nF()
 	ActionEvent evt("startEVF");
 	ctr->actionPerformed(evt);
 
-	CCameraControl::Instance()->PreviewLayoutSet(filepath, pos_av2);
+	float scalef = 1;
+	if (scale)
+		scalef = *scale;
+
+	CCameraControl::Instance()->PreviewLayoutSet(filepath, pos_av2, scalef);
 	m_stop_thread = false;
 	BaseSystem::createthread(update_, 0, this);
 	

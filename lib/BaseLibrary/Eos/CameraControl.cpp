@@ -354,9 +354,46 @@ void CCameraControl::EventCastPicture(CameraEvent* _evt)
 	{
 		const char *filename = (const char*)_evt->getArg();
 
+		char filepng[255];
+		if (!BaseFile::change_fileext(filename, ".png", filepng, 255))
+			return;
+
+		cv::Mat img = cv::imread(filename);
+
+		cv::Size newSize(m_pictureSize[0], m_pictureSize[1]);
+		float ratio = (float)m_pictureSize[0] / (float)m_pictureSize[1];
+		// read original
+		// cut ratio5
+		// scale image
+
+		// Crop the image with the specified ratio
+		int cropWidth, cropHeight;
+		if (img.cols > img.rows * ratio) {
+			cropHeight = img.rows;
+
+			cropWidth = static_cast<int>(cropHeight * ratio);
+		}
+		else {
+			cropWidth = img.cols;
+			cropHeight = static_cast<int>(cropWidth / ratio);
+		}
+		int x = (img.cols - cropWidth) / 2;
+		int y = (img.rows - cropHeight) / 2;
+		cv::Rect cropRegion(x, y, cropWidth, cropHeight);
+		cv::Mat croppedImage = img(cropRegion);
+
+		cv::GaussianBlur(croppedImage, croppedImage, cv::Size(5, 5), 0);
+		// Scale the image to the new size
+		cv::Mat scaledImage;
+		cv::resize(croppedImage, scaledImage, newSize, 0, 0, cv::INTER_AREA);
+
+		cv::flip(scaledImage, scaledImage, 1);
+		cv::imwrite(filepng, scaledImage);
+		BaseSystem::file_delete(filename);
+
 		BaseStateManager* manager = BaseStateManager::get_manager();
 		BaseDStructureValue* evt = manager->make_event_state(STRTOHASH("CamRevPicture"));
-		evt->set_alloc("PicturePath_strV", (void*)filename);
+		evt->set_alloc("PicturePath_strV", (void*)filepng);
 
 		manager->post_event(evt);
 	}
@@ -534,14 +571,28 @@ void CCameraControl::PictureSizeSet(int w, int h)
 	m_pictureSize[1] = h;
 }
 
-bool CCameraControl::PreviewLayoutSet(const char* _filepath, const STLVVec2& _positions)
+bool CCameraControl::PreviewLayoutSet(const char* _filepath, const STLVVec2& _positions, float _scale)
 {
 	m_currentSlot = 0;
 	m_layoutPath = "../";
 	m_layoutPath += _filepath;
 	m_picturePositions = _positions;
+	m_previewScale = _scale;
 
 	m_layoutMat = cv::imread(m_layoutPath.c_str(), cv::IMREAD_UNCHANGED);
+
+	for (int i = 0; i < m_picturePositions.size(); i++)
+	{
+		m_picturePositions[i].x *= _scale;
+		m_picturePositions[i].y *= _scale;
+	}
+
+	m_pictureSize[0] *= _scale;
+	m_pictureSize[1] *= _scale;
+
+	cv::Size previewsize(m_layoutMat.cols*_scale, m_layoutMat.rows*_scale);
+	cv::resize(m_layoutMat, m_layoutMat, previewsize);
+
 	return true;
 }
 
