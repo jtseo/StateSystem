@@ -339,11 +339,6 @@ int ExtendOpenCV::DoubleMake_varF()
 	img.copyTo(doubleImg(cv::Rect(0, 0, img.cols, img.rows)));
 	img.copyTo(doubleImg(cv::Rect(img.cols, 0, img.cols, img.rows)));
 
-	int cnt = 2;
-	m_state_variable->get("PhotoNumOf", &cnt);
-	cnt /= 2;
-	m_state_variable->set_alloc("PhotoNumOf", &cnt);
-
 	// Save the composed image to a file
 	cv::imwrite(filename, doubleImg);
 	return 1;
