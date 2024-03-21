@@ -382,7 +382,7 @@ void CCameraControl::EventCastPicture(CameraEvent* _evt)
 		cv::Rect cropRegion(x, y, cropWidth, cropHeight);
 		cv::Mat croppedImage = img(cropRegion);
 
-		cv::GaussianBlur(croppedImage, croppedImage, cv::Size(5, 5), 0);
+		cv::GaussianBlur(croppedImage, croppedImage, cv::Size(m_blur, m_blur), 0);
 		// Scale the image to the new size
 		cv::Mat scaledImage;
 		cv::resize(croppedImage, scaledImage, newSize, 0, 0, cv::INTER_AREA);
@@ -571,13 +571,14 @@ void CCameraControl::PictureSizeSet(int w, int h)
 	m_pictureSize[1] = h;
 }
 
-bool CCameraControl::PreviewLayoutSet(const char* _filepath, const STLVVec2& _positions, float _scale)
+bool CCameraControl::PreviewLayoutSet(const char* _filepath, const STLVVec2& _positions, float _scale, int _blur)
 {
 	m_currentSlot = 0;
 	m_layoutPath = "../";
 	m_layoutPath += _filepath;
 	m_picturePositions = _positions;
 	m_previewScale = _scale;
+	m_blur = _blur;
 
 	m_layoutMat = cv::imread(m_layoutPath.c_str(), cv::IMREAD_UNCHANGED);
 

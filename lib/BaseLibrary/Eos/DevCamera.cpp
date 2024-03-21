@@ -209,6 +209,7 @@ int DevCamera::PreviewStart_nF()
 	const int* positions = (const int*)paramFallowGet(1);
 	const int* count = (const int*)paramFallowGet(2);
 	const float* scale = (const float*)paramFallowGet(3);
+	const int* blur_p = (const int*)paramFallowGet(4);
 	
 	if (ctr == NULL)
 		return 0;
@@ -224,7 +225,11 @@ int DevCamera::PreviewStart_nF()
 	if (scale)
 		scalef = *scale;
 
-	CCameraControl::Instance()->PreviewLayoutSet(filepath, pos_av2, scalef);
+	int blur = 3;
+	if (blur_p)
+		blur = *blur_p;
+
+	CCameraControl::Instance()->PreviewLayoutSet(filepath, pos_av2, scalef, blur);
 	m_stop_thread = false;
 	BaseSystem::createthread(update_, 0, this);
 	

@@ -66,9 +66,10 @@ private:
 	STLVVec2 m_picturePositions;
 	Mat m_layoutMat;
 	float m_previewScale = 1;
+	int m_blur = 3;
 public:
 	void PictureSizeSet(int w, int h);
-	bool PreviewLayoutSet(const char* _filepath, const STLVVec2& _positions, float _scale);
+	bool PreviewLayoutSet(const char* _filepath, const STLVVec2& _positions, float _scale, int _blur);
 	void PreviewSlotSet(int _slot)
 	{
 		m_currentSlot = _slot;
