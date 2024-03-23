@@ -175,7 +175,7 @@ BOOL CCameraControl::InitInstance()
 
 	if(err != EDS_ERR_OK)
 	{
-		::MessageBoxA(NULL,"Cannot detect camera",NULL,MB_OK);
+		//::MessageBoxA(NULL,"Cannot detect camera",NULL,MB_OK);
 	}
 
 	if(err == EDS_ERR_OK )
