@@ -58,6 +58,7 @@ int ExtendOpenCV::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, in
 		STDEF_SFREGIST(Rotate_varF);
 		STDEF_SFREGIST(DoubleMake_varF);
 		STDEF_SFREGIST(FilterApply_varF);
+		STDEF_SFREGIST(ImageScale_fF);
 		STDEF_SFREGIST(ConvertBmp_varF);
         //#SF_FuncRegistInsert
 
@@ -108,6 +109,7 @@ int ExtendOpenCV::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		STDEF_SFFUNCALL(Rotate_varF);
 		STDEF_SFFUNCALL(DoubleMake_varF);
 		STDEF_SFFUNCALL(FilterApply_varF);
+		STDEF_SFFUNCALL(ImageScale_fF);
 		STDEF_SFFUNCALL(ConvertBmp_varF);
 		//#SF_FuncCallInsert
 		return 0;
@@ -217,6 +219,24 @@ void fillwhite(cv::Mat& background)
 			}
 		}
 	}
+}
+
+int ExtendOpenCV::ImageScale_fF()
+{
+	const float* scale = (const float*)m_param_value;
+	const char* filename = (const char*)paramFallowGet(0);
+	const char* fileout = (const char*)paramFallowGet(1);
+
+	cv::Mat img = cv::imread(filename);
+
+	cv::Size imageSize(img.cols * *scale, img.rows * *scale);
+	cv::Mat resizeImg = cv::Mat::zeros(imageSize, CV_8UC3);
+
+	cv::resize(img, resizeImg, imageSize);
+
+	cv::imwrite(fileout, resizeImg);
+
+	return 1;
 }
 
 int ExtendOpenCV::ConvertBmp_varF()

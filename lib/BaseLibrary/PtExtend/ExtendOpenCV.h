@@ -14,6 +14,7 @@ class ExtendOpenCV :
         STDEF_SFENUM(Rotate_varF),
         STDEF_SFENUM(DoubleMake_varF),
         STDEF_SFENUM(FilterApply_varF),
+        STDEF_SFENUM(ImageScale_fF),
         STDEF_SFENUM(ConvertBmp_varF),
         //#SF_EnumInsert
         EnumExtentionMax
@@ -34,6 +35,7 @@ public:
     int Rotate_varF();
     int DoubleMake_varF();
     int FilterApply_varF();
+    int ImageScale_fF();
     int ConvertBmp_varF();
     //#SF_FuncHeaderInsert
 
