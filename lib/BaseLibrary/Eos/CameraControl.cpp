@@ -382,7 +382,8 @@ void CCameraControl::EventCastPicture(CameraEvent* _evt)
 		cv::Rect cropRegion(x, y, cropWidth, cropHeight);
 		cv::Mat croppedImage = img(cropRegion);
 
-		cv::GaussianBlur(croppedImage, croppedImage, cv::Size(m_blur, m_blur), 0);
+		if(m_blur > 0)
+			cv::GaussianBlur(croppedImage, croppedImage, cv::Size(m_blur, m_blur), 0);
 		// Scale the image to the new size
 		cv::Mat scaledImage;
 		cv::resize(croppedImage, scaledImage, newSize, 0, 0, cv::INTER_AREA);
