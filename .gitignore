@@ -22,7 +22,6 @@
 # Executables
 *.exe
 *.out
-*.app
 lib/BaseLibrary/.vs
 lib/BaseLibrary/ApStateSystem/x64
 lib/BaseLibrary/PtBase/x64
