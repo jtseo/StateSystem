@@ -80,6 +80,21 @@
                   endingLineNumber = "1542"
                   offsetFromSymbolStart = "320">
                </Location>
+               <Location
+                  uuid = "8D9273D9-4A6D-4974-B81E-C1605CB3AD4C - 80bcdfe0850441d5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseState::VariableTypeGet(BaseDStructureValue const*, int, EDstType*)"
+                  moduleName = "ApStateSystem"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SamSSD%201/oddeye/oddeyesoft/projects/StateSystem/lib/BaseLibrary/PtBase/BaseState.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1541"
+                  endingLineNumber = "1541"
+                  offsetFromSymbolStart = "320">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
