@@ -469,7 +469,7 @@ namespace StateSystem
             int[] Link_an = null;
             int LinkIndex_n = StateDStructure.get_index(VLStateManager.hash("arrayLink"));
             int index_link_type = StateDStructure.get_index(VLStateManager.hash("BaseLinkType"));
-            int type_chagne = VLStateManager.hash("sate_change");
+            int type_chagne = VLStateManager.hash("state_change");
             int[] link_type_a = null;
 
             if (m_dstMain.get_int_index(key_n, LinkIndex_n, ref Link_an))
@@ -1132,7 +1132,7 @@ namespace StateSystem
             int LinkIndex_n = StateDStructure.get_index(VLStateManager.hash("arrayLink"));
             int index_link_type = StateDStructure.get_index(VLStateManager.hash("BaseLinkType"));
             int[] type = new int[4];
-            type[0] = VLStateManager.hash("sate_change");
+            type[0] = VLStateManager.hash("state_change");
             type[1] = VLStateManager.hash("state_add");
             type[2] = VLStateManager.hash("state_linkcopy");
             type[3] = VLStateManager.hash("state_call");
@@ -1578,6 +1578,23 @@ namespace StateSystem
             if (!stVariable.set_string(hash, name))
                 return 0;
 
+            return 1;
+        }
+
+        public static int VScriptStateTreeCopy_nF(IntPtr _pBase, IntPtr _pEvent, IntPtr _pContext, int _nState)
+        {
+            StateDStructureValue stBase = new StateDStructureValue(_pBase);
+
+            int hash = 0;
+            if (!stBase.get_int("VScriptStateNameCopy_F", ref hash))
+                return 0;
+            
+            string name = "";
+            StateDStructureValue stVariable = stBase.state_variable_get();
+            if (!stVariable.get_string(hash, ref name))
+                return 0;
+
+            
             return 1;
         }
 
