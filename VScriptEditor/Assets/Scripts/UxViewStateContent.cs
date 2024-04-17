@@ -423,6 +423,62 @@ namespace StateSystem
             m_update_b = true;
         }
 
+        public bool StatePropagateGet(int _key_n, List<int> _group, Vector3 _pos)
+        {
+            if (_group.Contains(_key_n))
+                return true;
+            
+            _group.Add(_key_n);
+
+            string name_str = "";
+            int[] Link_an = null;
+            int LinkIndex_n = StateDStructure.get_index(VLStateManager.hash("arrayLink"));
+            int index_link_type = StateDStructure.get_index(VLStateManager.hash("BaseLinkType"));
+            int type_chagne = VLStateManager.hash("state_change");
+            int[] link_type_a = null;
+
+            if (m_dstMain.get_int_index(_key_n, LinkIndex_n, ref Link_an))
+            {
+                for (int i = 0; i < Link_an.Length; i++)
+                {
+                    bool change = false;
+                    if (m_dstLink.get_int_index(Link_an[i], index_link_type, ref link_type_a))
+                    {
+                        if (link_type_a[0] == type_chagne)
+                            change = true;
+                    }
+                    else
+                    {
+                        change = true;
+                    }
+
+                    if (m_dstLink.get_string(Link_an[i], 1, ref name_str))
+                    {
+                        int key_n2 = VLStateManager.hash(name_str);
+                        if (state_system_is(key_n2))
+                            continue;
+
+                        if (change)
+                        {
+                            VScriptState state_link = (VScriptState)m_hashStateButtons[key_n2];
+                            if (state_link.go.transform.position.x < _pos.x)
+                                continue;
+                        }
+
+
+                        if (!StatePropagateGet(key_n2, _group, _pos))
+                        {
+                            StateDStructureValue evt = VLStateManager.event_state_make("UxNotifierAuto");
+                            evt.set_variable_string("TempString_strV", "Fail to find state '" + name_str + "'");
+                            VLStateManager.event_post(evt);
+                        }
+                    }
+                }
+            }
+
+            return true;
+        }
+
         public bool StateMove(int key_n, Vector3 _pos_move, Hashtable _moved, int _typeMove)
         {
             if (_moved.Contains(key_n))
@@ -469,7 +525,7 @@ namespace StateSystem
             int[] Link_an = null;
             int LinkIndex_n = StateDStructure.get_index(VLStateManager.hash("arrayLink"));
             int index_link_type = StateDStructure.get_index(VLStateManager.hash("BaseLinkType"));
-            int type_chagne = VLStateManager.hash("sate_change");
+            int type_chagne = VLStateManager.hash("state_change");
             int[] link_type_a = null;
 
             if (m_dstMain.get_int_index(key_n, LinkIndex_n, ref Link_an))
