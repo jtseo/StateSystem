@@ -424,7 +424,7 @@ int BaseDStructureValue::event_process(int _nIndex, BaseDStructureValue *_pEvent
 
 		if (_nState != BaseDStructure::STATE_UPDATE)
 		{
-			char strBuf[255] = "-";
+			char strBuf[1024] = "-";
 			if (_pEvent) {
 				int nTemp = 0;
 				const int *pnValue = 0;
@@ -434,7 +434,7 @@ int BaseDStructureValue::event_process(int _nIndex, BaseDStructureValue *_pEvent
 
 				showLog = g_SendMessage(LOG_MSG,
 					"SMain:%s %s SActive:%s Serial:%d SLink:%s CMT:%s SCol:%s LEvt:%d EVal:%d Col:%s(%d)",
-					pMain->get_name().c_str(), pState->group_id_get_string(strBuf, 255),
+					pMain->get_name().c_str(), pState->group_id_get_string(strBuf, 1024),
 					pState->get_name().c_str(), pState->get_serial(), m_strDebugName, m_strDebugComment,
 					m_stlVDebugProcessorName[_nIndex].c_str(), _pEvent->get_key(), *pnValue, strAction, s_serial
 				);
@@ -442,7 +442,7 @@ int BaseDStructureValue::event_process(int _nIndex, BaseDStructureValue *_pEvent
 			else {
 				showLog = g_SendMessage(LOG_MSG,
 					"SMain:%s %s SActive:%s Serial:%d SLink:%s CMT:%s SCol:%s Col:%s(%d)",
-					pMain->get_name().c_str(), pState->group_id_get_string(strBuf, 255),
+					pMain->get_name().c_str(), pState->group_id_get_string(strBuf, 1024),
 					pState->get_name().c_str(), pState->get_serial(), m_strDebugName, m_strDebugComment,
 					m_stlVDebugProcessorName[_nIndex].c_str(), strAction, s_serial
 				);
@@ -584,7 +584,7 @@ bool BaseDStructureValue::is_complete(BaseDStructureValue *_pEvent, BaseDStructu
 
 					pState	= (BaseState*)m_pVoidParam;
 					BaseStateMain		*pMain	= pState->get_state_main();
-                    char strBuf[255] = "";
+                    char strBuf[1024] = "";
                     if(_pEvent)
 					{
 						int nTemp = 0;
@@ -594,14 +594,14 @@ bool BaseDStructureValue::is_complete(BaseDStructureValue *_pEvent, BaseDStructu
 							pnValue = &nTemp;
 						g_SendMessage(LOG_MSG, 
 							"SMain:%s %s SActive:%s Serial:%d SLink:%s CMT:%s SCol:%s LEvt:%d EVal:%d Col:%s CRet:%d\n",
-							pMain->get_name().c_str(), pState->group_id_get_string(strBuf, 255),
+							pMain->get_name().c_str(), pState->group_id_get_string(strBuf, 1024),
 							pState->get_name().c_str(), pState->get_serial(), m_strDebugName, m_strDebugComment,
 							m_stlVDebugProcessorName[i].c_str(), _pEvent->get_key(), *pnValue, strAction, nRet
 							);
 					}else{
 						g_SendMessage(LOG_MSG, 
 							"SMain:%s %s SActive:%s Serial:%d SLink:%s CMT:%s SCol:%s Col:%s CRet:%d\n",
-							pMain->get_name().c_str(), pState->group_id_get_string(strBuf, 255),
+							pMain->get_name().c_str(), pState->group_id_get_string(strBuf, 1024),
 							pState->get_name().c_str(), pState->get_serial(), m_strDebugName, m_strDebugComment,
 							m_stlVDebugProcessorName[i].c_str(), strAction, nRet
 							);

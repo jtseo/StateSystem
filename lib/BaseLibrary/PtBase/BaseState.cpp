@@ -682,7 +682,7 @@ bool BaseState::group_id_is_in(const STLMnInt& _stlMnGroupId) const
 
 char* BaseState::group_id_get_string(char* _strBuf, int _nLen) const
 {
-	char strCat[255];
+	char strCat[1024];
 
 	STLMnInt::const_iterator it = m_stlMnGroupIdentifier.begin();
 	for (; it != m_stlMnGroupIdentifier.end(); it++)
@@ -1991,7 +1991,7 @@ void BaseState::event_state_attach_param(BaseState *_pState, const BaseDStructur
 }
 //*/
 
-#define LOG_MAX 512
+#define LOG_MAX 2048
 
 int BaseState::DebugOutString(const BaseDStructureValue* _pdst, const BaseDStructureValue* _pdstLink, const char* _strState)
 {
