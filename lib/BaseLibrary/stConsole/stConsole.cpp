@@ -61,7 +61,7 @@ int s_eventstack[10];
 #include "../PtExtend/DevPrinter.h"
 #include "../Eos/DevCamera.h"
 
-int main()
+int main(int argc, char *argv[])
 {
 
 #ifndef VScriptBuild
@@ -94,8 +94,13 @@ int main()
 	//PnObject *obj_p = dwg->dwg_get().obj_get(10003);
 	//obj_p->center();
 
+	if(argc > 1)
+		pManager->varialbe_global_get()->set_alloc("gparam1_strV", argv[1]);
+	if (argc > 2)
+		pManager->varialbe_global_get()->set_alloc("gparam2_strV", argv[2]);
+
 	int key = 0;
-	while (key != 'd')
+	while (!pManager->system_terminate_check())
 	{
 		manager_update(pManager);
 		BaseSystem::Sleep(1);

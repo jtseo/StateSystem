@@ -67,6 +67,7 @@ void StateManagerPnID::release_manager(bool _reset)
 #include "../PtExtend/BaseStateSystem.h"
 #include "../PtBase/BaseSCMysql.h"
 #include "../PtBase/BaseSCCurl.h"
+#include "../PtExtend/DevCashReader.h"
 
 #include <winsock2.h>
 #include "../PtBase/BaseSCTcp.h"
@@ -79,9 +80,9 @@ StateManagerPnID::StateManagerPnID(void* _applet) :BaseStateManager(_applet)
 	BaseSCMysql sql;
 	BaseSCTcp tcp;
 	BaseSCCurl curl;
+	DevCashReader cash;
 
 	//BaseSFParser paser;
-
 }
 
 void StateManagerPnID::set_root_path(const char* _strPath)
