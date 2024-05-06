@@ -31,6 +31,8 @@ PtObjectCpp(BaseNetManager);
 PT_OPTCPP(BaseNetManager)
 PT_OPTCPP(BaseNetConnector)
 
+STLVpVoid BaseNetManager::ms_netManagers;
+
 BaseNetConnector::BaseNetConnector(UINT16 _nQueueSize) : 
 m_queueConnectorInput("BaseNetConnector::Input"),
 m_queueConnectorOutput("BaseNetConnector::Output")
@@ -1415,6 +1417,7 @@ void BaseNetManager::init()
 {
 	m_bDebugDisable = false;
 	m_pSocket	= NULL;
+
 }
 
 BaseNetManager::BaseNetManager(bool _bServer, const char *_strIP, UINT16 _nPort, int _index_start):
@@ -1436,6 +1439,8 @@ BaseNetManager::STLVstConnectorExt s_stlVstE;
 
 void BaseNetManager::init(bool _bServer, const char *_strIP, UINT16 _nPort, int _index_start)
 {
+	ms_netManagers.push_back(this);
+
 	static int s_nManagerSerial = 100;
 	m_nManagerID = s_nManagerSerial++;
 
@@ -1571,6 +1576,14 @@ void BaseNetManager::release()
 	m_pstlMnstConnectorExt = NULL;
 	m_pstlVstConnectorExt = NULL;
 	releaseQueue();
+
+	for (int i = 0; i < ms_netManagers.size(); i++)
+	{
+		if (ms_netManagers[i] == this) {
+			ms_netManagers.erase(ms_netManagers.begin() + i);
+			break;
+		}
+	}
 }
 
 BaseNetManager::~BaseNetManager()
@@ -2763,6 +2776,7 @@ int fnUpdateMessageReceiver(BaseDStructureValue *_pdsvContext, BaseDStructureVal
 {
 	BaseNetManager *pNetManager = NULL;
 	pNetManager = (BaseNetManager*)_pVoidData;
+	
 	STDEF_Manager(pManager);
 	STDEF_BaseState(pState);
 	
@@ -2872,11 +2886,12 @@ STDEF_FUNC(BaseNetListenerRelease_strF)
 
 	STDEF_Manager(pManager);
     pNetManager = (BaseNetManager*)pdsvVariable->get_point(nHashDB);
-	if (!pNetManager)
+	if (pNetManager == NULL || !pNetManager->isok())
 	{
 		g_SendMessage(LOG_MSG, "fail to find BaseNetManager");
 		return 0;
 	}
+
 	pdsvVariable->set_alloc(nHashDB, NULL);
 	pManager->net_manager_delete(pNetManager);
     pNetManager->release_thread();// It will delete pNetManager in thread
@@ -2944,7 +2959,7 @@ STDEF_FUNC(BaseNetSocketClose_nF)
 	if (nIndex > 0)
 	{
         pNetManager = (BaseNetManager*)pdsvVariable->get_point(nHashNetManager);
-		if (pNetManager == NULL) {
+		if (!pNetManager || !pNetManager->isok()) {
 			g_SendMessage(LOG_MSG, "BaseNetManager_SocketCloseFail = %d", nIndex);
 			return 0;
 		}
@@ -2976,6 +2991,8 @@ STDEF_FUNC(BaseNetSocketChange_nF)
         pNetManager = (BaseNetManager*)pdsvVariable->get_point(nHashNetManager);
 		if (nIndex > 0 && pNetManager)
 		{
+			if (pNetManager->isok())
+				return 0;
 			pState->group_id_add(HASH_STATE(Socket), *pnId);
 			pNetManager->release_index(nIndex);
 			return 1;
@@ -3001,7 +3018,7 @@ STDEF_FUNC(BaseNetConnectRelease_strF)
 
     pNetManager = (BaseNetManager*)pdsvVariable->get_point(nHashNetManager);
     
-    if (pNetManager == NULL) {
+    if (pNetManager == NULL || !pNetManager->isok()) {
         g_SendMessage(LOG_MSG, "BaseNetManager_ConnectEndFail");
         return 0;
     }
@@ -3085,7 +3102,7 @@ bool base_net_event_send(BaseDStructureValue* _event_send, int _index, BaseDStru
 	pNetManager = (BaseNetManager*)_variable_state->get_point(nHashNetManager);
 	if (_index > 0)
 	{
-		if (pNetManager == NULL) {
+		if (pNetManager == NULL || !pNetManager->isok()) {
 			g_SendMessage(LOG_MSG, "BaseNetManager_SendFail");
 			PT_Free(pData);
 			return false;
@@ -3312,7 +3329,7 @@ STDEF_FUNC(BaseNetEventBroadCast_nF)
     pNetManager = (BaseNetManager*)pdsvVariable->get_point(nHashNetManager);
 	if (nIndex > 0)
 	{
-		if (pNetManager == NULL) {
+		if (pNetManager == NULL || !pNetManager->isok()) {
 			PT_Free(pData);
 			return 0;
 		}
@@ -3514,6 +3531,24 @@ STDEF_FUNC(BaseNetSocketRemake_nF)
     if (pNetManager == NULL)
         return 0;
 
+	if (!pNetManager->isok())
+		return 0;
+
     pNetManager->reinit();
     return 1;
+}
+
+bool BaseNetManager::check(BaseNetManager* _manager)
+{
+	for (int i = 0; i < ms_netManagers.size(); i++)
+	{
+		if (_manager == ms_netManagers[i])
+			return true;
+	}
+	return false;
+}
+
+bool BaseNetManager::isok()
+{
+	return check(this);
 }

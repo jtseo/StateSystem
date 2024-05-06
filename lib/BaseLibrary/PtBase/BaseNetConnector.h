@@ -415,4 +415,12 @@ protected:
 	typedef std::map<int, ST_MassBuffer, std::less<int>, PT_allocator<std::pair<const int, ST_MassBuffer> > >	STLMnMassBuffer;
 	STLMnMassBuffer	m_massBuffers;
 	//================================= End Update by OJ : 2023-11-10
+
+	//============================================ 2024-04-23
+	// 
+public:
+	static STLVpVoid	ms_netManagers;
+	static bool check(BaseNetManager* _manager);
+	bool isok();
+	//================================= End
 };
