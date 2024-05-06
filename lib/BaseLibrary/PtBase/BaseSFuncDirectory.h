@@ -16,6 +16,9 @@ class BaseSFuncDirectory :
         STDEF_SFENUM(RunCLI_nF),
         STDEF_SFENUM(FilenameExtChange_varF),
         STDEF_SFENUM(DirectoryListGet_varIf),
+        STDEF_SFENUM(FileWritableCheck_nIf),
+        STDEF_SFENUM(FileLoad_varF),
+        STDEF_SFENUM(FileSave_varF),
         //#SF_EnumInsert
         EnumExtentionMax
     };
@@ -32,6 +35,9 @@ public:
     int RunCLI_nF();
     int FilenameExtChange_varF();
     int DirectoryListGet_varIf();
+    int FileWritableCheck_nIf();
+    int FileLoad_varF();
+    int FileSave_varF();
     //#SF_FuncHeaderInsert
     int fileCast_nF();
     int folerCreate_varF();

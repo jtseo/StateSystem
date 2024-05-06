@@ -15,6 +15,8 @@
 #include "BaseResManager.h"
 #include "BaseTime.h"
 #include "BaseStringTable.h"
+#include <iostream>
+#include <fstream>
 
 PtObjectCpp(BaseSFuncDirectory);
 // define  BaseStateFunc::FuncSample
@@ -57,6 +59,9 @@ int BaseSFuncDirectory::StateFuncRegist(STLString _class_name, STLVInt* _func_ha
 		STDEF_SFREGIST(RunCLI_nF);
 		STDEF_SFREGIST(FilenameExtChange_varF);
 		STDEF_SFREGIST(DirectoryListGet_varIf);
+		STDEF_SFREGIST(FileWritableCheck_nIf);
+		STDEF_SFREGIST(FileLoad_varF);
+		STDEF_SFREGIST(FileSave_varF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -111,6 +116,9 @@ int BaseSFuncDirectory::FunctionCall(const char* _class_name, STLVInt& _func_has
 		STDEF_SFFUNCALL(RunCLI_nF);
 		STDEF_SFFUNCALL(FilenameExtChange_varF);
 		STDEF_SFFUNCALL(DirectoryListGet_varIf);
+		STDEF_SFFUNCALL(FileWritableCheck_nIf);
+		STDEF_SFFUNCALL(FileLoad_varF);
+		STDEF_SFFUNCALL(FileSave_varF);
 		//#SF_FuncCallInsert
 		return 0;
 	}
@@ -295,6 +303,102 @@ int BaseSFuncDirectory::DirectoryListGet_varIf()
 	}
 	
 	paramFallowSet(1, ret.c_str());
+	return 1;
+}
+
+int BaseSFuncDirectory::FileWritableCheck_nIf()
+{
+	const char* filepath = (const char*)paramFallowGet(0);
+
+	FILE* pf = fopen(filepath, "r+");
+
+	if (!pf) {
+		return 0;
+	}
+
+	fclose(pf);
+	return 1;
+
+	std::fstream file(filepath, std::ios::in | std::ios::out | std::ios::app);
+
+	// Check if the file is open
+	if (!file.is_open()) {
+		std::cerr << "Error: Couldn't open file." << std::endl;
+		return 0;
+	}
+
+	// Try to acquire a lock
+	file.seekg(0, std::ios::end);
+	if (file.tellg() != 0) {
+		// If the file size is not 0, it's being written by another process
+		return 0;
+	}
+
+	return 1;
+}
+
+int BaseSFuncDirectory::FileLoad_varF()
+{
+	const char* filepath = (const char*)paramFallowGet(0);
+
+	BaseFile file;
+	if (file.OpenFile(filepath, BaseFile::OPEN_READ))
+		return 0;
+
+	UINT32 size_n = file.get_size_file();
+	char* buff = PT_Alloc(char, (int)size_n + 1);
+	*(buff + size_n) = 0;
+
+	file.Read(buff, size_n);
+	file.CloseFile();
+
+	const int* hash = (const int*)m_param_value;
+	int index = BaseDStructure::get_index(*hash);
+
+	if (BaseDStructure::type_get(index).nType >= TYPE_STRING)
+	{
+		m_state_variable->set_mass(*hash, buff, size_n);
+	}
+	else {
+		m_state_variable->set_alloc(*hash, buff, size_n);
+	}
+
+	PT_Free(buff);
+	return 1;
+}
+
+int BaseSFuncDirectory::FileSave_varF()
+{
+	const char* filepath = (const char*)paramFallowGet(0);
+	const char* buff = NULL;
+	short cnt = 0;
+	int cnt2 = 0;
+
+	const int* hash = (const int*)m_param_value;
+	bool largeable = m_state_variable->get_base()->type_get(m_state_variable->get_base()->get_index(*hash)).nType >= TYPE_STRING;
+
+	BaseFile file;
+
+	if (file.OpenFile(filepath, BaseFile::OPEN_WRITE))
+		return 0;
+
+	if (largeable)
+	{
+		if (!m_state_variable->get_mass(*hash, (const void**)&buff, &cnt2))
+			return 0;
+	}
+	else
+	{
+		if (!m_state_variable->get(*hash, (const void**)&buff, &cnt))
+			return 0;
+	}
+
+	if (largeable)
+		file.Write(buff, cnt2);
+	else
+		file.Write(buff, (int)cnt);
+
+	file.CloseFile();
 	return 1;
 }
 
