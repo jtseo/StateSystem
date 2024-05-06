@@ -72,6 +72,9 @@ void StateManagerPnID::release_manager(bool _reset)
 #include "../../SDK/opencv/include/opencv2/opencv.hpp"
 #include "../PtExtend/ExtendOpenCV.h"
 //#include "../PtBase/BaseSFParser.h"
+#ifdef PHOTOSKETCH
+#include "../PtExtend/PhotoSketch.h"
+#endif
 
 #ifndef VScriptBuild
 
@@ -83,17 +86,30 @@ void StateManagerPnID::release_manager(bool _reset)
 
 StateManagerPnID::StateManagerPnID(void *_applet) :BaseStateManager(_applet)
 {
+	//CreateAndSaveImage(".", ".", 100, 100);
+
 	BaseSFuncDirectory dir;
 	BaseTextEditor te;
 	BaseSCJson json;
 	ExtendOpenCV extOpencv;
 	BaseSCTcp tcp;
 	//BaseSFParser paser;
+#ifdef PHOTOSKETCH
+	PhotoSketch	sketch;
+#else
 #ifndef VScriptBuild
 
 	DevCashReader devRed;
-	DevPrinter devPrt;
+	//DevPrinter devPrt;
 	DevCamera devCam;
+#endif
+
+#endif
+#ifndef VScriptBuild
+
+	//DevCashReader devRed;
+	DevPrinter devPrt;
+	//DevCamera devCam;
 #endif
 }
 
