@@ -210,6 +210,7 @@ int DevCamera::PreviewStart_nF()
 	const int* count = (const int*)paramFallowGet(2);
 	const float* scale = (const float*)paramFallowGet(3);
 	const int* blur_p = (const int*)paramFallowGet(4);
+	const int* fps_p = (const int*)paramFallowGet(5);
 	
 	if (ctr == NULL)
 		return 0;
@@ -229,7 +230,11 @@ int DevCamera::PreviewStart_nF()
 	if (blur_p)
 		blur = *blur_p;
 
-	CCameraControl::Instance()->PreviewLayoutSet(filepath, pos_av2, scalef, blur);
+	float fps = 5;
+	if (fps_p)
+		fps = *fps_p;
+
+	CCameraControl::Instance()->PreviewLayoutSet(filepath, pos_av2, scalef, blur, fps);
 	m_stop_thread = false;
 	BaseSystem::createthread(update_, 0, this);
 	

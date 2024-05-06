@@ -470,6 +470,22 @@ void CCameraControl::EventCastPreview(CameraEvent* _evt)
 			fitRatio(orgImg, &resizeImg, newSz);
 			flip(resizeImg, resizeImg, 1); // 1 is y axi
 
+			int timeCur = BaseSystem::timeGetTime();
+			if (timeCur >= m_timeCur + (1000.f / m_fps))
+			{
+				cv::Size imageSize(resizeImg.cols * m_previewScale, resizeImg.rows * m_previewScale);
+				cv::Mat saveImg = cv::Mat::zeros(imageSize, CV_8UC3);
+
+				cv::resize(resizeImg, saveImg, imageSize);
+				
+				char buf[255];
+				sprintf_s(buf, 25, "../Pictures/slot%d/img%d.jpg", m_currentSlot, m_frameCur);
+				cv::imwrite(buf, saveImg);
+
+				m_frameCur++;
+				m_timeCur = timeCur;
+			}
+
 			int slot = m_currentSlot % m_picturePositions.size();
 			Mat sub = m_layoutMat(cv::Rect(m_picturePositions[slot].x, m_picturePositions[slot].y, m_pictureSize[0], m_pictureSize[1]));
 			ExtendOpenCV::overlayImage(resizeImg, sub, cv::Point2i(0, 0), 1, false);
@@ -572,7 +588,7 @@ void CCameraControl::PictureSizeSet(int w, int h)
 	m_pictureSize[1] = h;
 }
 
-bool CCameraControl::PreviewLayoutSet(const char* _filepath, const STLVVec2& _positions, float _scale, int _blur)
+bool CCameraControl::PreviewLayoutSet(const char* _filepath, const STLVVec2& _positions, float _scale, int _blur, float _fps)
 {
 	m_currentSlot = 0;
 	m_layoutPath = "../";
@@ -580,6 +596,9 @@ bool CCameraControl::PreviewLayoutSet(const char* _filepath, const STLVVec2& _po
 	m_picturePositions = _positions;
 	m_previewScale = _scale;
 	m_blur = _blur;
+	m_fps = _fps;
+	m_frameCur = 1;
+	m_timeCur = BaseSystem::timeGetTime();
 
 	m_layoutMat = cv::imread(m_layoutPath.c_str(), cv::IMREAD_UNCHANGED);
 

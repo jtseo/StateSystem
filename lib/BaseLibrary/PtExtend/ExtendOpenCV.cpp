@@ -60,6 +60,7 @@ int ExtendOpenCV::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, in
 		STDEF_SFREGIST(FilterApply_varF);
 		STDEF_SFREGIST(ImageScale_fF);
 		STDEF_SFREGIST(ConvertBmp_varF);
+		STDEF_SFREGIST(PhotoVideoFrameMake_strF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -111,6 +112,7 @@ int ExtendOpenCV::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		STDEF_SFFUNCALL(FilterApply_varF);
 		STDEF_SFFUNCALL(ImageScale_fF);
 		STDEF_SFFUNCALL(ConvertBmp_varF);
+		STDEF_SFFUNCALL(PhotoVideoFrameMake_strF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -448,6 +450,98 @@ int ExtendOpenCV::QRCodeMake_varF()
 
 	cv::imwrite(filepath, scaledImage);
 	
+	return 1;
+}
+
+int ExtendOpenCV::PhotoVideoFrameMake_strF()
+{
+	const char* outfile = (const char*)m_param_value;
+	const int* slots = (const int*)paramFallowGet(0); // slot's indexs
+	const float* scale_p = (const float*)paramFallowGet(1); // scale for video
+	float scale = *scale_p;
+
+	const char* backImageName = NULL;
+	if (!m_state_variable->get(STRTOHASH("PhotoFilename"), (const void**)&backImageName))
+		return 0;
+	m_manager_p = BaseStateManager::get_manager();
+	const char* fileroot = m_manager_p->rootGet();
+	STLString root = fileroot;
+	STLString imgPath = fileroot;
+	imgPath += "../";
+	imgPath += backImageName;
+	const int* photoSize = NULL;
+	if (!m_state_variable->get(STRTOHASH("PhotoSize"), (const void**)&photoSize))
+		return 0;
+	const int* photoPoss = NULL;
+	short count = 0;
+	if (!m_state_variable->get(STRTOHASH("PhotoPositions"), (const void**)&photoPoss, &count))
+		return 0;
+
+	const int* pictureSize_p = NULL;
+	if (!m_state_variable->get(STRTOHASH("PhotoPictureSize"), (const void**)&pictureSize_p))
+		return 0;
+
+	count /= 2;
+	int frameCnt = 0;
+	STLVString filenames;
+	for (int i = 0; i < count; i++)
+	{
+		char buf[255];
+		sprintf_s(buf, 255, "..\\Pictures\\slot%d\\*.jpg", slots[i]);
+		BaseSystem::GetFileList(buf, &filenames, NULL);
+
+		for (int j = 0; j < filenames.size(); j++)
+		{
+			int frame = 0;
+			sscanf(filenames[j].c_str(), "img%d.jpg", &frame);
+			if (frame > frameCnt)
+				frameCnt = frame;
+		}
+	}
+
+	// Load a background image with alpha channel
+	cv::Size imageSize(photoSize[0] * scale, photoSize[1] * scale); // Desired image size
+	cv::Mat backgroundImage = cv::imread(imgPath.c_str(), cv::IMREAD_UNCHANGED);
+	cv::resize(backgroundImage, backgroundImage, imageSize);
+
+	cv::Size picSize(pictureSize_p[0]*scale, pictureSize_p[1]*scale);
+
+	for (int frame = 1; frame <= frameCnt; frame++)
+	{
+		std::vector<cv::Mat> smallImages; // Vector to hold small images
+		// Load small images (example)
+		root = "../Pictures/";
+		char buf[255];
+		for (int i = 1; i <= count; i++)
+		{
+			sprintf_s(buf, 255, "slot%d/img%d.jpg", i, frame);
+			STLString path = root + buf;
+			cv::Mat frame = cv::imread(path.c_str(), cv::IMREAD_UNCHANGED);
+			cv::resize(frame, frame, picSize);
+			smallImages.push_back(frame);
+		}
+
+		sprintf_s(buf, 255, "%svideo/frame%d.jpg", root.c_str(), frame);
+		std::string outputFilePath = buf; // Path to save the final image
+
+		cv::Mat image = cv::Mat::zeros(imageSize, CV_8UC3);
+
+		// Paste small images onto the blank image at specified locations
+		for (size_t i = 0; i < smallImages.size(); ++i) {
+			if (smallImages[i].empty())
+				continue;
+			cv::Point2i location(photoPoss[i * 2] * scale, photoPoss[i * 2 + 1] * scale); // Example locations for each small image
+			smallImages[i].copyTo(image(cv::Rect(location.x, location.y, smallImages[i].cols, smallImages[i].rows)));
+		}
+
+		// Overlay the background image with alpha value
+		if (!backgroundImage.empty()) {
+			overlayImage(image, backgroundImage, cv::Point2i(0, 0), 1); // 50% opacity for the background image
+		}
+
+		// Save the composed image to a file
+		cv::imwrite(outputFilePath, image);
+	}
 	return 1;
 }
 

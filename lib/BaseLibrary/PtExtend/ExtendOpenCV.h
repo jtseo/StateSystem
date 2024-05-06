@@ -16,6 +16,7 @@ class ExtendOpenCV :
         STDEF_SFENUM(FilterApply_varF),
         STDEF_SFENUM(ImageScale_fF),
         STDEF_SFENUM(ConvertBmp_varF),
+        STDEF_SFENUM(PhotoVideoFrameMake_strF),
         //#SF_EnumInsert
         EnumExtentionMax
     };
@@ -37,6 +38,7 @@ public:
     int FilterApply_varF();
     int ImageScale_fF();
     int ConvertBmp_varF();
+    int PhotoVideoFrameMake_strF();
     //#SF_FuncHeaderInsert
 
     // User defin area from here
