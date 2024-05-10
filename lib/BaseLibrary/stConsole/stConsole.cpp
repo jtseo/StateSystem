@@ -63,6 +63,9 @@ int s_eventstack[10];
 
 int main(int argc, char *argv[])
 {
+	std::string fullpath = "../hell/world/file.jpg";
+	fullpath = fullpath.substr(0, fullpath.find_last_of('/'));
+	printf(fullpath.c_str());
 
 #ifndef VScriptBuild
 	DevCamera cam;

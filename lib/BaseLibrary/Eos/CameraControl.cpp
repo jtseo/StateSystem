@@ -434,6 +434,22 @@ void fitRatio(cv::Mat& _prev, cv::Mat* _out, cv::Size _newSize)
 
 	cv::resize(croppedImage, *_out, _newSize);
 }
+void _log(const char* strFormat, ...)
+{
+	char logbuf[1024];
+	va_list	argptr;
+	va_start(argptr, strFormat);
+
+	vsprintf_s(logbuf, 1024, strFormat, argptr);
+	va_end(argptr);
+
+	FILE* pf = NULL;
+	if (!fopen_s(&pf, "log.txt", "a+"))
+	{
+		fputs(logbuf, pf);
+		fclose(pf);
+	}
+}
 
 
 void CCameraControl::EventCastPreview(CameraEvent* _evt)
@@ -475,11 +491,12 @@ void CCameraControl::EventCastPreview(CameraEvent* _evt)
 			{
 				cv::Size imageSize(resizeImg.cols * m_previewScale, resizeImg.rows * m_previewScale);
 				cv::Mat saveImg = cv::Mat::zeros(imageSize, CV_8UC3);
-
+				
 				cv::resize(resizeImg, saveImg, imageSize);
 				
 				char buf[255];
-				sprintf_s(buf, 25, "../Pictures/slot%d/img%d.jpg", m_currentSlot, m_frameCur);
+				sprintf_s(buf, 255, "..\\Pictures\\slot%d\\img%d.jpg", m_currentSlot+1, m_frameCur);
+
 				cv::imwrite(buf, saveImg);
 
 				m_frameCur++;
@@ -602,16 +619,7 @@ bool CCameraControl::PreviewLayoutSet(const char* _filepath, const STLVVec2& _po
 
 	m_layoutMat = cv::imread(m_layoutPath.c_str(), cv::IMREAD_UNCHANGED);
 
-	for (int i = 0; i < m_picturePositions.size(); i++)
-	{
-		m_picturePositions[i].x *= _scale;
-		m_picturePositions[i].y *= _scale;
-	}
-
-	m_pictureSize[0] *= _scale;
-	m_pictureSize[1] *= _scale;
-
-	cv::Size previewsize(m_layoutMat.cols*_scale, m_layoutMat.rows*_scale);
+	cv::Size previewsize(m_layoutMat.cols, m_layoutMat.rows);
 	cv::resize(m_layoutMat, m_layoutMat, previewsize);
 
 	return true;

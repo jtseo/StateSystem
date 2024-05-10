@@ -504,11 +504,11 @@ int ExtendOpenCV::PhotoVideoFrameMake_strF()
 	cv::Mat backgroundImage = cv::imread(imgPath.c_str(), cv::IMREAD_UNCHANGED);
 	cv::resize(backgroundImage, backgroundImage, imageSize);
 
-	cv::Size picSize(pictureSize_p[0]*scale, pictureSize_p[1]*scale);
+	cv::Size picSize(pictureSize_p[0]*scale+1, pictureSize_p[1]*scale+1);
 
+	std::vector<cv::Mat> smallImages; // Vector to hold small images
 	for (int frame = 1; frame <= frameCnt; frame++)
 	{
-		std::vector<cv::Mat> smallImages; // Vector to hold small images
 		// Load small images (example)
 		root = "../Pictures/";
 		char buf[255];
@@ -517,8 +517,14 @@ int ExtendOpenCV::PhotoVideoFrameMake_strF()
 			sprintf_s(buf, 255, "slot%d/img%d.jpg", i, frame);
 			STLString path = root + buf;
 			cv::Mat frame = cv::imread(path.c_str(), cv::IMREAD_UNCHANGED);
-			cv::resize(frame, frame, picSize);
-			smallImages.push_back(frame);
+			if (!frame.empty()) {
+				cv::resize(frame, frame, picSize);
+				if (smallImages.size() == count)
+					smallImages[i-1] = frame;
+			}
+			
+			if(smallImages.size() < count)
+				smallImages.push_back(frame);
 		}
 
 		sprintf_s(buf, 255, "%svideo/frame%d.jpg", root.c_str(), frame);

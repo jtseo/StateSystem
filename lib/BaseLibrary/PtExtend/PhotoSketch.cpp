@@ -234,10 +234,12 @@ bool PhotoSketch::stop_thread()
 
 int PhotoSketch::SketchStart_varF()
 {
+	const char* src = (const char*)paramFallowGet(0);
 	s_photoSketch = this;
 	m_stop_thread = false;
 	m_pathFrame = "../PhotoFrames/port_";
 	m_pathPicture = "../PhotoPicture/";
+	m_pathPicture += src;
 	m_pictureSize[0] = 810;
 	m_pictureSize[1] = 1080;
 	BaseSystem::createthread(update_, 0, this);

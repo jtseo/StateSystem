@@ -76,6 +76,7 @@ public:
 	void PreviewSlotSet(int _slot)
 	{
 		m_currentSlot = _slot;
+		m_frameCur = 1;
 	}
 
 private:

@@ -202,6 +202,25 @@ int DevCamera::TakeAPicture_nF()
 	return 1;
 }
 
+
+void _log2(const char* strFormat, ...)
+{
+	char logbuf[1024];
+	va_list	argptr;
+	va_start(argptr, strFormat);
+
+	vsprintf_s(logbuf, 1024, strFormat, argptr);
+	va_end(argptr);
+
+	FILE* pf = NULL;
+	if (!fopen_s(&pf, "log.txt", "a+"))
+	{
+		fputs(logbuf, pf);
+		fclose(pf);
+	}
+}
+
+
 int DevCamera::PreviewStart_nF()
 {
 	CameraController* ctr = getCameraController();
