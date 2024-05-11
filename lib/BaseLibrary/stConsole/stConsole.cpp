@@ -59,15 +59,30 @@ int s_eventstack[10];
 #include "../PtExtend/SerialPort.h"
 #include "../PtExtend/DevCashReader.h"
 #include "../PtExtend/DevPrinter.h"
+#ifndef VScriptBuild
 #include "../Eos/DevCamera.h"
+
+#include "../../SDK/opencv/include/opencv2/opencv.hpp"
+#include "../PtExtend/ExtendOpenCV.h"
+#endif
 
 int main(int argc, char *argv[])
 {
-	std::string fullpath = "../hell/world/file.jpg";
-	fullpath = fullpath.substr(0, fullpath.find_last_of('/'));
-	printf(fullpath.c_str());
-
+	
 #ifndef VScriptBuild
+	cv::Mat mat = cv::imread("upload.jpg");
+	cv::Size imageSize(2000, 2000);
+	STLString path = "./upload/";
+	for (int i = 0; i < 5; i++)
+	{
+		STLString filepath;
+		filepath = path;
+		char buf[255];
+		sprintf_s(buf, 255, "img%d.jpg", i);
+		filepath += buf;
+		ExtendOpenCV::imageSave(mat, imageSize, filepath);
+	}
+
 	DevCamera cam;
 #endif
 	CSerialPort serial;

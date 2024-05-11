@@ -486,29 +486,27 @@ void CCameraControl::EventCastPreview(CameraEvent* _evt)
 			fitRatio(orgImg, &resizeImg, newSz);
 			flip(resizeImg, resizeImg, 1); // 1 is y axi
 
-			int timeCur = BaseSystem::timeGetTime();
-			if (timeCur >= m_timeCur + (1000.f / m_fps))
-			{
-				cv::Size imageSize(resizeImg.cols * m_previewScale, resizeImg.rows * m_previewScale);
-				cv::Mat saveImg = cv::Mat::zeros(imageSize, CV_8UC3);
-				
-				cv::resize(resizeImg, saveImg, imageSize);
-				
-				char buf[255];
-				sprintf_s(buf, 255, "..\\Pictures\\slot%d\\img%d.jpg", m_currentSlot+1, m_frameCur);
-
-				cv::imwrite(buf, saveImg);
-
-				m_frameCur++;
-				m_timeCur = timeCur;
-			}
-
 			int slot = m_currentSlot % m_picturePositions.size();
 			Mat sub = m_layoutMat(cv::Rect(m_picturePositions[slot].x, m_picturePositions[slot].y, m_pictureSize[0], m_pictureSize[1]));
 			ExtendOpenCV::overlayImage(resizeImg, sub, cv::Point2i(0, 0), 1, false);
 
 			imencode(".jpg", resizeImg, jpgData);
 			int imgS = jpgData.size();
+
+			int timeCur = BaseSystem::timeGetTime();
+			if (timeCur >= m_timeCur + (1000.f / m_fps))
+			{
+				cv::Size imageSize(resizeImg.cols * m_previewScale, resizeImg.rows * m_previewScale);
+				
+				char buf[255];
+				sprintf_s(buf, 255, "..\\Pictures\\slot%d\\img%d.jpg", m_currentSlot + 1, m_frameCur);
+				STLString filepath = buf;
+
+				ExtendOpenCV::imageSave(resizeImg, imageSize, filepath);
+
+				m_frameCur++;
+				m_timeCur = timeCur;
+			}
 			
 			BaseStateManager* manager = BaseStateManager::get_manager();
 			BaseDStructureValue* evt = manager->make_event_state(STRTOHASH("CamRevPreview"));

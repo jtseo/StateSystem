@@ -46,6 +46,17 @@ protected:
     // support for text analysis
 public:
     static void overlayImage(cv::Mat& background, const cv::Mat& foreground, cv::Point2i location, double alpha = 0.5, bool _overwrite = false);
+    static void imageSave(cv::Mat _img, cv::Size _size, STLString _filename);
+
 protected:
+
+    static DEF_ThreadCallBack(threadSave);
 };
 
+class OpenCVSave
+{
+public:
+    cv::Mat m_image;
+    STLString   m_filename;
+    cv::Size m_imageSize;
+};

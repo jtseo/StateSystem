@@ -617,3 +617,29 @@ int ExtendOpenCV::PhotoPannelMake_strF()
 	return 1;
 }
 //#SF_functionInsert
+
+
+DEF_ThreadCallBack(ExtendOpenCV::threadSave)
+{
+	OpenCVSave* img = (OpenCVSave*)_pParam;
+	cv::Mat saveImg = cv::Mat::zeros(img->m_imageSize, CV_8UC3);
+
+	cv::resize(img->m_image, saveImg, img->m_imageSize);
+
+	cv::imwrite(img->m_filename.c_str(), saveImg);
+
+	delete img;
+
+	BaseSystem::endthread();
+	DEF_ThreadReturn;
+}
+
+void ExtendOpenCV::imageSave(cv::Mat _img, cv::Size _size, STLString _filename)
+{
+	OpenCVSave *img = new OpenCVSave();
+	img->m_image = _img;
+	img->m_filename = _filename;
+	img->m_imageSize = _size;
+
+	BaseSystem::createthread(threadSave_, 0, img);
+}

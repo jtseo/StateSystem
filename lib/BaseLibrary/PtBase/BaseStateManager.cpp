@@ -1837,6 +1837,7 @@ BaseStateSpace *BaseStateManagerLogic::space_get(int _nSpaceID)
 	{
 		PT_OAlloc3(pSpace, BaseStateSpace, (BaseStateManager*)this, NULL, _nSpaceID);
 		pSpace->threadSpaceSet(true);
+		pSpace->inc_ref(this);
 		m_stlVpStateSpace.push_back(pSpace);
 	}
 
