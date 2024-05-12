@@ -480,14 +480,21 @@ void CCameraControl::EventCastPreview(CameraEvent* _evt)
 			
 			if(m_pictureSize[0] == 0)
 				return;
-			cv::Size newSz(m_pictureSize[0], m_pictureSize[1]);
+
+			int w, h;
+			w = m_pictureSize[0];
+			h = m_pictureSize[1];
+
+			w /= (1.f / m_prevScale);
+			h /= (1.f / m_prevScale);
+			cv::Size newSz(w, h);
 			Mat resizeImg;
 
 			fitRatio(orgImg, &resizeImg, newSz);
 			flip(resizeImg, resizeImg, 1); // 1 is y axi
 
 			int slot = m_currentSlot % m_picturePositions.size();
-			Mat sub = m_layoutMat(cv::Rect(m_picturePositions[slot].x, m_picturePositions[slot].y, m_pictureSize[0], m_pictureSize[1]));
+			Mat sub = m_layoutMat(cv::Rect(m_picturePositions[slot].x, m_picturePositions[slot].y, w, h));
 			ExtendOpenCV::overlayImage(resizeImg, sub, cv::Point2i(0, 0), 1, false);
 
 			imencode(".jpg", resizeImg, jpgData);
@@ -496,7 +503,7 @@ void CCameraControl::EventCastPreview(CameraEvent* _evt)
 			int timeCur = BaseSystem::timeGetTime();
 			if (timeCur >= m_timeCur + (1000.f / m_fps))
 			{
-				cv::Size imageSize(resizeImg.cols * m_previewScale, resizeImg.rows * m_previewScale);
+				cv::Size imageSize(resizeImg.cols * m_videoScale, resizeImg.rows * m_videoScale);
 				
 				char buf[255];
 				sprintf_s(buf, 255, "..\\Pictures\\slot%d\\img%d.jpg", m_currentSlot + 1, m_frameCur);
@@ -603,13 +610,14 @@ void CCameraControl::PictureSizeSet(int w, int h)
 	m_pictureSize[1] = h;
 }
 
-bool CCameraControl::PreviewLayoutSet(const char* _filepath, const STLVVec2& _positions, float _scale, int _blur, float _fps)
+bool CCameraControl::PreviewLayoutSet(const char* _filepath, const STLVVec2& _positions, float _scale, int _blur, float _fps, float _prevScale)
 {
 	m_currentSlot = 0;
 	m_layoutPath = "../";
 	m_layoutPath += _filepath;
 	m_picturePositions = _positions;
-	m_previewScale = _scale;
+	m_videoScale = _scale;
+	m_prevScale = _prevScale;
 	m_blur = _blur;
 	m_fps = _fps;
 	m_frameCur = 1;
@@ -617,7 +625,7 @@ bool CCameraControl::PreviewLayoutSet(const char* _filepath, const STLVVec2& _po
 
 	m_layoutMat = cv::imread(m_layoutPath.c_str(), cv::IMREAD_UNCHANGED);
 
-	cv::Size previewsize(m_layoutMat.cols, m_layoutMat.rows);
+	cv::Size previewsize(m_layoutMat.cols * m_prevScale, m_layoutMat.rows * m_prevScale);
 	cv::resize(m_layoutMat, m_layoutMat, previewsize);
 
 	return true;
