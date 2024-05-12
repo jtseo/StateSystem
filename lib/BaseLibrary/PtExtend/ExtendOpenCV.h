@@ -14,6 +14,7 @@ class ExtendOpenCV :
         STDEF_SFENUM(Rotate_varF),
         STDEF_SFENUM(DoubleMake_varF),
         STDEF_SFENUM(FilterApply_varF),
+        STDEF_SFENUM(Resize_varF),
         STDEF_SFENUM(ImageScale_fF),
         STDEF_SFENUM(ConvertBmp_varF),
         STDEF_SFENUM(PhotoVideoFrameMake_strF),
@@ -36,6 +37,7 @@ public:
     int Rotate_varF();
     int DoubleMake_varF();
     int FilterApply_varF();
+    int Resize_varF();
     int ImageScale_fF();
     int ConvertBmp_varF();
     int PhotoVideoFrameMake_strF();
