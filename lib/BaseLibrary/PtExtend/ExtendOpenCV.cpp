@@ -525,8 +525,14 @@ int ExtendOpenCV::PhotoVideoFrameMake_strF()
 	cv::Size imageSize(photoSize[0] * scale, photoSize[1] * scale); // Desired image size
 	cv::Mat backgroundImage = cv::imread(imgPath.c_str(), cv::IMREAD_UNCHANGED);
 	cv::resize(backgroundImage, backgroundImage, imageSize);
-
-	cv::Size picSize(pictureSize_p[0]*scale+1, pictureSize_p[1]*scale+1);
+	int w, h;
+	w = pictureSize_p[0] * scale;
+	h = pictureSize_p[1] * scale;
+	if (pictureSize_p[0] < photoSize[0])
+		w++;
+	if (pictureSize_p[1] < photoSize[1])
+		h++;
+	cv::Size picSize(pictureSize_p[0]*scale, pictureSize_p[1]*scale);
 
 	std::vector<cv::Mat> smallImages; // Vector to hold small images
 	for (int frame = 1; frame <= frameCnt; frame++)
@@ -640,16 +646,18 @@ int ExtendOpenCV::PhotoPannelMake_strF()
 }
 //#SF_functionInsert
 
+//std::mutex matMutex;
 
 DEF_ThreadCallBack(ExtendOpenCV::threadSave)
 {
 	OpenCVSave* img = (OpenCVSave*)_pParam;
-	cv::Mat saveImg = cv::Mat::zeros(img->m_imageSize, CV_8UC3);
+	//std::lock_guard<std::mutex> lock(matMutex);
 
-	cv::resize(img->m_image, saveImg, img->m_imageSize);
+	cv::resize(img->m_image, img->m_image, img->m_imageSize);
 
-	cv::imwrite(img->m_filename.c_str(), saveImg);
+	cv::imwrite(img->m_filename.c_str(), img->m_image);
 
+	img->m_image.release();
 	delete img;
 
 	BaseSystem::endthread();
@@ -662,6 +670,7 @@ void ExtendOpenCV::imageSave(cv::Mat _img, cv::Size _size, STLString _filename)
 	img->m_image = _img;
 	img->m_filename = _filename;
 	img->m_imageSize = _size;
+	_img.release();
 
 	BaseSystem::createthread(threadSave_, 0, img);
 }

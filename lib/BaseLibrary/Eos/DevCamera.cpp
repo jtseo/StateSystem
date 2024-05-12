@@ -230,20 +230,20 @@ int DevCamera::PreviewStart_nF()
 	const float* scale = (const float*)paramFallowGet(3);
 	const int* blur_p = (const int*)paramFallowGet(4);
 	const int* fps_p = (const int*)paramFallowGet(5);
+	const float* prevScale_p = (const float*)paramFallowGet(6);
 	
 	if (ctr == NULL)
 		return 0;
 
-	STLVVec2 pos_av2;
-	for (int i = 0; i < *count; i++)
-		pos_av2.push_back(PtVector2(*(positions + i * 2), *(positions + i * 2 + 1)));
-
 	ActionEvent evt("startEVF");
 	ctr->actionPerformed(evt);
 
-	float scalef = 1;
+	float videoScalef = 1;
 	if (scale)
-		scalef = *scale;
+		videoScalef = *scale;
+	float prevScalef = 1;
+	if (prevScale_p)
+		prevScalef = *prevScale_p;
 
 	int blur = 3;
 	if (blur_p)
@@ -253,7 +253,11 @@ int DevCamera::PreviewStart_nF()
 	if (fps_p)
 		fps = *fps_p;
 
-	CCameraControl::Instance()->PreviewLayoutSet(filepath, pos_av2, scalef, blur, fps);
+	STLVVec2 pos_av2;
+	for (int i = 0; i < *count; i++)
+		pos_av2.push_back(PtVector2(*(positions + i * 2)*prevScalef, *(positions + i * 2 + 1) * prevScalef));
+
+	CCameraControl::Instance()->PreviewLayoutSet(filepath, pos_av2, videoScalef, blur, fps, prevScalef);
 	m_stop_thread = false;
 	BaseSystem::createthread(update_, 0, this);
 	
