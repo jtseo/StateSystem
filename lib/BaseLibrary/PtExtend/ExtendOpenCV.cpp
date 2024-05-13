@@ -509,7 +509,7 @@ int ExtendOpenCV::PhotoVideoFrameMake_strF()
 	for (int i = 0; i < count; i++)
 	{
 		char buf[255];
-		sprintf_s(buf, 255, "..\\Pictures\\slot%d\\*.jpg", slots[i]);
+		sprintf_s(buf, 255, "..\\Pictures\\slot%d\\*.jpg", slots[i]+1);
 		BaseSystem::GetFileList(buf, &filenames, NULL);
 
 		for (int j = 0; j < filenames.size(); j++)
@@ -542,7 +542,7 @@ int ExtendOpenCV::PhotoVideoFrameMake_strF()
 		char buf[255];
 		for (int i = 1; i <= count; i++)
 		{
-			sprintf_s(buf, 255, "slot%d/img%d.jpg", i, frame);
+			sprintf_s(buf, 255, "slot%d/img%d.jpg", slots[i-1]+1, frame);
 			STLString path = root + buf;
 			cv::Mat frame = cv::imread(path.c_str(), cv::IMREAD_UNCHANGED);
 			if (!frame.empty()) {
