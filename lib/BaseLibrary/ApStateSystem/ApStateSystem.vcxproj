@@ -437,7 +437,7 @@
       <AdditionalLibraryDirectories>../../SDK/lib</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(OutDir)$(TargetName)$(TargetExt)" "C:\projects\photobooth\PhotoWin/photobooth_Data/Plugins/x86_64"</Command>
+      <Command>copy "$(OutDir)$(TargetName)$(TargetExt)" "C:\projects\sketch\PhotoSketchWin\PhotoSketch_Data\Plugins\x86_64"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='VSRelease|x64'">

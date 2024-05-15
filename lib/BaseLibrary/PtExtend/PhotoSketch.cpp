@@ -123,12 +123,11 @@ int PhotoSketch::Create()
     return 1;
 }
 
-PhotoSketch* s_photoSketch = NULL;
-
-bool PhotoSketchCallback(int _step, HBITMAP _map)
+bool PhotoSketchCallback(int _step, HBITMAP _map, void* _param_p)
 {
 	//STLString jpgData;
 	std::vector<uchar> jpgData;
+	PhotoSketch* sketch = (PhotoSketch*)_param_p;
 
 	while (BaseCircleQueue::stream_get()->size_data() > 1)
 	{
@@ -159,9 +158,21 @@ bool PhotoSketchCallback(int _step, HBITMAP _map)
 	GetDIBits(hdc, _map, 0, bmp.bmHeight, mat.data, (BITMAPINFO*)&bi, DIB_RGB_COLORS);
 
 	DeleteDC(hdc);
+
+	std::string filename = "../PhotoPicture/sketch";
+	char buf2[255];
+	sprintf_s(buf2, "%d", sketch->threadIdx());
+	filename += buf2;
+	filename += "/result";
+	sprintf_s(buf2, "%d", sketch->stepCount());
+	filename += buf2;
+	filename += ".jpg";
+
+	cv::imwrite(filename, mat);
+
 	jpgData.resize(bmp.bmHeight * bmp.bmWidth * 4);
 	cv::imencode(".jpg", mat, jpgData);
-	int imgS = jpgData.size();
+	int imgS = (int)jpgData.size();
 
 	BaseStateManager* manager = BaseStateManager::get_manager();
 	BaseDStructureValue* evt = manager->make_event_state(STRTOHASH("SketchStepImage"));
@@ -188,6 +199,12 @@ bool PhotoSketchCallback(int _step, HBITMAP _map)
 	return true;
 }
 
+int PhotoSketch::stepCount()
+{
+	m_stepCounter++;
+	return m_stepCounter;
+}
+
 DEF_ThreadCallBack(PhotoSketch::update)
 //void __cdecl PhotoSketch::update(void *_pCam)
 {
@@ -196,16 +213,18 @@ DEF_ThreadCallBack(PhotoSketch::update)
 
 	mpool_get().hold_shutdown_inc();
 	//do {
-		CreateAndSaveImage(pSketch->PathFrameGet(), pSketch->PathPictureGet(), pSketch->PictureSize()[0], pSketch->PictureSize()[1], PhotoSketchCallback);
+		CreateAndSaveImage(pSketch->PathFrameGet(), pSketch->PathPictureGet(), pSketch->PictureSize()[0], pSketch->PictureSize()[1], PhotoSketchCallback, pSketch);
 
 		BaseStateManager* manager = BaseStateManager::get_manager();
 		BaseDStructureValue* evt = manager->make_event_state(STRTOHASH("SketchStepFinish"));
+		int count = pSketch->stepCount();
+		count--;
+		evt->set_alloc("TempCount_nV", &count);
 		manager->post_event(evt);
 	//} while (!pSketch->stop_thread() && !mpool_get().is_terminated());
 
 	PT_ThreadEnd(THTYPE_CHARGE_RECEIVE);
 
-	s_photoSketch = NULL;
 	mpool_get().hold_shutdown_dec();
 	BaseSystem::endthread();
 	//_endthread();
@@ -235,13 +254,14 @@ bool PhotoSketch::stop_thread()
 int PhotoSketch::SketchStart_varF()
 {
 	const char* src = (const char*)paramFallowGet(0);
-	s_photoSketch = this;
 	m_stop_thread = false;
 	m_pathFrame = "../PhotoFrames/port_";
 	m_pathPicture = "../PhotoPicture/";
 	m_pathPicture += src;
 	m_pictureSize[0] = 810;
 	m_pictureSize[1] = 1080;
+	m_stepCounter = 0;
+	m_threadIdx = 1;
 	BaseSystem::createthread(update_, 0, this);
 
 	return 1;

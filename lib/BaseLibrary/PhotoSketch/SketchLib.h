@@ -6,6 +6,6 @@
 #define GDIPLUSLIB_API __declspec(dllimport)
 #endif
 
-typedef bool (*fnSketchCallback)(int _step, HBITMAP _map);
-extern "C" GDIPLUSLIB_API bool CreateAndSaveImage(const char* framePath, const char *picturePath, int _w, int _h, fnSketchCallback _callbck);
+typedef bool (*fnSketchCallback)(int _step, HBITMAP _map, void *_param_p);
+extern "C" GDIPLUSLIB_API bool CreateAndSaveImage(const char* framePath, const char *picturePath, int _w, int _h, fnSketchCallback _callbck, void* _param_p);
 
