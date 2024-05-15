@@ -390,6 +390,8 @@ void CCameraControl::EventCastPicture(CameraEvent* _evt)
 
 		cv::flip(scaledImage, scaledImage, 1);
 		cv::imwrite(filepng, scaledImage);
+
+		//ExtendOpenCV::imageSave(scaledImage, newSize, filepng);
 		BaseSystem::file_delete(filename);
 
 		BaseStateManager* manager = BaseStateManager::get_manager();
@@ -454,6 +456,12 @@ void _log(const char* strFormat, ...)
 
 void CCameraControl::EventCastPreview(CameraEvent* _evt)
 {
+	if (m_previewHolde)
+	{
+		BaseSystem::Sleep(100);
+		PreviewRequest();
+	}
+
 	std::string event = _evt->getEvent();
 
 	if (event == "EvfDataChanged")
@@ -536,9 +544,8 @@ void CCameraControl::EventCastPreview(CameraEvent* _evt)
 			manager->post_event(evt);
 		}
 
-		BaseSystem::Sleep(25);
+		BaseSystem::Sleep(33);
 		PreviewRequest();
-
 	}
 }
 

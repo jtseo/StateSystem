@@ -97,6 +97,7 @@ int DevCamera::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, int _
 		STDEF_SFREGIST(AFocusOn_nF);
 		STDEF_SFREGIST(AFocusOff_nF);
 		STDEF_SFREGIST(PictureSizeSet_varF);
+		STDEF_SFREGIST(PreviewHold_nF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -160,6 +161,7 @@ int DevCamera::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		STDEF_SFFUNCALL(AFocusOn_nF);
 		STDEF_SFFUNCALL(AFocusOff_nF);
 		STDEF_SFFUNCALL(PictureSizeSet_varF);
+		STDEF_SFFUNCALL(PreviewHold_nF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -386,6 +388,13 @@ int DevCamera::PictureSizeSet_varF()
 	const int* size_an = (const int*)paramVariableGet();
 
 	CCameraControl::Instance()->PictureSizeSet(size_an[0], size_an[1]);
+	return 1;
+}
+
+int DevCamera::PreviewHold_nF()
+{
+	const int* hold_p = (const int*)m_param_value;
+	CCameraControl::Instance()->PreviewHold(*hold_p != 0);
 	return 1;
 }
 //#SF_functionInsert

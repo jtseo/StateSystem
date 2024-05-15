@@ -71,6 +71,7 @@ private:
 	int m_frameCur;
 	float m_fps;
 	int m_blur = 3;
+	bool m_previewHolde = false;
 public:
 	void PictureSizeSet(int w, int h);
 	bool PreviewLayoutSet(const char* _filepath, const STLVVec2& _positions, float _scale, int _blur, float _fps, float _prevScale);
@@ -80,6 +81,10 @@ public:
 		m_frameCur = 1;
 	}
 
+	void PreviewHold(bool _hold)
+	{
+		m_previewHolde = _hold;
+	}
 private:
 	int m_filterSkin;
 public:

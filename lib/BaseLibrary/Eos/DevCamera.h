@@ -26,6 +26,7 @@ class DevCamera :
         STDEF_SFENUM(AFocusOn_nF),
         STDEF_SFENUM(AFocusOff_nF),
         STDEF_SFENUM(PictureSizeSet_varF),
+        STDEF_SFENUM(PreviewHold_nF),
         //#SF_EnumInsert
         EnumExtentionMax
     };
@@ -51,6 +52,7 @@ public:
     int AFocusOn_nF();
     int AFocusOff_nF();
     int PictureSizeSet_varF();
+    int PreviewHold_nF();
     //#SF_FuncHeaderInsert
 
 protected:
