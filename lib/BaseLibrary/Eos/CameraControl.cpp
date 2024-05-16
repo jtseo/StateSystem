@@ -289,13 +289,11 @@ void CCameraControl::UnInitInstance()
 		_model = NULL;
 	}
 
-
 	if (_controller != NULL)
 	{
 		delete _controller;
 		_controller = NULL;
 	}
-
 	ms_instance = NULL;
 }
 
@@ -356,6 +354,10 @@ void CCameraControl::EventCastPicture(CameraEvent* _evt)
 
 		char filepng[255];
 		if (!BaseFile::change_fileext(filename, ".png", filepng, 255))
+			return;
+
+		if(m_pictureSize[0] == 0 
+			|| m_pictureSize[1] == 0)
 			return;
 
 		cv::Mat img = cv::imread(filename);

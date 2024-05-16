@@ -41,6 +41,11 @@ public:
 	void StreamFree();
 
 	static CCameraControl* Instance();
+	static bool InitializedCheck() 
+	{ 
+		if (ms_instance) return true; 
+		return false;
+	}
 	static void Reset();
 	void EventCastEnable();
 	void PreviewRequest();

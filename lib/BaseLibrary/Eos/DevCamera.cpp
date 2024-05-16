@@ -98,6 +98,8 @@ int DevCamera::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, int _
 		STDEF_SFREGIST(AFocusOff_nF);
 		STDEF_SFREGIST(PictureSizeSet_varF);
 		STDEF_SFREGIST(PreviewHold_nF);
+		STDEF_SFREGIST(DevInit_nF);
+		STDEF_SFREGIST(DevRelease_nF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -118,14 +120,7 @@ void DevCamera::init()
 
 void DevCamera::release()
 {
-	CameraController* ctr = getCameraController();
-	if (ctr == NULL)
-		return;
-
-	ActionEvent evt("closing");
-	ctr->actionPerformed(evt);
-
-	CCameraControl::Instance()->UnInitInstance();
+	
 }
 
 BaseStateFuncEx* DevCamera::CreatorCallback(const void* _param)
@@ -162,6 +157,8 @@ int DevCamera::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		STDEF_SFFUNCALL(AFocusOff_nF);
 		STDEF_SFFUNCALL(PictureSizeSet_varF);
 		STDEF_SFFUNCALL(PreviewHold_nF);
+		STDEF_SFFUNCALL(DevInit_nF);
+		STDEF_SFFUNCALL(DevRelease_nF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -183,11 +180,6 @@ int DevCamera::Create()
 	if (!BaseStateFunc::Create())
 		return 0;
     //GroupLevelSet(0);
-
-	CCameraControl::Reset();
-	CameraController* camCtr = getCameraController();
-	if(camCtr)
-		camCtr->run();
 
     return 1;
 }
@@ -388,6 +380,31 @@ int DevCamera::PictureSizeSet_varF()
 	const int* size_an = (const int*)paramVariableGet();
 
 	CCameraControl::Instance()->PictureSizeSet(size_an[0], size_an[1]);
+	return 1;
+}
+
+int DevCamera::DevInit_nF()
+{
+	CCameraControl::Reset();
+	CameraController* camCtr = getCameraController();
+	if (camCtr)
+		camCtr->run();
+
+	return 1;
+}
+
+int DevCamera::DevRelease_nF()
+{
+	CameraController* ctr = getCameraController();
+	if (ctr)
+	{
+		ActionEvent evt("closing");
+		ctr->actionPerformed(evt);
+	}
+
+	if(CCameraControl::InitializedCheck())
+		delete CCameraControl::Instance();
+
 	return 1;
 }
 
