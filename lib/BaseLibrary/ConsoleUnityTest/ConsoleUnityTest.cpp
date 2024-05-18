@@ -1,41 +1,52 @@
 // ConsoleUnityTest.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-#include "Python.h"
+#include <windows.h>
+#include <stdio.h>
+#include <stdarg.h>
+#include <vector>
+#include <list>
+#include <queue>
+#include <string>
+//#include <deque>
+#include <unordered_set>
 
-#include <iostream>
+#include <assert.h>
+#include <map>
 
-int main()
+#include "../PtBase/base.h"
+
+#include "../PtBase/BaseObject.h"
+#include "../PtBase/BaseSocket.h"
+
+#include "../PtBase/BaseFile.h"
+#include "../PtBase/hashstr.h"
+
+#include "../PtBase/BaseDStructure.h"
+#include "../PtBase/BaseState.h"
+#include "../PtBase/BaseStateManager.h"
+#include "../PtBase/BaseFile.h"
+
+#include "../ApStateSystem/BaseInterface.h"
+#include <process.h>
+
+#include <conio.h>
+
+int main(int argc, const char*argv[])
 {
-    // Initialize Python interpreter
-    Py_Initialize();
+	//vscript_init(".", ".", ".", "192.168.105.50", 80);
+	vscript_init(".", ".", ".", "localhost", 19106);
+	//vscript_init(".", ".", ".", "forrelease", 19106);
+	void* pManager = manager_create(".");
 
-    // Import your Python module
-    PyObject* pModule = PyImport_ImportModule("pycall");
 
-    if (pModule != NULL) {
-        // Get a reference to the Python function
-        PyObject* pFunction = PyObject_GetAttrString(pModule, "mydata");
+	while (1)
+	{
+		manager_update(pManager);
 
-        if (pFunction != NULL && PyCallable_Check(pFunction)) {
-            // Create a byte array (you'll need to adapt this to your data)
-            const char* byteArray = "your_byte_array_data";
-            //PyObject* pArgs = Py_BuildValue("(y#)", byteArray, strlen(byteArray));
-            PyObject* pArgs = PyTuple_Pack(1, PyByteArray_FromStringAndSize(byteArray, strlen(byteArray)));
+		Sleep(10);
+	}
+	//*/
 
-            // Call the Python function with the byte array as parameter
-            PyObject* pValue = PyObject_CallObject(pFunction, pArgs);
-
-            // Clean up
-            Py_XDECREF(pArgs);
-            Py_XDECREF(pValue);
-            Py_XDECREF(pFunction);
-        }
-
-        Py_XDECREF(pModule);
-    }
-
-    // Finalize Python interpreter
-    Py_Finalize();
+	manager_close(pManager);
     return 1;
 }
 
