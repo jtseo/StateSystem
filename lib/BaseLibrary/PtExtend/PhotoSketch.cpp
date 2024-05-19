@@ -164,33 +164,35 @@ bool PhotoSketchCallback(int _step, HBITMAP _map, void* _param_p)
 	sprintf_s(buf2, "%d", sketch->threadIdx());
 	filename += buf2;
 	filename += "/result";
-	sprintf_s(buf2, "%d", sketch->stepCount());
+	int count = sketch->stepCount();
+	sprintf_s(buf2, "%d", count);
 	filename += buf2;
 	filename += ".jpg";
 
 	cv::imwrite(filename, mat);
 
-	jpgData.resize(bmp.bmHeight * bmp.bmWidth * 4);
-	cv::imencode(".jpg", mat, jpgData);
-	int imgS = (int)jpgData.size();
+	//jpgData.resize(bmp.bmHeight * bmp.bmWidth * 4);
+	//cv::imencode(".jpg", mat, jpgData);
+	//int imgS = (int)jpgData.size();
 
 	BaseStateManager* manager = BaseStateManager::get_manager();
 	BaseDStructureValue* evt = manager->make_event_state(STRTOHASH("SketchStepImage"));
 
-	unsigned char* pbyteImage = NULL;
-	pbyteImage = &jpgData[0];
-	char* buf = PT_Alloc(char, imgS);
-	memcpy(buf, pbyteImage, imgS);
+	//unsigned char* pbyteImage = NULL;
+	//pbyteImage = &jpgData[0];
+	//char* buf = PT_Alloc(char, imgS);
+	//memcpy(buf, pbyteImage, imgS);
 
-	BaseCircleQueue::stream_get()->push(buf);
-	BaseCircleQueue::streamSize_get()->push((void*)imgS);
+	//BaseCircleQueue::stream_get()->push(buf);
+	//BaseCircleQueue::streamSize_get()->push((void*)imgS);
 	//BaseFile file;
 	//file.OpenFile("test.jpg", BaseFile::OPEN_WRITE);
 	//file.Write(buf, imgS);
 	//file.CloseFile();
-	INT64 ref = (INT64)buf;
-	evt->set_alloc("MemRef_nV", &ref);
-	evt->set_alloc("ImageSize_nV", &imgS);
+	//INT64 ref = (INT64)buf;
+	//evt->set_alloc("MemRef_nV", &ref);
+	//evt->set_alloc("ImageSize_nV", &imgS);
+	evt->set_alloc("TempCount_nV", &count);
 	evt->set_alloc("ImageHeight_nV", &bmp.bmHeight);
 	evt->set_alloc("ImageWidth_nV", &bmp.bmWidth);
 
