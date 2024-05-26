@@ -36,6 +36,7 @@ protected:
     int m_pictureSize[2];
     int m_stepCounter;
     int m_threadIdx;
+    int m_sketchType;
 
     bool m_stop_thread;
     static DEF_ThreadCallBack(update);
@@ -47,6 +48,7 @@ public:
     bool stop_thread();
     const char* PathFrameGet();
     const char* PathPictureGet();
+    int SketchType() { return m_sketchType;  }
     int* PictureSize();
 };
 

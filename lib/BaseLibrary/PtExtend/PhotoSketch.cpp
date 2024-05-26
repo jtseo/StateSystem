@@ -159,10 +159,10 @@ bool PhotoSketchCallback(int _step, HBITMAP _map, void* _param_p)
 
 	DeleteDC(hdc);
 
-	std::string filename = "../PhotoPicture/sketch";
+	std::string filename = sketch->PathPictureGet();// "../PhotoPicture/sketch";
 	char buf2[255];
-	sprintf_s(buf2, "%d", sketch->threadIdx());
-	filename += buf2;
+	//sprintf_s(buf2, "%d", sketch->threadIdx());
+	//filename += buf2;
 	filename += "/result";
 	int count = sketch->stepCount();
 	sprintf_s(buf2, "%d", count);
@@ -215,7 +215,7 @@ DEF_ThreadCallBack(PhotoSketch::update)
 
 	mpool_get().hold_shutdown_inc();
 	//do {
-		CreateAndSaveImage(pSketch->PathFrameGet(), pSketch->PathPictureGet(), pSketch->PictureSize()[0], pSketch->PictureSize()[1], PhotoSketchCallback, pSketch);
+		CreateAndSaveImage(pSketch->PathFrameGet(), pSketch->PathPictureGet(), pSketch->PictureSize()[0], pSketch->PictureSize()[1], pSketch->SketchType(), PhotoSketchCallback, pSketch);
 
 		BaseStateManager* manager = BaseStateManager::get_manager();
 		BaseDStructureValue* evt = manager->make_event_state(STRTOHASH("SketchStepFinish"));
@@ -256,12 +256,21 @@ bool PhotoSketch::stop_thread()
 int PhotoSketch::SketchStart_varF()
 {
 	const char* src = (const char*)paramFallowGet(0);
+	const char* prefix = (const char*)paramFallowGet(1);
+	const int* poss = (const int*)paramFallowGet(2);
+	const int* type_p = (const int*)paramFallowGet(3);
+
+	if (src == NULL || prefix == NULL || poss == NULL || type_p == NULL)
+		return 0;
+
 	m_stop_thread = false;
-	m_pathFrame = "../PhotoFrames/port_";
+	m_pathFrame = "../PhotoFrames/";
+	m_pathFrame += prefix;
 	m_pathPicture = "../PhotoPicture/";
 	m_pathPicture += src;
-	m_pictureSize[0] = 810;
-	m_pictureSize[1] = 1080;
+	m_pictureSize[0] = poss[0];
+	m_pictureSize[1] = poss[1];
+	m_sketchType = *type_p;
 	m_stepCounter = 0;
 	m_threadIdx = 1;
 	BaseSystem::createthread(update_, 0, this);
