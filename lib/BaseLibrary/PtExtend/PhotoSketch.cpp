@@ -160,6 +160,7 @@ bool PhotoSketchCallback(int _step, HBITMAP _map, void* _param_p)
 	DeleteDC(hdc);
 
 	std::string filename = sketch->PathPictureGet();// "../PhotoPicture/sketch";
+	filename = filename.substr(0, filename.find_last_of('/'));
 	char buf2[255];
 	//sprintf_s(buf2, "%d", sketch->threadIdx());
 	//filename += buf2;
@@ -255,6 +256,7 @@ bool PhotoSketch::stop_thread()
 
 int PhotoSketch::SketchStart_varF()
 {
+	const char* picture = (const char*)paramVariableGet();
 	const char* src = (const char*)paramFallowGet(0);
 	const char* prefix = (const char*)paramFallowGet(1);
 	const int* poss = (const int*)paramFallowGet(2);
@@ -266,7 +268,7 @@ int PhotoSketch::SketchStart_varF()
 	m_stop_thread = false;
 	m_pathFrame = "../PhotoFrames/";
 	m_pathFrame += prefix;
-	m_pathPicture = "../PhotoPicture/";
+	m_pathPicture = picture;
 	m_pathPicture += src;
 	m_pictureSize[0] = poss[0];
 	m_pictureSize[1] = poss[1];
