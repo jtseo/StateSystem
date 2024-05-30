@@ -9,6 +9,7 @@ class ExtendOpenCV :
         //STDEF_SFENUM(Open_varF),
         STDEF_SFENUM(PictureRatioAdapt_varF),
         STDEF_SFENUM(PhotoPannelMake_strF),
+        STDEF_SFENUM(SketchPannelMake_varF),
         STDEF_SFENUM(QRCodeMake_varF),
         STDEF_SFENUM(PhotoPannelImgAdd_varF),
         STDEF_SFENUM(Rotate_varF),
@@ -32,6 +33,7 @@ public:
     virtual int Create();
     int PictureRatioAdapt_varF();
     int PhotoPannelMake_strF();
+    int SketchPannelMake_varF();
     int QRCodeMake_varF();
     int PhotoPannelImgAdd_varF();
     int Rotate_varF();

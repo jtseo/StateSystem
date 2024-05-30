@@ -53,6 +53,7 @@ int ExtendOpenCV::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, in
 		//STDEF_SFREGIST(Open_varF);
 		STDEF_SFREGIST(PictureRatioAdapt_varF);
 		STDEF_SFREGIST(PhotoPannelMake_strF);
+		STDEF_SFREGIST(SketchPannelMake_varF);
 		STDEF_SFREGIST(QRCodeMake_varF);
 		STDEF_SFREGIST(PhotoPannelImgAdd_varF);
 		STDEF_SFREGIST(Rotate_varF);
@@ -106,6 +107,7 @@ int ExtendOpenCV::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		//STDEF_SFFUNCALL(Open_varF);
 		STDEF_SFFUNCALL(PictureRatioAdapt_varF);
 		STDEF_SFFUNCALL(PhotoPannelMake_strF);
+		STDEF_SFFUNCALL(SketchPannelMake_varF);
 		STDEF_SFFUNCALL(QRCodeMake_varF);
 		STDEF_SFFUNCALL(PhotoPannelImgAdd_varF);
 		STDEF_SFFUNCALL(Rotate_varF);
@@ -575,6 +577,76 @@ int ExtendOpenCV::PhotoVideoFrameMake_strF()
 
 		// Save the composed image to a file
 		cv::imwrite(outputFilePath, image);
+	}
+	return 1;
+}
+
+int ExtendOpenCV::SketchPannelMake_varF()
+{
+	const int* numOfPic = (const int*)paramVariableGet();
+	const char* pathFrame = (const char*)paramFallowGet(0);
+	const char* pathPicture = (const char*)paramFallowGet(1);
+
+	const char* outfile = (const char*)m_param_value;
+	const char* frameType = (const char*)paramFallowGet(0);// design or origin
+	const int* framNum = (const int*)paramFallowGet(1);
+
+	const char* backImageName = NULL;
+	if (!m_state_variable->get(STRTOHASH("PhotoFilename"), (const void**)&backImageName))
+		return 0;
+	const char* fileroot = m_manager_p->rootGet();
+	STLString root = fileroot;
+	STLString imgPath = fileroot;
+	imgPath += "../";
+	imgPath += backImageName;
+	const char* pictureNames = NULL;
+	if (!m_state_variable->get(STRTOHASH("PhotoPictureFilteredPaths"), (const void**)&pictureNames))
+		return 0;
+	STLVString pictures;
+	BaseFile::paser_list_seperate(pictureNames, &pictures, ",");
+	if (pictures.empty())
+		return 0;
+	const int* photoSize = NULL;
+	if (!m_state_variable->get(STRTOHASH("PhotoSize"), (const void**)&photoSize))
+		return 0;
+	const int* photoPoss = NULL;
+	if (!m_state_variable->get(STRTOHASH("PhotoPositions"), (const void**)&photoPoss))
+		return 0;
+
+	cv::Size imageSize(photoSize[0], photoSize[1]); // Desired image size
+	std::vector<cv::Mat> smallImages; // Vector to hold small images
+	// Load small images (example)
+	root = "../Pictures/";
+	for (int i = 0; i < pictures.size(); i++)
+	{
+		STLString path = root + pictures[i];
+		smallImages.push_back(cv::imread(path.c_str(), cv::IMREAD_UNCHANGED));
+	}
+	// Load a background image with alpha channel
+	cv::Mat backgroundImage = cv::imread(imgPath.c_str(), cv::IMREAD_UNCHANGED);
+	std::string outputFilePath = outfile; // Path to save the final image
+
+	cv::Mat image = cv::Mat::zeros(imageSize, CV_8UC3);
+
+	// Paste small images onto the blank image at specified locations
+	for (size_t i = 0; i < smallImages.size(); ++i) {
+		cv::Point2i location(photoPoss[i * 2], photoPoss[i * 2 + 1]); // Example locations for each small image
+		smallImages[i].copyTo(image(cv::Rect(location.x, location.y, smallImages[i].cols, smallImages[i].rows)));
+	}
+
+	// Overlay the background image with alpha value
+	if (!backgroundImage.empty()) {
+		overlayImage(image, backgroundImage, cv::Point2i(0, 0), 1); // 50% opacity for the background image
+	}
+
+	// Save the composed image to a file
+	cv::imwrite(outputFilePath, image);
+
+	for (int i = 0; i < pictures.size(); i++)
+	{
+		STLString path = root;
+		path += pictures[i];
+		BaseSystem::file_delete(path.c_str());
 	}
 	return 1;
 }
