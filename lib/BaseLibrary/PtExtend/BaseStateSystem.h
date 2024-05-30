@@ -8,6 +8,7 @@ class BaseStateSystem :
         Enum_ext_start = EnumFuncMax,
         //STDEF_SFENUM(Open_varF),
         STDEF_SFENUM(AppClose_strF),
+        STDEF_SFENUM(MakeFront_nF),
         //#SF_EnumInsert
         EnumExtentionMax
     };
@@ -21,6 +22,7 @@ public:
 
     virtual int Create();
     int AppClose_strF();
+    int MakeFront_nF();
     //#SF_FuncHeaderInsert
 
     // User defin area from here

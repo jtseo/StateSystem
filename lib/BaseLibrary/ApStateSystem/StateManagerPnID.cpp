@@ -81,6 +81,7 @@ void StateManagerPnID::release_manager(bool _reset)
 #include "../PtExtend/DevCashReader.h"
 #include "../PtExtend/DevPrinter.h"
 #include "../Eos/DevCamera.h"
+#include "../PtExtend/BaseStateSystem.h"
 
 #endif
 
@@ -102,6 +103,7 @@ StateManagerPnID::StateManagerPnID(void *_applet) :BaseStateManager(_applet)
 	DevCashReader devRed;
 	//DevPrinter devPrt;
 	DevCamera devCam;
+	BaseStateSystem sys;
 #endif
 
 #endif

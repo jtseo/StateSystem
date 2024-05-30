@@ -52,6 +52,7 @@ int BaseStateSystem::StateFuncRegist(STLString _class_name, STLVInt* _func_hash,
 		//func_str = _class_name + ".text_info_cast_nF";	(*_func_hash)[Enumtext_info_cast_nF] = STRTOHASH(func_str.c_str());		BaseDStructure::processor_list_add(func_str.c_str(), _func, __FILE__, __LINE__);
 		//STDEF_SFREGIST(Open_varF);
 		STDEF_SFREGIST(AppClose_strF);
+		STDEF_SFREGIST(MakeFront_nF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -95,6 +96,7 @@ int BaseStateSystem::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		if (m_func_hash == s_func_hash_a[Enum_ext_start])        return 0;
 		//STDEF_SFFUNCALL(Open_varF);
 		STDEF_SFFUNCALL(AppClose_strF);
+		STDEF_SFFUNCALL(MakeFront_nF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -130,7 +132,7 @@ BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam) {
 	// Get the window title.
 	if (GetWindowText(hwnd, windowTitle, titleSize) > 0) {
 		// Check if the window title matches the target application's title.
-		if (strcmp(windowTitle, s_targetApp.c_str()) == 0) {
+		if(strstr(windowTitle, s_targetApp.c_str()) != 0) {
 			// Found the window. Send WM_CLOSE message.
 			SendMessage(hwnd, WM_CLOSE, 0, 0);
 		}
@@ -139,6 +141,28 @@ BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam) {
 	return TRUE; // Continue enumerating windows.
 }
 
+
+int BaseStateSystem::MakeFront_nF()
+{
+	HWND hCur = FindWindow(NULL, "photobooth");
+
+	// Get the thread ID of the foreground window
+	DWORD foregroundThreadId = GetWindowThreadProcessId(GetForegroundWindow(), NULL);
+	// Get the thread ID of the target window
+	DWORD targetThreadId = GetWindowThreadProcessId(hCur, NULL);
+
+	// Attach input to the target window thread
+	AttachThreadInput(targetThreadId, foregroundThreadId, TRUE);
+
+	// Bring the window to the foreground
+	SetForegroundWindow(hCur);
+	SetFocus(hCur);
+	SetActiveWindow(hCur);
+
+	// Detach input from the target window thread
+	AttachThreadInput(targetThreadId, foregroundThreadId, FALSE);
+	return 1;
+}
 
 int BaseStateSystem::AppClose_strF()
 {
