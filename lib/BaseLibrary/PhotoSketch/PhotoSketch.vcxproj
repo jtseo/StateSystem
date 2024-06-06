@@ -200,6 +200,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>../../SDK;../../SDK/eos;../../SDK/opencv/Include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>

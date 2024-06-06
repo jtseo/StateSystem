@@ -36,7 +36,15 @@ int main(int argc, const char*argv[])
 	vscript_init(".", ".", ".", "localhost", 19106);
 	//vscript_init(".", ".", ".", "forrelease", 19106);
 	void* pManager = manager_create(".");
+	BaseStateManager* stateManager_p = (BaseStateManager*)pManager;
+	BaseDStructureValue *globalValiable =  stateManager_p->varialbe_global_get();
 
+	if (argc > 1) {
+		dsv_set_string(globalValiable, "param1_str", argv[1]);
+	}
+	if (argc > 2) {
+		dsv_set_string(globalValiable, "param2_str", argv[2]);
+	}
 
 	while (1)
 	{
