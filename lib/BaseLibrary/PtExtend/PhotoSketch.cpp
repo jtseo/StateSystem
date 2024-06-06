@@ -215,6 +215,16 @@ DEF_ThreadCallBack(PhotoSketch::update)
 	PhotoSketch* pSketch = (PhotoSketch*)_pParam;
 
 	mpool_get().hold_shutdown_inc();
+
+	cv::Mat img = cv::imread(pSketch->PathPictureGet());
+	if (img.rows != pSketch->PictureSize()[1])
+	{
+		cv::Size imageSize(pSketch->PictureSize()[0], pSketch->PictureSize()[1]);
+		cv::Mat resizeImg = cv::Mat::zeros(imageSize, CV_8UC3);
+		cv::resize(img, resizeImg, imageSize);
+		cv::imwrite(pSketch->PathPictureGet(), resizeImg);
+	}
+
 	//do {
 		CreateAndSaveImage(pSketch->PathFrameGet(), pSketch->PathPictureGet(), pSketch->PictureSize()[0], pSketch->PictureSize()[1], pSketch->SketchType(), PhotoSketchCallback, pSketch);
 
