@@ -254,6 +254,8 @@ int ExtendOpenCV::ImageScale_fF()
 	const char* fileout = (const char*)paramFallowGet(1);
 
 	cv::Mat img = cv::imread(filename);
+	if(img.empty())
+		return 0;
 
 	cv::Size imageSize(img.cols * *scale, img.rows * *scale);
 	cv::Mat resizeImg = cv::Mat::zeros(imageSize, CV_8UC3);
