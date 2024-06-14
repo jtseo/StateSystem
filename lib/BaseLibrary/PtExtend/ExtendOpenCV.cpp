@@ -427,13 +427,18 @@ int ExtendOpenCV::PhotoPannelImgAdd_varF()
 	const char *imageName = (const char*)paramFallowGet(0);
 	const int *pos = (const int *)paramFallowGet(1);
 	const int *overwrite = (const int*)paramFallowGet(2);
+	const char* outName = (const char*)paramFallowGet(3);
 	
 	if(!imageName || !pos)
 		return 0;
 	
 	// Load a background image with alpha channel
 	cv::Mat backgroundImage = cv::imread(pannelName, cv::IMREAD_UNCHANGED);
+
 	std::string outputFilePath = pannelName; // Path to save the final image
+	if (outName)
+		outputFilePath = outName;
+
 	cv::Mat img = cv::imread(imageName);
 
 	overlayImage(backgroundImage, img, cv::Point2i(pos[0], pos[1]), 1, *overwrite==1);
@@ -583,26 +588,53 @@ int ExtendOpenCV::PhotoVideoFrameMake_strF()
 	return 1;
 }
 
+cv::Size SizeGet(const char *_name, BaseDStructureValue *_variable)
+{
+	const int* array = NULL;
+	cv::Size ret(0, 0);
+	if (!_variable->get(STRTOHASH(_name), (const void**)&array))
+		return ret;
+	ret.width = array[0];
+	ret.height = array[1];
+
+	return ret;
+}
+
+const int *PositionGet(const char* _name, BaseDStructureValue* _variable)
+{
+	const int* array = NULL;
+	if (!_variable->get(STRTOHASH(_name), (const void**)&array))
+		return NULL;
+	return array;
+}
+
 int ExtendOpenCV::SketchPannelMake_varF()
 {
 	const int* numOfPic = (const int*)paramVariableGet();
 	const char* pathPicture = (const char*)paramFallowGet(0);
+	const char* pathLogo = (const char*)paramFallowGet(1);
+	const char* pathDate = (const char*)paramFallowGet(2);
+	const char* outfile = (const char*)paramFallowGet(3);
 
-	const char* outfile = (const char*)paramFallowGet(1);
-
-	const int* photoSize = NULL;
-	if (!m_state_variable->get(STRTOHASH("PhotoSize"), (const void**)&photoSize))
-		return 0;
-	const int* photoPoss = NULL;
-	if (!m_state_variable->get(STRTOHASH("PhotoPositions"), (const void**)&photoPoss))
+	const int* photoPoss = PositionGet("PhotoPositions", m_state_variable);
+	if (photoPoss == NULL || pathDate == NULL || pathLogo == NULL)
 		return 0;
 
-	const int* pictureSize = NULL;
-	if (!m_state_variable->get(STRTOHASH("PhotoPictureSize"), (const void**)&pictureSize))
+	//cv::Mat qrMat = cv::imread(pathQR);
+	cv::Mat dateMat = cv::imread(pathDate);
+	cv::Mat logoMat = cv::imread(pathLogo);
+	if (dateMat.empty() || logoMat.empty())
 		return 0;
 
-	cv::Size picSize(pictureSize[0], pictureSize[1]);
-	cv::Size imageSize(photoSize[0], photoSize[1]); // Desired image size
+	const int *datePos = PositionGet("PhotoDatePos", m_state_variable);
+	//const int *qrPos = PositionGet("PhotoQRPos", m_state_variable);
+	const int *logoPos = PositionGet("PhotoLogoPos", m_state_variable);
+
+	cv::Size picSize = SizeGet("PhotoPictureSize", m_state_variable);
+	cv::Size dateSize = SizeGet("PhotoDateSize", m_state_variable);
+	//cv::Size qrSize = SizeGet("PhotoQRSize", m_state_variable);
+	cv::Size logoSize = SizeGet("PhotoLogoSize", m_state_variable);
+	cv::Size imageSize = SizeGet("PhotoSize", m_state_variable);// Desired image size
 	std::vector<cv::Mat> smallImages; // Vector to hold small images
 	// Load small images (example)
 	STLString root = pathPicture;
@@ -629,6 +661,15 @@ int ExtendOpenCV::SketchPannelMake_varF()
 		cv::Point2i location(photoPoss[i * 2], photoPoss[i * 2 + 1]); // Example locations for each small image
 		smallImages[i].copyTo(image(cv::Rect(location.x, location.y, smallImages[i].cols, smallImages[i].rows)));
 	}
+
+	cv::resize(dateMat, dateMat, dateSize);
+	dateMat.copyTo(image(cv::Rect(datePos[0], datePos[1], dateMat.cols, dateMat.rows)));
+	cv::resize(logoMat, logoMat, logoSize);
+	logoMat.copyTo(image(cv::Rect(logoPos[0], logoPos[1], logoMat.cols, logoMat.rows)));
+	//if (!qrMat.empty()) {
+	//	cv::resize(qrMat, qrMat, qrSize);
+	//	qrMat.copyTo(image(cv::Rect(qrPos[0], qrPos[1], qrMat.cols, qrMat.rows)));
+	//}
 
 	imageSize.width *= 2;
 	imageSize.height *= 2;
