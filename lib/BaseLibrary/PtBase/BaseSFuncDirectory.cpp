@@ -407,22 +407,25 @@ int BaseSFuncDirectory::RunCLI_nF()
 	const int* show_pn = (const int*)m_param_value;
 
 	int show_n = 1;
-	char opr_str[10], cmd_str[1024] = "\0", param_str[2024] = "\0";
-	const char* param1_str;
+	char opr_str[10], cmd_str[1024] = "\0";
 	const char* strValue = (const char*)paramFallowGet(0);
 	strcpy_s(opr_str, 10, strValue);
 	strValue = (const char*)paramFallowGet(1);
 	strcpy_s(cmd_str, 1024, strValue);
-	param1_str = (const char*)paramFallowGet(2);
-	strValue = (const char*)paramFallowGet(3);
-
-	if (strValue == NULL && param1_str != NULL)
-		strcpy_s(param_str, 2024, param1_str);
-	else if (strValue != NULL && param1_str != NULL)
-		sprintf_s(param_str, 2024, "\"%s\" \"%s\"", param1_str, strValue);
-
+	STLString params, space = "";
+	
+	int cnt = 2;
+	do{
+		params += space;
+		strValue = (const char*)paramFallowGet(cnt);
+		if (strValue)
+			params += strValue;
+		space = " ";
+		cnt++;
+	} while (strValue);
+	
 	char param2[1024];
-	BaseSystem::tomulti(param_str, param2, 1024);
+	BaseSystem::tomulti(params.c_str(), param2, 1024);
 
 	BaseSystem::run_shell_command(opr_str, cmd_str, param2, *show_pn != 0);
 
