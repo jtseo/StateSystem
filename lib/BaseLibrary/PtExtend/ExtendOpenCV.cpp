@@ -63,6 +63,7 @@ int ExtendOpenCV::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, in
 		STDEF_SFREGIST(ImageScale_fF);
 		STDEF_SFREGIST(ConvertBmp_varF);
 		STDEF_SFREGIST(PhotoVideoFrameMake_strF);
+		STDEF_SFREGIST(PrinterRotateFit_varF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -117,6 +118,7 @@ int ExtendOpenCV::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		STDEF_SFFUNCALL(ImageScale_fF);
 		STDEF_SFFUNCALL(ConvertBmp_varF);
 		STDEF_SFFUNCALL(PhotoVideoFrameMake_strF);
+		STDEF_SFFUNCALL(PrinterRotateFit_varF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -252,6 +254,9 @@ int ExtendOpenCV::ImageScale_fF()
 	const float* scale = (const float*)m_param_value;
 	const char* filename = (const char*)paramFallowGet(0);
 	const char* fileout = (const char*)paramFallowGet(1);
+
+	if (!fileout)
+		fileout = filename;
 
 	cv::Mat img = cv::imread(filename);
 	if(img.empty())
@@ -484,6 +489,29 @@ int ExtendOpenCV::QRCodeMake_varF()
 	return 1;
 }
 
+int ExtendOpenCV::PrinterRotateFit_varF()
+{
+	const char* filename = (const char*)paramVariableGet();
+	const char* fileout = (const char*)paramFallowGet(0);
+
+	if (!filename)
+		return 0;
+	if (!fileout)
+		fileout = filename;
+
+	cv::Mat out = cv::imread(filename);
+
+	if (out.rows > out.cols)
+		return 0;
+
+	// rotate 90 degree
+	cv::transpose(out, out);
+	cv::flip(out, out, 0);
+
+	cv::imwrite(fileout, out);
+	return 1;
+}
+
 int ExtendOpenCV::PhotoVideoFrameMake_strF()
 {
 	const char* outfile = (const char*)m_param_value;
@@ -616,6 +644,7 @@ int ExtendOpenCV::SketchPannelMake_varF()
 	const char* pathDate = (const char*)paramFallowGet(2);
 	const char* outfile = (const char*)paramFallowGet(3);
 
+
 	const int* photoPoss = PositionGet("PhotoPositions", m_state_variable);
 	if (photoPoss == NULL || pathDate == NULL || pathLogo == NULL)
 		return 0;
@@ -671,16 +700,6 @@ int ExtendOpenCV::SketchPannelMake_varF()
 	//	qrMat.copyTo(image(cv::Rect(qrPos[0], qrPos[1], qrMat.cols, qrMat.rows)));
 	//}
 
-	imageSize.width *= 2;
-	imageSize.height *= 2;
-	cv::resize(image, image, imageSize);
-	// Save the composed image to a file
-
-	if (imageSize.width > imageSize.height)
-	{
-		cv::transpose(image, image);
-		cv::flip(image, image, 0);
-	}
 	cv::imwrite(outputFilePath, image);
 
 	return 1;
