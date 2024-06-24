@@ -282,9 +282,9 @@ int ExtendOpenCV::ConvertBmp_varF()
 
 	int v = 0, h = 0;
 	if (vertical)
-		v = *vertical;
+		v = -*vertical;
 	if (horizon)
-		h = *horizon;
+		h = -*horizon;
 	cv::Mat img = cv::imread(filename);
 
 	cv::Size imageSize(img.cols + h, img.rows + v);
