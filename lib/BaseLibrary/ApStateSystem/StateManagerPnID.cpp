@@ -95,6 +95,7 @@ StateManagerPnID::StateManagerPnID(void *_applet) :BaseStateManager(_applet)
 	ExtendOpenCV extOpencv;
 	BaseSCTcp tcp;
 	//BaseSFParser paser;
+	BaseStateSystem sys;
 #ifdef PHOTOSKETCH
 	PhotoSketch	sketch;
 #else
@@ -103,7 +104,6 @@ StateManagerPnID::StateManagerPnID(void *_applet) :BaseStateManager(_applet)
 	DevCashReader devRed;
 	//DevPrinter devPrt;
 	DevCamera devCam;
-	BaseStateSystem sys;
 #endif
 
 #endif
