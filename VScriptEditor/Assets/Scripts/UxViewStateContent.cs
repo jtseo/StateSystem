@@ -1979,6 +1979,12 @@ namespace StateSystem
             scene_link_remake();
         }
 
+        bool state_link_move(int _linkKey, string _from, string _to)
+        {
+            m_dstLink.set_string(_linkKey, m_index_name, _to);
+            scene_link_remake();
+            return true;
+        }
         bool state_link_make(string _from, string _to, string _differname)
         {
             int from, to;
@@ -2024,18 +2030,33 @@ namespace StateSystem
             if (!stBase.get_int("VScriptStateLinkMake_nF", ref hash))
                 return 0;
 
+            string cmd = "";
+            stBase.param_get(_pEvent, _pContext, 0, ref cmd);
+
             StateDStructureValue stVariable = stBase.state_variable_get();
             string state_link = "", state_from = "";
             stVariable.get_string("TempString_strV", ref state_link);
             stVariable.get_string(hash, ref state_from);
+            int linkKey = 0;
 
             MonoBehaviour uxViewState = null;
             if (dstGlobal.get_ptr(sm_monoBehaviour_str, ref uxViewState))
             {
                 string username = "";
                 dstGlobal.get_string("UserName_strV", ref username);
-                if (!((UxViewStateContent)uxViewState).state_link_make(state_from, state_link, username))
-                    return 0;
+
+                if (cmd == "LinkMove")
+                {
+                    if (!stBase.param_get(_pEvent, _pContext, 1, ref linkKey))
+                        return 0;
+                    if (!((UxViewStateContent)uxViewState).state_link_move(linkKey, state_from, state_link))
+                        return 0;
+                }
+                else
+                {
+                    if (!((UxViewStateContent)uxViewState).state_link_make(state_from, state_link, username))
+                        return 0;
+                }
                 return 1;
             }
 
