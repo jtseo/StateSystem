@@ -5,6 +5,7 @@ using System;
 using UnityEngine.UI;
 using TMPro;
 using System.IO;
+using System.Linq;
 
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
@@ -82,6 +83,26 @@ namespace StateSystem
                 if (i == _column)
                     return true;
             return false;
+        }
+
+        public void column_select_group(int _column)
+        {
+            int last = m_column_select_a.Last();
+            if(last < _column)
+            {
+                for(int i = last+1; i<=_column; i++)
+                {
+                    if (!m_column_select_a.Contains(i))
+                        m_column_select_a.Add(i);
+                }
+            }else if(last > _column)
+            {
+                for (int i = _column; i < last; i++)
+                {
+                    if (!m_column_select_a.Contains(i))
+                        m_column_select_a.Add(i);
+                }
+            }
         }
 
         public void column_select_toggle(int _column)
@@ -222,6 +243,9 @@ namespace StateSystem
 
             for (int i = 0; i < copy_a.Count; i++)
             {
+                if (copy_a[i] < 0 || copy_a[i] >= m_columns_go.Count)
+                    continue;
+
                 GameObject go = (GameObject)m_columns_go[copy_a[i]];
 
                 TMP_Text[] text = go.GetComponentsInChildren<TMP_Text>();
@@ -944,8 +968,16 @@ namespace StateSystem
             if (!variable_state.get_int(hash, ref column))
                 return 0;
 
-            if (!column_ux.column_remove(column, 1))
-                return 0;
+            if (column == -1)
+            {
+                if (!column_ux.column_remove(-1, 999))
+                    return 0;
+            }
+            else
+            {
+                if (!column_ux.column_remove(column, 1))
+                    return 0;
+            }
 
             return 1;
         }
@@ -1067,6 +1099,9 @@ namespace StateSystem
             StateDStructureValue stBase = new StateDStructureValue(_pBase);
             StateDStructureValue variable_state = stBase.state_variable_get();
             UxViewColumn column_ux = null;
+            string shift = "";
+            stBase.param_get(_pEvent, _pContext, 0, ref shift);
+
             column_ux = (UxViewColumn)VLStateManager.monobehaviourPointGet(sm_monoBehaviour_str);
 
             int hash = 0;
@@ -1078,7 +1113,10 @@ namespace StateSystem
                 return 0;
 
             //List<List<string>> column_aa = BaseFile.paser_list(GUIUtility.systemCopyBuffer, "\t");
-            column_ux.column_select_toggle(column);
+            if (shift == "shift")
+                column_ux.column_select_group(column);
+            else
+                column_ux.column_select_toggle(column);
 
             return 1;
         }
