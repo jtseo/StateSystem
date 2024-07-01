@@ -5057,17 +5057,20 @@ void BaseDStructureValue::logger_hand_variable(int _hash, const void* _value, sh
 
 void BaseDStructureValue::logger_reset(const char * _strCmt)
 {
-	if (m_logevent_p)
+	if (g_logger())
 	{
-		PT_OFree(m_logevent_p);
-	}
+		if (m_logevent_p)
+		{
+			PT_OFree(m_logevent_p);
+		}
 
-	m_logger_column_result.clear();
-	STLString str = m_strDebugName;
-	str += _strCmt;
-	m_logevent_p = logger_new(str.c_str());
-	int start = 0;
-	m_logevent_p->set_alloc(HASH_STATE(RevGroupStart), (const void*)&start);;
+		m_logger_column_result.clear();
+		STLString str = m_strDebugName;
+		str += _strCmt;
+		m_logevent_p = logger_new(str.c_str());
+		int start = 0;
+		m_logevent_p->set_alloc(HASH_STATE(RevGroupStart), (const void*)&start);;
+	}
 }
 
 void BaseDStructureValue::logger_send(int _event_index, int _keyMain, int _key, int _state_serial, int _link, const STLMnInt &_groupID_m, int _event_serial)
