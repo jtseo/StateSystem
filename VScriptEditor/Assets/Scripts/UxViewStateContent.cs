@@ -6,11 +6,31 @@ using System.IO;
 using System.Linq;
 using TMPro;
 using UnityEngine.UI;
+using Newtonsoft.Json;
 
 using System.Runtime.InteropServices;
+using System.Reflection;
+using System.Net;
+
 
 namespace StateSystem
 {
+    [Serializable]
+    public class StateCopy
+    {
+        public string name;
+        public int[] pos = new int[2];
+        public List<LinkCopy> links;
+    }
+
+    [Serializable]
+    public class LinkCopy
+    {
+        public string name;
+        public List<int> indexs;
+        public List<string> columns;
+    }
+
     public class VScriptState
     {
         public GameObject go;
@@ -421,6 +441,147 @@ namespace StateSystem
         public void scene_update()
         {
             m_update_b = true;
+        }
+        public bool stateActivesLoad(string _filename)
+        {
+            List<StateCopy> states = JsonConvert.DeserializeObject<List<StateCopy>>(GUIUtility.systemCopyBuffer);
+
+            Hashtable renameHash = new Hashtable();
+            foreach (var stateCopy in states)
+            {
+                int key = 0;
+                key = VLStateManager.hash(stateCopy.name);
+                VScriptState goBtn = (VScriptState)m_hashStateButtons[key];
+
+                if (goBtn != null)
+                {
+                    int loop = 1;
+                    do {
+                        stateCopy.name += "(" + loop.ToString() + ")";
+                        int newKey = VLStateManager.hash(stateCopy.name);
+                        if(!m_hashStateButtons.ContainsKey(newKey))
+                        {
+                            renameHash[key] = stateCopy.name;
+                            key = newKey;
+                            break;
+                        }
+                        loop++;
+                    } while (true);
+                }
+
+                int[] keys = { key };
+                m_dstMain.add_int(key, 0, keys);
+                m_dstMain.add_string(key, 1, stateCopy.name);
+                
+                keys[0] = key;
+                if (!m_dstMainPos.get_int(key, m_nKeyIndex, ref keys))
+                    m_dstMainPos.set_int(key, m_nKeyIndex, keys);
+
+                m_dstMainPos.set_int(key, m_nIntIndex, stateCopy.pos);
+                Vector3 pos3 = new Vector3(stateCopy.pos[0], stateCopy.pos[1], 0);
+                state_add_(stateCopy.name, pos3);
+            }
+
+            foreach (var stateCopy in states)
+            {
+                int key = 0;
+                key = VLStateManager.hash(stateCopy.name);
+                
+                int[] keys = { key };
+                
+                int[] orgLinks = { 0 };
+                List<int> editLink = new List<int>();
+                if (m_dstMain.get_int(key, m_index_link, ref orgLinks))
+                {
+                    for (int k = 0; k < orgLinks.Length; k++)
+                        editLink.Add(orgLinks[k]);
+                }
+                
+                foreach(var link in stateCopy.links)
+                {
+                    int nextKey = VLStateManager.hash(link.name);
+                    if (!state_system_is(nextKey) && !m_hashStateButtons.ContainsKey(nextKey))
+                        continue;
+                    bool changed = false;
+                    string changedStr = "";
+                    if (renameHash.ContainsKey(nextKey))
+                    {
+                        changedStr = (string)renameHash[nextKey];
+                        changed = true;
+                    }
+
+                    int keyNew = m_dstLink.create_key_link(_filename);
+                    keys[0] = keyNew;
+                    m_dstLink.set_int(keyNew, 0, keys);
+                    editLink.Add(keyNew);
+
+                    for (int j = 0; j < link.columns.Count; j++)
+                    {
+                        int index_n = link.indexs[j];
+                        string text = link.columns[j];
+                        if (changed && index_n == m_index_name)
+                            text = changedStr;
+                        m_dstLink.editor_string_add(keyNew, index_n, text);
+                    }
+                }
+
+                if (editLink.Count > 0)
+                {
+                    int[] links = new int[editLink.Count];
+                    for (int i = 0; i < editLink.Count; i++)
+                        links[i] = editLink[i];
+                    m_dstMain.set_int(key, m_index_link, links);
+                }
+            }
+
+            return true;
+        }
+        public bool stateActivesSave(string _filename)
+        {
+            if (m_state_active_a.Count == 0)
+                return false;
+
+            List<StateCopy> states = new List<StateCopy>();
+            
+            int[] anPos = {0, 0};
+            m_state_active_a.ForEach(vsState =>
+            {
+                StateCopy stateCopy = new StateCopy();
+                Vector3 pos_v3 = vsState.go.transform.localPosition;
+
+                stateCopy.name = vsState.name;
+                stateCopy.pos[0] = (int)pos_v3.x;
+                stateCopy.pos[1] = (int)pos_v3.y;
+                stateCopy.links = new List<LinkCopy>();
+
+                foreach (GameObject leaf in vsState.sub_goa)
+                {
+                    VScriptLink link = leaf.GetComponent<VScriptLink>();
+                    int count_n = m_dstLink.get_count_column(link.m_key);
+                    LinkCopy linkCopy = new LinkCopy();
+                    linkCopy.indexs = new List<int>();
+                    linkCopy.columns = new List<string>();
+                    m_dstLink.get_string(link.m_key, 1, ref linkCopy.name);
+                    
+                    int i = 0;
+                    string text = "";
+                    for (; i < count_n; i++)
+                    {
+                        int index_n = m_dstLink.get_index(link.m_key, i);
+                        text = m_dstLink.editor_string_get(link.m_key, i);
+
+                        linkCopy.indexs.Add(index_n);
+                        linkCopy.columns.Add(text);
+                    }
+                    stateCopy.links.Add(linkCopy);
+                }
+
+                states.Add(stateCopy);
+            });
+
+            GUIUtility.systemCopyBuffer = JsonConvert.SerializeObject(states);
+
+            return true;
         }
 
         public bool StatePropagateGet(int _key_n, List<int> _group, Vector3 _pos)
