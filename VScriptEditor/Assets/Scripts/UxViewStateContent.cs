@@ -127,37 +127,53 @@ namespace StateSystem
             return null;
         }
 
-        public bool state_rename(int key, string _name)
+        public bool state_rename(string _from, string _to)
         {
-            int nKeyTo = VLStateManager.hash(_name);
-            /*
-            m_dstMain.key
-            if (m_pdstBase->change_key(m_nKey, nKeyTo))
+            int nKeyTo = VLStateManager.hash(_to);
+
+            StateLeafHide(_from);
+            int key = VLStateManager.hash(_from);
+
+            int[] keys = { nKeyTo };
+            int[] links = { };
+            m_dstMain.set_int(nKeyTo, 0, keys);
+            m_dstMain.set_string(nKeyTo, 1, _to);
+            if(m_dstMain.get_int(key, m_index_link, ref links))
             {
-                m_pdstBase->set_alloc(nKeyTo, (STATE_KEY), (void*)&nKeyTo);
-                m_pdstBase->set_alloc(nKeyTo, (STATE_NAME), (void*)strNameParam);
-    
-                const int* pnKeys2;
-                short nCnt2;
-                m_pdstBase->get(nKeyTo, STATE_NEXT_LINK, (const void**)&pnKeys2, &nCnt2);
-    
-                STLMnstlRecord::iterator it;
-                int nKey;
-    
-                nKey = m_pdstLink->get_first_key(&it);
-                bool bUpdate = false;
-                while (nKey)
-                {
-                    m_pdstLink->get(nKey, CON_NAME, (const void**)&strTemp, &nCnt);
-                    if (strcmp(strTemp, strBackup) == 0)
-                    {
-                        m_pdstLink->set_alloc(nKey, (CON_NAME), (void*)strNameParam);
-                        bUpdate = true;
-                    }
-                    nKey = m_pdstLink->get_next_key(&it);
-                }
+                m_dstMain.set_int(nKeyTo, m_index_link, links);
             }
-            //*/
+            m_dstMain.release(key);
+
+            int nKey, key_rename = 0;
+            nKey = m_dstLink.key_first_get();
+
+            do
+            {
+                string name = "";
+                if (m_dstLink.get_string(nKey, 1, ref name))
+                {
+                    if (name == _from)
+                        m_dstLink.set_string(nKey, 1, _to);
+                }
+
+                nKey = m_dstLink.key_next_get();
+            } while (nKey != 0);
+
+            VScriptState btn = (VScriptState)m_hashStateButtons[key];
+
+            Vector3 pos_v3 = btn.go.transform.localPosition;
+            GameObject.Destroy(btn.go);
+            m_hashStateButtons.Remove(key);
+            m_stateButtons_ago.Remove(btn);
+
+            int[] pos_an = { (int)pos_v3.x, (int)pos_v3.y };
+            m_dstMainPos.get_int(key, m_nIntIndex, ref pos_an);
+            m_dstMainPos.set_int(nKeyTo, 0, keys);
+            m_dstMainPos.set_int(nKeyTo, m_nIntIndex, pos_an);
+            Vector3 pos = new Vector3(pos_an[0], pos_an[1], 0);
+
+            state_add(_to, pos);
+
             return false;
         }
 

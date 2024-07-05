@@ -17,6 +17,7 @@ namespace StateSystem
 			EStart = IStateNode.EnumFunc.EnumFuncMax,
 			StatesSelectedSave_strV,
 			StatesSelectedLoad_strV,
+			StateRename_varF,
 			//#SF_FuncEnum
 			EStateMax
 		}
@@ -94,6 +95,7 @@ namespace StateSystem
 			{
 				IStateNode.FunctionRegist(_class_name, _funcs, (int)EState.StatesSelectedSave_strV, "StatesSelectedSave_strV", _processor);
 				IStateNode.FunctionRegist(_class_name, _funcs, (int)EState.StatesSelectedLoad_strV, "StatesSelectedLoad_strV", _processor);
+				IStateNode.FunctionRegist(_class_name, _funcs, (int)EState.StateRename_varF, "StateRename_varF", _processor);
 				//#SF_FuncRegistInsert
 				return (int)EState.EStateMax;
 			}
@@ -110,6 +112,7 @@ namespace StateSystem
 			if (_func.m_func == 0) return 0;
 			else if (_func.m_func == _funcs[(int)EState.StatesSelectedSave_strV]) return StatesSelectedSave_strV(_func);
 			else if (_func.m_func == _funcs[(int)EState.StatesSelectedLoad_strV]) return StatesSelectedLoad_strV(_func);
+			else if (_func.m_func == _funcs[(int)EState.StateRename_varF]) return StateRename_varF(_func);
 			//#SF_FuncCallInsert
 			return 0;
 		}
@@ -152,6 +155,18 @@ namespace StateSystem
             m_stateContext.stateActivesLoad(filename);
 
             return 0;
+		}	
+		int StateRename_varF(StateFunction _func)
+		{
+			string nameTo = "";
+			if(!_func.ParamVariableGet(ref nameTo))
+					return 0;
+			string nameFrom = "";
+			if (!_func.ParamFallowGet(0, ref nameFrom))
+				return 0;
+
+			m_stateContext.state_rename(nameTo, nameFrom);
+			return 1;
 		}	
 		//#SF_FuncScript
 		

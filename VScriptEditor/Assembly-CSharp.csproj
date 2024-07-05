@@ -69,6 +69,7 @@
     <Compile Include="Assets\ConsolePro\Remote\ConsoleProRemoteServer.cs" />
     <Compile Include="Assets\Lean\Transition\Methods\UI\LeanRectTransformAnchoredPositionY.cs" />
     <Compile Include="Assets\Lean\Touch\Examples\Scripts\LeanFingerDown.cs" />
+    <Compile Include="Assets\VLogger\scripts\Component\UIStateSelector.cs" />
     <Compile Include="Assets\Lean\Touch+\Examples\Scripts\LeanManualRotate.cs" />
     <Compile Include="Assets\Lean\Touch\Examples\Scripts\LeanPath.cs" />
     <Compile Include="Assets\Lean\GUI\Scripts\LeanSelectionHighlight.cs" />
@@ -205,6 +206,7 @@
     <Compile Include="Assets\Lean\Transition\Scripts\LeanState.cs" />
     <Compile Include="Assets\Lean\GUI\Scripts\LeanHover.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
+    <Compile Include="Assets\VLogger\scripts\Component\SoundManager.cs" />
     <Compile Include="Assets\Lean\GUI\Scripts\LeanMoveToTop.cs" />
     <Compile Include="Assets\Lean\Touch\Examples\Scripts\LeanFingerTap.cs" />
     <Compile Include="Assets\Lean\Touch\Examples\Scripts\LeanDestroy.cs" />
@@ -218,6 +220,7 @@
     <Compile Include="Assets\Lean\GUI\Scripts\LeanSelection.cs" />
     <Compile Include="Assets\Lean\Transition\Methods\LeanQueue.cs" />
     <Compile Include="Assets\Lean\Touch+\Examples\Scripts\LeanFingerHeld.cs" />
+    <Compile Include="Assets\VLogger\scripts\Component\UIPreviewFrame.cs" />
     <Compile Include="Assets\Scripts\UxViewMain.cs" />
     <Compile Include="Assets\Lean\Touch\Examples\Scripts\LeanSelectableBehaviour.cs" />
     <Compile Include="Assets\Scripts\EditorStateManager.cs" />
