@@ -62,7 +62,9 @@ void StateManagerPnID::release_manager(bool _reset)
 //	BaseDStructure::set_callback_fileclose(fnCallbackFileClose);
 //}
 
+#ifdef WIN32
 #include <winsock2.h>
+#endif
 #include "../PtBase/BaseSFuncDirectory.h"
 #include "../PtBase/BaseTextEditor.h"
 #include "../PtBase/BaseTextEditorText.h"
@@ -95,7 +97,10 @@ StateManagerPnID::StateManagerPnID(void *_applet) :BaseStateManager(_applet)
 	ExtendOpenCV extOpencv;
 	BaseSCTcp tcp;
 	//BaseSFParser paser;
+#ifdef WIN32
 	BaseStateSystem sys;
+#endif
+	
 #ifdef PHOTOSKETCH
 	PhotoSketch	sketch;
 #else
