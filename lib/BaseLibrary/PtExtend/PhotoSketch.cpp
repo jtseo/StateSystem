@@ -54,6 +54,7 @@ int PhotoSketch::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, int
 		//func_str = _class_name + ".text_info_cast_nF";	(*_func_hash)[Enumtext_info_cast_nF] = STRTOHASH(func_str.c_str());		BaseDStructure::processor_list_add(func_str.c_str(), _func, __FILE__, __LINE__);
 		//STDEF_SFREGIST(Open_varF);
 		STDEF_SFREGIST(SketchStart_varF);
+		STDEF_SFREGIST(ThreadStop_nF);
 		//#SF_FuncRegistInsert
 
 		return _size;
@@ -97,6 +98,7 @@ int PhotoSketch::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		if (m_func_hash == s_func_hash_a[Enum_ext_start])        return 0;
 		//STDEF_SFFUNCALL(Open_varF);
 		STDEF_SFFUNCALL(SketchStart_varF);
+		STDEF_SFFUNCALL(ThreadStop_nF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -128,6 +130,9 @@ bool PhotoSketchCallback(int _step, HBITMAP _map, void* _param_p)
 	//STLString jpgData;
 	std::vector<uchar> jpgData;
 	PhotoSketch* sketch = (PhotoSketch*)_param_p;
+
+	if (sketch->stop_thread())
+		return false;
 
 	while (BaseCircleQueue::stream_get()->size_data() > 1)
 	{
@@ -197,8 +202,11 @@ bool PhotoSketchCallback(int _step, HBITMAP _map, void* _param_p)
 	evt->set_alloc("ImageHeight_nV", &bmp.bmHeight);
 	evt->set_alloc("ImageWidth_nV", &bmp.bmWidth);
 
+	if (sketch->stop_thread())
+		return false;
+
 	manager->post_event(evt);
-	
+
 	return true;
 }
 
@@ -224,6 +232,7 @@ DEF_ThreadCallBack(PhotoSketch::update)
 		cv::resize(img, resizeImg, imageSize);
 		cv::imwrite(pSketch->PathPictureGet(), resizeImg);
 	}
+
 
 	//do {
 		CreateAndSaveImage(pSketch->PathFrameGet(), pSketch->PathPictureGet(), pSketch->PictureSize()[0], pSketch->PictureSize()[1], pSketch->SketchType(), PhotoSketchCallback, pSketch);
@@ -262,6 +271,12 @@ int* PhotoSketch::PictureSize()
 bool PhotoSketch::stop_thread()
 {
 	return m_stop_thread;
+}
+
+int PhotoSketch::ThreadStop_nF()
+{
+	thread_stop();
+	return 1;
 }
 
 int PhotoSketch::SketchStart_varF()

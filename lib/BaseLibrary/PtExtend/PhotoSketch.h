@@ -8,6 +8,7 @@ class PhotoSketch :
         Enum_ext_start = EnumFuncMax,
         //STDEF_SFENUM(Open_varF),
         STDEF_SFENUM(SketchStart_varF),
+        STDEF_SFENUM(ThreadStop_nF),
         //#SF_EnumInsert
         EnumExtentionMax
     };
@@ -22,6 +23,7 @@ public:
     virtual int Create();
     //#SF_FuncHeaderInsert
     int SketchStart_varF();
+    int ThreadStop_nF();
     // User defin area from here
 protected:
     // support for text analysis
@@ -46,6 +48,9 @@ public:
         return m_threadIdx;
     }
     bool stop_thread();
+    void thread_stop() {
+        m_stop_thread = true;
+    }
     const char* PathFrameGet();
     const char* PathPictureGet();
     int SketchType() { return m_sketchType;  }

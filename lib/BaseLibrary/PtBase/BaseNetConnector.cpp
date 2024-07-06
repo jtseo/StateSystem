@@ -13,6 +13,9 @@
 #define	XDIRECTX
 #include "DebugContext.h"
 
+#include <chrono>
+#include <thread>
+
 #define SOCKET_INDEX		91900
 #define PACKET_TIME_OVER	60000
 #define PACKET_SENDING_LIMIT	100
@@ -2308,8 +2311,12 @@ DEF_ThreadCallBack(BaseNetManager::update)
 		UINT32 cur = BaseSystem::timeGetTime();
 		if (cur - lastDirty > 50) // when serializing packets arrived, they has some delay. so if you try to receive the packets without delay, it will not return while some microseconds.
 		{
-			BaseSystem::Sleep(1);
+			BaseSystem::Sleep(5);
 			sleepCnt++;
+		}
+		else {
+			std::chrono::microseconds sleep_duration(10);
+			std::this_thread::sleep_for(sleep_duration);
 		}
 		
 	}while(!pManager->m_bEndThread && !mpool_get().is_terminated());

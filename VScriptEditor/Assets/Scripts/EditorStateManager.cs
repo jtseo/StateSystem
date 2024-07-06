@@ -14,6 +14,7 @@
             UxViewColumnEditor.StateFuncRegist();
             //VScriptCosmosMenu.StateFuncRegist();
             VScriptLogHistory.StateFuncRegist();
+            SCStatesViewer.StateFuncRegist();
         }
     }
 }

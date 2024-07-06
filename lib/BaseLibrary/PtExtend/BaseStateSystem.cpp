@@ -142,6 +142,26 @@ BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam) {
 }
 
 
+int BaseStateSystem::KeyboardNumOn_nF()
+{
+	const int* on = (const int *)m_param_value;
+
+	bool curOn = (GetKeyState(VK_NUMLOCK) & 0x0001) != 0;
+
+	if (curOn && *on == 1)
+		return 0;
+
+	if (!curOn && *on == 0)
+		return 0;
+
+	// Simuate a key press
+	keybd_event(VK_NUMLOCK, 0x45, KEYEVENTF_EXTENDEDKEY | 0, 0);
+	// Simulate a key release
+	keybd_event(VK_NUMLOCK, 0x45, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, 0);
+
+	return 1;
+}
+
 int BaseStateSystem::MakeFront_nF()
 {
 	HWND hCur = FindWindow(NULL, "photobooth");
