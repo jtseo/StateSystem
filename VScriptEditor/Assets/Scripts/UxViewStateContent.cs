@@ -534,6 +534,8 @@ namespace StateSystem
                     for (int j = 0; j < link.columns.Count; j++)
                     {
                         int index_n = link.indexs[j];
+                        if (index_n == 0)
+                            continue;
                         string text = link.columns[j];
                         if (changed && index_n == m_index_name)
                             text = changedStr;
