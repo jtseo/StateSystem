@@ -343,6 +343,7 @@
      <Folder Include="Assets/VLogger/scripts" />
      <Folder Include="Assets/Psd2UnityPro/Sample/Fonts" />
      <Folder Include="Assets/TextMesh Pro/Examples &amp; Extras/Resources/Sprite Assets" />
+     <Folder Include="Assets/Scripts/StateSystem" />
      <None Include="Assets/Lean/Common/Examples/Shaders/Object.shader" />
      <Folder Include="Assets/VScriptSystem" />
      <Folder Include="Assets/VLogger/Plugins/Android/libs/x86" />
