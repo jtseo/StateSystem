@@ -53,18 +53,12 @@ namespace StateSystem
 
             goBoard = (GameObject)GameObject.Find("StateMainBoard");
 
-            //int nLastPath = _strPath.LastIndexOf('/');
+            int nLastPath = _strPath.LastIndexOf('/');
 
-            //if (nLastPath <= 0)
-            //    nLastPath = _strPath.LastIndexOf('\\');
+            if (nLastPath <= 0)
+                nLastPath = _strPath.LastIndexOf('\\');
 
-            //if (nLastPath <= 0)
-            //    return false;
-
-            //nLastPath++;
             m_strStatePath = ""; //_strPath.Substring(0,nLastPath);
-
-            VLStateManager.variable_global_get().set_variable_string("SystemPathRoot_strV", m_strStatePath);
 
             _strPath = m_strStatePath + "StateList";
             if (!m_list_mains.load(_strPath, 3))
