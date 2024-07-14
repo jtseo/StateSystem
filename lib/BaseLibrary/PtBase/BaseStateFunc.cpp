@@ -242,10 +242,12 @@ BaseDStructureValue* BaseStateFuncEx::EventMake(int _hash, int _group_target)
 	
 	if(_group_target)
 		stlMnGroupId[m_group_hash] = _group_target;
-	else
+	else if(m_group_hash != 0)
 		stlMnGroupId[m_group_hash] = m_group_id;
 
-	BaseState::group_id_set(evt, HASH_STATE(BaseTransitionGoalIdentifier), stlMnGroupId);
+	if(stlMnGroupId.size() > 0)
+		BaseState::group_id_set(evt, HASH_STATE(BaseTransitionGoalIdentifier), stlMnGroupId);
+	
 	if (!_group_target)
 	{
 		int nSerial = m_state_p->obj_serial_get();
