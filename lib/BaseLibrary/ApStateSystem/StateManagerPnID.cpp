@@ -71,19 +71,22 @@ void StateManagerPnID::release_manager(bool _reset)
 #include "../PtBase/BaseSCTcp.h"
 #include "../PtExtend/BaseSCJson.h"
 
-#include "../../SDK/opencv/include/opencv2/opencv.hpp"
-#include "../PtExtend/ExtendOpenCV.h"
 //#include "../PtBase/BaseSFParser.h"
 #ifdef PHOTOSKETCH
+
+#include "../../SDK/opencv/include/opencv2/opencv.hpp"
+#include "../PtExtend/ExtendOpenCV.h"
 #include "../PtExtend/PhotoSketch.h"
 #endif
 
 #ifndef VScriptBuild
+#ifdef WIN32
 
 #include "../PtExtend/DevCashReader.h"
 #include "../PtExtend/DevPrinter.h"
 #include "../Eos/DevCamera.h"
 #include "../PtExtend/BaseStateSystem.h"
+#endif
 
 #endif
 
@@ -94,7 +97,6 @@ StateManagerPnID::StateManagerPnID(void *_applet) :BaseStateManager(_applet)
 	BaseSFuncDirectory dir;
 	BaseTextEditor te;
 	BaseSCJson json;
-	ExtendOpenCV extOpencv;
 	BaseSCTcp tcp;
 	//BaseSFParser paser;
 #ifdef WIN32
@@ -102,21 +104,29 @@ StateManagerPnID::StateManagerPnID(void *_applet) :BaseStateManager(_applet)
 #endif
 	
 #ifdef PHOTOSKETCH
+	ExtendOpenCV extOpencv;
 	PhotoSketch	sketch;
 #else
 #ifndef VScriptBuild
 
+#ifdef WIN32
 	DevCashReader devRed;
 	//DevPrinter devPrt;
 	DevCamera devCam;
 #endif
+	
+#endif // end of !VScriptBuild
 
-#endif
+#endif // end of the else PHOTOSKETCH
+	
 #ifndef VScriptBuild
 
+#ifdef WIN32
 	//DevCashReader devRed;
 	DevPrinter devPrt;
 	//DevCamera devCam;
+#endif
+
 #endif
 }
 
