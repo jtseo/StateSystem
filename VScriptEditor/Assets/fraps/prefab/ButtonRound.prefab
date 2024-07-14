@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3576670865725929416}
   - component: {fileID: 767466207124345780}
   - component: {fileID: 6547825270392511360}
+  - component: {fileID: 8982411714256723859}
   m_Layer: 5
   m_Name: ButtonRound
   m_TagString: Untagged
@@ -79,6 +80,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8982411714256723859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3697164160743337813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1223e841de2a4e6ca2638cf4fb710d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_imageSelect: {fileID: 1475678879941466750}
+  m_selected: 0
+  m_loc_id: 0
 --- !u!1 &5486080267115597580
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +214,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7282066698962674952}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8982411714256723859}
+        m_TargetAssemblyTypeName: StateSystem.UIStateSelector, Assembly-CSharp
+        m_MethodName: onClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8850748797079700747
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +544,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51c27e19ecd1fc94d806a1510840ee5b, type: 3}
+--- !u!1 &1475678879941466750 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3613654646443157807, guid: 51c27e19ecd1fc94d806a1510840ee5b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2764345809965822801}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4217740954770118764 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2077426973812632381, guid: 51c27e19ecd1fc94d806a1510840ee5b,
