@@ -19,6 +19,7 @@ class BaseSFuncDirectory :
         STDEF_SFENUM(FileWritableCheck_nIf),
         STDEF_SFENUM(FileLoad_varF),
         STDEF_SFENUM(FileSave_varF),
+        STDEF_SFENUM(ListCasting_varF),
         //#SF_EnumInsert
         EnumExtentionMax
     };
@@ -38,6 +39,7 @@ public:
     int FileWritableCheck_nIf();
     int FileLoad_varF();
     int FileSave_varF();
+    int ListCasting_varF();
     //#SF_FuncHeaderInsert
     int fileCast_nF();
     int folerCreate_varF();

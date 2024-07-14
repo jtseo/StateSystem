@@ -62,6 +62,7 @@ int BaseSFuncDirectory::StateFuncRegist(STLString _class_name, STLVInt* _func_ha
 		STDEF_SFREGIST(FileWritableCheck_nIf);
 		STDEF_SFREGIST(FileLoad_varF);
 		STDEF_SFREGIST(FileSave_varF);
+		STDEF_SFREGIST(ListCasting_varF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -119,6 +120,7 @@ int BaseSFuncDirectory::FunctionCall(const char* _class_name, STLVInt& _func_has
 		STDEF_SFFUNCALL(FileWritableCheck_nIf);
 		STDEF_SFFUNCALL(FileLoad_varF);
 		STDEF_SFFUNCALL(FileSave_varF);
+		STDEF_SFFUNCALL(ListCasting_varF);
 		//#SF_FuncCallInsert
 		return 0;
 	}
@@ -432,4 +434,23 @@ int BaseSFuncDirectory::RunCLI_nF()
 	return 1;
 }
 
+int BaseSFuncDirectory::ListCasting_varF()
+{
+	const char *list = (const char*)paramFallowGet(0);
+	const int *event = (const int*)m_param_value;
+	
+	if(!list)
+		return 0;
+	
+	STLVString list_a;
+	BaseFile::paser_list_seperate(list, &list_a, ",");
+	
+	for(int i=0; i<list_a.size(); i++)
+	{
+		BaseDStructureValue *evt = EventMake(*event);
+		evt->set_alloc("TempString_strV", (const void*)list_a[i].c_str());
+		EventPost(evt);
+	}
+	return 1;
+}
 //#SF_functionInsert
