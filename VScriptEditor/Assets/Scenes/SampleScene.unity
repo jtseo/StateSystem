@@ -6636,7 +6636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000017287037, y: 0.00048219867}
+  m_AnchoredPosition: {x: -0.000040601408, y: 0.00048219867}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &343425517
@@ -9534,7 +9534,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1310433178}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.99993795
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11926,6 +11926,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1484538816}
     m_Modifications:
+    - target: {fileID: 6059546962918837208, guid: 97df2ebe186c658479dd7c8185ecd2af,
+        type: 3}
+      propertyPath: m_text
+      value: Message
+      objectReference: {fileID: 0}
     - target: {fileID: 7488685148802940523, guid: 97df2ebe186c658479dd7c8185ecd2af,
         type: 3}
       propertyPath: m_Name
@@ -14771,7 +14776,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -20.000061}
+  m_AnchoredPosition: {x: 0, y: -20.000122}
   m_SizeDelta: {x: 0, y: -40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &804835291
@@ -15028,7 +15033,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 878590658}
   m_HandleRect: {fileID: 878590657}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -16422,8 +16427,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643839859}
   m_HandleRect: {fileID: 1643839858}
   m_Direction: 3
-  m_Value: 1.0000001
-  m_Size: 0.43146685
+  m_Value: 1.0000002
+  m_Size: 0.39209765
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -23191,7 +23196,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 665.0001, y: -19.999878}
+  m_AnchoredPosition: {x: 665, y: -19.999878}
   m_SizeDelta: {x: -1330, y: -40.000015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1195634808
