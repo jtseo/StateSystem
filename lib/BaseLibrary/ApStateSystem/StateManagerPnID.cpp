@@ -71,6 +71,7 @@ void StateManagerPnID::release_manager(bool _reset)
 #include "../PtBase/BaseSCTcp.h"
 #include "../PtExtend/BaseSCJson.h"
 
+#include "../PtExtend/BaseStateSystem.h"
 //#include "../PtBase/BaseSFParser.h"
 #ifdef PHOTOSKETCH
 
@@ -85,7 +86,6 @@ void StateManagerPnID::release_manager(bool _reset)
 #include "../PtExtend/DevCashReader.h"
 #include "../PtExtend/DevPrinter.h"
 #include "../Eos/DevCamera.h"
-#include "../PtExtend/BaseStateSystem.h"
 #endif
 
 #endif
@@ -99,9 +99,7 @@ StateManagerPnID::StateManagerPnID(void *_applet) :BaseStateManager(_applet)
 	BaseSCJson json;
 	BaseSCTcp tcp;
 	//BaseSFParser paser;
-#ifdef WIN32
 	BaseStateSystem sys;
-#endif
 	
 #ifdef PHOTOSKETCH
 	ExtendOpenCV extOpencv;

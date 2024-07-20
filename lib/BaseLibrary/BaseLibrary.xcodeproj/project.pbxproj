@@ -340,6 +340,8 @@
 		C15AD7632AC03C87002202C8 /* BaseSCMysql.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15AD6D12AC03425002202C8 /* BaseSCMysql.cpp */; };
 		C19A8F142B7525720034B7F1 /* ExtendOpenCV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C19A8F112B7522110034B7F1 /* ExtendOpenCV.cpp */; };
 		C1AA8E122AF709D100CEE2FA /* BaseSCHttpD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8E112AF709D100CEE2FA /* BaseSCHttpD.cpp */; };
+		C1BC00B82C46C5770012F798 /* BaseStateSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1BC00B52C46C5110012F798 /* BaseStateSystem.cpp */; };
+		C1BC00B92C46C57F0012F798 /* BaseStateSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1BC00B52C46C5110012F798 /* BaseStateSystem.cpp */; };
 		C1E04FD32658B51C0058CD21 /* BaseTextEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C104606F2644208D0077FB2A /* BaseTextEditor.cpp */; };
 		C1E04FD62658B51C0058CD21 /* KISA_SHA256.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1DEBBC924927FA100BD0DFB /* KISA_SHA256.cpp */; };
 		C1E04FD82658B51C0058CD21 /* BaseStateFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C104606E2644208D0077FB2A /* BaseStateFunc.cpp */; };
@@ -484,6 +486,7 @@
 		C19A8F122B7522110034B7F1 /* ExtendOpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExtendOpenCV.h; path = PtExtend/ExtendOpenCV.h; sourceTree = SOURCE_ROOT; };
 		C1AA8E102AF709D100CEE2FA /* BaseSCHttpD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseSCHttpD.h; path = PtExtend/BaseSCHttpD.h; sourceTree = SOURCE_ROOT; };
 		C1AA8E112AF709D100CEE2FA /* BaseSCHttpD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSCHttpD.cpp; path = PtExtend/BaseSCHttpD.cpp; sourceTree = SOURCE_ROOT; };
+		C1BC00B52C46C5110012F798 /* BaseStateSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseStateSystem.cpp; path = PtExtend/BaseStateSystem.cpp; sourceTree = SOURCE_ROOT; };
 		C1C24F31241515F200E9A88F /* KISA_SHA256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KISA_SHA256.h; path = PtBase/KISA_SHA256.h; sourceTree = SOURCE_ROOT; };
 		C1DEBBC724927DE800BD0DFB /* BaseActionStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseActionStack.h; path = PtBase/BaseActionStack.h; sourceTree = SOURCE_ROOT; };
 		C1DEBBC924927FA100BD0DFB /* KISA_SHA256.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KISA_SHA256.cpp; path = PtBase/KISA_SHA256.cpp; sourceTree = SOURCE_ROOT; };
@@ -659,6 +662,7 @@
 		C1F7D7961BCE401A00473CAE /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C1BC00B52C46C5110012F798 /* BaseStateSystem.cpp */,
 				C19A8F112B7522110034B7F1 /* ExtendOpenCV.cpp */,
 				C19A8F122B7522110034B7F1 /* ExtendOpenCV.h */,
 				C13AC6F02B23ECE400A43D66 /* BaseSCJson.cpp */,
@@ -933,6 +937,7 @@
 				C12A33B72AB895D60094D3E6 /* BaseFile.cpp in Sources */,
 				C12A33BD2AB8966A0094D3E6 /* BaseHttp.cpp in Sources */,
 				C12A33252AB8959C0094D3E6 /* hashstr.cpp in Sources */,
+				C1BC00B82C46C5770012F798 /* BaseStateSystem.cpp in Sources */,
 				C12A33022AB8959C0094D3E6 /* Vector3.cpp in Sources */,
 				C12A33AF2AB895D60094D3E6 /* BaseEventHandler.cpp in Sources */,
 				C19A8F142B7525720034B7F1 /* ExtendOpenCV.cpp in Sources */,
@@ -1270,6 +1275,7 @@
 				C12A33CD2AB89FEB0094D3E6 /* BaseInterface.cpp in Sources */,
 				C12A32852AB895350094D3E6 /* BaseSetString.cpp in Sources */,
 				C12A332C2AB8959C0094D3E6 /* MD52.cpp in Sources */,
+				C1BC00B92C46C57F0012F798 /* BaseStateSystem.cpp in Sources */,
 				C12A331D2AB8959C0094D3E6 /* BaseStateSpace.cpp in Sources */,
 				C12A33902AB8959C0094D3E6 /* BaseSystem.cpp in Sources */,
 			);
