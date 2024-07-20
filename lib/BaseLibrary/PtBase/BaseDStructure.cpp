@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include <map>
 #include <vector>
 #include <algorithm>
@@ -31,6 +31,7 @@ STLMnString	BaseDStructure::sm_stlMnDebugProcessorName;
 STLMnString	BaseDStructure::sm_stlMnDebugProcessorFile;
 STLMnInt	BaseDStructure::sm_stlMnDebugProcessorLine;
 int			BaseDStructure::sm_nDefineOriginalSize = 0;
+STLVString	BaseDStructure::sm_stlVClasses;
 
 atomic_cnt	s_accessTicket(0);
 atomic_cnt    s_accessCall_n(0);
@@ -978,6 +979,11 @@ bool	BaseDStructure::load_define_append(const char *_strName)
 		sm_callbackFileClose(pfile);
 	}
 	return bRet;
+}
+
+void BaseDStructure::classesSet(const char *_list)
+{
+	BaseFile::paser_list_seperate(_list, &sm_stlVClasses, ",");
 }
 
 bool	BaseDStructure::load_define_(const char *_strFilename, int _type)

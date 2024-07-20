@@ -447,6 +447,7 @@ public:
 	bool key_is_pushed(int _nKey);
 
 protected:
+	STLVString m_stlVMains;
 	BaseDStructure m_dstMain;
 	static BaseStateManager *ms_manager_p;
 	STLVInt			m_stlVPushedKey;
@@ -456,6 +457,7 @@ protected:
 	// Start Update by OJ : 2010-07-21
 	// Enum
 public:
+	void MainsSet(const char *_list);
 	BaseDStructure*	EnumAdd(const char *_strFilename);
 	BaseDStructure*	EnumGet(int _nHash);
 	bool EnumValueAdd(int hash, const char *_value);

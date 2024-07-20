@@ -505,6 +505,12 @@ bool BaseStateManager::main_create(const char *_main_str)
     dstLink.save();
 	return true;
 }
+
+void BaseStateManager::MainsSet(const char *_list)
+{
+	BaseFile::paser_list_seperate(_list, &m_stlVMains, ",");
+}
+
 int BaseStateManager::load()
 {
 	REGISTEOBJECT(BaseResDStructure::OBJECTID_DSTRUCTURE, BaseResDStructure);

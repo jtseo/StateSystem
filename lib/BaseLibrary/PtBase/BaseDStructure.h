@@ -260,8 +260,10 @@ public:
 protected:
 	static STLVTypeDefine		sm_stlVTypedef;
 	static STLMnnTypeDefine		sm_stlMnnTypedef;
+	static STLVString			sm_stlVClasses;
 	
 public:
+	static void classesSet(const char *_list);
 	void variable_defines_for_enum(void *_pManager);
     static void static_clear();
 	static void processor_list_add(const char *_strName, fnEventProcessor _fProc, const char *_file, int _line);
