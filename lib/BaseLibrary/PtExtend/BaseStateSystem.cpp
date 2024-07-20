@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 
 #include "../PtBase/BaseStateFunc.h"
 #include "../PtBase/BaseObject.h"
@@ -16,7 +16,9 @@
 #include "../PtBase/BaseTime.h"
 #include "../PtBase/BaseStringTable.h"
 
+#ifdef WIN32
 #include <Windows.h>
+#endif
 
 PtObjectCpp(BaseStateSystem);
 
@@ -25,7 +27,7 @@ PtObjectCpp(BaseStateSystem);
 // and call representator class FunctionProcessor with _processor hash
 
 STLVInt	BaseStateSystem::s_func_hash_a;
-const char* BaseStateSystem::s_class_name = "BaseSystem";
+const char* BaseStateSystem::s_class_name = "BaseStateSystem";
 
 int BaseStateSystem::GetObjectId()
 {
@@ -53,6 +55,8 @@ int BaseStateSystem::StateFuncRegist(STLString _class_name, STLVInt* _func_hash,
 		//STDEF_SFREGIST(Open_varF);
 		STDEF_SFREGIST(AppClose_strF);
 		STDEF_SFREGIST(MakeFront_nF);
+		STDEF_SFREGIST(ListFilter_strF);
+		STDEF_SFREGIST(KeyboardNumOn_nF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -97,6 +101,8 @@ int BaseStateSystem::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		//STDEF_SFFUNCALL(Open_varF);
 		STDEF_SFFUNCALL(AppClose_strF);
 		STDEF_SFFUNCALL(MakeFront_nF);
+		STDEF_SFFUNCALL(ListFilter_strF);
+		STDEF_SFFUNCALL(KeyboardNumOn_nF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -125,6 +131,7 @@ int BaseStateSystem::Create()
 
 STLString s_targetApp;
 
+#ifdef WIN32
 BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam) {
 	const DWORD titleSize = 1024;
 	TCHAR windowTitle[titleSize];
@@ -140,12 +147,13 @@ BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam) {
 
 	return TRUE; // Continue enumerating windows.
 }
-
+#endif
 
 int BaseStateSystem::KeyboardNumOn_nF()
 {
 	const int* on = (const int *)m_param_value;
 
+#ifdef WIN32
 	bool curOn = (GetKeyState(VK_NUMLOCK) & 0x0001) != 0;
 
 	if (curOn && *on == 1)
@@ -158,12 +166,64 @@ int BaseStateSystem::KeyboardNumOn_nF()
 	keybd_event(VK_NUMLOCK, 0x45, KEYEVENTF_EXTENDEDKEY | 0, 0);
 	// Simulate a key release
 	keybd_event(VK_NUMLOCK, 0x45, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, 0);
+#endif
+	return 1;
+}
 
+int BaseStateSystem::ListFilter_strF()
+{
+	const char *filter = (const char*)m_param_value;
+	
+	STLVString list;
+	BaseFile::paser_list_seperate(filter, &list, ",");
+	
+	typedef enum{
+		editor,
+		distributor
+		//states, // *.ini !Link.ini
+		//classes // *.define
+	} ScriptType;
+	
+	ScriptType type = distributor;
+	if(strcmp(filter, "editor") == 0)
+		type = editor;
+	
+	for(int i=0; i<list.size(); i++)
+	{
+		bool remove = false;
+		switch(type)
+		{
+			case editor:
+				if(strstr(list[i].c_str(), ".data") != NULL
+				   && strstr(list[i].c_str(), "Pos.data") == NULL)
+					remove = true;
+				break;
+			case distributor:
+				if(strstr(list[i].c_str(), ".ini") != NULL)
+					remove = true;
+				if(strstr(list[i].c_str(), "Pos.data") != NULL)
+					remove = true;
+				break;
+		}
+		if(remove)
+		{
+			list.erase(list.begin()+i);
+			i--;
+		}
+	}
+	
+	char ret[4096];
+	BaseFile::paser_list_merge(ret, 4096, list, ",");
+	if(!paramFallowSet(0, ret))
+		return 0;
+	
 	return 1;
 }
 
 int BaseStateSystem::MakeFront_nF()
 {
+	
+#ifdef WIN32
 	HWND hCur = FindWindow(NULL, "photobooth");
 
 	// Get the thread ID of the foreground window
@@ -181,6 +241,7 @@ int BaseStateSystem::MakeFront_nF()
 
 	// Detach input from the target window thread
 	AttachThreadInput(targetThreadId, foregroundThreadId, FALSE);
+#endif
 	return 1;
 }
 
@@ -188,7 +249,10 @@ int BaseStateSystem::AppClose_strF()
 {
 	const char* name = (const char*)m_param_value;
 	s_targetApp = name;
+
+#ifdef WIN32
 	EnumWindows(EnumWindowsProc, 0);
+#endif
 	return 1;
 }
 //#SF_functionInsert
