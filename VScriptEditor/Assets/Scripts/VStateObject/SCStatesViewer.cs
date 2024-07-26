@@ -18,6 +18,8 @@ namespace StateSystem
 			StatesSelectedSave_strV,
 			StatesSelectedLoad_strV,
 			StateRename_varF,
+			StateGet_varF,
+			StateSet_varF,
 			//#SF_FuncEnum
 			EStateMax
 		}
@@ -96,6 +98,8 @@ namespace StateSystem
 				IStateNode.FunctionRegist(_class_name, _funcs, (int)EState.StatesSelectedSave_strV, "StatesSelectedSave_strV", _processor);
 				IStateNode.FunctionRegist(_class_name, _funcs, (int)EState.StatesSelectedLoad_strV, "StatesSelectedLoad_strV", _processor);
 				IStateNode.FunctionRegist(_class_name, _funcs, (int)EState.StateRename_varF, "StateRename_varF", _processor);
+				IStateNode.FunctionRegist(_class_name, _funcs, (int)EState.StateGet_varF, "StateGet_varF", _processor);
+				IStateNode.FunctionRegist(_class_name, _funcs, (int)EState.StateSet_varF, "StateSet_varF", _processor);
 				//#SF_FuncRegistInsert
 				return (int)EState.EStateMax;
 			}
@@ -113,6 +117,8 @@ namespace StateSystem
 			else if (_func.m_func == _funcs[(int)EState.StatesSelectedSave_strV]) return StatesSelectedSave_strV(_func);
 			else if (_func.m_func == _funcs[(int)EState.StatesSelectedLoad_strV]) return StatesSelectedLoad_strV(_func);
 			else if (_func.m_func == _funcs[(int)EState.StateRename_varF]) return StateRename_varF(_func);
+			else if (_func.m_func == _funcs[(int)EState.StateGet_varF]) return StateGet_varF(_func);
+			else if (_func.m_func == _funcs[(int)EState.StateSet_varF]) return StateSet_varF(_func);
 			//#SF_FuncCallInsert
 			return 0;
 		}
@@ -147,7 +153,8 @@ namespace StateSystem
 			m_stateContext.stateActivesSave(filename);
 
 			return 1;
-		}	
+		}
+	
 		int StatesSelectedLoad_strV(StateFunction _func)
 		{
             string filename = _func.ParamStringGet();
@@ -155,7 +162,8 @@ namespace StateSystem
             m_stateContext.stateActivesLoad(filename);
 
             return 0;
-		}	
+		}
+	
 		int StateRename_varF(StateFunction _func)
 		{
 			string nameTo = "";
@@ -167,7 +175,31 @@ namespace StateSystem
 
 			m_stateContext.state_rename(nameTo, nameFrom);
 			return 1;
-		}	
+		}
+	
+		int StateGet_varF(StateFunction _func)
+		{
+			string stateName = "";
+			if (!_func.ParamVariableGet(ref stateName))
+				return 0;
+
+			string cpy = m_stateContext.stateCopyGet(stateName);
+			if (!_func.ParamFallowSet(0, cpy))
+				return 0;
+			return 1;
+		}
+	
+		int StateSet_varF(StateFunction _func)
+		{
+			string stateUpdate = "";
+			if (!_func.ParamVariableGet(ref stateUpdate))
+				return 0;
+
+			if (!m_stateContext.stateCopySet(stateUpdate))
+				return 0;
+			return 1;
+		}
+	
 		//#SF_FuncScript
 		
 		#endregion

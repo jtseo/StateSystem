@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "BaseNetConnector.h"
 #include "BaseSocket.h"
 #ifdef _WIN32
@@ -2810,7 +2810,16 @@ int fnUpdateMessageReceiver(BaseDStructureValue *_pdsvContext, BaseDStructureVal
 				PT_OAlloc2(pdsvEvent, BaseDStructureValue, pManager->EnumGet(HASH_STATE(HASH_EnumEvent)), 1024);
 
 				if (pdsvEvent->set_dumppacket(pManager, buf->buffer, buf->size, true)) {
-					
+#ifdef _DEBUG
+					int nKeyState = HASH_STATE(BaseStateEventGlobal);
+					const int *event = NULL;
+					if(pdsvEvent->get(nKeyState, (const void**)&event))
+					{
+						int x = *event;
+						x++;
+						g_SendMessage(LOG_MSG, "receive event: %d\n", *event);
+					}
+#endif
 					BaseState::group_id_set(pdsvEvent, HASH_STATE(BaseTransitionGoalIdentifier), stlMnGroupId);
 					pManager->post_systemevent(pdsvEvent);
 				}

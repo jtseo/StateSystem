@@ -554,6 +554,110 @@ namespace StateSystem
 
             return true;
         }
+
+        public string stateCopyGet(string _name)
+        {
+            int key = VLStateManager.hash(_name);
+            VScriptState btn = (VScriptState)m_hashStateButtons[key];
+            if (btn == null)
+                return "";
+
+            StateCopy stateCpy = stateCopyGet(btn);
+            string ret = JsonConvert.SerializeObject(stateCpy);
+            return ret;
+        }
+
+        public bool stateCopySet(string _update)
+        {
+            StateCopy stateCpy = JsonConvert.DeserializeObject<StateCopy>(_update);
+            int key = VLStateManager.hash(stateCpy.name);
+            VScriptState btn = (VScriptState)m_hashStateButtons[key];
+            if (btn == null)
+                return false;
+
+            if (stateCpy.pos != null)
+            {
+                Vector3 pos = new Vector3(stateCpy.pos[0], stateCpy.pos[1], 0);
+                btn.go.transform.localPosition = pos;
+                m_dstMainPos.set_int(key, m_nIntIndex, stateCpy.pos);
+            }
+
+            if (stateCpy.links != null)
+            {
+                int[] orgLinks = { 0 };
+                if (m_dstMain.get_int(key, m_index_link, ref orgLinks))
+                {
+                    foreach (var orgLink in orgLinks)
+                    {
+                        m_dstLink.release(orgLink);
+                    }
+                }
+                m_dstMain.release_rows(key);
+
+                List<int> editLink = new List<int>();
+                foreach(var link in stateCpy.links)
+                {
+                    int nextKey = VLStateManager.hash(link.name);
+                    int keyNew = m_dstLink.create_key_link("VScriptShare");
+                    int[] keys = new int[1] {keyNew};
+                    m_dstLink.set_int(keyNew, 0, keys);
+                    editLink.Add(keyNew);
+
+                    for (int j = 0; j < link.columns.Count; j++)
+                    {
+                        int index_n = link.indexs[j];
+                        if (index_n == 0)
+                            continue;
+                        string text = link.columns[j];
+                        m_dstLink.editor_string_add(keyNew, index_n, text);
+                    }
+                }
+
+                if (editLink.Count > 0)
+                {
+                    int[] links = new int[editLink.Count];
+                    for (int i = 0; i < editLink.Count; i++)
+                        links[i] = editLink[i];
+                    m_dstMain.set_int(key, m_index_link, links);
+                }    
+            }
+            
+            return true;
+        }
+
+        public StateCopy stateCopyGet(VScriptState vsState)
+        {
+            StateCopy stateCopy = new StateCopy();
+            Vector3 pos_v3 = vsState.go.transform.localPosition;
+
+            stateCopy.name = vsState.name;
+            stateCopy.pos[0] = (int)pos_v3.x;
+            stateCopy.pos[1] = (int)pos_v3.y;
+            stateCopy.links = new List<LinkCopy>();
+
+            foreach (GameObject leaf in vsState.sub_goa)
+            {
+                VScriptLink link = leaf.GetComponent<VScriptLink>();
+                int count_n = m_dstLink.get_count_column(link.m_key);
+                LinkCopy linkCopy = new LinkCopy();
+                linkCopy.indexs = new List<int>();
+                linkCopy.columns = new List<string>();
+                m_dstLink.get_string(link.m_key, 1, ref linkCopy.name);
+                    
+                int i = 0;
+                string text = "";
+                for (; i < count_n; i++)
+                {
+                    int index_n = m_dstLink.get_index(link.m_key, i);
+                    text = m_dstLink.editor_string_get(link.m_key, i);
+
+                    linkCopy.indexs.Add(index_n);
+                    linkCopy.columns.Add(text);
+                }
+                stateCopy.links.Add(linkCopy);
+            }
+            return stateCopy;
+        }
         public bool stateActivesSave(string _filename)
         {
             if (m_state_active_a.Count == 0)
@@ -564,35 +668,7 @@ namespace StateSystem
             int[] anPos = {0, 0};
             m_state_active_a.ForEach(vsState =>
             {
-                StateCopy stateCopy = new StateCopy();
-                Vector3 pos_v3 = vsState.go.transform.localPosition;
-
-                stateCopy.name = vsState.name;
-                stateCopy.pos[0] = (int)pos_v3.x;
-                stateCopy.pos[1] = (int)pos_v3.y;
-                stateCopy.links = new List<LinkCopy>();
-
-                foreach (GameObject leaf in vsState.sub_goa)
-                {
-                    VScriptLink link = leaf.GetComponent<VScriptLink>();
-                    int count_n = m_dstLink.get_count_column(link.m_key);
-                    LinkCopy linkCopy = new LinkCopy();
-                    linkCopy.indexs = new List<int>();
-                    linkCopy.columns = new List<string>();
-                    m_dstLink.get_string(link.m_key, 1, ref linkCopy.name);
-                    
-                    int i = 0;
-                    string text = "";
-                    for (; i < count_n; i++)
-                    {
-                        int index_n = m_dstLink.get_index(link.m_key, i);
-                        text = m_dstLink.editor_string_get(link.m_key, i);
-
-                        linkCopy.indexs.Add(index_n);
-                        linkCopy.columns.Add(text);
-                    }
-                    stateCopy.links.Add(linkCopy);
-                }
+                StateCopy stateCopy = stateCopyGet(vsState);
 
                 states.Add(stateCopy);
             });
