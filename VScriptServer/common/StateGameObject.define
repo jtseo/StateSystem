@@ -1,0 +1,21 @@
+Assets/VLogger/scripts/Component/StateGameObject.cs	EnumStateEvent	EnumVariableDefine
+L_SS_LC	ActiveSet_nF	INT32		Show(1) or hide(0) 
+L_SS_LC	UIPanelChange_strF	STRING		Hide current & Show pannel
+L_SS_LC	AnimationOut_fF	FLOAT		Animation Out
+L_SS_LC	AnimationIn_fF	FLOAT		Animation In
+L_SS_LC	AnimationBack_fF	FLOAT		Animation In
+L_SS_LC	ImageUpdate_varF	INT32	EnumVariableDefine	Update RawImage with fallow image
+L_SS_LC	PictureLoad_varF	INT32	EnumVariableDefine	load on RawImage
+L_SS_LC	AnimationXFromTo_anF	ARRAY_INT32		from, to(960, 960*3)
+L_SS_LC	TextureReset_nF	INT32		comment
+L_SS_LC	DropdownSet_strF	STRING		set dropdown id
+L_SS_LC	InputTextSet_strF	STRING		set input value
+L_SS_LC	ToggleSet_strF	STRING		convert toggle
+L_SS_LC	ImageResize_varF	INT32	EnumVariableDefine	RawImage Resizing find in child & rate
+L_SS_LC	TextUpdate_strF	STRING		update text in child
+L_SS_LC	ImageAniFrameSet_varF	INT32	EnumVariableDefine	play animation
+L_SS_LC	ImageAniRelease_nF	INT32	EnumVariableDefine	release resource
+L_SS_LC	ObjectActiveSet_nF	INT32		show hide child object
+L_SS_LC	ImageAniFrameLoad_varF	INT32	EnumVariableDefine	load animation frame numbers
+L_LA	ImageAniFrameDrawable_nIf	INT32		check current key is enable to draw
+L_SS_LC	PictureStreamLoad_varF	INT32	EnumVariableDefine	load a stream frame from file with Pannel name
