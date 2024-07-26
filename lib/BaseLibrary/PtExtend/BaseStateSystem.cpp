@@ -173,9 +173,9 @@ int BaseStateSystem::KeyboardNumOn_nF()
 int BaseStateSystem::ListFilter_strF()
 {
 	const char *filter = (const char*)m_param_value;
-	
+	const char* list_str = (const char*)paramFallowGet(0);
 	STLVString list;
-	BaseFile::paser_list_seperate(filter, &list, ",");
+	BaseFile::paser_list_seperate(list_str, &list, ",");
 	
 	typedef enum{
 		editor,
@@ -194,9 +194,6 @@ int BaseStateSystem::ListFilter_strF()
 		switch(type)
 		{
 			case editor:
-				if(strstr(list[i].c_str(), ".data") != NULL
-				   && strstr(list[i].c_str(), "Pos.data") == NULL)
-					remove = true;
 				break;
 			case distributor:
 				if(strstr(list[i].c_str(), ".ini") != NULL)
