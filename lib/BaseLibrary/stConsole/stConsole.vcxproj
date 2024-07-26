@@ -391,9 +391,6 @@
     <ClInclude Include="StateManagerPnID.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Eos\Eos.vcxproj">
-      <Project>{0adc4bfc-7797-4d71-948d-d05308434a4c}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\PtBase\PtBase.vcxproj">
       <Project>{9c4c682a-81bc-4937-9501-11e6d1953897}</Project>
     </ProjectReference>
