@@ -1,0 +1,642 @@
+NumOfDefine
+Size of Flag	0
+NumOfDataFile
+L	nKey	INT32	
+L	strName	STRING	
+L	arrayLink	ARRAY_INT32		Critical State Value
+L	state_change	INT32		Critical State Value
+L	nTimeToProcess	INT32		Important State Value
+L	BaseTransitionGoal	INT32		Critical State Internal Value
+L	BaseTransitionGoalSpaceID	INT32		Critical State Internal Value
+L	BaseTransitionGoalIdentifier	ARRAY_INT32		BaseTransitionGoalIdentifier
+L	BaseTransitionGoalpState	INT64		Critical State Internal Value
+L	BaseTransitionGoalMain	INT32	EnumMains	Critical State Internal Value
+L	BaseTransitionThread	INT32		Create thread with Add & GoalMain
+L	BaseTransitionThreadCaster	INT32		BaseEventThreadReturn_nF	will return to this
+L_SS_LC	BaseEventThreadReturn_nF	INT32	EnumStateEvent	return to thread caster
+L	BaseTransitionNextIdentifier	ARRAY_INT32		Critical State Internal Value
+L	BaseTransitionCasterKey	INT32		Critical State Internal Value
+T	BaseValueTimeStart	INT32	
+T	BaseValueIdentify	INT32	
+L	BaseEventTargetStateSerial	INT32		specifiy for event receiver by state serial
+L	RevStateEventCaster	INT32		specify for event caster(state-serial)
+L	RevNetStateEventCaster	INT32		specify for net event caster(state-serial)
+L	BaseVariableFilename_strV	STRING		filename for variable save
+L_LA	BaseFuncAddInverse_nIf	INT32		fallow LA function applied inverse rule(opposite bool)
+L_LA	BaseTimeInAdditionCheck_nIf	INT32		if event is actived in time.(it's not counted in suspended).
+L_LA	BaseTimeOutAdditionCheck_nIf	INT32		if event is actived after the time.(it's not counted in suspended)
+L_SU	BaseTimeOut_nREU	INT32		Hit true every specific time(Good Performance process)
+L_SU	BaseTimeOut_varUIf	INT32	EnumVariableDefine	Hit true every specific variable time(Good Performance process)
+L_SU	BaseSleep_nF	INT32		sleep miliseconde
+L_LA	AllUIClose_strF	STRING		close all PopupUI
+L_LA	BaseDateDayIn_anF	ARRAY_INT32		current in week day(Start sunday 0~6)
+L_LA	BaseDateDayOut_anF	ARRAY_INT32		current out week day(Start sunday 0~6)
+L_LA	BaseDateIn_strF	STRING		today in days
+L_LA	BaseDateOut_strF	STRING		today out of days
+L_LA	BaseDateTimeIn_strF	STRING		current is in time
+L_LA	BaseDateTimeOut_strF	STRING		current is not in time
+L_SE_LS	BaseDateTimeEvent_strRE	STRING		called when time is at this.("?" is replaceable to current time ex: ?/?/3 10:00:00=> every month 3th)
+L	BaseEventCastType_nSE	INT32	EnumEventCast	Event Cast Method
+L_SS_LC	BaseIdentifyNextSetEventVariable_strF	STRING		set next identifyer by Event value
+L	BaseExclusiveLink	INT32		don't check fallowing links
+L	BaseExclusiveState	BYTE		if TRUE, don't allow another same state
+L_SS_LC	BaseExclusiveEvent	INT32		All other active state can't get this event anymore.
+L_LS	BaseFalse_nIf	INT32		make unavaliable link (useualy used by debug state or disable teamplary)
+L	BaseIPFilterIP_strV	STRING	
+L_LA	BaseIPFilterIn_strF	STRING		is exist in filter
+L_LA	BaseIPFilterOut_strF	STRING		is not exist in filter
+L_SS_LC	BaseIdentifierNextAutoSet_nF	INT32	EnumGroupID	set next identifier by auto generator
+L_SS_LC	BaseVariableIdentifierAdd_nF	INT32	EnumGroupID	add identifier by BaseVariableRefer_anV
+L_LA	BaseIdentifierCheckExist_nIf	INT32	EnumGroupID	Check id is exist bellow event variable
+L_SS_LC	BaseIdentifierSetByEventVariable_nF	INT32	EnumGroupID	Set identifier from event variable
+L_SS_LC	BaseIdentifierNextSetByEventVariable_nF	INT32	EnumGroupID	Set next identifier from event variable
+T	BaseIdentifierBefor_n	INT32	
+T	BaseIdentifierChilds_an	INT32	
+T	BaseIdentifierParent_n	ARRAY_INT32	
+L_SE	BaseKeyPush_nRE	INT32	EnumEventKey	check key push
+L_LA	BaseKeyPushed_nIf	INT32	EnumEventKey	check key holded push
+L_SU	BaseKeyPushed_nUIf	INT32	EnumEventKey	check key holded push
+L_SE	BaseKeyRelease_nRE	INT32	EnumEventKey
+L_LA	BaseKeyReleased_nIf	INT32	EnumEventKey
+L	nScanCode	INT32		keyboard scan keyboard
+L	nScanCode2	INT32		keyboard scan 2 board
+L	BaseLinkDelay_nF	INT32		delay to process this link
+L	BaseLinkInverse	INT32		// process by inverse of condition result
+L	BaseLinkOneTime_b	BYTE		Also use to block multi call by resume
+L	BaseLinkPriority_n	INT32		link priority upper value got more priority.
+L	BaseLinkType	INT32	EnumEvent	Link Type
+L_LA	BaseRandom_fIf	FLOAT		If random is true by percent(100.00 => 100%)
+L_SR	BaseResume_nF	INT32		when resume
+L_SD	BaseEnd_nIf	INT32		when end of state
+L_SP	BaseSuspend_nIf	INT32		when suspend of state
+L	BaseResumeFrom_nV	INT32	@CurrentState	Previous State name.
+L	BaseResumeFromNot_nV	INT32	@CurrentState	Previous State should not this name.
+L_LA	BasePreviousStateCheck_nIf	INT32	@CurrentState	Check Previous State
+L	BaseSetAutoReturnState_nF	INT32		as 1, auto return
+L	BaseSetAutoReturnAfterDoResume	INT32		auto return after do resume
+L_LS	BaseStart_nIf	INT32		Resume also call this
+L_LA	BaseStateActiveCheck_astrIf	STRING	@CurrentState	check state active in same id group
+L_LA	BaseStateActiveCheckGlobal_astrIf	STRING	@CurrentState	check state active in global group
+L_SS_LC	BaseStateGradeCloseDN_nF	INT32		Destory all of state what greaded bellow than
+L	BaseStateGradeSet_n	INT32		Set State Grade, then control
+L_SS_LC	BaseStateIdentify_nSE	INT32	EnumStateEvent	event cast with identify
+L_LA	BaseStateInactiveCheck_astrIf	STRING		All of state should inactive in same group.
+L_LA	BaseStateInactiveCheckGlobal_astrIf	STRING	@CurrentState	All of state should inactive for global.
+L	BasePos_anV	ARRAY_INT32		transit for positions
+L	BaseStateReturnSetState_nV	INT32	EnumStateEvent	return int value
+L_SS_LC	BaseStateReturnSet_nF	INT32	EnumReturnValue	set return value
+L	BaseStateReturnSet_nV	INT32		return int value
+L_SS_LC	BaseStateReturn_nF	INT32	
+L_SS_LC	BaseIdentifyNextSet_nF	INT32		set identify for next state
+L_SE	BaseStateEventGlobalUnprocess	INT32	EnumStateEvent	in case of unprocessed event
+L_SE	BaseStateEventGlobal	INT32	EnumStateEvent	State Event Processer(It make self a identifier)
+L_LA	BaseStateEventGlobalVariableGot_nIf	INT32	EnumVariableDefine	check event has variable
+L_SS_LC	BaseStateEventGlobalCast_nF	INT32	EnumStateEvent	Cast StateEvent
+L	BaseStateEventCastPriority_nV	INT32		event priority
+L_SS_LC	BaseStateEventPostpond_nF	INT32		postpond event until next update to update screen.
+L_SS_LC	BaseStateEventCastWithIdentifier_nF	INT32	EnumStateEvent	cast event. if id doesn't specified, all state id will be inclueded.
+L	BaseStateEventCastWidthIdGroup_anV	ARRAY_INT32	EnumGroupID	specify id group for BaseStateEventCastWithIdentifier_nF
+L_SS_LC	BaseStateEventGlobalSetIdentifier_nF	INT32	EnumGroupID	set receiver's identifier by BaseVariableRefer_anV(Event)
+L_SS_LC	BaseStateEventGlobalReturn_nF	INT32	EnumStateEvent	Return State Event to caster what adding current state.
+L_LA	BaseStateCurrentCheckIsnt_anF	ARRAY_INT32	@CurrentState	if parent or current state isn't in list.
+L_LA	BaseStateCurrentCheckIs_anF	ARRAY_INT32	@CurrentState	if parent or current state is in list.
+L_SS_LC	BaseStateActiveCount_nF	INT32	@CurrentState	Count Active State and set variable(param)
+L	BaseStateActiveCountGroupId_nV	INT32	EnumGroupID	specify group id
+L	BaseVariableDefine_nV	INT32		4: int 8: string use for EnumVariableDefine
+L	Comment	STRING		Comment
+L_SS_LC	EmailCheckCharge_nF	INT32		Check Charge mail and translte to DB
+T	EmailSendConnectionID_nC	INT32	
+L_SS_LC	EmailSendContext_strF	STRING		send email
+T	EmailSendHtml_strC	STRING	
+T	EmailSendID_strC	STRING	
+T	EmailSendIP_strC	STRING	
+T	EmailSendPassword_strC	STRING	
+T	EmailSendAttach_strC	STRING	
+L_SS_LC	EmailSendByVariable_nF	INT32	EnumVariableType	send email from variable
+L_SS_LC	EmailSendReportCCU_strF	STRING		sendmail about ccu to
+T	EmailSendSubject_strC	STRING	
+L_SE	EmailSend_IDSE	STRING		Send request to send mail for EmailServer
+L	Index_n	INT32	
+L_LA	IsAllUIClosed_strIf	STRING	
+L_LS	IsExistContext	INT32	EnumUI	Context exist?
+L_LS	IsUIClosed_nIf	INT32	EnumUI	Popup UI is closed?
+L_SS_LC	PacketEmailFail_nSE	INT32		Send to client
+L_SS_LC	PacketEmailSuccess_nSE	INT32		Send to client
+L	PacketSendServerStateParam_strV	STRING		include paramater
+L_SS_LC	PacketSendServerState_nF	INT32	EnumStateEvent	send packet to server
+L_SS_LC	PacketSendUserStatus_nF	INT32	EnumUserPropertyCode	send user status
+L_LA	SocketConnectCheck_nF	INT32		if connected
+L_LA	SocketDisconnectCheck_nF	INT32		if Disconnect
+L_SE	SocketEmailReqCheckCash_strRE	STRING	sending request to check charge mail for the server
+L_SS_LC	SocketEmailReqCheckCash_strSE	STRING	sending request to check charge mail for the server
+L	SocketEmailSendID_strV	STRING	
+L	SocketEmailSendIP_strV	STRING	
+L	SocketEmailSendSubject_strV	STRING	
+L	SocketEmailSendTextHTMLFile_strV	STRING	
+L_SE	SocketEmailSend_strRE	STRING		receiving event for email request
+L_SS_LC	SocketEmailSend_strSE	STRING	sending event email for the server
+L	SocketServerConnectPort_nV	INT32	
+L_SS_LC	SocketServerConnect_strF	STRING	
+L	SocketServerCreatePort_nV	INT32	
+L_SS_LC	SocketServerCreate_strF	STRING	
+T	SocketServerInfoCCU_nC	INT32		End for email server ------------------------------
+L	SocketServerName_strC	STRING	
+L_SE	SocketServerOpen_nRE	INT32	
+L_SS_LC	SocketServerRelease_strF	STRING	
+L_SE	SocketState_nRE	INT32	EnumStateEvent	start for email server ===============================
+L_SS_LC	SocketState_nSE	INT32	EnumStateEvent	sending state event for socket
+L_SS_LC	BaseNetListenerStart_strF	STRING		open listener(host, port, indexstart)
+L_SS_LC	BaseNetConnect_strF	STRING		connect to server(host, port)
+L_SS_LC	BaseNetListenerRelease_strF	STRING		open listener(host, port, indexstart)
+L_SS_LC	BaseNetConnectRelease_strF	STRING		connect to server(host, port)
+L_SS_LC	BaseNetEventSend_nF	INT32	EnumStateEvent	send event to connected socket
+L_SS_LC	BaseNetEventReturn_nF	INT32	EnumStateEvent	return net event what sent by BaseNetEventSend_nF
+L_SS_LC	BaseNetEventBroadCast_nF	INT32	EnumStateEvent	broadcast to connected all of clients
+L_SS_LC	BaseNetSocketClose_nF	INT32		Close socket
+L_SS_LC	BaseNetSocketChange_nF	INT32	EnumVariableDefine	change socket by event variable
+L_SS_LC	BaseNetSocketRemake_nF	INT32		reconnect server by new socket.
+L_LA	BaseNetFileOpen_nIf	INT32	EnumParams	open a file by NetFilename
+L_SS_LC	BaseNetFileClose_nF	INT32		close file what opened by BaseNetFileOpen_nF
+L_SS_LC	BaseNetFileSend_nF	INT32		push in event specific byte of file contents
+L_SS_LC	BaseNetFileReceive_nF	INT32		read from event of file contents and save
+L	BaseBinary_abV	ARRAY_BYTE		binary data
+L	SystemMsgFlag_n	INT32		system message flag
+L_SS_LC	SystemReboot_nF	INT32		Request to reboot and shutdown
+L_SS_LC	BaseStateActiveShowAll_nF	INT32		Send all of active state to StateMessageViewer
+L_SS_LC	BaseStateCastToEventValue_strF	STRING		cast to EventValue ID by bellow Event
+L	BaseStateCastToEventValue_nV	INT32	EnumStateEvent
+L_SS_LC	BasePrintString_strF	STRING		print string by printf
+L_SS_LC	BaseMessagebox_strF	STRING		popup message box
+L_SS_LC	BaseVariableMoveGroup_anF	ARRAY_INT32	EnumVariableType	set value(receiver, sender)
+L_SS_LC	BaseVariableSet_anF	ARRAY_INT32	EnumVariableType	set value(receiver, sender[option])
+L_SS_LC	BaseVariableSetFormat_astrF	STRING	EnumVariableDefine	make string by format(variable, format)
+L_LA	BaseVariableSet_anF_Add	ARRAY_INT32	EnumVariableType	set value(receiver, sender[option])
+L_SS_LC	BaseVariableSetPassword_anF	ARRAY_INT32	EnumVariableType	set value(receiver, sender[option])
+L_SS_LC	BaseVariableStringUpdate_anF	ARRAY_INT32	EnumVariableType	update spcified str by from string variable
+L_SS_LC	BaseVariableSetHash_anF	ARRAY_INT32	EnumVariableType	set hash value from string variable
+L_SS_LC	BaseVariableAdd_anF	ARRAY_INT32	EnumVariableType	add value
+L_SS_LC	BaseVariableSub_anF	ARRAY_INT32	EnumVariableType	sub value
+L_SS_LC	BaseVariableStack_anF	ARRAY_INT32	EnumVariableType	stack value on array value
+L_SS_LC	BaseVariableMulti_anF	ARRAY_INT32	EnumVariableType	multi value
+L_SS_LC	BaseVariableSetByIdentifier_nF	INT32	EnumGroupID	Set event variable(BaseVariableRefer_anV) by identifier
+L_LA	BaseVariableIs_anIf	ARRAY_INT32	EnumVariableType	check variables are
+L_LA	BaseVariableEqual_anF	ARRAY_INT32	EnumVariableType	check equal value
+L_LA	BaseVariableEqualLeft_anF	ARRAY_INT32	EnumVariableType	check equal left by length of R value
+L_LA	BaseVariableBigger_anF	ARRAY_INT32	EnumVariableType	check bigger value
+L_LA	BaseVariableEqSmaller_anF	ARRAY_INT32	EnumVariableType	check smaller value
+L_LA	BaseVariableEqBigger_anF	ARRAY_INT32	EnumVariableType	check bigger value
+L_LA	BaseVariableSmaller_anF	ARRAY_INT32	EnumVariableType	check smaller value
+L_LA	BaseVariableFileExist_anIf	ARRAY_INT32	EnumVariableType	check file exist
+L_SS_LC	BaseVariableFileSizeGet_anF	ARRAY_INT32	EnumVariableType	get file size and set on variable
+L_SS_LC	BaseVariableFileRename_anF	ARRAY_INT32	EnumVariableType	rename file
+L_SS_LC	BaseVariableFileDelete_anF	ARRAY_INT32	EnumVariableType	delete file
+L_SS_LC	BaseVariableDirectoryGet_varF	INT32	EnumVariableDefine	get dir list on fallow path & group(*.*)
+L_SS_LC	BaseFile2PathCopy_avarF	ARRAY_INT32	EnumVariableDefine	copy file(fullpath) to path(same filename)
+L_SS_LC	BaseVariableFolderRename_anF	ARRAY_INT32	EnumVariableType	rename folder
+L_SS_LC	BaseVariableFileCopy_anF	ARRAY_INT32	EnumVariableType	copy file
+L_SS_LC	BaseVariableFileLoad_astrF	STRING	EnumVariableDefine	load file and set on variable
+L_SS_LC	BaseVariableFileSave_astrF	STRING	EnumVariableDefine	save file from variable
+L_SS_LC	BaseVariableFolderDelete_anF	ARRAY_INT32	EnumVariableType	delete foler
+L_SS_LC	BaseVariableFolderCreate_anF	ARRAY_INT32	EnumVariableType	create folder
+L_SS_LC	BaseVariableFolderCurChange_anF	ARRAY_INT32	EnumVariableType	change folder
+L_SS_LC	BaseVariableFolderCurGet_anF	ARRAY_INT32	EnumVariableType	set current folder on the variable
+L_SS_LC	BaseFilepathNameCut_varIf	INT32	EnumVariableDefine	cut only filename and ext
+L_SS_LC	BaseFilepathPathCut_varIf	INT32	EnumVariableDefine	cut only path
+L_SS_LC	BaseFilepathPathExtCut_varIf	INT32	EnumVariableDefine	cut path & ext
+L	BaseVariableReferType_nV	INT32	EnumVariableType	define for variable type of bellows reference
+L	BaseVariableRefer_anV	ARRAY_INT32	EnumVariableDefine	refer value(name value)
+L	BaseVariableRefer_strV	STRING	EnumVariableDefine	refer string value
+L	BaseVariableString_strV	STRING		string to (string variable) the variable should defined before
+L	BaseVariableConst_nV	INT32		const value
+L	BaseVariableConst_strV	STRING		const string
+L	BaseVariableConst_fV	FLOAT		const float
+L	BaseVariableToVariable_anV	ARRAY_INT32	EnumVariableDefine	refer value(variable[receiver], variable[sender])
+L	BaseVariableToStructure_anV	INT32	EnumStructure	copy structure
+L	BaseVariableToStructure_varV	INT32	EnumVariableDefine	copy structure define from code
+L	BaseVariableRefRemove_nV	ARRAY_INT32	EnumVariableDefine	Remove variable etc:RevGroupEnd
+L	BaseVariableBreak_strV	STRING		Breakpoint for debug
+L	BaseDebugHideLog	INT32		hide log
+L_LS	BaseBreakStart_strF	STRING		debug point
+L_LA	BaseBreakAppend_strF	STRING		debug point
+L_SS_LC	BaseBreakComplete_strF	STRING		debug point
+L_LS	BaseBreakEventCast_strF	STRING		debug point
+L_LS	BaseBreakEventBeforPropogate_strF	STRING		debug point
+L_LS	BaseBreakEventTrue_strF	STRING		debug point
+L_SS_LC	BaseVariableSetString_nF	INT32	EnumVariableDefine	set State Variable by VariableMakeString
+L_SS_LC	BaseConsolHoldEnter_strF	STRING		request input with message
+L_SS_LC	BaseConsolCmdRun_strvF	STRING		run cmd command with Variable
+L_SS_LC	BaseConsolCmdShell_nF	INT32		1: show, 1st:opr(open), 2nd:app, 3td:param1, 4th:parm2
+L	BaseValueTargetEnum	INT32	@MainState	target enum Value.
+L_SS_LC	UxCosmosMake_anF	ARRAY_INT32	EnumUXID	Create Cosmos Menu
+L_SS_LC	UxCosmosIconMake_anF	ARRAY_INT32	EnumUXID	Create Cosmos Icon Menu
+L	UxCosmosMakeIconRoot_strV	STRING		icon root
+L	UxCosmosMakeIconLocalPath_strV	STRING		icon pasth from IconRootPath
+L_SS_LC	UxCosmosMakeDir_strF	STRING	EnumVariableDefine	create cosmos menu by dir path
+L_SS_LC	UxCosmosMakeFolder_nF	INT32		create cosmos menu by folder
+L_SS_LC	UxCosmosMakeDirMore_strF	STRING		create cosmos menu by dir path
+L	UxCosmosMakeParentComponent_strV	STRING		Name of parent component
+L_LA	UxCosmosInFile_nIf	INT32	EnumVariableDefine	in file
+L_LA	UxCosmosInFolder_nIf	INT32		in folder
+L_LA	UxCosmosInMore_nIf	INT32		in more
+L_SS_LC	UxInputFilename_strF	STRING		input filename
+L_SS_LC	UxCosmosAppend_anF	ARRAY_INT32	EnumUXID	append cosmos menu
+L_SS_LC	UxCosmosClose_nF	INT32		Close cosmos menu
+L_LA	UxCosmosCheckIn_nF	INT32	EnumUXID	Check point in it or not
+L_LA	UxPointInCheck_nIf	INT32	EnumUXID
+L_LA	UxPointInCheck_strIf	STRING		check cosmos menu
+L_LA	UxPointInCheckConst_nIf	INT32	EnumUXID	only check object without change context
+L_LA	UxPointInCheckCollide_nIf	INT32	EnumUXID
+L_SS_LC	UxPointInCheckCollideRecordBefor_nF	INT32		Record befor id for double push check.
+L_LA	UxPointInCheckCollideDouble_nIf	INT32		is dual select?
+L_SS_LC	UxPointInCheckPos_nF	INT32		Only record collide position.
+L_LA	UxPointCountPush_nIf	INT32		If count is x
+L_LA	UxPointCountPushNot_nIf	INT32		If count is not x
+L_LA	UxPointCheckConnection_nIf	INT32		Is it continue input from start
+L_LA	UxPointRecodeStart_nF	INT32		Record start position(Ref. ~CheckConnection)
+L_LA	UxPointSetCancelTime_nF	INT32		Set last gap time for error input at the last moment.
+L_SS_LC	UxCommandUndo_nF	INT32		Undo command
+L_SS_LC	UxCommandRedo_nF	INT32		Redo command
+L_SS_LC	UxCommandCancel_nF	INT32		Cancel last command
+L_SS_LC	UxCommandPushCutter_nF	INT32		Add cutter in DoStack
+L_SS_LC	UxCommandCuttorLastRemove_nF	INT32		Remove last cuttor(it's for merge stack)
+L_SS_LC	F3DBoardBallCreate_nF	INT32		Creating Ball at Point
+L_SS_LC	F3DBoardBallMove_nF	INT32		Moving Ball at Point
+L_SS_LC	F3DBoardBallCtrAdd_nF	INT32		adding control poi
+L_SS_LC	F3DBoardCtrRemove_nF	INT32		remove ctr point
+L_LA	F3DBoardBallExist_nIf	INT32		Checking for ball existence. 1: exist, 0:none
+L_SS_LC	F3DBoardBallTypeSet_nF	INT32		Set ball type(0: driball, 1: Rolling, 2: Flying 3: Heading)
+L_SS_LC	F3DBoardPlayerHomeCreate_nF	INT32		Creating Home player
+L_SS_LC	F3DBoardPlayerAwayCreate_nF	INT32		Create Away Player
+L_SS_LC	F3DBoardPlayerCtrAdd_nF	INT32		Adding player control point at point(1: Cur, 2: Near)
+L_SS_LC	F3DBoardPlayerCtrInsert_nF	INT32		Insert ctr point next of current step
+L_SS_LC	F3DBoardPlayerMove_nF	INT32	Moving Player at Point
+L_SS_LC	F3DBoardPlayerHighlightToggle_nF	INT32		Toggle highlight players current frame
+L_SS_LC	F3DBoardPlayerShowInfoToggle_nF	INT32		Toggle player info(Name and Comment) also trajectory
+L_LA	F3DBoardPlayerCurrentExistCheck_nIf	INT32		Check player is in current frame(1 true, 0 not)
+L_SS_LC	F3DBoardCtrCurrentSet_nF	INT32		Set Current Control to insert
+L_SS_LC	UxCameraNavigation_nF	INT32		Navigation camera(zoom and move)
+L_SS_LC	UxCameraNavigationStart_nF	INT32		Navigation start(zoom and move)
+L_SS_LC	UxCameraCollideDisable_nF	INT32		Disable collide object process.
+L_LA	UxButtonInPos_strIf	STRING		check mouse is in the name of button
+L_LA	UxButtonsInPos_strIf	STRING		check mouse is in the name of button
+L	UxButtonsCollision_Camera_strV	STRING		specify parent canvas
+L_LA	UxButtonsCollision_strIf	STRING		check mouse collision on a Button
+L_SS_LC	UxButtonBeforRecord_nF	INT32		record before mouse pos
+L_SS_LC	UxButtonJogCheck_nF	INT32		check jog button and cast event
+L_LA	UxSystemCheckIsMobile_nIf	INT32		Check current system is mobile.
+L_SS_LC	UxCamera2DFull_fF	FLOAT		make full scene for players
+L_SS_LC	UxCamera3DFull_fF	FLOAT		make full scene for players
+L_SS_LC	UxCamera3DOn_fF	FLOAT		Active 3D Camera
+L_SS_LC	UxCamera3DOff_nF	INT32		Inactive 3D Camera
+L_SS_LC	F3DBoardFocusAdd_nF	INT32		Append on focus selected obj
+L_SS_LC	F3DBoardFocusRemove_nF	INT32		Remove on focus selected obj
+L_SS_LC	F3DBoardFocusMainSet_nF	INT32		Set main focus object
+L_SS_LC	F3DBoardFocusMainRemove_nF	INT32		Remove main focus object
+L_LA	F3DBoardFocusCount_nF	INT32		what is the count for focus object
+L_SS_LC	UxCamera3DNavigation_nF	INT32		Navigation for 3D camera
+L_SS_LC	UxCamera3DNavigationStart_nF	INT32		Starting navigation for 3D camera
+L_SU	UxCamera3DDamping_fF	FLOAT		Update 3D Camera also process damping
+L_SS_LC	F3DBoardPlayEnable_nF	INT32		1:Play 0:Stop 2:forward 3:backward
+L_SS_LC	F3DBoardStepFrontViewSet_nF	INT32		draw lines for forward times.
+L_LA	F3DBoardPlayIsPlaying_nIf	INT32		checking playing
+L_SS_LC	F3DBoardSceneUpdate_nF	INT32		update scene
+L_SS_LC	F3DBoardSceneClear_nF	INT32		clear scene
+L_SS_LC	F3DBoardStep_nF	INT32		forward or backward 1 or -1(not play)
+L_SS_LC	F3DBoardBallAttach_nF	INT32		Attach ball to the (1:cur player, 2:near player)============== Seperator for change of input method
+L_SS_LC	F3DBoardBallDetach_nF	INT32		Detach ball in the current player
+L_LA	F3DBoardLastPoint_nIf	INT32		Check current point is last point(1 Last, 0 Not)
+L_LA	F3DBoardLastFrame_nIf	INT32		current frame is last(1 Last, 0 Not)
+L_LA	F3DBoardSelectCtrLastPoint_nIf	INT32		Check selected item is last control(1 Last, 0 Not)
+L_LA	UxAppendMode_nIf	INT32		Check is append mode 1:true 0:false
+L_LA	F3DBoardPlayerBallController_nIf	INT32		Check is ball controller(1 True, 0 Not)
+L_LA	F3DBoardBallNoController_nIf	INT32		Check is not got contorller(1 True, 0 Not)
+L_LA	F3DBoardPlayerNearBall_fIf	FLOAT		Check ball is in range
+L_LA	F3DBoardBallNearPlayer_fIf	FLOAT		Check player is in range
+L_SS_LC	UxMouseCastPointMove_nF	INT32		Cast UxPointMove Event
+L_SS_LC	UxMouseCastPointPush_nF	INT32		Cast UxPointPush Event
+L_SS_LC	UxMouseCastPointRelease_nF	INT32		Cast UxPointRelease Event
+L_LA	UxMouseCountButton_nIf	INT32		Check to got pushed button(1: got, 0: none)
+L_LA	UxMouseMoveDistanceGE_nIf	INT32		if current mouse moving length rate is grater then or equal
+L_LA	F3DBoardCheckCtrCurrentExist_nIf	INT32		check selected ctr has ctr in current step.
+L_LA	F3DBoardCurStepCtrNumEqSmaller_nIf	INT32		check current step's number of controls are small or equal.
+L_SS_LC	F3DBoardSetCurTimestepFromSelect_nF	INT32		set current timestep from selected time step.
+L_LA	F3DBoardCheckTimestepEqualSelect_nIf	INT32		check current step equal selected step
+L_SS_LC	F3DBoardSetSelectTimestepFromCurrent_nF	INT32		set selected time step from current time step
+L_SS_LC	F3DBoardDrawNearCircle_nF	INT32		draw near circle(1:draw 0:don't draw)
+L_SS_LC	F3DBoardChangeSelectBallToPlayer_nF	INT32		change selected ball to player
+L_LA	F3DBoardCheckCtrCurrentNearExist_nIf	INT32		check near player hat ctr in current step
+L_LA	F3DBoardStepCtrExist_nIf	INT32		if any of ctr in current step is exist ( 1: true, 0: false)
+L_SS_LC	F3DBoardFileLoad_nF	INT32	EnumVariableDefine	Load file
+L_SS_LC	F3DBoardFileSave_nF	INT32	EnumVariableDefine	Save file
+L_SS_LC	F3DBoardFileDelete_nF	INT32	EnumVariableDefine	Delete file
+L_SS_LC	UxComponentEnable_strF	STRING		enable component
+L_SS_LC	UxComponentTransformUpdate_strF	STRING		ux component update size and position by fromat component(src, format)
+L_LA	UxScreenSizeSmaller_nIf	INT32		If with or height is smaller than value.
+L	UxComponentEnableMessage_strV	STRING		update component text by this with variablestring
+L_SS_LC	UxComponentSelect_strF	STRING		select component(use for input focus)
+L_SS_LC	UxComponentDisable_strF	STRING		disable component
+L_SS_LC	UxComponentToVariable_strF	STRING		component text to variable string value
+L	FileInt_anV	ARRAY_INT32		File save type
+L	FileFloat_afV	ARRAY_FLOAT		File save type
+L	FileString_strV	STRING		File save type
+L	FileBraceStart_nV	INT32		Start of Brace
+L	FileBraceEnd_nV	INT32		End of Brace
+L	FileEnd_nV	INT32		End of file
+L	BaseStateGroupId_nV	INT32	EnumGroupID	notify group id for multi identifier
+L_SS_LC	ArchiveDBTableColumnsInit_strF	STRING		query name of column and record that
+L_SS_LC	ArchiveDBTableColumnsVariableInit_nF	INT32	EnumVariableDefine	query name of column and record that
+L_SS_LC	ArchiveDBTableUserColumnsInit_strF	STRING		query name of user defined column
+L_SS_LC	ArchiveDBTableQuery_strF	STRING		query for meta table
+L_SS_LC	ArchiveDBTableQueryVariable_nF	INT32	EnumVariableDefine	query by string variable
+L	ArchiveDBTableName_strV	STRING		name of table in query
+L	ArchiveDBTableNameVariable_strV	STRING		set name from event db variable
+L_SS_LC	ArchiveDBTableCreate_nF	INT32		Create table for archive meta
+L_SS_LC	ArchvieDBTableColumnAdd_nF	INT32		Prepare table create on context
+L_SS_LC	ArchiveDBColumnAlter_nF	INT32		Alter Column
+L_SS_LC	ArchvieDBColumnAdd_nF	INT32		Add Column
+L_SS_LC	ArchiveDBColumnDel_nF	INT32		Delete column
+L_SS_LC	ArchiveDBOpen_strF	STRING		Open database(server, port, db, id, pwd) and close when end
+L_SS_LC	ArchiveDBRelease_strF	STRING		Open database(server, port, db, id, pwd) and close when end
+L	ArchiveDBResultMaxCount_nV	INT32		define max column value for query(select)
+L	ArchiveDBColumnName_strV	STRING		name of db column, order of this is important
+L_SS_LC	ArchiveDBTableSelectGroup_nF	INT32	EnumVariableType	send query by group variables
+L_SS_LC	ArchiveDBReserveTable_strF	STRING		set return database table
+L	ArchiveDBReserveTableColumn_strV	STRING		define dbcolumn_'s name
+T	SelectorSerial_nV	INT32	
+L	ParamInt	INT32	
+L	ParamInt64	INT64		64 bit param for pointer
+L_SS_LC	UxComponentCreate_strF	STRING		create component by path and set UxComponent
+L_SS_LC	UxComponentAnimatorAttach_strF	INT32		make animator and attach on UxComponent
+L_SS_LC	UxComponentAnimatorUpdate_strF	STRING	EnumVariableDefine	set animator variable on state variable
+L_SS_LC	UxComponentAnimatorUpdate_nF	INT32	EnumVariableDefine	set animator int var by state variable.
+L_SS_LC	UxComponentDestory_nF	INT32		Destory component by UxComponent
+L_SS_LC	UxComponentTextSet_nF	INT32	EnumVariableDefine	Set text on the UxComponent from event variable
+L_SS_LC	F3DBoardPrimitiveCreate_nF	INT32		0: Circle, 1:Line, 2:Text
+L_SS_LC	UxComponentTextSet_strF	STRING		input set text by follow variable
+L_SS_LC	F3DBoardPrimitiveTextSet_nF	INT32	EnumVariableDefine	Set text on the current primitive
+L_SS_LC	F3DBoardInputFieldSet_nF	INT32		input field set by current object text
+L_SS_LC	F3DBoardInputFieldSet_strF	STRING		Input field set by cur object
+L_SS_LC	UxDeviceGet_anF	INT32	EnumVariableDefine	get device id
+L_SS_LC	SnsScreenShotMake_strF	STRING		make screen shot to share, it should use next frame
+L_SS_LC	SnsFaceBookScreenshotShare_strF	STRING		share screenshot on facebook
+L_SS_LC	SnsFaceBookURLShare_strF	STRING		share screenshot on facebook
+L_LA	URLOptionVariableStrGet_nIf	INT32	EnumVariableDefine	set global variable from launching url option (scene param)
+L_LA	URLOptionVariableIntGet_nIf	INT32	EnumVariableDefine	set global variable from launching url option (scene param)
+L_SS_LC	AdmobBannerSet_nF	INT32		banner ad init ans show
+L_SS_LC	AdmobInterstitialReady_nF	INT32		init the Interstitial
+L_SS_LC	AdmobInterstitialShow_nF	INT32		show the Intersitial
+L_LA	AdmobInterstitialIsReady_nIf	INT32		check the Intersitial ready or not
+L_SS_LC	UxScrollItemClear_nF	INT32		clear all of items in scroll
+L_SS_LC	UxScrollItemUpdate_nF	INT32		update screen
+L_SS_LC	UxScrollItemAdd_strF	STRING		Add item should Got(Description and Enable)
+L	UxScrollItemAddDescription_strV	STRING		description
+L	UxScrollItemAddEnable_nV	INT32		is enable or not (1:Enable)
+L_SS_LC	F3DBoardPlayerSetBacknumber_nF	INT32	EnumVariableDefine	set backnumber by variable
+L_SS_LC	F3DBoardPlayerSetName_nF	INT32	EnumVariableDefine	set player name by variable
+L_SS_LC	URLOptionVariableReset_nF	INT32		reset URL Paramater what propagated param.
+L_SS_LC	InAppPurchaseBuy_strF	STRING		buy item in InAppStore(Play Store and App Store)
+L_SS_LC	InAppPurchaseRestoration_nF	INT32		Restor item what brought items.
+L_LA	InAppPurchaseAvailableItem_strIf	STRING		check current available items
+L_SS_LC	InAppPurchaseBuyConfirm_nF	INT32		confirm what tried to buy item.
+L_SS_LC	InAppPurchasePurchasedConfirm_nF	INT32		confirm what purchased items.
+L_SS_LC	UxOpenURL_strF	STRING		open url with VariableString
+L_SS_LC	F3DBoardNameToggle_nF	INT32		toggle name for hide and show
+L_SS_LC	F3DBoardPlayerModelSet_nF	INT32		set player model(gk or not)
+L_SS_LC	AdmobBannerHeightGet_nF	INT32	EnumVariableDefine	set state variable by ad banner height
+L_SS_LC	UxComponentPositionYSet_strF	STRING		set com y from variable with define.
+L_SS_LC	UxComponentSizeAdapt_strF	STRING		update rate of width by param target component
+L_SS_LC	UxComponentInputSetFromVariable_strF	STRING		set input field text by global variable
+L_LA	UxMouseMoveDistRateLE_fIf	FLOAT		if current mouse moving length rate is less then or equal
+L_SS_LC	UxCosmosScreenAdBound_nF	INT32		cosmosmenu show up withd admob 1, 0: none admob
+L_SS_LC	F3DBoardSceneUpdateObject_nF	INT32		frame apply on scene object.
+L_LA	UxPlatformCheck_anIf	ARRAY_INT32		1:ios, 2:andriod, 3:Mac, 4:windows
+L_SS_LC	F3DBoardFrameRemove_nF	INT32		remove frame;
+L_SS_LC	UxDoozyAddScene_nF	INT32		append scene list
+L_SS_LC	UxLanguageChange_nF	INT32		change language country code
+L_SS_LC	UxDoozyGameListThumbnailCheck_nF	INT32		check empty thumbnail and req or finish
+L_SS_LC	UxDoozyGameListThumbnailUpdate_nF	INT32		update specific thumbnail by state variable
+L_SS_LC	UxDoozyGameListRefesh_nF	INT32		As finish to get list, call this
+L_LA	F3DVariableSceneYearFolderExistNot_nIf	INT32		Check year folder for the scene
+L_SS_LC	F3DVariableSceneYearFolderCreate_nF	INT32		create folder a year for the scene
+L_SS_LC	UxSystemTerminate_nF	INT32		Terminate system
+L_SS_LC	UxDoozyViewKeyUpdate_nF	INT32	EnumVariableDefine	update view key count
+L_SS_LC	UxDoozyViewKeySceneUnlock_nF	INT32	EnumVariableDefine	unlock scene by context variable
+L_SS_LC	UxDoozyShowLoading_nF	INT32		show loading message on the gamelist
+L_SS_LC	UxDoozyGameListRemoveAll_nF	INT32		remove all of list
+L_SS_LC	UxDoozyGameListTextAdd_strF	STRING		add message on the game list
+L_LA	UxSystemCheckSystem_anIf	ARRAY_INT32		1: ios, 2: android, 3:OSX, 4:Windows
+L_SS_LC	F3DBoardPlayerTeamChange_nF	INT32		change team for all of players.
+L_SS_LC	UxDeviceInforDisplay_nF	INT32		display system info
+L_LA	UxScreenSizeBigger_nIf	INT32		compare screen size x or y is bigger
+L_SS_LC	AdmobBannerGoUp_nF	INT32		position change for the control panel(0: dn ~ 3: d up)
+L_LA	UxScreenRateBigger_nIf	INT32		screen rate big/small value 1 is 1000
+L_SS_LC	AdmobRewardVideoReady_nF	INT32		ready the video reward
+L_SS_LC	AdmobRewardVideoShow_nF	INT32		showup video
+L_LA	AdmobRewardVideoIsReady_nIf	INT32		check is ready or not
+L_SS_LC	SnsFacebookInit_nF	INT32		init facebook
+L_SS_LC	SnsFirebaseInit_nF	INT32		init firebase
+L_SS_LC	SnsFacebookLogin_nF	INT32		login facebook
+L_SS_LC	SnsEmailLogin_nF	INT32		login email
+L_SS_LC	SnsGmailLogin_nF	INT32		login gmail
+L_SS_LC	SnsFirebaseFacebookConnect_nF	INT32		firebase facebook connect account
+L_SS_LC	SnsFirebaseLogout_nF	INT32		log out
+L_SS_LC	F3DBoardSceneBriefTactics_nF	INT32		orgarnize tactics scene
+L_SS_LC	UxRecordScreen_nF	INT32		Record Screen 1:On 2:Off
+L_SS_LC	UxSystemGarbageCollection_nF	INT32		call garbage collector
+L_SS_LC	UxCamera3DModeSet_nF	INT32		0:Fix, 1: Dron, 2:Ball, 3:player, 4:AR
+L_SS_LC	UxDoozyAddButton_nF	INT32		add button on doozy list
+L_SS_LC	UxDoozyAddText_nF	INT32		add text on doozy list
+L_SS_LC	UxDoozyOpenExpendList_nF	INT32		open expend list table
+L_SS_LC	UxDoozyAddScenePopular_nF	INT32		add popular scene
+L_SS_LC	UxComponentRectAdapt_strF	STRING		2D UI adaption on target variable
+L_SS_LC	UxDoozyGameListTextUpdate_nF	INT32		update text in list with target variable
+L_SS_LC	UxCameraPlayRewind_nF	INT32		camera reset for play rewind
+L_SS_LC	UxSystemVariableGetStr_nF	INT32		0 system info
+L_SS_LC	UxSystemVariableGet_nF	INT32		0 w 1 h 2 dpi
+L_SS_LC	UxVideoSetCamera_strF	STRING		set video camera for this video component
+L_SS_LC	UxFileOpen_strF	STRING	EnumVariableDefine	open a file in Desktop version
+L_SS_LC	UxFileSave_strF	STRING	EnumVariableDefine	save a file in Desktop version
+L_SS_LC	UxIntegerArray_nV	ARRAY_INT32		set values
+L_SS_LC	VScriptCosmosMenuStates_nF	INT32		set up menu by column lists
+L_SS_LC	VScriptStateSearch_varF	INT32	EnumVariableDefine	search state
+L_SS_LC	VScriptColumnSearch_varF	INT32	EnumVariableDefine	search column
+L_SS_LC	VScriptColumnValueSearch_varF	INT32	EnumVariableDefine	search column value
+L_SS_LC	VScriptStateActiveSet_nF	INT32		set state active
+L_SS_LC	VScriptStateActiveRelease_nF	INT32		set state release
+L_SS_LC	VScriptStateActiveAllRelease_nF	INT32		set state all release
+L_SS_LC	UxComponentPositionSet_strF	STRING		set pos from State(BasePos_anv)
+L_SU	VScriptCosmosMenuUpdate_nF	INT32		update cosmos menu position
+L_SS_LC	VScriptFileBrowser_nF	INT32		open file dialog(1:Save, 2:Load)
+L_SS_LC	VScriptLoad_nF	INT32		Load VScript file
+L_SS_LC	VScriptMainLoad_nF	INT32		Load VScriptMain file
+L_SS_LC	VScriptStateMove_nF	INT32		Move StateButton by BasePos_anV
+L	VScriptStateMoveCamera_strV	STRING		set base camera
+L_SS_LC	VScriptStateUpdate_nF	INT32		Update state view
+L_SS_LC	VScriptStateSavePos_nF	INT32		Save position of state
+L_SS_LC	VScriptColumnSelectToggle_varF	INT32	EnumVariableDefine	toggle column selection
+L_SS_LC	VScriptColumnSelectClear_nF	INT32	EnumParams	clear selection
+L_SS_LC	UxCameraEnable_strF	STRING		Enable Camera
+L_SS_LC	UxCameraDisable_strF	STRING		Disable Camera
+L_SS_LC	VScriptCosmosMenu_astrF	STRING		cosmos menu open by string list
+L_SS_LC	VScriptCosmosMenu_varF	INT32	EnumVariableDefine	cosmos menu open by string list in variable
+L_SS_LC	CPSDeviceAdd_nF	INT32		add device with recorded pos and scale param 1/1000
+L_SS_LC	CPSMousePos3dRecord_nF	INT32		record 3d pos for mouse pos
+L_SS_LC	CPSDeviceMove_nF	INT32		move StateLocalObject by pram 1/1000
+L_SS_LC	CPSDeviceRemove_nF	INT32		remove StateLocalObject
+L_SS_LC	CPSDeviceAddChild_nF	INT32		add device with child position
+L_SS_LC	CPSWarehouseStack_afF	ARRAY_FLOAT		qube stack(x,y,z, w,h, gapw,gaph)
+L_LA	CPSDevicePosEqualBigger_nIf	INT32		sub pos is bigger or equal then parent pos.(+param)
+L_SS_LC	VScriptColumnEditorShow_nF	INT32		show column list on dialog
+L_LA	VScriptStateSelect_nIf	INT32		select state, selected state will set at UxViewStateContent
+L_LA	VScriptLinkSelect_nIf	INT32	EnumVariableDefine	select link, selected link will set at UxViewStateContent
+L_SS_LC	VScriptColumnShow_nF	INT32	EnumVariableDefine	update ViewColum
+L_SS_LC	VScriptStateSizeUpdate_nF	INT32		update scroll screen size for edited states
+L_SS_LC	PowPnIDHtmlLoadnCast_varF	INT32	EnumVariableDefine	load html and cast BaseSuccess or BaseFail
+L_SS_LC	PowPnIDHtmlDraw_nF	INT32		Draw drawing from event data
+L_SS_LC	PowPnIDInformationGet_nF	INT32		PnID Information get a record
+L_SS_LC	UxComponentCurToVariable_strF	STRING		set GameObject point to UxComponentCurPtr
+L_SS_LC	UxCamera2DNavigationStart_fF	FLOAT		start 2D camera navigation with sensitive
+L	CameraNaviStart_af	ARRAY_FLOAT		Navigation Camera param
+L_SS_LC	UxCamera2DNavigationUpdate_nF	INT32		update 2D camera navigation(1:move, 2:zoom)
+L_SS_LC	PowPnIDUpdateInformation_nF	INT32		update drawing information for pipe
+L_SS_LC	PowPnIDSaveTxt_nF	INT32	EnumVariableDefine	save drawing to txt
+L_SS_LC	PowPnIDSavePnIDText_nF	INT32	EnumVariableDefine	save drawing to excel information
+L_SS_LC	PowPnIDSaveCSV_nF	INT32	EnumVariableDefine	save csv file for drawing information
+L_SS_LC	PowPnIDSaveAutoDrawInfo_nF	INT32	EnumVariableDefine	save adi file for drawing information
+L_SS_LC	PowPnIDInformationReflush_nF	INT32		reload information from Library.
+L_SS_LC	PowPnIDInformationClear_nF	INT32		clear infomation line data
+L_SS_LC	PowPnIDDwgLoad_varF	INT32	EnumVariableDefine	load dwg and cast BaseSuccess or BaseFail
+L_SS_LC	PowPnIDDwgMakeCenter_bndF	ARRAY_FLOAT		move center of bound box(x, y, x max, y max)
+L_SS_LC	PowPnIDDwgColorChange_av3F	ARRAY_FLOAT		change color(from_v3, to_v3)
+L_SS_LC	PowPnIDDwgCast_varF	INT32	EnumVariableDefine	Cast PnInformationRecordLoaded_S for each Pipe & last no param
+L_SS_LC	PowPnIDManagerDwgObjectReceive_nF	INT32		receive dwg information
+L_SS_LC	PowPnIDManagerDwgCompareReceive_nF	INT32		receive compared dwg information
+L_SS_LC	UxUndo_nF	INT32		undo
+L_SS_LC	UxRedo_nF	INT32		redo
+L_SS_LC	UxUndoStackClear_nF	INT32		clear undo stack
+L_SS_LC	ClassBaseObjRegist	INT32	EnumParams	regist state class
+L_LA	UxRaycastInLayer_strIf	STRING		check laycast layer
+L_SS_LC	ArchiveQueryColumnMake_varF	INT32	EnumVariableDefine	make column list
+L_SS_LC	ArchiveQueryWhereMake_varF	INT32	EnumVariableDefine	make where clause
+L_SS_LC	ArchvieCRUDQueryReadMake_varF	INT32	EnumVariableDefine	make query for read DB on variable(State)
+L_SS_LC	ArchvieCRUDQueryLikeMake_varF	INT32	EnumVariableDefine	make query for like DB on variable(State)
+L_SS_LC	ArchvieCRUDQueryCreateMake_varF	INT32	EnumVariableDefine	make query for create DB on variable(State)
+L_SS_LC	ArchvieCRUDQueryDeleteMake_varF	INT32	EnumVariableDefine	make query for delete DB on variable(State)
+L_SS_LC	ArchvieCRUDQueryUpdateMake_varF	INT32	EnumVariableDefine	make query for update DB on variable(State)
+L_SS_LC	ArchiveCRUDQuerySend_varF	INT32	EnumVariableDefine	query to DB for CRUD
+L_SS_LC	ArchiveCRUDQueryFileSend_varF	INT32	EnumVariableDefine	query with filecontents
+L_SS_LC	ArchvieCRUDQuerySaveMake_varF	INT32	EnumVariableDefine	make query for save a column(TempInt2_nV)
+L_SS_LC	ArchiveCRUDQuerySendSave_varF	INT32	EnumVariableDefine	save to filename(TempString3_strV)
+L_SS_LC	VScriptStateAppend_varF	INT32	EnumVariableDefine	add state
+L_SS_LC	PowPnIDUnityLibraryCast_nF	INT32		hand the library to the server.
+L_SS_LC	VScriptStateDelete_nF	INT32	EnumVariableDefine	delete state
+L_SS_LC	TestclientFunc_nF	INT32		Test function
+L_SS_LC	VScriptStateLinkMake_nF	INT32	EnumVariableDefine	make link from Temp2 to Temp
+L_SS_LC	VScriptLinkDelete_nF	INT32	EnumVariableDefine	delete link what selected
+L_SS_LC	VScriptStateSystemAdd_strF	STRING		Add system link for a state
+L_SS_LC	VScriptLinkTypeSet_strF	STRING		set link type for link
+L_SS_LC	ArchiveCrudMtrTableRegist_nF	INT32	EnumVariableType	regist MTR tables on variable(support multi)
+L_SS_LC	VScriptStateSave_nF	INT32		save current statemain
+L_LA	VScriptStateMarkOn_nF	INT32		# Marker on
+L_SS_LC	VScriptStateMarkOff_nF	INT32		# Marker off
+L_SS_LC	VScriptLinkSelectOnEditor_nF	INT32	EnumVariableDefine	save selection link info for StateEditor.
+L_SS_LC	VScriptStateNameCopy_F	INT32	EnumVariableDefine	copy the string to clipboard
+L_SS_LC	ArchiveCrudMtrRequest_nF	INT32	EnumVariableType	request MTR record(send CRUDRead)
+L	BaseVariableToReferVar_varV	ARRAY_INT32	EnumVariableDefine	variable to reference of variable.
+L_SS_LC	PowPnIDSettingLayerReceive_nF	INT32		receive layersetting information
+L_SS_LC	UxObjectListPopup_varF	INT32	EnumVariableDefine	popup debug list
+L_SS_LC	UxObjectListClear_varF	INT32	EnumVariableDefine	close debug list
+L	RevGroupStart	INT32		variable group start
+L	RevGroupEnd	INT32		variable group end
+L_SS_LC	VScriptLinkMarkOn_nF	INT32		# Link Marker on
+L	BaseEventPriority_nV	INT32		This link got priority than other links of states!!!! not only current state but also other active state.
+L	VSLoggerStateKey_nV	INT32		VLogger state key
+L	VSLoggerLinkKey_nV	INT32		VLogger link key
+L_SS_LC	UxObjectMove_nF	INT32	EnumVariableDefine	move VScriptLink
+L_SS_LC	VScriptMainReload_nF	INT32		reload current state with ascii and basedefine.define
+L_LA	UxDoExist_nIf	INT32		If Do exist
+L_LA	UxDoNotExist_nIf	INT32		If Do not exist
+L_SS_LC	VScriptGroupIDAdd_varF	INT32	EnumVariableDefine	add GroupID on the GroupID Filter
+L_SS_LC	VScriptGroupTypePopup_nF	INT32	EnumParams	popup Group Type dropdown UI
+L_SS_LC	VScriptGroupIDPopup_nF	INT32	EnumParams	popup Group ID dropdown UI
+L_SS_LC	VScriptGroupTypeCheck_varF	INT32	EnumVariableDefine	toggle group type dropdown item
+L_SS_LC	VScriptGroupIDCheck_varF	INT32	EnumVariableDefine	toggle group id dropdown item
+L_SS_LC	VScriptGroupIDClose_nF	INT32	EnumParams	close group id dropdown UI
+L_SS_LC	VScriptGroupTypeClose_nF	INT32	EnumParams	close group type dropdown UI
+L_SS_LC	UxComponentMarkerSet_astrF	STRING		marker trigger ex=>name, 0, on
+L_SS_LC	UxComponentPosSet_afF	ARRAY_FLOAT		local pos set for UxComponentEnable_strF
+L_SS_LC	UxComponentPosRelativeSet_v3F	ARRAY_FLOAT		local pos set for UxComponentEnable_strF
+L_SS_LC	UxComponentColorSet_v3F	ARRAY_FLOAT		color set for UxComponentEnable_strF
+L_SS_LC	UxTouchCursorSet_nF	INT32		cursor set default 0 1:new 2:del
+L_SS_LC	VSLogHistoryFlagOn_nF	INT32	EnumParams	flag on for VScript
+L_SS_LC	VSLogHistoryFlagOff_nF	INT32	EnumParams	flag off for VScript
+L_LA	VSLogHistoryNextGo_nIf	INT32	EnumParams	go next link
+L_LA	VSLogHistoryNextStateGo_varIf	INT32	EnumVariableDefine	go next log for selected state
+L_SS_LC	VSLogHistoryPush_nF	INT32	EnumParams	push event on log history
+L_SS_LC	VSLogHistoryReset_nF	INT32	EnumParams	reset log history(remove all)
+L_SS_LC	VSLogHistoryLinkOldRemove_nF	INT32		remove older log then param, key is fallow variable
+L_SS_LC	BaseStateEventMouseCast_nF	INT32	EnumStateEvent	cast event without return serial
+L_SS_LC	BaseStateSystemReload_nF	INT32	EnumParams	reload state files and restart all of active state
+L_LA	BaseVariableNotEqual_anF	ARRAY_INT32	EnumVariableType	check not equal value
+L_SS_LC	VScriptStateCountSet_varF	INT32	EnumVariableDefine	set state count number of below variable
+L_SS_LC	VScriptLinkCountSet_varF	INT32	EnumVariableDefine	set link count number of below variable
+L_SS_LC	VScriptLinkMove_avarF	ARRAY_INT32	EnumVariableDefine	move link(from, to)
+L_SS_LC	VScriptLinkCopy_avarF	ARRAY_INT32	EnumVariableDefine	copy link
+L_SS_LC	VScriptLink2StateMove_avarF	ARRAY_INT32	EnumVariableDefine	move line to state(from, to(state))
+L_SS_LC	VScriptLink2StateChange_avarF	ARRAY_INT32	EnumVariableDefine	change line to state(from, to(state string))
+L_SS_LC	VScriptLink2StateCopy_avarF	ARRAY_INT32	EnumVariableDefine	copy line to state(from, to(state))
+L_SS_LC	VScriptLinkRefreshCount_nF	INT32	EnumParams	refresh active state link count
+L_SS_LC	BaseGroupActiveCount_varF	INT32	EnumVariableDefine	count group
+L_SS_LC	VScriptColumnChange_nF	INT32	EnumParams
+L_SS_LC	VScriptColumnAdd_varF	INT32	EnumVariableDefine
+L_SS_LC	VScriptCosmosMenuEnum_varF	INT32	EnumVariableDefine	Cosmos menue for Enum select
+L_SS_LC	VScriptColumnValueSet_varF	INT32	EnumVariableDefine	set column value for the link column
+L_SS_LC	UxCosmosMenuSearch_varF	INT32	EnumVariableDefine	search cosmos menu
+L_SS_LC	VScriptColumnApply_varF	INT32	EnumParams	apply the strings to state link
+L_SS_LC	VScriptColumnRemove_varF	INT32	EnumVariableDefine	remove column
+L_SS_LC	VScriptColumnRefresh_nF	INT32	EnumParams	refresh position list
+L_SS_LC	VScriptColumnCopy_varF	INT32	EnumVariableDefine	copy column to clipboard
+L_SS_LC	VScriptColumnCopy_avarF	ARRAY_INT32	EnumVariableDefine	copy column and insert to target column
+L_SS_LC	VScriptColumnPaste_varF	INT32	EnumVariableDefine	paste column from clipboard
+L_SS_LC	VScriptColumnMove_avarF	ARRAY_INT32	EnumVariableDefine	move column from to
+L_SS_LC	UxComponentScrollBlock_astrF	STRING		scroll block (name, enable or disable)
+L_SS_LC	VScriptColumnValueGet_varF	INT32	EnumVariableDefine	get row from column, row
+L_SS_LC	VScriptCameraScaleInc_fF	FLOAT		screen scale
+L_LA	UxButtonsInPos_astrIf	STRING		search button and sub
+L_SS_LC	UxSystemPerformanceUpdateSet_nF	INT32		Frame Limit update set
+L_LA	UxSystemFileExist_strIf	STRING		check system file exist.
+L_LA	UxSystemCommandGet_varF	INT32	EnumVariableDefine	get consol command param
+L_SS_LC	UxSystemPathRootGet_varF	INT32	EnumVariableDefine	get application path
+L_SS_LC	EventSendStringToUnity_strF	STRING		string Event Send to Unity
+L	BasePosFrom_anV	ARRAY_INT32		move position before
+L	PnPositionFrom_v3	ARRAY_FLOAT		move position befor
+L	BasePosMove_v3	ARRAY_FLOAT		value for moving
+L_SS_LC	DTSStateRetrun_nF	INT32	EnumParams	hand param to Unity
+L_LA	TestAdd_nF	INT32		return param
+L_SS_LC	UnityDB_open_v2_astrF	STRING		open database with (id, passwrod) variable(server, dbname)
+L_SS_LC	UnityDB_query_strF	STRING		query (event or query) send on unity Event(TempString(query), Int(serial))
+L_SS_LC	BaseSystemSavePathSet_v1_nF	INT32		set save path with param
+L	dbcolumn_ct_id	INT64		ct_id support 64
+L	dbcolumn_ct_id_a	ARRAY_INT64		ct_id array for query
+L	dbcolumn_ct_id_r	INT64		ct_id_r support 64
+L	dbcolumn_pnid_drawing_ct_id1	INT64		foreign key 1 for drawing
+L	dbcolumn_pnid_drawing_ct_id2	INT64		foreign key 2 for drawing
+L_SS_LC	BaseVariablePass_anF	ARRAY_INT32	EnumVariableType	pass all of type(event) to, from
+L_SS_LC	BaseNetEventPass_nF	INT32	EnumVariableType	cast event by variable type(like Event)
+L_SS_LC	BaseNetReturnPass_nF	INT32	EnumVariableType	return event by variable type(like Event)
+L_SS_LC	BaseEventGlobalPassCast_nF	INT32	EnumVariableType	cast event from variable type(Event etc)
+L_LA	BaseEventGroupHas_nIf	INT32	EnumGroupID	check event has GroupType with [ group id param ]
+L_SS_LC	BaseDebugLeakCheck_nF	INT32		leakcheck
+L_SS_LC	BaseManagerStateCreate_varF	INT32	EnumVariableDefine	create the state main.
+L_SS_LC	BaseManagerStateRemove_varF	INT32	EnumVariableDefine	remove the state main.
+L_SS_LC	BaseManagerStateMerge_varF	INT32	EnumVariableDefine	merge with fallow state & path
+L_SS_LC	BaseManagerStateAdd_varF	INT32	EnumVariableDefine	add current state
+L_SS_LC	BaseEnumStateAdd_strF	STRING		add enum type (StateEvent or VariableDefine)
+L_SS_LC	QuizStateReturn_strF	STRING		return data from server
+L_SS_LC	BaseSystemTerminate_nF	INT32		terminate application
+L_SS_LC	BaseEventPriorityUpdate_nF	INT32		update event priority. BaseEventPriority_nV
+L	BaseLinkIndex_nV	INT32		it's for link indexing(used by BaseEventPriorityUpdate_nF)
+L_SS_LC	BaseTimeGet_varF	INT32	EnumVariableDefine	get timeGetTime
+L	BasePos_v3	ARRAY_FLOAT		3D position 
+L	PnPosition_v3	ARRAY_FLOAT		pos
+L_SS_LC	BaseMemoryFree_varF	INT32	EnumVariableDefine	free memory by reference

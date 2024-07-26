@@ -1,0 +1,34 @@
+Assets/Scripts/Apin/Pets/PetGameMode/PookieCatchGameMode.cs	EnumStateEvent	EnumVariableDefine
+L_SS_LC	CameraZoomIn_nF	INT32		Zoom in camera
+L_SS_LC	CameraZoomOut_nF	INT32		Return to the PookieCatch Normal from zoom
+L_SS_LC	GameStop_nF	INT32		Game Stop
+L_SS_LC	InitialUI_nF	INT32		Open Windows
+L_SS_LC	StepSuccess_nF	INT32		Set UI Current Step Success
+L_SS_LC	StepFail_nF	INT32		Set UI Current Step Fail
+L_SS_LC	EventPosGet_strF	STRING		Get Event Position
+L_LA	IsCorrect_varIf	INT32	EnumVariableDefine	Check is current answer
+L_SS_LC	InitialStep_varF	INT32	EnumVariableDefine	Initialize Step
+L_SS_LC	RequestQuestionId_varF	INT32	EnumVariableDefine	Request Question Ids
+L_SS_LC	StepStartPost_nF	INT32		Post StepStart Event
+L_SS_LC	InitialBubble_nF	INT32		Initialize Bubble
+L_SS_LC	StepEnd_nF	INT32		Release step resource
+L_SU	BallThrowingPosGet_varF	INT32	EnumVariableDefine	get throwing ball position
+L_SS_LC	FadeIn_nF	INT32		FadeIn while param second
+L_SS_LC	FadeOut_nF	INT32		FadeOut while param second
+L_SS_LC	LockMove_nF	INT32		LockMove by param
+L_SS_LC	QuestionGet_varF	INT32	EnumVariableDefine	get question
+L_SS_LC	InitialInputHandler_nF	INT32		make throwable by enable inputHandler
+L_SS_LC	CameraFinish_nF	INT32		Finish View
+L_SS_LC	ScoreSend_nF	INT32		Send score to server
+L_LA	RootLevelCheck_nIf	INT32		check is root level 1: root, 2: step
+L_SS_LC	NotifyQuestionAdd_varF	INT32	EnumVariableDefine	Show success questions
+L_SS_LC	UIClose_nF	INT32		close UI for queation step and HUD
+L_SS_LC	BubblePosUpdate_nF	INT32		Bubble Postion Update
+L_SS_LC	SoundPlay_strF	STRING		play sound
+L_SS_LC	InputHandlerEnableSet_nF	INT32		enable or disable the Input Handler
+L_SS_LC	ScoreSendRoot_nF	INT32		root score send
+L_SS_LC	RequestQuestionRoot_nF	INT32		request root question
+L_SS_LC	NpcsShowAll_nF	INT32		show all npc or hide
+L_SS_LC	QuestionRemove_varF	INT32	EnumVariableDefine	remove solved question
+L_LA	QuestionLoad_nIf	INT32		load solving questions
+L_SS_LC	QuestionSave_nF	INT32		save solving questions

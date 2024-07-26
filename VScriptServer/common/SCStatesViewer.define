@@ -1,0 +1,6 @@
+Assets/Scripts/VStateObject/SCStatesViewer.cs	EnumStateEvent	EnumVariableDefine
+L_SS_LC	StatesSelectedSave_strV	STRING		Save states what selected
+L_SS_LC	StatesSelectedLoad_strV	STRING		load saved group 
+L_SS_LC	StateRename_varF	INT32	EnumVariableDefine	rename state
+L_SS_LC	StateGet_varF	INT32	EnumVariableDefine	get serialized string for state
+L_SS_LC	StateSet_varF	INT32	EnumVariableDefine	set staties update

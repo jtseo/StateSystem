@@ -1,0 +1,7 @@
+﻿../BaseLibrary/PtExtend/BaseSCJson
+L_SS_LC	Add_varF	INT32	EnumVariableDefine	add json variable by fallow name
+L_SS_LC	Get_varF	INT32	EnumVariableDefine	get json variable by fallow name
+L_SS_LC	JsonGet_varF	INT32	EnumVariableDefine	get json full list
+L_SS_LC	MassMerge_astrF	STRING	EnumVariableDefine	merge to first param from second param
+L_SS_LC	clear_nF	INT32		auto added
+L_SS_LC	JsonSet_varF	INT32	EnumVariableDefine	set json string

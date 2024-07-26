@@ -1,0 +1,7 @@
+../BaseLibrary/PtBase/BaseRecognitionManager
+L_SS_LC	event_receiver_nF	INT32	EnumStateEvent	sample
+L_SS_LC	variable_receiver_nF	INT32	EnumVariableDefine	sample
+L_SS_LC	add_nF	INT32		add projected vector data
+L_SS_LC	predict_nF	INT32		guess what is it(name & rate)
+L_SS_LC	crossCheck_nF	INT32		check simular object
+L_SS_LC	load_nF	INT32		load trained data

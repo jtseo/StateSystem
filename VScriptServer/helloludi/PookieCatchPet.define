@@ -1,0 +1,27 @@
+Assets/Scripts/Apin/Pets/PetGameMode/PookieCatchPet.cs	EnumStateEvent	EnumVariableDefine
+L_SS_LC	IKApply_varF	INT32	EnumVariableDefine	IK apply by param rate
+L_SS_LC	MoveToBall_v3F	INT32	EnumVariableDefine	Start to move to the ball
+L_SS_LC	MoveStop_nF	INT32		Stop
+L_SS_LC	TurnToCamera_nF	INT32		Look at camera
+L_SS_LC	PositionSet_varF	INT32	EnumVariableDefine	Position set
+L_SS_LC	PositionGet_varF	INT32	EnumVariableDefine	Get Position
+L_SS_LC	TurnReset_nF	INT32		reset rotation
+L_SS_LC	BallRadiusSet_varF	INT32	EnumVariableDefine	Set Ball Radius
+L_SS_LC	IKReset_nF	INT32		reset IK
+L_SS_LC	MoveToPos_varF	INT32	EnumVariableDefine	move to specfic position
+L_SS_LC	QuestionSpeak_varF	INT32	EnumVariableDefine	Speak Question
+L_SS_LC	AnimationTriggerSet_strF	STRING		Set Trigger
+L_SS_LC	PositionHoldingGet_varF	INT32	EnumVariableDefine	get holding position in every frame.
+L_SS_LC	IKApplyFix_nF	INT32		IK on front of chest
+L_LA	DestinationShotestChange_varIf	INT32	EnumVariableDefine	change destination to shortest
+L_LA	DestinationArrivable_varIf	INT32	EnumVariableDefine	check arrivable on time at the destination
+L_LA	BallOnRightSide_varIf	INT32	EnumVariableDefine	check ball in on the right side(start pos)
+L_SS_LC	MoveSpeedChange_nF	INT32		0: normal, 1: jump
+L_SS_LC	MoveJumpableSet_nF	INT32		set jumpable 0, 1
+L_SS_LC	SoundPlay_strF	STRING		Play Sound
+L_SS_LC	MoveSideStep_fF	FLOAT		Move side step(left)
+L_LA	BallCollide_varIf	INT32	EnumVariableDefine	check collide with ball and holding position
+L_SS_LC	LookAtPos_varF	INT32		Look at position without damping
+L_SS_LC	MoveUpdate_nF	INT32		move pookie
+L_SS_LC	MoveRotationUpdate_nF	INT32		rotate pookie
+L_LA	JumpableCheck_nIf	INT32		check jumpable

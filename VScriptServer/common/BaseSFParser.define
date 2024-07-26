@@ -1,0 +1,6 @@
+﻿../BaseLibrary/PtBase/BaseSFParser
+L_SS_LC	event_receiver_nF	INT32	EnumStateEvent	sample
+L_SS_LC	variable_receiver_nF	INT32	EnumVariableDefine	sample
+L_LA	wordTake_strIf	STRING		take a work with param seperator & put on fallow variable
+L_LA	lineNext_nF	INT32		read next line
+L_SS_LC	labelLoad_strF	STRING		load label table
