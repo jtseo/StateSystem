@@ -1,0 +1,5 @@
+Assets/Scripts/StateSystem/UITitleManager.cs	EnumStateEvent	EnumVariableDefine
+L_SS_LC	TextSet_strF	STRING		set text for title
+L_SS_LC	TextWonSet_nF	INT32		set won number for title
+L_SS_LC	TextWonSet_varF	INT32	EnumVariableDefine	set won number for title
+L_SS_LC	ActiveSet_nF	INT32		set active

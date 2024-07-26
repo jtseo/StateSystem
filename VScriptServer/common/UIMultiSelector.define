@@ -1,0 +1,9 @@
+Assets/VLogger/scripts/Component/UIMultiSelector.cs	EnumStateEvent	EnumVariableDefine
+L_SS_LC	Init_nF	INT32		initialize
+L_SS_LC	Select_varF	INT32	EnumVariableDefine	select slot
+L_SS_LC	SelectInv_varF	INT32	EnumVariableDefine	de select slot
+L_LA	SelectCheck_varIf	INT32	EnumVariableDefine	check slot is selected
+L_SS_LC	ActiveSet_nF	INT32		set active
+L_SS_LC	SelectSaveImg_varF	INT32	EnumVariableDefine	save idx to fallow filename
+L_SS_LC	ItemAdd_varF	INT32	EnumVariableDefine	add grid item
+L_SS_LC	SelectNameGet_varF	INT32	EnumVariableDefine	get name of item
