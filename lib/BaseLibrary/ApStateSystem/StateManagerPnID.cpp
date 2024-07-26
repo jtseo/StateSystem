@@ -71,11 +71,11 @@ void StateManagerPnID::release_manager(bool _reset)
 #include "../PtBase/BaseSCTcp.h"
 #include "../PtExtend/BaseSCJson.h"
 
-#include "../../SDK/opencv/include/opencv2/opencv.hpp"
-#include "../PtExtend/ExtendOpenCV.h"
 //#include "../PtBase/BaseSFParser.h"
 #ifdef PHOTOSKETCH
 #include "../PtExtend/PhotoSketch.h"
+#include "../../SDK/opencv/include/opencv2/opencv.hpp"
+#include "../PtExtend/ExtendOpenCV.h"
 #endif
 
 #ifndef VScriptBuild
@@ -83,9 +83,11 @@ void StateManagerPnID::release_manager(bool _reset)
 #include "../PtExtend/DevCashReader.h"
 #include "../PtExtend/DevPrinter.h"
 #include "../Eos/DevCamera.h"
-#include "../PtExtend/BaseStateSystem.h"
+#include "../../SDK/opencv/include/opencv2/opencv.hpp"
+#include "../PtExtend/ExtendOpenCV.h"
 
 #endif
+#include "../PtExtend/BaseStateSystem.h"
 
 StateManagerPnID::StateManagerPnID(void *_applet) :BaseStateManager(_applet)
 {
@@ -94,7 +96,6 @@ StateManagerPnID::StateManagerPnID(void *_applet) :BaseStateManager(_applet)
 	BaseSFuncDirectory dir;
 	BaseTextEditor te;
 	BaseSCJson json;
-	ExtendOpenCV extOpencv;
 	BaseSCTcp tcp;
 	//BaseSFParser paser;
 #ifdef WIN32
@@ -102,10 +103,12 @@ StateManagerPnID::StateManagerPnID(void *_applet) :BaseStateManager(_applet)
 #endif
 	
 #ifdef PHOTOSKETCH
+	ExtendOpenCV extOpencv;
 	PhotoSketch	sketch;
 #else
 #ifndef VScriptBuild
 
+	ExtendOpenCV extOpencv;
 	DevCashReader devRed;
 	//DevPrinter devPrt;
 	DevCamera devCam;

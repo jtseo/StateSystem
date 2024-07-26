@@ -492,9 +492,6 @@
     <ClCompile Include="StateManagerPnID.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PhotoSketch\PhotoSketch.vcxproj">
-      <Project>{d3d0fed2-9185-4acd-a0b2-762cfb73cff3}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\PtBase\PtBase.vcxproj">
       <Project>{9c4c682a-81bc-4937-9501-11e6d1953897}</Project>
     </ProjectReference>
