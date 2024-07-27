@@ -152,6 +152,8 @@ namespace StateSystem
                 return false;
             for (int i = len - 1; i >= 0; i--)
             {
+                if (i < 0 || i >= mlistLogHistory.m_log_history_a.Count)
+                    continue;
                 StateDStructureValue log;
                 log = mlistLogHistory.m_log_history_a[i];
 
