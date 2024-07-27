@@ -28,14 +28,16 @@ public:
 
 	
 protected:
-#ifdef DEF_QLOCK
-	CRITICAL_SECTION	m_lock;
-#endif
+	void MakeDoubleInLock();
+	void *m_criticalsection;
+	atomic_cnt	*m_pnUse;
+	atomic_cnt	*m_pnDouble;
 	
 	atomic_cnt	*m_pnCountPushed;
 	atomic_cnt	*m_pnCountPushed2;
 	atomic_cnt	*m_puPosPush;
 	atomic_cnt	*m_puPosPop;
+	
 	
 	UINT32				m_nSize;
 	void				**m_parrayQueue;

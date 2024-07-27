@@ -20,6 +20,19 @@
 #include <stdlib.h>
 #endif
 
+#ifndef _WIN32
+#define CRITICAL_SECTION				pthread_mutex_t
+#define InitializeCriticalSection(a)	pthread_mutex_init(a, NULL)
+#define DeleteCriticalSection		pthread_mutex_destroy
+#define EnterCriticalSection		pthread_mutex_lock
+#define LeaveCriticalSection		pthread_mutex_unlock
+#define TlsGetValue					pthread_getspecific
+#define TlsSetValue					pthread_setspecific
+#define TlsFree						pthread_key_delete
+#else
+
+#endif
+
 #define MAX_SOCKET	10*8
 #define MAX_QUEUE 131072
 
@@ -27,6 +40,28 @@ void *s_buffer_a[MAX_SOCKET] = {0};
 int s_buffer_use_a[MAX_SOCKET] = {0};
 
 atomic_cnt *ps_buffer_top = NULL;
+
+class BraceInc
+{
+	atomic_cnt *m_cnt;
+	atomic_cnt *m_double;
+public:
+	BraceInc(atomic_cnt *_cnt, atomic_cnt *_double){
+		m_cnt = _cnt;
+		m_double = _double;
+		
+		while(m_double->get() > 0)
+			BaseCircleQueue::qsleep(1);
+		++(*m_cnt);
+	}
+	void hold(){
+		while(m_cnt->get() > 0)
+			BaseCircleQueue::qsleep(1);
+	}
+	~BraceInc(){
+		--(*m_cnt);
+	}
+};
 
 void *buff_alloc(int _size)
 {
@@ -98,6 +133,10 @@ BaseCircleQueue::BaseCircleQueue(const char *_strCalledPos, int _size)
 	m_puPosPush = NULL;
 	m_pnCountPushed = NULL;
 	m_pnCountPushed2 = NULL;
+	m_criticalsection = NULL;
+	
+	m_pnUse = NULL;
+	m_pnDouble = NULL;
 
 	m_nSize	= 0;
 	init(_size);
@@ -105,13 +144,16 @@ BaseCircleQueue::BaseCircleQueue(const char *_strCalledPos, int _size)
 
 BaseCircleQueue::BaseCircleQueue(BaseCircleQueue &_other)
 {
-
 	m_puPosPop = NULL;
 	m_puPosPush = NULL;
 	m_pnCountPushed = NULL;
 	m_pnCountPushed2 = NULL;
+	
+	m_pnUse = NULL;
+	m_pnDouble = NULL;
 
 	m_parrayQueue = NULL;
+	m_criticalsection = NULL;
 	m_nSize	= 0;
 	init(_other.m_nSize);
 }
@@ -121,6 +163,10 @@ void BaseCircleQueue::init(UINT32 _nSize)
 	static int nCount = 0;
 	nCount++;
 	release();
+	
+	CRITICAL_SECTION *sec = new CRITICAL_SECTION;
+	InitializeCriticalSection(sec);
+	m_criticalsection = (void*)sec;
 	
 	if(_nSize == 0)
 		_nSize = 10240;
@@ -140,9 +186,28 @@ void BaseCircleQueue::init(UINT32 _nSize)
 		m_puPosPush = new atomic_cnt(0);
 		m_pnCountPushed = new atomic_cnt(0);
 		m_pnCountPushed2 = new atomic_cnt(0);
+		m_pnUse = new atomic_cnt(0);
+		m_pnDouble = new atomic_cnt(0);
 	}
 	
 	memset(m_parrayQueue, 0, nSizeQueue*sizeof(void*));
+}
+
+void BaseCircleQueue::MakeDoubleInLock()
+{
+	if(m_pnCountPushed2->get() < m_nSize)
+		return;
+	
+	int nSizeQueue = m_nSize * 2;
+	void **backup = (void**)buff_alloc(nSizeQueue * sizeof(void*));
+	
+	memset(backup, 0, nSizeQueue*sizeof(void*));
+	memcpy(backup, m_parrayQueue, m_nSize);
+	void **torelease = m_parrayQueue;
+	m_parrayQueue = backup;
+	m_nSize = nSizeQueue;
+	if(torelease)
+		buff_free(torelease);
 }
 
 BaseCircleQueue::~BaseCircleQueue(void)
@@ -162,12 +227,25 @@ void BaseCircleQueue::release()
 		delete m_puPosPush;
 		delete m_pnCountPushed;
 		delete m_pnCountPushed2;
+		
+		delete m_pnUse;
+		delete m_pnDouble;
 	}
 	m_puPosPush = NULL;
+	
+	if(m_criticalsection != NULL)
+	{
+		CRITICAL_SECTION *sec = (CRITICAL_SECTION*)m_criticalsection;
+		DeleteCriticalSection(sec);
+		delete sec;
+		m_criticalsection = NULL;
+	}
 }
 
 void *BaseCircleQueue::top()
 {
+	BraceInc inc(m_pnUse, m_pnDouble);
+	
 	int cnt = m_pnCountPushed->get();
 	if(cnt <= 0)
 		return NULL;
@@ -191,6 +269,8 @@ void *BaseCircleQueue::top()
 
 void *BaseCircleQueue::pop()
 {
+	BraceInc inc(m_pnUse, m_pnDouble);
+	
 	if(m_pnCountPushed->get() <= 0)
 		return NULL;
 
@@ -230,13 +310,23 @@ bool BaseCircleQueue::push(void *_pValue)
 	if(_pValue == NULL)
 		return false;
 
+	BraceInc inc(m_pnUse, m_pnDouble);
+	
 	//assert(m_nCountPushed < (INT32)m_nSize-1 && "CircleQueue Overflow");
 	if(++*m_pnCountPushed2 >= (int)m_nSize)
 	{
+		--*m_pnUse;
+		EnterCriticalSection((CRITICAL_SECTION*)m_criticalsection);
+		++*m_pnDouble;
+		inc.hold();
 		//g_SendMessage(LOG_MSG_FILELOG, "--------------------CircleQueue OverFlow Size: %d %s\n", m_nSize, m_strCalledPos);
-		g_SendMessage(LOG_MSG, "--------------------CircleQueue OverFlow Size: %d\n", m_nSize);
-		--*m_pnCountPushed2;
-		return false;
+		//g_SendMessage(LOG_MSG, "--------------------CircleQueue OverFlow Size: %d\n", m_nSize);
+		MakeDoubleInLock();
+		//--*m_pnCountPushed2;
+		--*m_pnDouble;
+		LeaveCriticalSection((CRITICAL_SECTION*)m_criticalsection);
+		++*m_pnUse;
+		//return false;
 	}
 
 	UINT32 nPos = (UINT32)++*m_puPosPush;
@@ -250,6 +340,8 @@ bool BaseCircleQueue::push(void *_pValue)
 
 INT32 BaseCircleQueue::size_data()
 {
+	BraceInc inc(m_pnUse, m_pnDouble);
+	
 	if (!m_pnCountPushed)
 		return 0;
 	return (INT32)m_pnCountPushed->get();
