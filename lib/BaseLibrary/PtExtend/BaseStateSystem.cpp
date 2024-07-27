@@ -57,6 +57,7 @@ int BaseStateSystem::StateFuncRegist(STLString _class_name, STLVInt* _func_hash,
 		STDEF_SFREGIST(MakeFront_nF);
 		STDEF_SFREGIST(ListFilter_strF);
 		STDEF_SFREGIST(KeyboardNumOn_nF);
+		STDEF_SFREGIST(GroupIdFromEventAdd_nF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -103,6 +104,7 @@ int BaseStateSystem::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		STDEF_SFFUNCALL(MakeFront_nF);
 		STDEF_SFFUNCALL(ListFilter_strF);
 		STDEF_SFFUNCALL(KeyboardNumOn_nF);
+		STDEF_SFFUNCALL(GroupIdFromEventAdd_nF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -149,6 +151,22 @@ BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam) {
 }
 #endif
 
+int BaseStateSystem::GroupIdFromEventAdd_nF()
+{
+	const int *pnGroup = (const int*)m_param_value;
+	
+	STLMnInt groupIds;
+	BaseState::group_id_get(m_param_event, HASH_STATE(BaseTransitionNextIdentifier), groupIds);
+	
+	if(groupIds.find(*pnGroup) == groupIds.end())
+		return 0;
+	
+	int id = groupIds[*pnGroup];
+	m_state_p->group_id_add(*pnGroup, id);
+	
+	return 1;
+}
+
 int BaseStateSystem::KeyboardNumOn_nF()
 {
 	const int* on = (const int *)m_param_value;
@@ -173,9 +191,13 @@ int BaseStateSystem::KeyboardNumOn_nF()
 int BaseStateSystem::ListFilter_strF()
 {
 	const char *filter = (const char*)m_param_value;
-	const char* list_str = (const char*)paramFallowGet(0);
+	const char *files_str = (const char*)paramFallowGet(0);
+	const char *dates_str = (const char*)paramFallowGet(1);
+	
 	STLVString list;
-	BaseFile::paser_list_seperate(list_str, &list, ",");
+	BaseFile::paser_list_seperate(files_str, &list, ",");
+	STLVString dates;
+	BaseFile::paser_list_seperate(dates_str, &dates, ",");
 	
 	typedef enum{
 		editor,
@@ -205,6 +227,7 @@ int BaseStateSystem::ListFilter_strF()
 		if(remove)
 		{
 			list.erase(list.begin()+i);
+			dates.erase(dates.begin()+i);
 			i--;
 		}
 	}
@@ -212,6 +235,9 @@ int BaseStateSystem::ListFilter_strF()
 	char ret[4096];
 	BaseFile::paser_list_merge(ret, 4096, list, ",");
 	if(!paramFallowSet(0, ret))
+		return 0;
+	BaseFile::paser_list_merge(ret, 4096, dates, ",");
+	if(!paramFallowSet(1, ret))
 		return 0;
 	
 	return 1;

@@ -11,6 +11,7 @@ class BaseStateSystem :
         STDEF_SFENUM(MakeFront_nF),
         STDEF_SFENUM(ListFilter_strF),
         STDEF_SFENUM(KeyboardNumOn_nF),
+        STDEF_SFENUM(GroupIdFromEventAdd_nF),
         //#SF_EnumInsert
         EnumExtentionMax
     };
@@ -27,6 +28,7 @@ public:
     int MakeFront_nF();
     int ListFilter_strF();
     int KeyboardNumOn_nF();
+    int GroupIdFromEventAdd_nF();
     //#SF_FuncHeaderInsert
 
     // User defin area from here
