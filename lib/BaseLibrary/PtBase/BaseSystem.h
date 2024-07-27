@@ -57,6 +57,7 @@ public:
 	static void timeCurrent(SPtDateTime *_pDTime);
 	static int weekDay();
 	static int	GetFileList(const char *_strPath, STLVString *_pstlVFilename, STLVString *_pstlVFolders);
+	static int	GetFileDateList(const char *_strPath, const STLVString &_stlVFiles, STLVString *_pstlVDates);
 	static bool check_client_user(STLVString &_stlVText);
 	static bool get_ip_name(char *_strIP, int _nSize, const char *_strName);
 	static char* path_full_get(char* _strRetPath, size_t _nLen, const char* _strAppend);

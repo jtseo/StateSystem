@@ -55,6 +55,7 @@
 #include <android/log.h>
 #endif
 #define APPNAME	"StateBaseLib"
+#include "BaseTime.h"
 
 BaseSystem	baseSystem;
 char		s_strRootPath[255] = {""};
@@ -714,9 +715,30 @@ int BaseSystem::weekDay()
 	return (int)now.tm_wday;
 }
 
+int	BaseSystem::GetFileDateList(const char *_strPath, const STLVString &_stlVFiles, STLVString *_pstlVDates)
+{
+	STLString pathBase = _strPath;
+	
+	char buf[255];
+	STLString filepath;
+	for(int i=0; i<_stlVFiles.size(); i++)
+	{
+		filepath = pathBase;
+		filepath += _stlVFiles[i];
+		
+		SPtDateTime dt = file_datetime_get(filepath.c_str());
+		
+		BaseTime::make_date(dt, buf, 255);
+		STLString str = buf;
+		_pstlVDates->push_back(str);
+	}
+	
+	return (int)_pstlVDates->size();
+}
+
 int	BaseSystem::GetFileList(const char *_strPath, STLVString *_pstlVFilename, STLVString *_pstlVFolders)
 {
-	STLVString	stlVFind, stlVFolder;
+	STLVString	stlVFind, stlVFolder, stlVDate;
     
 	_traverse_(_strPath, &stlVFind, &stlVFolder);
 	UINT32	i;
@@ -727,6 +749,12 @@ int	BaseSystem::GetFileList(const char *_strPath, STLVString *_pstlVFilename, ST
 			_pstlVFilename->push_back(stlVFind[i]);
 		}
     
+	if(_pstlVFolders)
+		for(i=0; i<stlVFolder.size(); i++)
+		{
+			_pstlVFolders->push_back(stlVFolder[i]);
+		}
+	
 	if(_pstlVFolders)
 		for(i=0; i<stlVFolder.size(); i++)
 		{
@@ -1107,8 +1135,6 @@ char *BaseSystem::path_fix(char *_strPath, int _nSize)
 	return _strPath;
 }
 
-#ifdef _WIN32
-
 SPtDateTime BaseSystem::file_datetime_get(const char* _filename)
 {
 	struct stat t_stat;
@@ -1119,6 +1145,8 @@ SPtDateTime BaseSystem::file_datetime_get(const char* _filename)
 	dt = timeinfo;
 	return dt;
 }
+
+#ifdef _WIN32
 
 int BaseSystem::file_delete(const char *_strFile)
 {
