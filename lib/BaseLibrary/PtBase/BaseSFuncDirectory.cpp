@@ -63,6 +63,7 @@ int BaseSFuncDirectory::StateFuncRegist(STLString _class_name, STLVInt* _func_ha
 		STDEF_SFREGIST(FileLoad_varF);
 		STDEF_SFREGIST(FileSave_varF);
 		STDEF_SFREGIST(ListCasting_varF);
+		STDEF_SFREGIST(FileUpdated_varIf);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -121,6 +122,7 @@ int BaseSFuncDirectory::FunctionCall(const char* _class_name, STLVInt& _func_has
 		STDEF_SFFUNCALL(FileLoad_varF);
 		STDEF_SFFUNCALL(FileSave_varF);
 		STDEF_SFFUNCALL(ListCasting_varF);
+		STDEF_SFFUNCALL(FileUpdated_varIf);
 		//#SF_FuncCallInsert
 		return 0;
 	}
@@ -295,16 +297,22 @@ int BaseSFuncDirectory::DirectoryListGet_varIf()
 
 	STLVString files;
 	BaseSystem::GetFileList(path.c_str(), &files, NULL);
+	STLVString dates;
+	BaseSystem::GetFileDateList(path.c_str(), files, &dates);
 
-	STLString ret;
+	STLString ret, ret2;
 	for(int i=0; i<(int)files.size(); i++)
 	{
 		ret += files[i];
 		if(i != (int)files.size()-1)
 			ret += ",";
+		ret2 += dates[i];
+		if(i != (int)dates.size()-1)
+			ret2 += ",";
 	}
 	
 	paramFallowSet(1, ret.c_str());
+	paramFallowSet(2, ret2.c_str());
 	return 1;
 }
 
@@ -434,9 +442,25 @@ int BaseSFuncDirectory::RunCLI_nF()
 	return 1;
 }
 
+int BaseSFuncDirectory::FileUpdated_varIf()
+{
+	const char *file = (const char*)paramVariableGet();
+	const char *date = (const char*)paramFallowGet(0);
+	
+	SPtDateTime dtCur = BaseSystem::file_datetime_get(file);
+	SPtDateTime dtServer;
+	dtServer.dateTime = BaseTime::parse_date_time(date);
+	
+	if(dtCur >= dtServer)
+		return 0;
+	
+	return 1;
+}
+
 int BaseSFuncDirectory::ListCasting_varF()
 {
 	const char *list = (const char*)paramFallowGet(0);
+	const char *list2 = (const char*)paramFallowGet(1);
 	const int *event = (const int*)m_param_value;
 	
 	if(!list)
@@ -444,11 +468,18 @@ int BaseSFuncDirectory::ListCasting_varF()
 	
 	STLVString list_a;
 	BaseFile::paser_list_seperate(list, &list_a, ",");
+	STLVString list2_a;
+	if(list2)
+		BaseFile::paser_list_seperate(list2, &list2_a, ",");
 	
 	for(int i=0; i<list_a.size(); i++)
 	{
 		BaseDStructureValue *evt = EventMake(*event);
 		evt->set_alloc("TempString_strV", (const void*)list_a[i].c_str());
+		if(list2)
+		{
+			evt->set_alloc("TempString2_strV", (const void*)list2_a[i].c_str());
+		}
 		EventPost(evt);
 	}
 	return 1;

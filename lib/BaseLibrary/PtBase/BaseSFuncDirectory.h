@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include "BaseStateFunc.h"
 class BaseSFuncDirectory :
@@ -20,6 +20,7 @@ class BaseSFuncDirectory :
         STDEF_SFENUM(FileLoad_varF),
         STDEF_SFENUM(FileSave_varF),
         STDEF_SFENUM(ListCasting_varF),
+        STDEF_SFENUM(FileUpdated_varIf),
         //#SF_EnumInsert
         EnumExtentionMax
     };
@@ -40,6 +41,7 @@ public:
     int FileLoad_varF();
     int FileSave_varF();
     int ListCasting_varF();
+    int FileUpdated_varIf();
     //#SF_FuncHeaderInsert
     int fileCast_nF();
     int folerCreate_varF();
