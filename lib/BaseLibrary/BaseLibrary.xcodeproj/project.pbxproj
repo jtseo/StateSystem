@@ -347,6 +347,7 @@
 		C1E04FD82658B51C0058CD21 /* BaseStateFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C104606E2644208D0077FB2A /* BaseStateFunc.cpp */; };
 		C1E04FED2658B51C0058CD21 /* BaseResFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1F05EF6216F1E9F00F4349C /* BaseResFile.cpp */; };
 		C1E738472AF4DCAA00FD9B32 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15AD7182AC036D4002202C8 /* main.cpp */; };
+		C1E926382C53FA0800A0B4C2 /* BaseStateSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1BC00B52C46C5110012F798 /* BaseStateSystem.cpp */; };
 		C1F05F06216F202A00F4349C /* BaseResFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1F05EF6216F1E9F00F4349C /* BaseResFile.cpp */; };
 /* End PBXBuildFile section */
 
@@ -482,6 +483,7 @@
 		C15AD7162AC036D3002202C8 /* stateconsole */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = stateconsole; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15AD7182AC036D4002202C8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C15AD7622AC03BB0002202C8 /* stateconsole.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = stateconsole.entitlements; sourceTree = "<group>"; };
+		C1972A942C54AC1500787300 /* BaseStateSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseStateSystem.h; path = PtExtend/BaseStateSystem.h; sourceTree = SOURCE_ROOT; };
 		C19A8F112B7522110034B7F1 /* ExtendOpenCV.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ExtendOpenCV.cpp; path = PtExtend/ExtendOpenCV.cpp; sourceTree = SOURCE_ROOT; };
 		C19A8F122B7522110034B7F1 /* ExtendOpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExtendOpenCV.h; path = PtExtend/ExtendOpenCV.h; sourceTree = SOURCE_ROOT; };
 		C1AA8E102AF709D100CEE2FA /* BaseSCHttpD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseSCHttpD.h; path = PtExtend/BaseSCHttpD.h; sourceTree = SOURCE_ROOT; };
@@ -662,6 +664,7 @@
 		C1F7D7961BCE401A00473CAE /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C1972A942C54AC1500787300 /* BaseStateSystem.h */,
 				C1BC00B52C46C5110012F798 /* BaseStateSystem.cpp */,
 				C19A8F112B7522110034B7F1 /* ExtendOpenCV.cpp */,
 				C19A8F122B7522110034B7F1 /* ExtendOpenCV.h */,
@@ -1064,6 +1067,7 @@
 				C15AD75D2AC03724002202C8 /* pch.cpp in Sources */,
 				C15AD7242AC0370D002202C8 /* BaseTextEditor.cpp in Sources */,
 				C15AD7442AC0370D002202C8 /* BaseTextEditorText.cpp in Sources */,
+				C1E926382C53FA0800A0B4C2 /* BaseStateSystem.cpp in Sources */,
 				C15AD74D2AC0370E002202C8 /* BaseUIWindow.cpp in Sources */,
 				C15AD72D2AC0370D002202C8 /* BaseRecognitionManager.cpp in Sources */,
 				C15AD7382AC0370D002202C8 /* BaseFile.cpp in Sources */,

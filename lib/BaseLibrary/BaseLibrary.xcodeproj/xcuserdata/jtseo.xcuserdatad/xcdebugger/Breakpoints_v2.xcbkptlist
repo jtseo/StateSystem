@@ -23,164 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8D9273D9-4A6D-4974-B81E-C1605CB3AD4C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PtBase/BaseState.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1541"
-            endingLineNumber = "1541"
-            landmarkName = "BaseState::VariableTypeGet(_pdsvBase, _nSeq, _type)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8D9273D9-4A6D-4974-B81E-C1605CB3AD4C - 80bcdfe0850441d5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BaseState::VariableTypeGet(BaseDStructureValue const*, int, EDstType*)"
-                  moduleName = "ApStateSystem"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/SamSSD%201/oddeye/oddeyesoft/projects/StateSystem/lib/BaseLibrary/PtBase/BaseState.cpp"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1541"
-                  endingLineNumber = "1541"
-                  offsetFromSymbolStart = "168">
-               </Location>
-               <Location
-                  uuid = "8D9273D9-4A6D-4974-B81E-C1605CB3AD4C - 80bcdfe0850441f6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BaseState::VariableTypeGet(BaseDStructureValue const*, int, EDstType*)"
-                  moduleName = "ApStateSystem"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/SamSSD%201/oddeye/oddeyesoft/projects/StateSystem/lib/BaseLibrary/PtBase/BaseState.cpp"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1542"
-                  endingLineNumber = "1542"
-                  offsetFromSymbolStart = "168">
-               </Location>
-               <Location
-                  uuid = "8D9273D9-4A6D-4974-B81E-C1605CB3AD4C - 80bcdfe0850441f6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BaseState::VariableTypeGet(BaseDStructureValue const*, int, EDstType*)"
-                  moduleName = "ApStateSystem"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/SamSSD%201/oddeye/oddeyesoft/projects/StateSystem/lib/BaseLibrary/PtBase/BaseState.cpp"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1542"
-                  endingLineNumber = "1542"
-                  offsetFromSymbolStart = "320">
-               </Location>
-               <Location
-                  uuid = "8D9273D9-4A6D-4974-B81E-C1605CB3AD4C - 80bcdfe0850441d5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BaseState::VariableTypeGet(BaseDStructureValue const*, int, EDstType*)"
-                  moduleName = "ApStateSystem"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/SamSSD%201/oddeye/oddeyesoft/projects/StateSystem/lib/BaseLibrary/PtBase/BaseState.cpp"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1541"
-                  endingLineNumber = "1541"
-                  offsetFromSymbolStart = "320">
-               </Location>
-               <Location
-                  uuid = "8D9273D9-4A6D-4974-B81E-C1605CB3AD4C - 440cf1f9392de4b1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BaseState::VariableTypeGet(BaseDStructureValue const*, int, EDstType*)"
-                  moduleName = "stateconsole"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/SamSSD%201/oddeye/oddeyesoft/projects/StateSystem/lib/BaseLibrary/PtBase/BaseState.cpp"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1541"
-                  endingLineNumber = "1541"
-                  offsetFromSymbolStart = "320">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "504D98FE-8357-4DFA-86E6-DD40B0EE81A4"
-            shouldBeEnabled = "Yes"
-            condition = "_pEvent == 0x2951aa600"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PtBase/BaseStateSpace.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "390"
-            endingLineNumber = "390"
-            landmarkName = "BaseStateSpace::OnEvent_(_pEvent, _pStateTarget)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "504D98FE-8357-4DFA-86E6-DD40B0EE81A4 - 6e1b49a0ee756dfe"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BaseStateSpace::OnEvent_(BaseDStructureValue*, BaseState const*)"
-                  moduleName = "ApStateSystem"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/SamSSD%201/oddeye/oddeyesoft/projects/StateSystem/lib/BaseLibrary/PtBase/BaseStateSpace.cpp"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "391"
-                  endingLineNumber = "391"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  uuid = "504D98FE-8357-4DFA-86E6-DD40B0EE81A4 - 6e1b49a0ee756dfe"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BaseStateSpace::OnEvent_(BaseDStructureValue*, BaseState const*)"
-                  moduleName = "ApStateSystem"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/SamSSD%201/oddeye/oddeyesoft/projects/StateSystem/lib/BaseLibrary/PtBase/BaseStateSpace.cpp"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "391"
-                  endingLineNumber = "391"
-                  offsetFromSymbolStart = "56">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F858D3C2-3C78-400B-B9C2-01476E2F77B7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PtBase/BaseStateSpace.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "433"
-            endingLineNumber = "433"
-            landmarkName = "BaseStateSpace::OnEvent_(_pEvent, _pStateTarget)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "D889540C-C6DF-4989-A1BE-DD24E32E20C8"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -188,9 +30,9 @@
             filePath = "PtBase/BaseSFuncDirectory.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "450"
-            endingLineNumber = "450"
-            landmarkName = "BaseSFuncDirectory::FileUpdated_varIf()"
+            startingLineNumber = "475"
+            endingLineNumber = "475"
+            landmarkName = "BaseSFuncDirectory::ListCasting_varF()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -271,6 +113,165 @@
             startingLineNumber = "1029"
             endingLineNumber = "1029"
             landmarkName = "BaseDStructure::load_define_(_strFilename, _type)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F2DD0BE6-58BF-4002-9075-16C4B80B6D06"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PtBase/BaseState.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "5751"
+            endingLineNumber = "5751"
+            landmarkName = "STDEF_FUNC()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4436FCE4-1381-419A-8863-270B3D7A5C50"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PtBase/BaseMemoryPool3.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
+            landmarkName = "BaseMemoryPoolBlock::increase_free_mem(_filename, _line)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4436FCE4-1381-419A-8863-270B3D7A5C50 - 17d311588ec03919"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseMemoryPoolBlock::increase_free_mem(char const*, int)"
+                  moduleName = "ApStateSystem"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SamSSD%201/oddeye/oddeyesoft/projects/StateSystem/lib/BaseLibrary/PtBase/BaseMemoryPool3.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "248"
+                  endingLineNumber = "248"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "4436FCE4-1381-419A-8863-270B3D7A5C50 - d3633f4132e99c7d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseMemoryPoolBlock::increase_free_mem(char const*, int)"
+                  moduleName = "stateconsole"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SamSSD%201/oddeye/oddeyesoft/projects/StateSystem/lib/BaseLibrary/PtBase/BaseMemoryPool3.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "248"
+                  endingLineNumber = "248"
+                  offsetFromSymbolStart = "112">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "58F18131-E36C-42A1-A24A-245633B4B323"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PtBase/BaseMemoryPool3.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1291"
+            endingLineNumber = "1291"
+            landmarkName = "BaseMemoryPoolMultiThread::auto_free(_point)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "58F18131-E36C-42A1-A24A-245633B4B323 - 9e68efe7348c7f6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseMemoryPoolMultiThread::auto_update()"
+                  moduleName = "ApStateSystem"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SamSSD%201/oddeye/oddeyesoft/projects/StateSystem/lib/BaseLibrary/PtBase/BaseMemoryPool3.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1291"
+                  endingLineNumber = "1291"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  uuid = "58F18131-E36C-42A1-A24A-245633B4B323 - a87a5bccabbbcdf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseMemoryPoolMultiThread::auto_free(void*)"
+                  moduleName = "ApStateSystem"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SamSSD%201/oddeye/oddeyesoft/projects/StateSystem/lib/BaseLibrary/PtBase/BaseMemoryPool3.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1292"
+                  endingLineNumber = "1292"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "58F18131-E36C-42A1-A24A-245633B4B323 - ce378ba5769219bb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseMemoryPoolMultiThread::auto_free(void*)"
+                  moduleName = "stateconsole"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SamSSD%201/oddeye/oddeyesoft/projects/StateSystem/lib/BaseLibrary/PtBase/BaseMemoryPool3.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1292"
+                  endingLineNumber = "1292"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "42727703-5EE0-4FFE-A571-77756EAB5ED7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PtBase/BaseSystem.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "729"
+            endingLineNumber = "729"
+            landmarkName = "BaseSystem::GetFileDateList(_strPath, _stlVFiles, _pstlVDates)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4133FFD5-E47D-4BD3-B547-F300A8C4B849"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PtBase/BaseSFuncDirectory.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "447"
+            endingLineNumber = "447"
+            landmarkName = "BaseSFuncDirectory::FileUpdated_varIf()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
