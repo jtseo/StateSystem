@@ -50,3 +50,14 @@ private:
 
 	char	m_strCalledPos[256];
 };
+
+
+class BraceInc
+{
+	atomic_cnt* m_cnt;
+	atomic_cnt* m_double;
+public:
+	BraceInc(atomic_cnt* _cnt, atomic_cnt* _double);
+	void hold();
+	~BraceInc();
+};

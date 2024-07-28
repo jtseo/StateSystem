@@ -41,27 +41,24 @@ int s_buffer_use_a[MAX_SOCKET] = {0};
 
 atomic_cnt *ps_buffer_top = NULL;
 
-class BraceInc
-{
-	atomic_cnt *m_cnt;
-	atomic_cnt *m_double;
-public:
-	BraceInc(atomic_cnt *_cnt, atomic_cnt *_double){
-		m_cnt = _cnt;
-		m_double = _double;
-		
-		while(m_double->get() > 0)
-			BaseCircleQueue::qsleep(1);
-		++(*m_cnt);
-	}
-	void hold(){
-		while(m_cnt->get() > 0)
-			BaseCircleQueue::qsleep(1);
-	}
-	~BraceInc(){
-		--(*m_cnt);
-	}
-};
+
+BraceInc::BraceInc(atomic_cnt* _cnt, atomic_cnt* _double) {
+	m_cnt = _cnt;
+	m_double = _double;
+
+	while (m_double->get() > 0)
+		BaseCircleQueue::qsleep(1);
+	++(*m_cnt);
+}
+
+void BraceInc::hold() {
+	while (m_cnt->get() > 0)
+		BaseCircleQueue::qsleep(1);
+}
+
+BraceInc::~BraceInc() {
+	--(*m_cnt);
+}
 
 void *buff_alloc(int _size)
 {
