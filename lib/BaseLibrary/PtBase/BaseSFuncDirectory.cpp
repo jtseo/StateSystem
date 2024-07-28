@@ -298,7 +298,7 @@ int BaseSFuncDirectory::DirectoryListGet_varIf()
 	STLVString files;
 	BaseSystem::GetFileList(path.c_str(), &files, NULL);
 	STLVString dates;
-	BaseSystem::GetFileDateList(path.c_str(), files, &dates);
+	BaseSystem::GetFileDateList(path_str, files, &dates);
 
 	STLString ret, ret2;
 	for(int i=0; i<(int)files.size(); i++)

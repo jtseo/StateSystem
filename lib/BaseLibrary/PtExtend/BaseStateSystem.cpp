@@ -197,7 +197,8 @@ int BaseStateSystem::ListFilter_strF()
 	STLVString list;
 	BaseFile::paser_list_seperate(files_str, &list, ",");
 	STLVString dates;
-	BaseFile::paser_list_seperate(dates_str, &dates, ",");
+	if(dates_str)
+		BaseFile::paser_list_seperate(dates_str, &dates, ",");
 	
 	typedef enum{
 		editor,
@@ -227,7 +228,9 @@ int BaseStateSystem::ListFilter_strF()
 		if(remove)
 		{
 			list.erase(list.begin()+i);
-			dates.erase(dates.begin()+i);
+
+			if (dates_str)
+				dates.erase(dates.begin()+i);
 			i--;
 		}
 	}
