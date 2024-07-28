@@ -1139,7 +1139,7 @@ SPtDateTime BaseSystem::file_datetime_get(const char* _filename)
 {
 	struct stat t_stat;
 	stat(_filename, &t_stat);
-	struct tm timeinfo = localtime(t_stat.st_ctime); // or gmtime() depending on what you want
+	struct tm timeinfo = localtime(t_stat.st_mtime); // or gmtime() depending on what you want
 	
 	SPtDateTime dt;
 	dt = timeinfo;
