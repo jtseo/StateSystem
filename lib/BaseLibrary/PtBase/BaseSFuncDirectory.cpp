@@ -449,7 +449,15 @@ int BaseSFuncDirectory::FileUpdated_varIf()
 	
 	SPtDateTime dtCur = BaseSystem::file_datetime_get(file);
 	SPtDateTime dtServer;
-	dtServer.dateTime = BaseTime::parse_date_time(date);
+	
+	int y, m, d, h, mm, s;
+	sscanf(date, "%d/%d/%d %d:%d:%d", &y, &m, &d, &h, &mm, &s);
+	dtServer.s.sDate.s.year = y;
+	dtServer.s.sDate.s.month = m;
+	dtServer.s.sDate.s.day = d;
+	dtServer.s.sTime.s.nHour = h;
+	dtServer.s.sTime.s.nMinute = mm;
+	dtServer.s.sTime.s.nSecond = s;
 	
 	if(dtCur >= dtServer)
 		return 0;
