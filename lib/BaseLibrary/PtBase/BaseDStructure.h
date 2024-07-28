@@ -257,6 +257,8 @@ public:
 	static STypeDefine type_get(int _index);
 	static size_t type_length();
 	static bool type_find(int _hash, short *_index_p);
+	static void type_add(int _hash, STypeDefine _type);
+	static void type_mod(int _idx, STypeDefine _type);
 protected:
 	static STLVTypeDefine		sm_stlVTypedef;
 	static STLMnnTypeDefine		sm_stlMnnTypedef;

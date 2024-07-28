@@ -41,6 +41,30 @@ int s_buffer_use_a[MAX_SOCKET] = {0};
 
 atomic_cnt *ps_buffer_top = NULL;
 
+BraceUpdate::BraceUpdate(atomic_cnt* _cnt, atomic_cnt* _double, void *_criticalsection):BraceInc(_cnt, _double){
+	m_criticalsection = _criticalsection;
+	--*m_cnt;
+	--*m_cnt;
+	EnterCriticalSection((CRITICAL_SECTION*)m_criticalsection);
+	++*m_double;
+	hold();
+}
+
+BraceUpdate::~BraceUpdate() {
+	--*m_double;
+	LeaveCriticalSection((CRITICAL_SECTION*)m_criticalsection);
+	++*m_cnt;
+	++*m_cnt;
+}
+
+void BraceUpdate::criticalInit(void *_criticalsection)
+{
+	InitializeCriticalSection((CRITICAL_SECTION*)_criticalsection);
+}
+void BraceUpdate::criticalDestory(void *_criticalsection)
+{
+	DeleteCriticalSection((CRITICAL_SECTION*)_criticalsection);
+}
 
 BraceInc::BraceInc(atomic_cnt* _cnt, atomic_cnt* _double) {
 	m_cnt = _cnt;
@@ -55,6 +79,7 @@ void BraceInc::hold() {
 	while (m_cnt->get() > 0)
 		BaseCircleQueue::qsleep(1);
 }
+
 
 BraceInc::~BraceInc() {
 	--(*m_cnt);
@@ -192,6 +217,8 @@ void BaseCircleQueue::init(UINT32 _nSize)
 
 void BaseCircleQueue::MakeDoubleInLock()
 {
+	BraceUpdate(m_pnUse, m_pnDouble, m_criticalsection);
+	
 	if(m_pnCountPushed2->get() < m_nSize)
 		return;
 	
@@ -312,18 +339,7 @@ bool BaseCircleQueue::push(void *_pValue)
 	//assert(m_nCountPushed < (INT32)m_nSize-1 && "CircleQueue Overflow");
 	if(++*m_pnCountPushed2 >= (int)m_nSize)
 	{
-		--*m_pnUse;
-		EnterCriticalSection((CRITICAL_SECTION*)m_criticalsection);
-		++*m_pnDouble;
-		inc.hold();
-		//g_SendMessage(LOG_MSG_FILELOG, "--------------------CircleQueue OverFlow Size: %d %s\n", m_nSize, m_strCalledPos);
-		//g_SendMessage(LOG_MSG, "--------------------CircleQueue OverFlow Size: %d\n", m_nSize);
 		MakeDoubleInLock();
-		//--*m_pnCountPushed2;
-		--*m_pnDouble;
-		LeaveCriticalSection((CRITICAL_SECTION*)m_criticalsection);
-		++*m_pnUse;
-		//return false;
 	}
 
 	UINT32 nPos = (UINT32)++*m_puPosPush;

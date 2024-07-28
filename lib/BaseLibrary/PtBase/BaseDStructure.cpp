@@ -33,24 +33,13 @@ STLMnInt	BaseDStructure::sm_stlMnDebugProcessorLine;
 int			BaseDStructure::sm_nDefineOriginalSize = 0;
 STLVString	BaseDStructure::sm_stlVClasses;
 
-atomic_cnt	s_accessTicket(0);
-atomic_cnt    s_accessCall_n(0);
+atomic_cnt	*s_lockUse = NULL;
+atomic_cnt *s_lockUpdate = NULL;
 
-void s_typeaccess_in()
-{
-	int ticket = ++s_accessTicket;
-	ticket--;
-	while (ticket != s_accessCall_n.get()) {
-		char buf[255];
-		sprintf_s(buf, 255, "ticket: %x %7d %7d\n", &s_accessTicket, ticket, s_accessCall_n.get());
-		OutputDebugString(buf);
-	}
-}
-
-void s_typeaccess_out()
-{
-	++s_accessCall_n;
-}
+#ifndef _WIN32
+#define CRITICAL_SECTION				pthread_mutex_t
+#endif
+CRITICAL_SECTION	*s_critical_que_section = NULL;
 
 int s_dbg_mem_value = 0;
 const int* s_db_mem = NULL;
@@ -120,6 +109,14 @@ void BaseDStructure::init_type()
 {
 	if (sm_stlVTypeName.size() == 0)
 	{
+		s_lockUse = new atomic_cnt(0);
+		s_lockUpdate = new atomic_cnt(0);
+		s_critical_que_section = new CRITICAL_SECTION;
+		
+		BraceInc inc(s_lockUse, s_lockUpdate);
+		BraceUpdate::criticalInit(s_critical_que_section);
+		BraceUpdate updator(s_lockUse, s_lockUpdate, s_critical_que_section);
+		
 		sm_stlVTypeName.resize(TYPE_MAX);
 		sm_stlVTypeSize.resize(TYPE_MAX);
 		//sm_stlVTypeSize[TYPE_NULL] = 0;	sm_stlVTypeName[TYPE_NULL] = "NULL";
@@ -747,19 +744,29 @@ int	BaseDStructure::add_column(int _nFlag, int _nColumnHash, bbyte _nType, short
 
 	if (!overwrite)
 	{
-		//marker
-		tDefine.nIndex = (short)type_length();
-		s_typeaccess_in();
-		sm_stlVTypedef.push_back(tDefine);
-		sm_stlMnnTypedef[_nColumnHash] = tDefine.nIndex;
-		s_typeaccess_out();
+		type_add(_nColumnHash, tDefine);
 	}else{
-		s_typeaccess_in();
-		sm_stlVTypedef[index] = tDefine;
-		s_typeaccess_out();
+		type_mod(index, tDefine);
 	}
 
 	return _nColumnHash;
+}
+
+void BaseDStructure::type_add(int _hash, STypeDefine _type)
+{
+	BraceInc inc(s_lockUse, s_lockUpdate);
+	BraceUpdate updater(s_lockUse, s_lockUpdate, s_critical_que_section);
+
+	//marker
+	_type.nIndex = (short)sm_stlVTypedef.size();
+	sm_stlVTypedef.push_back(_type);
+	sm_stlMnnTypedef[_hash] = _type.nIndex;
+}
+
+void BaseDStructure::type_mod(int _idx, STypeDefine _type)
+{
+	BraceInc inc(s_lockUse, s_lockUpdate);
+	sm_stlVTypedef[_idx] = _type;
 }
 
 int	BaseDStructure::add_column(int _nFlag, const char *_strName, bbyte _nType, short _nSize, const char *_strState, const char *_strComment)
@@ -1337,12 +1344,11 @@ void	BaseDStructure::get_flag(char *_strFlag, int _nFlag)
 
 bool	BaseDStructure::set_type_flag(int _nIndex, int _nFlag)
 {
-	if(_nIndex < 0 || _nIndex >= (int)type_length())
+	BraceInc(s_lockUse, s_lockUpdate);
+	if(_nIndex < 0 || _nIndex >= sm_stlVTypedef.size())
 		return false;
 
-	s_typeaccess_in();
 	sm_stlVTypedef[_nIndex].nFlag = _nFlag;
-	s_typeaccess_out();
 	return true;
 }
 
@@ -2428,32 +2434,28 @@ short	BaseDStructure::get_size_(int _nHash)
 
 STypeDefine BaseDStructure::type_get(int _index)
 {
-	s_typeaccess_in();
+	BraceInc(s_lockUse, s_lockUpdate);
 	STypeDefine def;
 	def = sm_stlVTypedef[_index];
-	s_typeaccess_out();
 	return def;
 }
 
 size_t BaseDStructure::type_length()
 {
-	s_typeaccess_in();
+	BraceInc(s_lockUse, s_lockUpdate);
 	size_t size = sm_stlVTypedef.size();
-	s_typeaccess_out();
 	return size;
 }
 
 bool BaseDStructure::type_find(int _hash, short *_index_p)
 {
+	BraceInc(s_lockUse, s_lockUpdate);
 	//marker
 	STLMnnTypeDefine::const_iterator it;
-	s_typeaccess_in();
 	it = sm_stlMnnTypedef.find(_hash);
 	if (it == sm_stlMnnTypedef.end()){
-		s_typeaccess_out();
 		return false;
 	}
-	s_typeaccess_out();
 	*_index_p = it->second;
 	return true;
 }

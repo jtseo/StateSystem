@@ -54,10 +54,21 @@ private:
 
 class BraceInc
 {
+protected:
 	atomic_cnt* m_cnt;
 	atomic_cnt* m_double;
 public:
 	BraceInc(atomic_cnt* _cnt, atomic_cnt* _double);
 	void hold();
 	~BraceInc();
+};
+
+class BraceUpdate : public BraceInc
+{
+	void *m_criticalsection;
+public:
+	static void criticalInit(void *_criticalsection);
+	static void criticalDestory(void *_criticalsection);
+	BraceUpdate(atomic_cnt* _cnt, atomic_cnt* _double, void *_criticalsection);
+	~BraceUpdate();
 };
