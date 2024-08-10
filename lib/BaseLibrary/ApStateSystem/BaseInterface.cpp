@@ -130,7 +130,7 @@ void* manager_create(const char* _strRootPath)
 	if (strPath[len] != '\\' && strPath[len] != '/')
 		strcat_s(strPath, _MAX_PATH, "/");
 	BaseSystem::path_root_set(strPath);
-
+    
 	StateManagerPnID* pManager = StateManagerPnID::manager_create();
 
 	BaseEventHandler::single_get(pManager);
@@ -190,6 +190,11 @@ void* manager_create(const char* _strRootPath)
 		pManager->set_root_path(strPath);
 		pManager->Init(NULL);// Add by OJ : 2010-02-26
 	}
+    
+    int hash = STRTOHASH("StateClientPathGlobal_strV");
+    pManager->variable_define(hash, TYPE_STRING, true);
+    pManager->varialbe_global_get()->set_alloc(hash, BaseStateManager::path_get_save());
+    
 	//marker
 	//pManager->thread_start();
 	return pManager;
