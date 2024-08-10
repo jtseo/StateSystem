@@ -384,11 +384,14 @@ int BaseSFuncDirectory::FileSave_varF()
 	short cnt = 0;
 	int cnt2 = 0;
 
+    if(filepath == NULL)
+        return 0;
+    
 	const int* hash = (const int*)m_param_value;
 	bool largeable = m_state_variable->get_base()->type_get(m_state_variable->get_base()->get_index(*hash)).nType >= TYPE_STRING;
 
 	BaseFile file;
-
+    
 	if (file.OpenFile(filepath, BaseFile::OPEN_WRITE))
 		return 0;
 
@@ -447,6 +450,12 @@ int BaseSFuncDirectory::FileUpdated_varIf()
 	const char *file = (const char*)paramVariableGet();
 	const char *date = (const char*)paramFallowGet(0);
 	
+    FILE* pf = fopen(file, "r"); // check file is exist.
+    if (!pf) {
+        return 1;
+    }
+    fclose(pf);
+    
 	SPtDateTime dtCur = BaseSystem::file_datetime_get(file);
 	SPtDateTime dtServer;
 	
