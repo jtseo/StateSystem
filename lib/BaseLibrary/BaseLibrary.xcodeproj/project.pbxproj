@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8CBA66B52C6750CE00D395DA /* StateContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA66B42C6750CE00D395DA /* StateContext.cpp */; };
+		8CBA66B62C6750CE00D395DA /* StateContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA66B42C6750CE00D395DA /* StateContext.cpp */; };
+		8CBA66B72C6750CE00D395DA /* StateContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA66B42C6750CE00D395DA /* StateContext.cpp */; };
+		8CBA66B82C6750CE00D395DA /* StateContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA66B42C6750CE00D395DA /* StateContext.cpp */; };
+		8CBA66B92C6750CE00D395DA /* StateContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA66B42C6750CE00D395DA /* StateContext.cpp */; };
 		C103ADBF264D6A6300704889 /* BaseSFuncDirectory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C103ADBC264D6A6300704889 /* BaseSFuncDirectory.cpp */; };
 		C104607A2644208D0077FB2A /* BaseTextEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C104606F2644208D0077FB2A /* BaseTextEditor.cpp */; };
 		C12501082AEDC08900AB0052 /* BaseSCCurl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12501032AEDC08900AB0052 /* BaseSCCurl.cpp */; };
@@ -337,9 +342,6 @@
 		C15AD75B2AC0371F002202C8 /* BaseInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33C52AB89FEB0094D3E6 /* BaseInterface.cpp */; };
 		C15AD75C2AC0371F002202C8 /* StateManagerPnID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33C42AB89FEB0094D3E6 /* StateManagerPnID.cpp */; };
 		C15AD75D2AC03724002202C8 /* pch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33C62AB89FEB0094D3E6 /* pch.cpp */; };
-		C15AD7632AC03C87002202C8 /* BaseSCMysql.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15AD6D12AC03425002202C8 /* BaseSCMysql.cpp */; };
-		C19A8F142B7525720034B7F1 /* ExtendOpenCV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C19A8F112B7522110034B7F1 /* ExtendOpenCV.cpp */; };
-		C1AA8E122AF709D100CEE2FA /* BaseSCHttpD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8E112AF709D100CEE2FA /* BaseSCHttpD.cpp */; };
 		C1BC00B82C46C5770012F798 /* BaseStateSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1BC00B52C46C5110012F798 /* BaseStateSystem.cpp */; };
 		C1BC00B92C46C57F0012F798 /* BaseStateSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1BC00B52C46C5110012F798 /* BaseStateSystem.cpp */; };
 		C1E04FD32658B51C0058CD21 /* BaseTextEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C104606F2644208D0077FB2A /* BaseTextEditor.cpp */; };
@@ -392,6 +394,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8CBA66B42C6750CE00D395DA /* StateContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StateContext.cpp; path = PtExtend/StateContext.cpp; sourceTree = SOURCE_ROOT; };
+		8CBA66BA2C67774F00D395DA /* StateContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StateContext.h; path = PtExtend/StateContext.h; sourceTree = SOURCE_ROOT; };
 		C103ADBC264D6A6300704889 /* BaseSFuncDirectory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSFuncDirectory.cpp; path = PtBase/BaseSFuncDirectory.cpp; sourceTree = SOURCE_ROOT; };
 		C103ADBD264D6A6300704889 /* BaseSFuncDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseSFuncDirectory.h; path = PtBase/BaseSFuncDirectory.h; sourceTree = SOURCE_ROOT; };
 		C104606E2644208D0077FB2A /* BaseStateFunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseStateFunc.cpp; path = PtBase/BaseStateFunc.cpp; sourceTree = SOURCE_ROOT; };
@@ -664,6 +668,8 @@
 		C1F7D7961BCE401A00473CAE /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				8CBA66BA2C67774F00D395DA /* StateContext.h */,
+				8CBA66B42C6750CE00D395DA /* StateContext.cpp */,
 				C1972A942C54AC1500787300 /* BaseStateSystem.h */,
 				C1BC00B52C46C5110012F798 /* BaseStateSystem.cpp */,
 				C19A8F112B7522110034B7F1 /* ExtendOpenCV.cpp */,
@@ -943,7 +949,6 @@
 				C1BC00B82C46C5770012F798 /* BaseStateSystem.cpp in Sources */,
 				C12A33022AB8959C0094D3E6 /* Vector3.cpp in Sources */,
 				C12A33AF2AB895D60094D3E6 /* BaseEventHandler.cpp in Sources */,
-				C19A8F142B7525720034B7F1 /* ExtendOpenCV.cpp in Sources */,
 				C12A330C2AB8959C0094D3E6 /* lodepng.cpp in Sources */,
 				C12A33392AB8959C0094D3E6 /* BaseSFuncDirectory.cpp in Sources */,
 				C12A33CB2AB89FEB0094D3E6 /* StateManagerPnID.cpp in Sources */,
@@ -978,6 +983,7 @@
 				C12A33A02AB895D60094D3E6 /* BaseSCTableGrid.cpp in Sources */,
 				C12A332A2AB8959C0094D3E6 /* EncodeCodeFile.cpp in Sources */,
 				C12A33612AB8959C0094D3E6 /* stdafx.cpp in Sources */,
+				8CBA66B72C6750CE00D395DA /* StateContext.cpp in Sources */,
 				C12A334D2AB8959C0094D3E6 /* EncoderOperator.cpp in Sources */,
 				C12A33342AB8959C0094D3E6 /* BaseState.cpp in Sources */,
 				C12A33AD2AB895D60094D3E6 /* BaseCircleQueue.cpp in Sources */,
@@ -1011,6 +1017,7 @@
 				C15AD6972AC033B0002202C8 /* BaseEventHandler.cpp in Sources */,
 				C15AD6C12AC03400002202C8 /* lodepng.cpp in Sources */,
 				C15AD69B2AC033B0002202C8 /* pch.cpp in Sources */,
+				8CBA66B82C6750CE00D395DA /* StateContext.cpp in Sources */,
 				C15AD69E2AC033B0002202C8 /* BaseEventManager.cpp in Sources */,
 				C15AD6982AC033B0002202C8 /* BaseJson.cpp in Sources */,
 				C15AD6B02AC033BA002202C8 /* BaseResGrid.cpp in Sources */,
@@ -1102,7 +1109,6 @@
 				C15AD71F2AC0370D002202C8 /* Vector3.cpp in Sources */,
 				C15AD73D2AC0370D002202C8 /* BaseStateMain.cpp in Sources */,
 				C15AD7472AC0370E002202C8 /* BaseStateFunc.cpp in Sources */,
-				C15AD7632AC03C87002202C8 /* BaseSCMysql.cpp in Sources */,
 				C15AD7322AC0370D002202C8 /* BaseResDStructure.cpp in Sources */,
 				C15AD7392AC0370D002202C8 /* BaseTime.cpp in Sources */,
 				C15AD7352AC0370D002202C8 /* BaseStateSpace.cpp in Sources */,
@@ -1114,7 +1120,6 @@
 				C15AD7492AC0370E002202C8 /* BaseWFile.cpp in Sources */,
 				C15AD7342AC0370D002202C8 /* BaseResFilterIP.cpp in Sources */,
 				C15AD7512AC0370E002202C8 /* Matrix4.cpp in Sources */,
-				C1AA8E122AF709D100CEE2FA /* BaseSCHttpD.cpp in Sources */,
 				C15AD74E2AC0370E002202C8 /* BaseActionStack.cpp in Sources */,
 				C15AD72B2AC0370D002202C8 /* BaseStateManager.cpp in Sources */,
 				C15AD7202AC0370D002202C8 /* BaseResManager.cpp in Sources */,
@@ -1126,6 +1131,7 @@
 				C15AD73C2AC0370D002202C8 /* MD52.cpp in Sources */,
 				C15AD7552AC0370E002202C8 /* BaseHttp.cpp in Sources */,
 				C15AD73A2AC0370D002202C8 /* BaseCircleQueue.cpp in Sources */,
+				8CBA66B92C6750CE00D395DA /* StateContext.cpp in Sources */,
 				C15AD74C2AC0370E002202C8 /* BaseResGrid.cpp in Sources */,
 				C12501172AEDDFAE00AB0052 /* BaseSCTcp.cpp in Sources */,
 				C15AD7482AC0370E002202C8 /* BaseSetString.cpp in Sources */,
@@ -1186,6 +1192,7 @@
 				C12A33562AB8959C0094D3E6 /* BaseTree.cpp in Sources */,
 				C12A33512AB8959C0094D3E6 /* BaseTime.cpp in Sources */,
 				C12A33CA2AB89FEB0094D3E6 /* StateManagerPnID.cpp in Sources */,
+				8CBA66B62C6750CE00D395DA /* StateContext.cpp in Sources */,
 				C12A33C22AB896880094D3E6 /* BaseJson.cpp in Sources */,
 				C12A33972AB8959C0094D3E6 /* allocator.cpp in Sources */,
 				C12A33012AB8959C0094D3E6 /* Vector3.cpp in Sources */,
@@ -1238,6 +1245,7 @@
 				C12A32C12AB895350094D3E6 /* BaseEventHandler.cpp in Sources */,
 				C12A33182AB8959C0094D3E6 /* BaseTextEditorText.cpp in Sources */,
 				C12A337C2AB8959C0094D3E6 /* SPLine.cpp in Sources */,
+				8CBA66B52C6750CE00D395DA /* StateContext.cpp in Sources */,
 				C12A33682AB8959C0094D3E6 /* BaseWFile.cpp in Sources */,
 				C12A32FF2AB8959C0094D3E6 /* Vector3.cpp in Sources */,
 				C12A33952AB8959C0094D3E6 /* allocator.cpp in Sources */,
@@ -1311,26 +1319,16 @@
 					"_MAC=1",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = (
-					"/opt/homebrew/opt/mysql@5.7/include/mysql",
-					"\"/Volumes/SamSSD 1/oddeye/oddeyesoft/projects/StateSystem/lib/SDK/opencv/include\"",
-				);
+				HEADER_SEARCH_PATHS = /opt/homebrew/Cellar/opencv/4.10.0/include/opencv4;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Jung Tae Seo. All rights reserved.";
 				INFOPLIST_KEY_NSPrincipalClass = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				LIBRARY_SEARCH_PATHS = (
-					"/opt/homebrew/Cellar/mysql@5.7/5.7.35/lib",
-					/usr/local/lib,
-				);
+				LIBRARY_SEARCH_PATHS = /opt/homebrew/Cellar/opencv/4.10.0/lib;
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				OTHER_LDFLAGS = (
-					"-lopencv_core",
-					"-lopencv_imgcodecs",
-					"-lopencv_imgproc",
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = oddeyesoft.ApStateSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1363,25 +1361,15 @@
 					"_MAC=1",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = (
-					"/opt/homebrew/opt/mysql@5.7/include/mysql",
-					"\"/Volumes/SamSSD 1/oddeye/oddeyesoft/projects/StateSystem/lib/SDK/opencv/include\"",
-				);
+				HEADER_SEARCH_PATHS = /opt/homebrew/Cellar/opencv/4.10.0/include/opencv4;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Jung Tae Seo. All rights reserved.";
 				INFOPLIST_KEY_NSPrincipalClass = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				LIBRARY_SEARCH_PATHS = (
-					"/opt/homebrew/Cellar/mysql@5.7/5.7.35/lib",
-					/usr/local/lib,
-				);
+				LIBRARY_SEARCH_PATHS = /opt/homebrew/Cellar/opencv/4.10.0/lib;
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
-				OTHER_LDFLAGS = (
-					"-lopencv_core",
-					"-lopencv_imgcodecs",
-					"-lopencv_imgproc",
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = oddeyesoft.ApStateSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1474,24 +1462,22 @@
 					"$(inherited)",
 				);
 				HEADER_SEARCH_PATHS = (
-					"/opt/homebrew/opt/mysql@5.7/include/mysql",
 					"\"/Volumes/SamSSD 1/archipin/libmicrohttpd/src/include\"",
 					/opt/homebrew/opt/curl/include,
+					/opt/homebrew/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/homebrew/opt/gnutls/lib,
-					"/opt/homebrew/Cellar/mysql@5.7/5.7.44/lib",
-					"\"/Volumes/SamSSD 1/archipin/StateSystem/lib/BaseLibrary/stateconsole\"",
 					/opt/homebrew/opt/curl/lib,
+					/opt/homebrew/lib,
+					/opt/homebrew/Cellar/opencv/4.10.0/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = (
 					"-lgnutls",
-					"-lmysqlclient",
-					"-lmysqld",
 					"-lmicrohttpd",
 					"-lcurl",
 				);
@@ -1519,23 +1505,21 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = "_MAC=1";
 				HEADER_SEARCH_PATHS = (
-					"/opt/homebrew/opt/mysql@5.7/include/mysql",
 					"\"/Volumes/SamSSD 1/archipin/libmicrohttpd/src/include\"",
 					/opt/homebrew/opt/curl/include,
+					/opt/homebrew/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/homebrew/opt/gnutls/lib,
-					"/opt/homebrew/Cellar/mysql@5.7/5.7.44/lib",
-					"\"/Volumes/SamSSD 1/archipin/StateSystem/lib/BaseLibrary/stateconsole\"",
 					/opt/homebrew/opt/curl/lib,
+					/opt/homebrew/lib,
+					/opt/homebrew/Cellar/opencv/4.10.0/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = (
 					"-lgnutls",
-					"-lmysqlclient",
-					"-lmysqld",
 					"-lmicrohttpd",
 					"-lcurl",
 				);
@@ -1615,7 +1599,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XR2UN87UM6;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				HEADER_SEARCH_PATHS = /opt/homebrew/include;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LIBRARY_SEARCH_PATHS = /opt/homebrew/lib;
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1628,7 +1614,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -1656,7 +1644,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XR2UN87UM6;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				HEADER_SEARCH_PATHS = /opt/homebrew/include;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LIBRARY_SEARCH_PATHS = /opt/homebrew/lib;
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MTL_FAST_MATH = YES;
 				OTHER_CFLAGS = "-fembed-bitcode";
@@ -1667,7 +1657,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 			};

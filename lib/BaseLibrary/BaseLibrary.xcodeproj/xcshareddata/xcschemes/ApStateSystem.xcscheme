@@ -10,7 +10,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;cp -R /Users/jtseo/Library/Developer/Xcode/DerivedData/BaseLibrary-amwpcuxjqcdgcmgfxqjixitjlpoh/Build/Products/Debug/ApStateSystem.bundle &quot;/Volumes/SamSSD 1/oddeye/oddeyesoft/projects/photobooth/photobooth/Assets/VLogger/Plugins/OSX&quot;&#10;cp -R /Users/jtseo/Library/Developer/Xcode/DerivedData/BaseLibrary-amwpcuxjqcdgcmgfxqjixitjlpoh/Build/Products/Debug/ApStateSystem.bundle &quot;/Volumes/SamSSD 1/oddeye/oddeyesoft/projects/photobooth/PhotoMac.app/Contents/PlugIns&quot;&#10;">
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;cp -R /Users/jungtae/Library/Developer/Xcode/DerivedData/BaseLibrary-bxdidjrwiykhztfirkfqhtqoxbcr/Build/Products/Debug/ApStateSystem.bundle &quot;/Users/jungtae/projects/StateSystem/lib/VScriptEditor64.app/Contents/PlugIns&quot;&#10;cp -R /Users/jungtae/Library/Developer/Xcode/DerivedData/BaseLibrary-bxdidjrwiykhztfirkfqhtqoxbcr/Build/Products/Debug/ApStateSystem.bundle &quot;/Users/jungtae/projects/GameServerSample/Assets/VLogger/Plugins/OSX&quot;&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
@@ -53,7 +53,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "YES"
-      customWorkingDirectory = "/Volumes/SamSSD 1/oddeye/oddeyesoft/projects/StateSystem/lib"
+      customWorkingDirectory = "/Users/jungtae/projects/StateSystem/lib"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
@@ -61,7 +61,7 @@
       <PathRunnable
          runnableDebuggingMode = "0"
          BundleIdentifier = "com.oddeyesoft.VScriptEditor"
-         FilePath = "/Volumes/SamSSD 1/oddeye/oddeyesoft/projects/StateSystem/lib/VScriptEditor64.app">
+         FilePath = "/Users/jungtae/projects/StateSystem/lib/VScriptEditor64.app">
       </PathRunnable>
       <LocationScenarioReference
          identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
