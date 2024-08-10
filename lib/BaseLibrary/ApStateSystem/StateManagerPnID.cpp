@@ -26,6 +26,7 @@
 #include "../PtBase/BaseResManager.h"
 
 #include "../PtBase/BaseStringTable.h"
+#include "../PtExtend/StateContext.h"
 
 static bool s_bStateTerminated = false;
 StateManagerPnID StateManagerPnID::sm_sample(NULL);
@@ -100,6 +101,7 @@ StateManagerPnID::StateManagerPnID(void *_applet) :BaseStateManager(_applet)
 	BaseSCTcp tcp;
 	//BaseSFParser paser;
 	BaseStateSystem sys;
+    StateContext context;
 	
 #ifdef PHOTOSKETCH
 	ExtendOpenCV extOpencv;
