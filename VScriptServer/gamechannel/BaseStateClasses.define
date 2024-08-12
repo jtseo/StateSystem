@@ -29,3 +29,4 @@ UIMultiSelector	selector manager
 UIStateSelector	selector
 UITitleManager	title manager
 StateContext	context
+GameChannelClient	support GameChannelClient
