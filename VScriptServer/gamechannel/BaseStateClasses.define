@@ -1,0 +1,31 @@
+BaseStateFunc	../BaseLibrary/PtBase/	../BaseLibrary/BaseLibrary/
+BaseStateSystem	support state system & windows
+BaseSFuncXML	support xml file(VScriptEditor)
+BaseTextEditorText	support text editor for a sentence with editor bellow
+BaseTextEditor	support text editor
+BaseSFuncDirectory	support directory
+BaseRecognitionManager	support figure prediction by vector difference
+BaseRecognitionPrjVector	support record projected vector and process
+BaseSFParser	support text parser
+BaseSCTableGrid	support grip table : get serarch (label, name, & get a colum)
+BaseSCExcel	support excel format text
+BaseSCTcp	support tcpip connection
+BaseSCTcpSession	support tcpip session
+BaseSCDBFile	support file db system
+BaseSCMysql	support mysql
+StateGameObject	support unity gameobject
+StatePython	support python call
+BaseSCCurl	support REST client
+StateUnity	support StateUnity
+BaseSCHttpD	support class
+BaseSCHttpDSession	support class
+BaseSCJson	support class
+DevCashReader	support class
+DevPrinter	support printer
+DevCamera	support class
+PicturesManager	picture memory manage
+SCStatesViewer	support SCStatesViewer
+UIMultiSelector	selector manager
+UIStateSelector	selector
+UITitleManager	title manager
+StateContext	context
