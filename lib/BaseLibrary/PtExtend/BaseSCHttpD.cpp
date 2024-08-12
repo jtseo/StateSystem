@@ -236,8 +236,12 @@ DEF_ThreadCallBack(BaseSCHttpD::update)
 
 	struct MHD_Daemon *daemon;
 
-	daemon = MHD_start_daemon (MHD_USE_INTERNAL_POLLING_THREAD, 8080, NULL, NULL,
-							   &answer_to_connection, (void *)httpd, MHD_OPTION_END);
+	daemon = MHD_start_daemon (
+                               MHD_USE_SSL | MHD_USE_INTERNAL_POLLING_THREAD, 8080, NULL, NULL,
+							   &answer_to_connection, (void *)httpd,
+                               MHD_OPTION_HTTPS_MEM_KEY, "./private_key.pem",
+                               MHD_OPTION_HTTPS_MEM_CERT, "./certificate.pem",
+                               MHD_OPTION_END);
 	if (NULL == daemon) {
 		return NULL;
 	}
