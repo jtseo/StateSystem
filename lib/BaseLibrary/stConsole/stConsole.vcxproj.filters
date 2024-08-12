@@ -30,6 +30,12 @@
     <ClCompile Include="StateManagerPnID.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\PtExtend\BaseSCHttpD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PtExtend\BaseSCHttpDSession.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseInterface.h">
@@ -39,6 +45,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StateManagerPnID.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtExtend\BaseSCHttpD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtExtend\BaseSCHttpDSession.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

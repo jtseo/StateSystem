@@ -380,12 +380,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\PtExtend\BaseSCHttpD.cpp" />
+    <ClCompile Include="..\PtExtend\BaseSCHttpDSession.cpp" />
     <ClCompile Include="BaseInterface.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="StateManagerPnID.cpp" />
     <ClCompile Include="stConsole.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\PtExtend\BaseSCHttpD.h" />
+    <ClInclude Include="..\PtExtend\BaseSCHttpDSession.h" />
     <ClInclude Include="BaseInterface.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="StateManagerPnID.h" />
