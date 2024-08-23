@@ -1,6 +1,7 @@
 ﻿#pragma once
-#include "BaseStateFunc.h"
-class BaseSCHttpDSession
+#include "../PtBase/BaseStateFunc.h"
+
+class BaseSCHttpDSession :
     public BaseStateFunc
 {
     enum {
@@ -13,11 +14,11 @@ class BaseSCHttpDSession
     };
 
 public:
-    BaseSCHttpDSession
-    ~BaseSCHttpDSession
+    BaseSCHttpDSession();
+    ~BaseSCHttpDSession();
 
-    PtObjectHeaderInheritance(BaseSCHttpDSession
-    STDEF_SC_HEADER(BaseSCHttpDSession
+    PtObjectHeaderInheritance(BaseSCHttpDSession);
+    STDEF_SC_HEADER(BaseSCHttpDSession);
 
     virtual int Create();
     int ApiReturn_varF();

@@ -5,7 +5,7 @@
 #include "../PtBase/BaseState.h"
 #include "../PtBase/BaseFile.h"
 
-#include "BaseSCHttpDSession
+#include "BaseSCHttpDSession.h"
 
 #include "../PtBase/BaseStateMain.h"
 #include "../PtBase/BaseStateManager.h"
@@ -16,16 +16,16 @@
 #include "../PtBase/BaseTime.h"
 #include "../PtBase/BaseStringTable.h"
 
-PtObjectCpp(BaseSCHttpDSession
+PtObjectCpp(BaseSCHttpDSession);
 
 // define  BaseStateFunc::FuncSample
 // grouping by class 
 // and call representator class FunctionProcessor with _processor hash
 
-STLVInt	BaseSCHttpDSession
-const char* BaseSCHttpDSession
+STLVInt	BaseSCHttpDSession::s_func_hash_a;
+const char* BaseSCHttpDSession::s_class_name = "BaseSCHttpDSession";
 
-int BaseSCHttpDSession
+int BaseSCHttpDSession::GetObjectId()
 {
 	static int	s_iId = 0;
 	if (s_iId == 0)
@@ -34,14 +34,14 @@ int BaseSCHttpDSession
 	return s_iId;
 }
 
-BaseSCHttpDSession
+BaseSCHttpDSession::BaseSCHttpDSession()
 {
 	m_nObjectId = GetObjectId();
 
-	StateFuncRegist(s_class_name, &s_func_hash_a, EnumExtentionMax, BaseSCHttpDSession
+	StateFuncRegist(s_class_name, &s_func_hash_a, EnumExtentionMax, BaseSCHttpDSession::FunctionProcessor);
 }
 
-int BaseSCHttpDSession
+int BaseSCHttpDSession::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, int _size, fnEventProcessor _func)
 {
 	if (BaseStateFunc::StateFuncRegist(_class_name, _func_hash, _size, _func) > 0)
 	{
@@ -58,32 +58,32 @@ int BaseSCHttpDSession
 		return 0;
 }
 
-BaseSCHttpDSession
+BaseSCHttpDSession::~BaseSCHttpDSession()
 {
 
 }
 
-void BaseSCHttpDSession
+void BaseSCHttpDSession::init()
 {
 	BaseStateFunc::init();
 }
 
-void BaseSCHttpDSession
+void BaseSCHttpDSession::release()
 {
 }
 
-BaseStateFuncEx* BaseSCHttpDSession
+BaseStateFuncEx* BaseSCHttpDSession::CreatorCallback(const void* _param)
 {
-	BaseSCHttpDSession
-	PT_OAlloc(bs_func, BaseSCHttpDSession
+	BaseSCHttpDSession* bs_func;
+	PT_OAlloc(bs_func, BaseSCHttpDSession);
 
 	bs_func->init();
-	StateFuncRegist(s_class_name, &s_func_hash_a, EnumExtentionMax, BaseSCHttpDSession
+	StateFuncRegist(s_class_name, &s_func_hash_a, EnumExtentionMax, BaseSCHttpDSession::FunctionProcessor);
 
 	return bs_func;
 }
 
-int BaseSCHttpDSession
+int BaseSCHttpDSession::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 {
     int ret = BaseStateFunc::FunctionCall(s_class_name, s_func_hash_a);
 
@@ -98,18 +98,18 @@ int BaseSCHttpDSession
     }
     return ret;
 }
-int BaseSCHttpDSession
+int BaseSCHttpDSession::FunctionProcessor(const BaseDStructureValue* _base, BaseDStructureValue* _event, BaseDStructureValue* _context, int _status)
 {
 	int _processor = _base->function_hash_get();
 
-	BaseSCHttpDSession
-
+	BaseSCHttpDSession* bs_func = (BaseSCHttpDSession*)BaseStateFunc::FunctionProcessorHeader(_processor, s_class_name, sm_sample.GetObjectId(), _base, _event, _context, &s_func_hash_a, BaseSCHttpDSession::CreatorCallback, 0);
+	
 	int ret = bs_func->FunctionCall(s_class_name, s_func_hash_a);
 
 	return ret;
 }
 
-int BaseSCHttpDSession
+int BaseSCHttpDSession::Create()
 {
 	if (!BaseStateFunc::Create())
 		return 0;
@@ -119,7 +119,7 @@ int BaseSCHttpDSession
     return 1;
 }
 
-int *Fail*::ApiReturn_varF()
+int BaseSCHttpDSession::ApiReturn_varF()
 {
 	return 1;
 }

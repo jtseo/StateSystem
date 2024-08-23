@@ -32,8 +32,11 @@
 #include "../PtBase/BaseStateSpace.h"
 #include "../PtBase/BaseStringTable.h"
 #include "../PtBase/BaseStateManager.h"
+#ifdef _WIN32
 #include <process.h>
-
+#else
+#include <unistd.h>
+#endif
 #define MAX_ID_LENGTH 100
 
 #undef STDEF_MANAGERNAME
@@ -50,20 +53,20 @@ int s_eventstack[10];
 #include "../PtBase/BaseStructure.h"
 #include "../PtBase/BaseTime.h"
 
-#include <conio.h>
+//#include <conio.h>
 
 #include "../PtBase/BaseXML.h"
 #include "../StatePython/StatePython.h"
 
 //#include "../PtBase/BaseSCCurl.h"
-#include "../PtExtend/SerialPort.h"
-#include "../PtExtend/DevCashReader.h"
-#include "../PtExtend/DevPrinter.h"
+//#include "../PtExtend/SerialPort.h"
+//#include "../PtExtend/DevCashReader.h"
+//#include "../PtExtend/DevPrinter.h"
 #ifndef VScriptBuild
 #include "../Eos/DevCamera.h"
 
-#include "../../SDK/opencv/include/opencv2/opencv.hpp"
-#include "../PtExtend/ExtendOpenCV.h"
+//#include "../../SDK/opencv/include/opencv2/opencv.hpp"
+//#include "../PtExtend/ExtendOpenCV.h"
 #endif
 
 int main(int argc, char *argv[])
@@ -85,9 +88,9 @@ int main(int argc, char *argv[])
 
 	DevCamera cam;
 #endif
-	CSerialPort serial;
-	DevCashReader read;
-	DevPrinter prt;
+	//CSerialPort serial;
+	//DevCashReader read;
+	//DevPrinter prt;
 	//BaseSCCurl crl;
 
 	//StatePython *python = (StatePython*)StatePython::CreatorCallback(NULL);
@@ -123,11 +126,11 @@ int main(int argc, char *argv[])
 		manager_update(pManager);
 		BaseSystem::Sleep(1);
 
-		if (_kbhit()) {
-			key = _getch();
+		//if (_kbhit()) {
+		//	key = _getch();
 
-			pManager->state_active_show_all();
-		}
+		//	pManager->state_active_show_all();
+		//}
 	}
 	//*/
 
