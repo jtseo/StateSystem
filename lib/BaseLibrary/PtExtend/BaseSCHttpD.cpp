@@ -207,6 +207,7 @@ answer_to_connection (void *cls, struct MHD_Connection *connection,
 	BaseDStructureValue *evt = httpd->EventMakeThread(STRTOHASH(command.c_str()));
 	evt->set_point("API_connection", connection);
 	evt->set_alloc("API_method", method);
+	evt->set_alloc("JsonParam_strV", upload_data);
 	httpd->EventPostThread(evt);
 	
 	while(httpd->sessionGet(connection))
@@ -235,15 +236,18 @@ DEF_ThreadCallBack(BaseSCHttpD::update)
 	BaseSCHttpD* httpd = (BaseSCHttpD*)_pParam;
 
 	struct MHD_Daemon *daemon;
-
+	
 	daemon = MHD_start_daemon (
-                               MHD_USE_SSL | MHD_USE_INTERNAL_POLLING_THREAD, 8080, NULL, NULL,
+                               MHD_USE_SSL |
+								MHD_USE_INTERNAL_POLLING_THREAD
+								, 8080, NULL, NULL,
 							   &answer_to_connection, (void *)httpd,
-                               MHD_OPTION_HTTPS_MEM_KEY, "./private_key.pem",
-                               MHD_OPTION_HTTPS_MEM_CERT, "./certificate.pem",
+                               MHD_OPTION_HTTPS_MEM_KEY, "privkey.pem",
+                               MHD_OPTION_HTTPS_MEM_CERT, "fullchain.pem",
                                MHD_OPTION_END);
 	if (NULL == daemon) {
-		return NULL;
+		printf("fail to open API posrt\n");
+		DEF_ThreadReturn;
 	}
 
 	httpd->damonSet(daemon);
@@ -252,5 +256,5 @@ DEF_ThreadCallBack(BaseSCHttpD::update)
 		BaseSystem::Sleep(10);
 	}while(httpd->damonGet());
 	httpd->threadStop();
-	return NULL;
+	DEF_ThreadReturn;
 }

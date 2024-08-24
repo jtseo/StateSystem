@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "../PtBase/BaseStateFunc.h"
 
-class BaseSCHttpDSession :
+class BaseSCHttpDSession:
     public BaseStateFunc
 {
     enum {

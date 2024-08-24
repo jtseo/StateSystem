@@ -103,7 +103,7 @@ int BaseSCHttpDSession::FunctionProcessor(const BaseDStructureValue* _base, Base
 	int _processor = _base->function_hash_get();
 
 	BaseSCHttpDSession* bs_func = (BaseSCHttpDSession*)BaseStateFunc::FunctionProcessorHeader(_processor, s_class_name, sm_sample.GetObjectId(), _base, _event, _context, &s_func_hash_a, BaseSCHttpDSession::CreatorCallback, 0);
-	
+
 	int ret = bs_func->FunctionCall(s_class_name, s_func_hash_a);
 
 	return ret;

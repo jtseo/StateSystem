@@ -269,15 +269,15 @@
       <PreprocessorDefinitions>CURL_STATICLIB;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>../../SDK/eos;../../SDK/opencv/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../SDK/httpd;../../SDK/eos;../../SDK/opencv/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
       <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ssleay32.lib;libeay32.lib;libcurl.lib;libmysql.lib;opencv_world490d.lib;EDSDK.lib;Wldap32.lib;ws2_32.lib;crypt32.lib;winmm.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../SDK/lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libmicrohttpd.lib;ssleay32.lib;libeay32.lib;libcurl.lib;libmysql.lib;opencv_world490d.lib;EDSDK.lib;Wldap32.lib;ws2_32.lib;crypt32.lib;winmm.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../../SDK/lib;../../SDK/httpd</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PhSchDbug|x64'">
@@ -305,15 +305,15 @@
       <PreprocessorDefinitions>VScriptBuild;CURL_STATICLIB;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>../../SDK/eos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../SDK/httpd;../../SDK/eos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
       <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ssleay32.lib;libeay32.lib;libcurl.lib;libmysql.lib;Wldap32.lib;ws2_32.lib;crypt32.lib;winmm.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../SDK/lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libmicrohttpd_d.lib;ssleay32.lib;libeay32.lib;libcurl.lib;libmysql.lib;Wldap32.lib;ws2_32.lib;crypt32.lib;winmm.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../../SDK/lib;../../SDK/httpd</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -325,7 +325,7 @@
       <PreprocessorDefinitions>CURL_STATICLIB;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>../../SDK/eos</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../SDK/httpd;../../SDK/eos;../../SDK/opencv/Include</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -333,8 +333,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opencv_world490.lib;EDSDK.lib;Wldap32.lib;ws2_32.lib;crypt32.lib;winmm.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../SDK/lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libmicrohttpd-dll.lib;Wldap32.lib;ws2_32.lib;crypt32.lib;winmm.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../../SDK/lib;../../SDK/httpd</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PhSchRelease|x64'">
@@ -367,7 +367,7 @@
       <PreprocessorDefinitions>VScriptBuild;CURL_STATICLIB;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>../../SDK/eos</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../SDK/httpd;../../SDK/eos</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -375,8 +375,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ssleay32.lib;libeay32.lib;libcurl.lib;libmysql.lib;Wldap32.lib;ws2_32.lib;crypt32.lib;winmm.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../SDK/lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libmicrohttpd-dll.lib;ssleay32.lib;libeay32.lib;libcurl.lib;libmysql.lib;Wldap32.lib;ws2_32.lib;crypt32.lib;winmm.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../../SDK/lib;../../SDK/httpd</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
