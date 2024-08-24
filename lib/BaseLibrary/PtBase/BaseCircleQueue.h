@@ -1,7 +1,7 @@
 #pragma once
 
 #ifndef _WIN32
-#include <stdatomic.h>
+#include <atomic>
 #endif
 
 class atomic_cnt;

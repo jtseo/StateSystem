@@ -40,7 +40,7 @@ protected:
 public:
 	BaseStateFuncEx();
 	static int GetObjectId();
-	virtual int BaseStateObjIdGet() = NULL;
+	virtual int BaseStateObjIdGet() = 0;
 	
 	BaseDStructureValue* EventMakeThread(int _hash);
 	BaseDStructureValue* EventMake(int _hash, int _group_target = 0);

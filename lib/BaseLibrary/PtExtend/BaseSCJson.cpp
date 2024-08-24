@@ -18,7 +18,7 @@
 #include "../PtBase/BaseStringTable.h"
 
 #include "../PtBase/base64.h"
-#include <format>
+//#include <format>
 
 PtObjectCpp(BaseSCJson);
 

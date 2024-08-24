@@ -8,6 +8,7 @@
 #endif
 #else
 // define for linux
+#include <cwctype>
 
 #endif
 BaseStringTable::STLMnstlVpTable	BaseStringTable::s_stlMnstlVpTable;

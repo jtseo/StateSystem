@@ -9,6 +9,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Add preprocessor definitions globally
 add_definitions(-DVScriptBuild)
+add_definitions(-DUbuntu)
+add_definitions(-DDebug)
 
 # Include directories
 include_directories(include)
@@ -16,8 +18,10 @@ include_directories(include)
 # Source files
 file(GLOB SOURCES "*.cpp")
 
-include_directories(/opt/homebrew/Cellar/libmicrohttpd/1.0.1/include/)
-include_directories(/opt/homebrew/Cellar/mysql-client/9.0.1/include/mysql/)
+#include_directories(/opt/homebrew/Cellar/libmicrohttpd/1.0.1/include/)
+#include_directories(/opt/homebrew/Cellar/mysql-client/9.0.1/include/mysql/)
+include_directories(/usr/include/)
+include_directories(/usr/include/mysql/)
 
 # Add executable
 add_executable(stConsole 
@@ -86,11 +90,14 @@ add_executable(stConsole
     PtExtend/StateContext.cpp
 )
 
+set(CMAKE_C_STANDARD 11)
 set(CMAKE_BUILD_TYPE Debug)
 
 # Link libraries (optional)
-target_link_libraries(stConsole PRIVATE 
-    /opt/homebrew/Cellar/libmicrohttpd/1.0.1/lib/libmicrohttpd.12.dylib
-    /opt/homebrew/Cellar/mysql-client/9.0.1/lib/libmysqlclient.24.dylib
-    /opt/homebrew/Cellar/curl/8.9.1/lib/libcurl.4.dylib
-    )
+target_link_libraries(stConsole mysqlclient ssl crypto microhttpd curl) 
+
+#target_link_libraries(stConsole PRIVATE 
+#    /opt/homebrew/Cellar/libmicrohttpd/1.0.1/lib/libmicrohttpd.12.dylib
+#    /opt/homebrew/Cellar/mysql-client/9.0.1/lib/libmysqlclient.24.dylib
+#    /opt/homebrew/Cellar/curl/8.9.1/lib/libcurl.4.dylib
+#    )

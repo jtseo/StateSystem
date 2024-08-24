@@ -30,7 +30,7 @@
 
 #ifndef _WIN32
 
-#ifdef ANDROID
+#if defined(ANDROID) || defined(Ubuntu)
 #include <thread>
 #include <mutex>
 #else
@@ -121,7 +121,7 @@ char *BaseSystem::module_get_data(char *_strRetPath, size_t _nLen, const char *_
 
 #ifndef _WIN32
 
-#ifdef ANDROID
+#if defined(ANDROID) || defined(Ubuntu)
 extern const char *__progname;
 const char *
 getprogname(void)
@@ -210,7 +210,7 @@ INT32 BaseSystem::LFDecrement(INT32 *_pnLock)
 
  INT32 BaseSystem::LFCompareExchange(INT32 *_pnLock, INT32 _nNew, INT32 _nComperand)
 {
-#ifdef ANDROID
+#if defined(ANDROID) || defined(Ubuntu)
     __sync_val_compare_and_swap(_pnLock, _nComperand, _nNew);
     return *_pnLock;
 #else

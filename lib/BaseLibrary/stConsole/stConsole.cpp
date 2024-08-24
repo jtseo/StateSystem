@@ -8,6 +8,7 @@
 #include <list>
 #include <queue>
 #include <string>
+#include <cstring>
 //#include <deque>
 #include <unordered_set>
 
