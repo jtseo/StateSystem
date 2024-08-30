@@ -64,3 +64,4 @@ lib/BaseLibrary/PhotoSketch/x64
 lib/BaseLibrary/ConsoleUnityTest/x64
 lib/BaseLibrary/build
 lib/VScriptEditor64_old.app
+lib/BaseLibrary/CMakeLists.txt
