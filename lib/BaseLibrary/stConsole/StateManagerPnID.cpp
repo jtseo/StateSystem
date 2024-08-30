@@ -70,7 +70,9 @@ void StateManagerPnID::release_manager(bool _reset)
 //#include "../PtBase/BaseSCCurl.h"
 //#include "../PtExtend/DevCashReader.h"
 
-//#include <winsock2.h>
+#if _WIN32
+#include <winsock2.h>
+#endif
 #include "../PtBase/BaseSCTcp.h"
 
 StateManagerPnID::StateManagerPnID(void* _applet) :BaseStateManager(_applet)

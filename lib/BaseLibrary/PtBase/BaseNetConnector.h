@@ -275,7 +275,7 @@ public:
 	// end of havvy 
 protected:
     static DEF_ThreadCallBack(update);
-	UINT16 send_packet(BaseSocket &_Socket, char *_pAddress, UINT16 _nSize, UINT16 _nSizeHeader, char *_pBuffer);
+	UINT16 send_packet(BaseSocket &_Socket, char *_pAddress, UINT16 _nSize, UINT16 _nSizeHeader, char *_pBuffer, UINT32 _index);
 	void connector_all_release();
 	//==========================================================================
 	// Start Update by OJ : 2011-01-19
@@ -367,7 +367,7 @@ public:
 	
 	void local_message(UINT32 _nIndex, UINT16 _nType);
 	void local_event_process();
-	void send_disconnect(char *_sockaddr);
+	void send_disconnect(char *_sockaddr, UINT32 _index);
 public:
 	typedef struct __ST_CONNECTOR_EXT_{
 		UINT32		nIndex;

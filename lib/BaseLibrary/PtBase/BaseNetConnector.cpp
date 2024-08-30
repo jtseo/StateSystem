@@ -1614,6 +1614,7 @@ UINT32 BaseNetManager::index_get_new_(char *_pData, UINT16 _nSize, char *_psocke
 	for(UINT32 i=0; i<m_pstlVstConnector->size(); i++)
 	{// 이미 패킷이 한번 왔으나 네트웍 상황에 따라 확인되지 않아서 다시 보냈을 수 도 있다.
 		if(memcmp((*m_pstlVstConnector)[i].sockaddr, _psocketaddr, 16) == 0
+			&& (*m_pstlVstConnector)[i].nPort == _nPort
 			&& (*m_pstlVstConnector)[i].pConnector != NULL)
 		{
 			nIndex			= (INT32)(*m_pstlVstConnector)[i].nIndex;
@@ -1838,7 +1839,7 @@ void BaseNetManager::connector_all_release()
 
 	for (UINT32 i = 0; i < m_pstlVstConnector->size(); i++)
 	{
-		send_packet(*m_pSocket, (*m_pstlVstConnector)[i].sockaddr, 2, s_nSizeHeader, bufPacket);
+		send_packet(*m_pSocket, (*m_pstlVstConnector)[i].sockaddr, 2, s_nSizeHeader, bufPacket, (*m_pstlVstConnector)[i].nIndex);
 	}
 
 	for (UINT32 i = 0; i < m_pstlVstConnector->size(); i++)
@@ -1852,10 +1853,10 @@ void BaseNetManager::connector_all_release()
 	m_pstlMnstConnector->clear();
 }
 
-UINT16 BaseNetManager::send_packet(BaseSocket &_Socket, char *_pAddress, UINT16 _nSize, UINT16 _nSizeHeader, char *_pBuffer)
+UINT16 BaseNetManager::send_packet(BaseSocket &_Socket, char *_pAddress, UINT16 _nSize, UINT16 _nSizeHeader, char *_pBuffer, UINT32 _index)
 {
 	*((UINT16*)&_pBuffer[0])	= _nSize;
-	*((UINT32*)&_pBuffer[2])		= m_nIndex;
+	*((UINT32*)&_pBuffer[2])		= _index;
 	*((UINT32*)&_pBuffer[6])		= BaseSystem::timeGetTime();
 
 	return _Socket.send(_pBuffer, _nSize+_nSizeHeader, _pAddress);
@@ -2076,7 +2077,7 @@ DEF_ThreadCallBack(BaseNetManager::update)
 				else {
 					if (((BaseNetConnector::ST_NetPacketPice*) & bufPacket[s_nSizeHeader])->nType != BaseNetConnector::TYPE_DISCONNECT
 						&& !block_in(anIP))
-						pManager->send_disconnect(sockaddr);
+						pManager->send_disconnect(sockaddr, 0);
 					continue;
 				}
 			}
@@ -2141,7 +2142,7 @@ DEF_ThreadCallBack(BaseNetManager::update)
 				if(!pManager->m_bDebugDisable)
 					g_SendMessage(LOG_MSG_CONSOLE, "UDP Send 1 data size %d, index %d\n", nSize+s_nSizeHeader, it->second.nIndex);
 #endif
-				nSizePacketSend	= pManager->send_packet(*pManager->m_pSocket, it->second.sockaddr, nSize, s_nSizeHeader, bufPacket);
+				nSizePacketSend	= pManager->send_packet(*pManager->m_pSocket, it->second.sockaddr, nSize, s_nSizeHeader, bufPacket, it->second.nIndex);
 				if (sm_bTracePacket){
 					int anIp[4];
 					for (int k = 0; k < 4; k++)
@@ -2211,7 +2212,7 @@ DEF_ThreadCallBack(BaseNetManager::update)
 				}
 #endif
 				nSizePacketSend	= pManager->send_packet(*pManager->m_pSocket, (*pManager->m_pstlVstConnector)[i].sockaddr,
-					nSize, s_nSizeHeader, bufPacket);
+					nSize, s_nSizeHeader, bufPacket, (*pManager->m_pstlVstConnector)[i].nIndex);
 				if (sm_bTracePacket){
 					int anIp[4];
 					for (int k = 0; k < 4; k++)
@@ -2690,11 +2691,11 @@ bool BaseNetManager::broadcast(char *_pData, UINT16 _nSize, UINT16 _nType)
 	return true;
 }
 
-void BaseNetManager::send_disconnect(char *_sockaddr)
+void BaseNetManager::send_disconnect(char *_sockaddr, UINT32 _index)
 {
 	char bufPacket[s_nSizeHeader+2];
 	*((unsigned short*)(&bufPacket[s_nSizeHeader])) = BaseNetConnector::TYPE_DISCONNECT;
-	send_packet(*m_pSocket, _sockaddr, 2, s_nSizeHeader, bufPacket);
+	send_packet(*m_pSocket, _sockaddr, 2, s_nSizeHeader, bufPacket, _index);
 }
 
 void BaseNetManager::local_event_process()
@@ -2728,7 +2729,7 @@ void BaseNetManager::local_event_process()
 
 				if(it != m_pstlMnstConnector->end())
 				{
-					send_disconnect(it->second.sockaddr);
+					send_disconnect(it->second.sockaddr, it->second.nIndex);
 					it->second.pConnector->disconnect();
 				}
 			}
