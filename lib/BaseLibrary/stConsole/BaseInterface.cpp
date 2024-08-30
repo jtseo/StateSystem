@@ -130,7 +130,7 @@ void* manager_create(const char* _strRootPath)
 	if (strPath[len] != '\\' && strPath[len] != '/')
 		strcat_s(strPath, _MAX_PATH, "/");
 	BaseSystem::path_root_set(strPath);
-
+    
 	StateManagerPnID* pManager = StateManagerPnID::manager_create();
 
 	BaseEventHandler::single_get(pManager);
@@ -190,6 +190,11 @@ void* manager_create(const char* _strRootPath)
 		pManager->set_root_path(strPath);
 		pManager->Init(NULL);// Add by OJ : 2010-02-26
 	}
+    
+    int hash = STRTOHASH("StateClientPathGlobal_strV");
+    pManager->variable_define(hash, TYPE_STRING, true);
+    pManager->varialbe_global_get()->set_alloc(hash, BaseStateManager::path_get_save());
+    
 	//marker
 	//pManager->thread_start();
 	return pManager;
@@ -200,6 +205,7 @@ void manager_close(void* _pManager)
 	s_fnDebugOutEvent = NULL;
 	s_fnActionStackPush = NULL;
 	g_SendMessageSetDebugOut(NULL);
+	BaseEventHandler::release((StateManagerPnID*)_pManager);
 	((StateManagerPnID*)_pManager)->release_manager();
 
 	BaseDStructure::static_clear();
@@ -345,7 +351,7 @@ void dsv_event_cast_reset(void* _pdsv)
 	if (pState == NULL)
 		return;
 
-	pState->EventSendReset();
+	pState->EventSendClear();
 }
 
 void* dsv_event_cast_get(void* _pdsv, int _event, bool _new)
@@ -503,6 +509,26 @@ bool dsv_get_int2(void* _pdst, int _nHash, INT32* _pnLong)
 		*_pnLong = *pnInt;
 		return true;
 	}
+	return false;
+}
+
+bool dsv_get_int642(void* _pdst, int _key, INT64* _pnInt)
+{
+	BaseDStructureValue* pdst = ((BaseDStructureValue*)_pdst);
+	const void* data;
+	if (pdst->get_local_seq(_key, &data))
+	{
+		*_pnInt = *((INT64*)data);
+		return true;
+	}
+	return false;
+}
+
+bool dsv_get_int64(void* _pdst, const char* _strColName, INT64* _pnInt)
+{
+	BaseDStructureValue* pdst = ((BaseDStructureValue*)_pdst);
+	if (pdst->get_local_seq(_strColName, ((void*)_pnInt)))
+		return true;
 	return false;
 }
 
@@ -669,6 +695,14 @@ void* static_variable_make_string(void* _pdsvBase, void* _pdsvEvent, void* _pdsv
 	return ret;
 }
 
+INT64 static_variable_param_int64_get(void* _pdsvBase, void* _pdsvEvent, void* _pdsvContext, int _nSeq, void* _pdsvDefault)
+{
+	const INT64* nValue = (const INT64*)BaseState::VariableGet((const BaseDStructureValue*)_pdsvBase, (BaseDStructureValue*)_pdsvContext, (BaseDStructureValue*)_pdsvEvent, _nSeq, (BaseDStructureValue*)_pdsvDefault);
+	if (nValue == NULL)
+		return -999999;
+	return *nValue;
+}
+
 int static_variable_param_int_get(void* _pdsvBase, void* _pdsvEvent, void* _pdsvContext, int _nSeq, void* _pdsvDefault)
 {
 	const int* nValue = (const int*)BaseState::VariableGet((const BaseDStructureValue*)_pdsvBase, (BaseDStructureValue*)_pdsvContext, (BaseDStructureValue*)_pdsvEvent, _nSeq, (BaseDStructureValue*)_pdsvDefault);
@@ -684,9 +718,10 @@ int system_memory_alloc_size()
 
 char* static_variable_param_string_get(void* _pdsvBase, void* _pdsvEvent, void* _pdsvContext, int _nSeq, void* _pdsvDefault)
 {
-	const char* strValue = (const char*)BaseState::VariableGet((const BaseDStructureValue*)_pdsvBase, (BaseDStructureValue*)_pdsvContext, (BaseDStructureValue*)_pdsvEvent, _nSeq, (BaseDStructureValue*)_pdsvDefault);
+	EDstType type;
+	const char* strValue = (const char*)BaseState::VariableGet((const BaseDStructureValue*)_pdsvBase, (BaseDStructureValue*)_pdsvContext, (BaseDStructureValue*)_pdsvEvent, _nSeq, (BaseDStructureValue*)_pdsvDefault, 0, &type);
 
-	if (strValue == NULL)
+	if (strValue == NULL || type != TYPE_STRING)
 		return NULL;
 
 	int l = (int)strlen(strValue) + 1;
@@ -703,7 +738,7 @@ bool static_variable_param_void_set(void* _pdsvBase, void* _pdsvEvent, void* _pd
 	return BaseState::VariableSet((const BaseDStructureValue*)_pdsvBase, (BaseDStructureValue*)_pdsvContext, (BaseDStructureValue*)_pdsvEvent, (BaseDStructureValue*)_pdsvDefault, _void_p, _nSeq, cnt);
 }
 
-const void* static_variable_param_void_get(void* _pdsvBase, void* _pdsvEvent, void* _pdsvContext, int _nSeq, int* _size)
+const void *static_variable_param_void_get(void* _pdsvBase, void* _pdsvEvent, void* _pdsvContext, int _nSeq, int *_size)
 {
 	return BaseState::VariableGet((const BaseDStructureValue*)_pdsvBase, (BaseDStructureValue*)_pdsvContext, (BaseDStructureValue*)_pdsvEvent, _nSeq);
 }
@@ -713,6 +748,10 @@ void* dsv_get_string(void* _pdst, const char* _strColName)
 	BaseDStructureValue* pdsv = ((BaseDStructureValue*)_pdst);
 	int hash = STRTOHASH(_strColName);
 
+	int idx = pdsv->get_index(hash);
+	if(BaseDStructure::get_type(idx) != TYPE_STRING)
+		return NULL;
+	
 	short _nCnt = 0;
 	int seq = pdsv->sequence_get_local();
 	STLVpVoid stlData;
@@ -833,6 +872,11 @@ bool dsv_set_ptr(void* _pdst, int _hash, void* _pPtr, int _cnt)
 	int type = BaseDStructure::get_type(nIndex);
 	short cnt = (short)_cnt;
 
+	if(_pPtr == NULL)
+	{
+		pdst->set_alloc(_hash, NULL, 0);
+		return true;
+	}
 	INT64 nPoint = (INT64)_pPtr;
 	pdst->set_alloc(_hash, (const void*)&nPoint, cnt);
 	return true;
@@ -893,6 +937,9 @@ bool dsv_add_string(void* _pdst, const char* _strColName, const char* _strValue)
 
 bool dsv_add_ldata(void* _pdst, const char* _strColName, const char* _data, int _size)
 {
+	static int count = 0;
+	count++;
+
 	BaseDStructureValue* pdst = ((BaseDStructureValue*)_pdst);
 	int hash = STRTOHASH(_strColName);
 	int nIndex = pdst->get_index(hash);
@@ -924,44 +971,69 @@ bool dsv_add_ldata(void* _pdst, const char* _strColName, const char* _data, int 
 	return true;
 }
 
-void* dsv_get_ldata(void* _pdst, INT32 _nKey, int* _pnCnt)
+INT64 g_stream_get(INT64 _queue)
 {
-	BaseDStructureValue* pdst = ((BaseDStructureValue*)_pdst);
-	short _nCnt = 0;
-	int seq = 0;
-	STLVpVoid stlData;
-	const char* strData = NULL;
-	bool bRet = pdst->get(_nKey, (const void**)&strData, &_nCnt, seq);
+	if (_queue == 0)
+		return 0;
 
-	if (bRet) {
-		stlData.push_back((void*)strData);
-		int len = _nCnt;
-		while (_nCnt >= LIMIT_STR)
-		{
-			seq++;
-			if (!pdst->get(_nKey, (const void**)&strData, &_nCnt, seq))
-				break;
-			stlData.push_back((void*)strData);
-			len += _nCnt;
-		}
+	BaseCircleQueue* queue = (BaseCircleQueue*)_queue;
 
-		char* ret = PT_Alloc(char, len + 1);
-		PT_AFree(ret);
+	INT64 data = 0, last = 0;
+	do {
+		if (data && last)
+			g_free_data(last);
+		last = data;
+		data = (INT64)queue->pop();
+	} while (data);
 
-		*_pnCnt = len;
-		char* retCpy = ret;
-		int rpt = 0;
-		while (len > 0)
-		{
-			int l = len >= LIMIT_STR ? LIMIT_STR : len;
-			memcpy(retCpy, (const char*)stlData[rpt], l);
-			retCpy += l;
-			len -= l;
-		}
-		return (void*)ret;
+	return last;
+}
+
+INT64 g_get_alloc(int _nCnt, const char* _data)
+{
+	INT64 ref = mpool_get().get_alloc(_nCnt);
+	if(ref != 0)
+		memcpy((void*)ref, _data, _nCnt);
+	return ref;
+}
+
+void g_free_data(INT64 _nRef)
+{
+	mpool_get().free_mem(_nRef);
+}
+
+void* g_get_ldata(INT64 _nRef, int* _pnCnt)
+{
+	if(!BaseCircleQueue::stream_get())
+		return NULL;
+
+	void *point = BaseCircleQueue::stream_get()->top();
+	BaseCircleQueue::streamSize_get()->top();
+
+	while (BaseCircleQueue::stream_get()->size_data() > 1)
+	{
+		point = BaseCircleQueue::stream_get()->pop();
+		BaseCircleQueue::streamSize_get()->pop();
+		PT_Free(point);
 	}
 
-	return NULL;
+	INT64 siz = (INT64)BaseCircleQueue::streamSize_get()->top();
+	*_pnCnt = (int)siz;
+	return BaseCircleQueue::stream_get()->top();
+	//return mpool_get().get_mem(_nRef, _pnCnt);
+}
+
+const void* dsv_get_ldata(void* _pdst, INT32 _nKey, int* _pnCnt)
+{
+	BaseDStructureValue* pdst = ((BaseDStructureValue*)_pdst);
+
+	const void* ret2 = NULL;
+	if (!pdst->get_mass(_nKey, &ret2, _pnCnt))
+	{
+		return NULL;
+	}
+
+	return ret2;
 }
 
 bool dsv_get_ptr2(void* _pdst, int _hash, void** _pPtr, int* _cnt, int _seq)
@@ -1193,7 +1265,7 @@ bool dst_add_string(void* _pdst, INT32 _nKey, INT32 _nIndex, const char* _strStr
 bool dst_set_string(void* _pdst, INT32 _nKey, INT32 _nIndex, const char* _strString)
 {
 	BaseDStructure* pdst = ((BaseDStructure*)_pdst);
-	pdst->set_alloc(_nKey, _nIndex, (const void*)_strString);
+	pdst->set_alloc(_nKey, _nIndex, (const void *)_strString);
 	return true;
 }
 
@@ -1280,10 +1352,11 @@ void* dst_get_string(void* _pdst, INT32 _nKey, INT32 _nSequence)
 {
 	BaseDStructure* pdst = ((BaseDStructure*)_pdst);
 	short _nCnt = 0;
+	
 	STLVpVoid stlData;
 	const char* strData = NULL;
 	bool bRet = pdst->get(_nKey, _nSequence, (const void**)&strData, &_nCnt);
-
+	
 	if (bRet) {
 		stlData.push_back((void*)strData);
 		int l = (int)strlen(strData);
