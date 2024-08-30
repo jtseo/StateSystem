@@ -1762,7 +1762,7 @@ void BaseNetManager::pop_output_()
 				nRetSize	= (*m_pstlVstConnector)[i].pConnector->recv(m_pReceiveBuffer, STATE_MAX_PACKET, &nType);
 				if(nRetSize == 0 && nType == 0)
 					break;
-				nIndex		= (*m_pstlVstConnector)[i].nIndex;
+				nIndex		= (*m_pstlVstConnector)[i].pConnector->index_get();
 				
 #ifdef TRACE_PACKET_DEBUG
 				(*m_pstlVstConnector)[i].pConnector->m_bDebugDisable = m_bDebugDisable;

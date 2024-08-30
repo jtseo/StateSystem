@@ -320,7 +320,7 @@ void *BaseCircleQueue::pop()
 			// 값을 넣어 줄 때 까지 기다린다.
 			qsleep(1);
 
-			g_SendMessage(LOG_MSG, "pop");
+			//g_SendMessage(LOG_MSG, "pop");
 		}while(pRet == NULL);
 	}
 	*(m_parrayQueue+nPos)	= NULL;

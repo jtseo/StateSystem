@@ -334,7 +334,7 @@ public:
 	// Start Update by OJ : 2011-01-18
 public:
 	typedef struct __ST_CONNECTOR__{
-		UINT32		nIndex;
+		UINT32				nIndex;
 		char				anIP[4];
 		short				nPort;
 		BaseNetConnector	*pConnector;
