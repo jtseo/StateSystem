@@ -236,15 +236,39 @@ DEF_ThreadCallBack(BaseSCHttpD::update)
 	BaseSCHttpD* httpd = (BaseSCHttpD*)_pParam;
 
 	struct MHD_Daemon *daemon;
+
+	BaseFile loader;
+
+	STLString key, cert;
+	if(!loader.OpenFile("privkey.pem", BaseFile::OPEN_READ))
+	{
+		loader.Read(&key);
+		loader.CloseFile();
+	}
+
+	if(!loader.OpenFile("fullchain.pem", BaseFile::OPEN_READ))
+	{
+		loader.Read(&cert);
+		loader.CloseFile();
+	}
 	
-	daemon = MHD_start_daemon (
+	if(key.empty())
+	{
+		daemon = MHD_start_daemon (
+                               MHD_USE_INTERNAL_POLLING_THREAD
+								, 8080, NULL, NULL,
+							   &answer_to_connection, (void *)httpd,
+                               MHD_OPTION_END);
+	}else{
+		daemon = MHD_start_daemon (
                                MHD_USE_SSL |
 								MHD_USE_INTERNAL_POLLING_THREAD
 								, 8080, NULL, NULL,
 							   &answer_to_connection, (void *)httpd,
-                               MHD_OPTION_HTTPS_MEM_KEY, "privkey.pem",
-                               MHD_OPTION_HTTPS_MEM_CERT, "fullchain.pem",
+                               MHD_OPTION_HTTPS_MEM_KEY, key.c_str(),
+                               MHD_OPTION_HTTPS_MEM_CERT, cert.c_str(),
                                MHD_OPTION_END);
+	}
 	if (NULL == daemon) {
 		printf("fail to open API posrt\n");
 		DEF_ThreadReturn;
