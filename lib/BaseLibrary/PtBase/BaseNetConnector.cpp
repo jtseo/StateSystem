@@ -3069,7 +3069,7 @@ STDEF_FUNC(BaseNetConnect_strF)
 	paser.set_asc_seperator(" ,");
 	paser.set_asc_deletor(" ,");
 
-	int index_start = 919000;
+	int index_start = 0;
 	int nPort = 19101;
 	char strServer[255];
 	paser.read_asc_line();
@@ -3077,8 +3077,8 @@ STDEF_FUNC(BaseNetConnect_strF)
 		return 0;
 	if (!paser.read_asc_integer(&nPort))
 		return 0;
-	if (!paser.read_asc_integer(&index_start))
-		index_start = 919000;
+	//if (!paser.read_asc_integer(&index_start))
+	//	index_start = 0;
 
 	PT_OAlloc4(pNetManager, BaseNetManager, false, strServer, nPort, index_start);
 	//mpool_get().observe_push(pNetManager);
