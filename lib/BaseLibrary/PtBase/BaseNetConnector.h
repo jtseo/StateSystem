@@ -243,10 +243,10 @@ class BaseNetManager
 public:
 	PtObjectHeader2(BaseNetManager);
 
-	BaseNetManager(bool _bServer, const char *_strIP=NULL, UINT16 _nPort=5333, int _index_start = 919000);
+	BaseNetManager(bool _bServer, const char *_strIP=NULL, UINT16 _nPort=5333, int _index_start = 919300);
 	BaseNetManager();
 	virtual ~BaseNetManager();
-	void init(bool _bServer, const char *_strIP=NULL, UINT16 _nPort=5333, int _index_start=919000);
+	void init(bool _bServer, const char *_strIP=NULL, UINT16 _nPort=5333, int _index_start=919400);
 	void reinit(); // for debug, remake socket and keep to continue.
 	void releaseQueue();
 	//void release();
