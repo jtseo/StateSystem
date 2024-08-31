@@ -52,6 +52,7 @@
 #include <algorithm>
 #include <unordered_set>
 #include <atomic>
+#include <stdatomic.h>
 #include "../PtBase/base.h"
 
 #include "../PtBase/Vector3.h"
