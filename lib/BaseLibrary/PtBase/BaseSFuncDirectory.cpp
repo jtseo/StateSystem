@@ -489,10 +489,15 @@ int BaseSFuncDirectory::ListCasting_varF()
 	if(list2)
 		BaseFile::paser_list_seperate(list2, &list2_a, ",");
 	
+	int count = list_a.size();
+	paramFallowSet(2, &count);
 	for(int i=0; i<list_a.size(); i++)
 	{
 		BaseDStructureValue *evt = EventMake(*event);
-		evt->set_alloc("TempString_strV", (const void*)list_a[i].c_str());
+		const char *name = list_a[i].c_str();
+		printf("file: %s\n", name);
+
+		evt->set_alloc("TempString_strV", (const void*)name);
 		if(list2)
 		{
 			evt->set_alloc("TempString2_strV", (const void*)list2_a[i].c_str());
