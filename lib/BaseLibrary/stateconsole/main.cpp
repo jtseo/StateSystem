@@ -103,7 +103,7 @@ int main(void)
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
+#include <stdatomic.h>
 #include <microhttpd.h>
 #include <vector>
 #include <deque>
