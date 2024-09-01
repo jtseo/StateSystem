@@ -2068,6 +2068,8 @@ DEF_ThreadCallBack(BaseNetManager::update)
 				UINT32 nIndexNew = pManager->index_get_new_(&bufPacket[s_nSizeHeader], nSize-s_nSizeHeader, sockaddr, anIP, nPort);
 
 				it	= pManager->m_pstlMnstConnector->find((INT32)nIndexNew);
+				//g_SendMessage(LOG_MSG_CONSOLE, "Req: Port:%d, index: %d", nPort, nIndexNew);
+				printf("Req: Port:%d, index: %d\n", nPort, nIndexNew);
 			}
 
 			if(it == pManager->m_pstlMnstConnector->end())
