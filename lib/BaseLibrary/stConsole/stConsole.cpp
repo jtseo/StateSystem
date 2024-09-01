@@ -104,7 +104,7 @@ int main(int argc, char *argv[])
 	//REGISTEOBJECT(BaseResFileDWG::GetObjectId(), BaseResFileDWG);
 	//REGISTEOBJECT(PnResDwg2::GetObjectId(), PnResDwg2);
 
-	//BaseConsolFilter::hide("SMain", "VScriptEditor");
+	BaseConsolFilter::hide("SMain", "VScriptEditor");
 	//BaseConsolFilter::hide("SAction", "PopEvent");
 	BaseConsolFilter::hide("SAction", "PushEvent");
 	//54.64.23.200

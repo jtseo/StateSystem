@@ -209,7 +209,7 @@ bool BaseNetConnector::send(UINT16 _nSize, const char *_pData, UINT16 _nType)
 	pPacketQ->nSize	= nSizeQueue;
 	pPacketQ->nType	= _nType;
 	pPacketQ->pData	= pData;
-	g_SendMessage(LOG_MSG, "push message --------------- %x %x", this, &m_queueConnectorInput);
+	//g_SendMessage(LOG_MSG, "push message --------------- %x %x", this, &m_queueConnectorInput);
 	if(!m_queueConnectorInput.push(pPacketQ))
 	{
 		m_bHoldSend = true;
@@ -3125,7 +3125,7 @@ bool base_net_event_send(BaseDStructureValue* _event_send, int _index, BaseDStru
 			return false;
 		}
 
-		g_SendMessage(LOG_MSG, "BaseNetManager_Send = %x, %d", pNetManager, _index);
+		//g_SendMessage(LOG_MSG, "BaseNetManager_Send = %x, %d", pNetManager, _index);
 
 		int sended = 0;
 		nSize += sizeof(int);
