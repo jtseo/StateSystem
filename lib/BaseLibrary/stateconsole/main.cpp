@@ -103,7 +103,6 @@ int main(void)
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <stdatomic.h>
 #include <microhttpd.h>
 #include <vector>
 #include <deque>
@@ -121,6 +120,8 @@ int main(void)
 // #include "../PtBase/BaseResResource.h"
 // #include "../PtBase/BaseResManager.h"
 // #include "../PtBase/BaseSystem.h"
+#include <stdatomic.h>
+
 #include "../PtBase/base.h"
 #include "../PtBase/Vector3.h"
 #include "../PtBase/Matrix3.h"
