@@ -7,13 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C41E9D72C84731F00D20334 /* BaseSCHttpD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1AA8E112AF709D100CEE2FA /* BaseSCHttpD.cpp */; };
+		8C41E9DA2C8473D800D20334 /* BaseSFuncDirectory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C103ADBC264D6A6300704889 /* BaseSFuncDirectory.cpp */; };
+		8C41E9DB2C8473D900D20334 /* BaseSFuncDirectory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C103ADBC264D6A6300704889 /* BaseSFuncDirectory.cpp */; };
+		8C41E9DC2C8473DA00D20334 /* BaseSFuncDirectory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C103ADBC264D6A6300704889 /* BaseSFuncDirectory.cpp */; };
+		8C41E9DD2C8473E600D20334 /* BaseResFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1F05EF6216F1E9F00F4349C /* BaseResFile.cpp */; };
+		8C41E9DE2C8473ED00D20334 /* BaseResFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1F05EF6216F1E9F00F4349C /* BaseResFile.cpp */; };
+		8C41E9DF2C8473EE00D20334 /* BaseResFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1F05EF6216F1E9F00F4349C /* BaseResFile.cpp */; };
+		8C41E9E02C84740C00D20334 /* BaseStateFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C104606E2644208D0077FB2A /* BaseStateFunc.cpp */; };
+		8C41E9E12C84740D00D20334 /* BaseStateFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C104606E2644208D0077FB2A /* BaseStateFunc.cpp */; };
+		8C41E9E22C84740D00D20334 /* BaseStateFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C104606E2644208D0077FB2A /* BaseStateFunc.cpp */; };
+		8C41E9E42C84744A00D20334 /* BaseSCHttpDSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C41E9E32C84744A00D20334 /* BaseSCHttpDSession.cpp */; };
+		8C41E9E52C85FEDC00D20334 /* BaseTextEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32ED2AB8959C0094D3E6 /* BaseTextEditor.cpp */; };
 		8CBA66B52C6750CE00D395DA /* StateContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA66B42C6750CE00D395DA /* StateContext.cpp */; };
 		8CBA66B62C6750CE00D395DA /* StateContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA66B42C6750CE00D395DA /* StateContext.cpp */; };
 		8CBA66B72C6750CE00D395DA /* StateContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA66B42C6750CE00D395DA /* StateContext.cpp */; };
 		8CBA66B82C6750CE00D395DA /* StateContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA66B42C6750CE00D395DA /* StateContext.cpp */; };
 		8CBA66B92C6750CE00D395DA /* StateContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA66B42C6750CE00D395DA /* StateContext.cpp */; };
 		C103ADBF264D6A6300704889 /* BaseSFuncDirectory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C103ADBC264D6A6300704889 /* BaseSFuncDirectory.cpp */; };
-		C104607A2644208D0077FB2A /* BaseTextEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C104606F2644208D0077FB2A /* BaseTextEditor.cpp */; };
 		C12501082AEDC08900AB0052 /* BaseSCCurl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12501032AEDC08900AB0052 /* BaseSCCurl.cpp */; };
 		C125010A2AEDC08900AB0052 /* BaseSCCurl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12501032AEDC08900AB0052 /* BaseSCCurl.cpp */; };
 		C12501122AEDDFAE00AB0052 /* BaseSCTcpSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12501102AEDDFAE00AB0052 /* BaseSCTcpSession.cpp */; };
@@ -107,8 +118,6 @@
 		C12A33312AB8959C0094D3E6 /* BaseState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E32AB8959B0094D3E6 /* BaseState.cpp */; };
 		C12A33332AB8959C0094D3E6 /* BaseState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E32AB8959B0094D3E6 /* BaseState.cpp */; };
 		C12A33342AB8959C0094D3E6 /* BaseState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E32AB8959B0094D3E6 /* BaseState.cpp */; };
-		C12A33382AB8959C0094D3E6 /* BaseSFuncDirectory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E42AB8959B0094D3E6 /* BaseSFuncDirectory.cpp */; };
-		C12A33392AB8959C0094D3E6 /* BaseSFuncDirectory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E42AB8959B0094D3E6 /* BaseSFuncDirectory.cpp */; };
 		C12A333B2AB8959C0094D3E6 /* Fixed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E52AB8959B0094D3E6 /* Fixed.cpp */; };
 		C12A333D2AB8959C0094D3E6 /* Fixed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E52AB8959B0094D3E6 /* Fixed.cpp */; };
 		C12A333E2AB8959C0094D3E6 /* Fixed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E52AB8959B0094D3E6 /* Fixed.cpp */; };
@@ -143,8 +152,6 @@
 		C12A33722AB8959C0094D3E6 /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F02AB8959C0094D3E6 /* Matrix3.cpp */; };
 		C12A33742AB8959C0094D3E6 /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F02AB8959C0094D3E6 /* Matrix3.cpp */; };
 		C12A33752AB8959C0094D3E6 /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F02AB8959C0094D3E6 /* Matrix3.cpp */; };
-		C12A33772AB8959C0094D3E6 /* BaseStateFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F12AB8959C0094D3E6 /* BaseStateFunc.cpp */; };
-		C12A337A2AB8959C0094D3E6 /* BaseStateFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F12AB8959C0094D3E6 /* BaseStateFunc.cpp */; };
 		C12A337C2AB8959C0094D3E6 /* SPLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F22AB8959C0094D3E6 /* SPLine.cpp */; };
 		C12A337E2AB8959C0094D3E6 /* SPLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F22AB8959C0094D3E6 /* SPLine.cpp */; };
 		C12A337F2AB8959C0094D3E6 /* SPLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F22AB8959C0094D3E6 /* SPLine.cpp */; };
@@ -258,9 +265,7 @@
 		C15AD6BA2AC033BA002202C8 /* BaseObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32712AB895350094D3E6 /* BaseObject.cpp */; };
 		C15AD6BB2AC033BA002202C8 /* BaseResManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A325C2AB895340094D3E6 /* BaseResManager.cpp */; };
 		C15AD6BC2AC033BA002202C8 /* BaseResFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DC2AB8959B0094D3E6 /* BaseResFile.cpp */; };
-		C15AD6BD2AC033BA002202C8 /* BaseSFuncDirectory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E42AB8959B0094D3E6 /* BaseSFuncDirectory.cpp */; };
 		C15AD6BE2AC033BA002202C8 /* BaseSFParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32692AB895350094D3E6 /* BaseSFParser.cpp */; };
-		C15AD6BF2AC033BA002202C8 /* BaseStateFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F12AB8959C0094D3E6 /* BaseStateFunc.cpp */; };
 		C15AD6C02AC033BA002202C8 /* BaseSCTableGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32702AB895350094D3E6 /* BaseSCTableGrid.cpp */; };
 		C15AD6C12AC03400002202C8 /* lodepng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DB2AB8959B0094D3E6 /* lodepng.cpp */; };
 		C15AD6C22AC03400002202C8 /* seedx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F82AB8959C0094D3E6 /* seedx.cpp */; };
@@ -286,7 +291,6 @@
 		C15AD7212AC0370D002202C8 /* BaseSCTableGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32702AB895350094D3E6 /* BaseSCTableGrid.cpp */; };
 		C15AD7222AC0370D002202C8 /* BaseResFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DC2AB8959B0094D3E6 /* BaseResFile.cpp */; };
 		C15AD7232AC0370D002202C8 /* BaseSFuncDirectory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C103ADBC264D6A6300704889 /* BaseSFuncDirectory.cpp */; };
-		C15AD7242AC0370D002202C8 /* BaseTextEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C104606F2644208D0077FB2A /* BaseTextEditor.cpp */; };
 		C15AD7252AC0370D002202C8 /* BaseSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F62AB8959C0094D3E6 /* BaseSystem.cpp */; };
 		C15AD7262AC0370D002202C8 /* BaseJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33BE2AB896880094D3E6 /* BaseJson.cpp */; };
 		C15AD7272AC0370D002202C8 /* BaseNetConnector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32672AB895350094D3E6 /* BaseNetConnector.cpp */; };
@@ -316,7 +320,6 @@
 		C15AD7402AC0370D002202C8 /* BaseDStructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32652AB895350094D3E6 /* BaseDStructure.cpp */; };
 		C15AD7412AC0370D002202C8 /* Quater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EF2AB8959C0094D3E6 /* Quater.cpp */; };
 		C15AD7422AC0370D002202C8 /* BaseTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EA2AB8959B0094D3E6 /* BaseTree.cpp */; };
-		C15AD7432AC0370D002202C8 /* BaseUIManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F32AB8959C0094D3E6 /* BaseUIManager.cpp */; };
 		C15AD7442AC0370D002202C8 /* BaseTextEditorText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32DE2AB8959B0094D3E6 /* BaseTextEditorText.cpp */; };
 		C15AD7452AC0370D002202C8 /* allocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F72AB8959C0094D3E6 /* allocator.cpp */; };
 		C15AD7462AC0370E002202C8 /* BaseResResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32682AB895350094D3E6 /* BaseResResource.cpp */; };
@@ -326,7 +329,6 @@
 		C15AD74A2AC0370E002202C8 /* hashstr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E02AB8959B0094D3E6 /* hashstr.cpp */; };
 		C15AD74B2AC0370E002202C8 /* BaseStringTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32EB2AB8959B0094D3E6 /* BaseStringTable.cpp */; };
 		C15AD74C2AC0370E002202C8 /* BaseResGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32632AB895350094D3E6 /* BaseResGrid.cpp */; };
-		C15AD74D2AC0370E002202C8 /* BaseUIWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32E62AB8959B0094D3E6 /* BaseUIWindow.cpp */; };
 		C15AD74E2AC0370E002202C8 /* BaseActionStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32642AB895350094D3E6 /* BaseActionStack.cpp */; };
 		C15AD74F2AC0370E002202C8 /* BaseEventManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32722AB895350094D3E6 /* BaseEventManager.cpp */; };
 		C15AD7502AC0370E002202C8 /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32F02AB8959C0094D3E6 /* Matrix3.cpp */; };
@@ -344,7 +346,6 @@
 		C15AD75D2AC03724002202C8 /* pch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A33C62AB89FEB0094D3E6 /* pch.cpp */; };
 		C1BC00B82C46C5770012F798 /* BaseStateSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1BC00B52C46C5110012F798 /* BaseStateSystem.cpp */; };
 		C1BC00B92C46C57F0012F798 /* BaseStateSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1BC00B52C46C5110012F798 /* BaseStateSystem.cpp */; };
-		C1E04FD32658B51C0058CD21 /* BaseTextEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C104606F2644208D0077FB2A /* BaseTextEditor.cpp */; };
 		C1E04FD62658B51C0058CD21 /* KISA_SHA256.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1DEBBC924927FA100BD0DFB /* KISA_SHA256.cpp */; };
 		C1E04FD82658B51C0058CD21 /* BaseStateFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C104606E2644208D0077FB2A /* BaseStateFunc.cpp */; };
 		C1E04FED2658B51C0058CD21 /* BaseResFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1F05EF6216F1E9F00F4349C /* BaseResFile.cpp */; };
@@ -394,16 +395,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8C41E9E32C84744A00D20334 /* BaseSCHttpDSession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSCHttpDSession.cpp; path = PtExtend/BaseSCHttpDSession.cpp; sourceTree = SOURCE_ROOT; };
+		8CB335FE2C83069200BA176A /* stdafx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = stdafx.h; path = PtBase/stdafx.h; sourceTree = SOURCE_ROOT; };
+		8CB336002C8308AD00BA176A /* pch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pch.h; path = ApStateSystem/pch.h; sourceTree = SOURCE_ROOT; };
+		8CB336012C8308F100BA176A /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stdafx.h; path = PtExtend/stdafx.h; sourceTree = SOURCE_ROOT; };
 		8CBA66B42C6750CE00D395DA /* StateContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StateContext.cpp; path = PtExtend/StateContext.cpp; sourceTree = SOURCE_ROOT; };
 		8CBA66BA2C67774F00D395DA /* StateContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StateContext.h; path = PtExtend/StateContext.h; sourceTree = SOURCE_ROOT; };
 		C103ADBC264D6A6300704889 /* BaseSFuncDirectory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSFuncDirectory.cpp; path = PtBase/BaseSFuncDirectory.cpp; sourceTree = SOURCE_ROOT; };
 		C103ADBD264D6A6300704889 /* BaseSFuncDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseSFuncDirectory.h; path = PtBase/BaseSFuncDirectory.h; sourceTree = SOURCE_ROOT; };
 		C104606E2644208D0077FB2A /* BaseStateFunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseStateFunc.cpp; path = PtBase/BaseStateFunc.cpp; sourceTree = SOURCE_ROOT; };
-		C104606F2644208D0077FB2A /* BaseTextEditor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseTextEditor.cpp; path = PtBase/BaseTextEditor.cpp; sourceTree = SOURCE_ROOT; };
 		C10460702644208D0077FB2A /* BaseTextEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseTextEditor.h; path = PtBase/BaseTextEditor.h; sourceTree = SOURCE_ROOT; };
 		C10460712644208D0077FB2A /* BaseSFuncXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseSFuncXML.h; path = PtBase/BaseSFuncXML.h; sourceTree = SOURCE_ROOT; };
 		C10460732644208D0077FB2A /* BaseTextEditorText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseTextEditorText.h; path = PtBase/BaseTextEditorText.h; sourceTree = SOURCE_ROOT; };
-		C10460742644208D0077FB2A /* BaseTextEditorText.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseTextEditorText.cpp; path = PtBase/BaseTextEditorText.cpp; sourceTree = SOURCE_ROOT; };
 		C10460752644208D0077FB2A /* BaseStateFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseStateFunc.h; path = PtBase/BaseStateFunc.h; sourceTree = SOURCE_ROOT; };
 		C10460852644228A0077FB2A /* BaseXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseXML.h; path = PtBase/BaseXML.h; sourceTree = SOURCE_ROOT; };
 		C10460862644228A0077FB2A /* BaseXML.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseXML.cpp; path = PtBase/BaseXML.cpp; sourceTree = SOURCE_ROOT; };
@@ -452,7 +455,6 @@
 		C12A32E12AB8959B0094D3E6 /* EncodeCodeFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EncodeCodeFile.cpp; path = PtBase/EncodeCodeFile.cpp; sourceTree = SOURCE_ROOT; };
 		C12A32E22AB8959B0094D3E6 /* MD52.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MD52.cpp; path = PtBase/MD52.cpp; sourceTree = SOURCE_ROOT; };
 		C12A32E32AB8959B0094D3E6 /* BaseState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseState.cpp; path = PtBase/BaseState.cpp; sourceTree = SOURCE_ROOT; };
-		C12A32E42AB8959B0094D3E6 /* BaseSFuncDirectory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSFuncDirectory.cpp; path = PtBase/BaseSFuncDirectory.cpp; sourceTree = SOURCE_ROOT; };
 		C12A32E52AB8959B0094D3E6 /* Fixed.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Fixed.cpp; path = PtBase/Fixed.cpp; sourceTree = SOURCE_ROOT; };
 		C12A32E62AB8959B0094D3E6 /* BaseUIWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseUIWindow.cpp; path = PtBase/BaseUIWindow.cpp; sourceTree = SOURCE_ROOT; };
 		C12A32E72AB8959B0094D3E6 /* BaseXML.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseXML.cpp; path = PtBase/BaseXML.cpp; sourceTree = SOURCE_ROOT; };
@@ -465,7 +467,6 @@
 		C12A32EE2AB8959C0094D3E6 /* BaseWFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseWFile.cpp; path = PtBase/BaseWFile.cpp; sourceTree = SOURCE_ROOT; };
 		C12A32EF2AB8959C0094D3E6 /* Quater.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Quater.cpp; path = PtBase/Quater.cpp; sourceTree = SOURCE_ROOT; };
 		C12A32F02AB8959C0094D3E6 /* Matrix3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Matrix3.cpp; path = PtBase/Matrix3.cpp; sourceTree = SOURCE_ROOT; };
-		C12A32F12AB8959C0094D3E6 /* BaseStateFunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseStateFunc.cpp; path = PtBase/BaseStateFunc.cpp; sourceTree = SOURCE_ROOT; };
 		C12A32F22AB8959C0094D3E6 /* SPLine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SPLine.cpp; path = PtBase/SPLine.cpp; sourceTree = SOURCE_ROOT; };
 		C12A32F32AB8959C0094D3E6 /* BaseUIManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseUIManager.cpp; path = PtBase/BaseUIManager.cpp; sourceTree = SOURCE_ROOT; };
 		C12A32F42AB8959C0094D3E6 /* ResTif.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ResTif.cpp; path = PtBase/ResTif.cpp; sourceTree = SOURCE_ROOT; };
@@ -578,6 +579,7 @@
 		C15AD7172AC036D4002202C8 /* stateconsole */ = {
 			isa = PBXGroup;
 			children = (
+				8C41E9E32C84744A00D20334 /* BaseSCHttpDSession.cpp */,
 				C1AA8E112AF709D100CEE2FA /* BaseSCHttpD.cpp */,
 				C1AA8E102AF709D100CEE2FA /* BaseSCHttpD.h */,
 				C15AD7622AC03BB0002202C8 /* stateconsole.entitlements */,
@@ -623,6 +625,9 @@
 		C1F7D7951BCE400200473CAE /* Header */ = {
 			isa = PBXGroup;
 			children = (
+				8CB336012C8308F100BA176A /* stdafx.h */,
+				8CB336002C8308AD00BA176A /* pch.h */,
+				8CB335FE2C83069200BA176A /* stdafx.h */,
 				C13AC6F22B23ECFC00A43D66 /* BaseSCJson.h */,
 				C1EAB8AD2AFA813E005E30C2 /* BaseDStructure.h */,
 				C1EAB8AF2AFA813E005E30C2 /* BaseEventHandler.h */,
@@ -706,9 +711,7 @@
 				C12A326C2AB895350094D3E6 /* BaseSocket.cpp */,
 				C12A32F72AB8959C0094D3E6 /* allocator.cpp */,
 				C12A32DC2AB8959B0094D3E6 /* BaseResFile.cpp */,
-				C12A32E42AB8959B0094D3E6 /* BaseSFuncDirectory.cpp */,
 				C12A32E32AB8959B0094D3E6 /* BaseState.cpp */,
-				C12A32F12AB8959C0094D3E6 /* BaseStateFunc.cpp */,
 				C12A32DA2AB8959B0094D3E6 /* BaseStateMain.cpp */,
 				C12A32F52AB8959C0094D3E6 /* BaseStateManager.cpp */,
 				C12A32DF2AB8959B0094D3E6 /* BaseStateSpace.cpp */,
@@ -744,8 +747,6 @@
 				C1DEBBC924927FA100BD0DFB /* KISA_SHA256.cpp */,
 				C1F05EF6216F1E9F00F4349C /* BaseResFile.cpp */,
 				C104606E2644208D0077FB2A /* BaseStateFunc.cpp */,
-				C104606F2644208D0077FB2A /* BaseTextEditor.cpp */,
-				C10460742644208D0077FB2A /* BaseTextEditorText.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -942,7 +943,7 @@
 				C12A33432AB8959C0094D3E6 /* BaseUIWindow.cpp in Sources */,
 				C12A33B32AB895D60094D3E6 /* BaseResManager.cpp in Sources */,
 				C12A33A22AB895D60094D3E6 /* BaseMemoryPool.cpp in Sources */,
-				C12A337A2AB8959C0094D3E6 /* BaseStateFunc.cpp in Sources */,
+				8C41E9DE2C8473ED00D20334 /* BaseResFile.cpp in Sources */,
 				C12A33B72AB895D60094D3E6 /* BaseFile.cpp in Sources */,
 				C12A33BD2AB8966A0094D3E6 /* BaseHttp.cpp in Sources */,
 				C12A33252AB8959C0094D3E6 /* hashstr.cpp in Sources */,
@@ -950,7 +951,6 @@
 				C12A33022AB8959C0094D3E6 /* Vector3.cpp in Sources */,
 				C12A33AF2AB895D60094D3E6 /* BaseEventHandler.cpp in Sources */,
 				C12A330C2AB8959C0094D3E6 /* lodepng.cpp in Sources */,
-				C12A33392AB8959C0094D3E6 /* BaseSFuncDirectory.cpp in Sources */,
 				C12A33CB2AB89FEB0094D3E6 /* StateManagerPnID.cpp in Sources */,
 				C12A33AE2AB895D60094D3E6 /* BaseSpaceOrganizer.cpp in Sources */,
 				C12A336B2AB8959C0094D3E6 /* BaseWFile.cpp in Sources */,
@@ -961,7 +961,9 @@
 				C12A335C2AB8959C0094D3E6 /* BaseStringTable.cpp in Sources */,
 				C12A33C32AB896880094D3E6 /* BaseJson.cpp in Sources */,
 				C12A32FD2AB8959C0094D3E6 /* Matrix4.cpp in Sources */,
+				8C41E9DB2C8473D900D20334 /* BaseSFuncDirectory.cpp in Sources */,
 				C12A33662AB8959C0094D3E6 /* BaseTextEditor.cpp in Sources */,
+				8C41E9E12C84740D00D20334 /* BaseStateFunc.cpp in Sources */,
 				C13AC6F42B23ED3B00A43D66 /* BaseSCJson.cpp in Sources */,
 				C12A33B62AB895D60094D3E6 /* BaseMemoryPool3.cpp in Sources */,
 				C12A33522AB8959C0094D3E6 /* BaseTime.cpp in Sources */,
@@ -1010,12 +1012,12 @@
 				C15AD6942AC033B0002202C8 /* BaseFile.cpp in Sources */,
 				C13AC6F52B23ED3F00A43D66 /* BaseSCJson.cpp in Sources */,
 				C15AD6A82AC033BA002202C8 /* BaseStateManager.cpp in Sources */,
-				C15AD6BD2AC033BA002202C8 /* BaseSFuncDirectory.cpp in Sources */,
 				C15AD69F2AC033BA002202C8 /* BaseStateMain.cpp in Sources */,
 				C15AD6C72AC03400002202C8 /* SPLine.cpp in Sources */,
 				C15AD6CF2AC03400002202C8 /* BaseSpaceOrganizer.cpp in Sources */,
 				C15AD6972AC033B0002202C8 /* BaseEventHandler.cpp in Sources */,
 				C15AD6C12AC03400002202C8 /* lodepng.cpp in Sources */,
+				8C41E9DF2C8473EE00D20334 /* BaseResFile.cpp in Sources */,
 				C15AD69B2AC033B0002202C8 /* pch.cpp in Sources */,
 				8CBA66B82C6750CE00D395DA /* StateContext.cpp in Sources */,
 				C15AD69E2AC033B0002202C8 /* BaseEventManager.cpp in Sources */,
@@ -1046,9 +1048,11 @@
 				C15AD6CE2AC03400002202C8 /* MD52.cpp in Sources */,
 				C15AD6A62AC033BA002202C8 /* BaseResDStructure.cpp in Sources */,
 				C15AD69D2AC033B0002202C8 /* BaseDStructure.cpp in Sources */,
+				8C41E9E02C84740C00D20334 /* BaseStateFunc.cpp in Sources */,
 				C15AD6B22AC033BA002202C8 /* BaseStringTable.cpp in Sources */,
 				C15AD6A42AC033BA002202C8 /* BaseTree.cpp in Sources */,
 				C15AD6CC2AC03400002202C8 /* Vector3.cpp in Sources */,
+				8C41E9DC2C8473DA00D20334 /* BaseSFuncDirectory.cpp in Sources */,
 				C15AD6CA2AC03400002202C8 /* hashstr.cpp in Sources */,
 				C15AD6B72AC033BA002202C8 /* Defines.cpp in Sources */,
 				C15AD69A2AC033B0002202C8 /* base64.cpp in Sources */,
@@ -1056,7 +1060,6 @@
 				C15AD6BE2AC033BA002202C8 /* BaseSFParser.cpp in Sources */,
 				C15AD6B32AC033BA002202C8 /* BaseRecognitionPrjVector.cpp in Sources */,
 				C15AD6AB2AC033BA002202C8 /* BaseXML.cpp in Sources */,
-				C15AD6BF2AC033BA002202C8 /* BaseStateFunc.cpp in Sources */,
 				C15AD6BB2AC033BA002202C8 /* BaseResManager.cpp in Sources */,
 				C15AD6B62AC033BA002202C8 /* BaseUIManager.cpp in Sources */,
 				C15AD6AE2AC033BA002202C8 /* allocator.cpp in Sources */,
@@ -1072,12 +1075,11 @@
 				C15AD75C2AC0371F002202C8 /* StateManagerPnID.cpp in Sources */,
 				C15AD7282AC0370D002202C8 /* ResTif.cpp in Sources */,
 				C15AD75D2AC03724002202C8 /* pch.cpp in Sources */,
-				C15AD7242AC0370D002202C8 /* BaseTextEditor.cpp in Sources */,
 				C15AD7442AC0370D002202C8 /* BaseTextEditorText.cpp in Sources */,
 				C1E926382C53FA0800A0B4C2 /* BaseStateSystem.cpp in Sources */,
-				C15AD74D2AC0370E002202C8 /* BaseUIWindow.cpp in Sources */,
 				C15AD72D2AC0370D002202C8 /* BaseRecognitionManager.cpp in Sources */,
 				C15AD7382AC0370D002202C8 /* BaseFile.cpp in Sources */,
+				8C41E9E42C84744A00D20334 /* BaseSCHttpDSession.cpp in Sources */,
 				C15AD7252AC0370D002202C8 /* BaseSystem.cpp in Sources */,
 				C15AD7572AC0370E002202C8 /* base.cpp in Sources */,
 				C15AD7422AC0370D002202C8 /* BaseTree.cpp in Sources */,
@@ -1088,6 +1090,7 @@
 				C15AD75B2AC0371F002202C8 /* BaseInterface.cpp in Sources */,
 				C15AD7292AC0370D002202C8 /* BaseXML.cpp in Sources */,
 				C15AD74F2AC0370E002202C8 /* BaseEventManager.cpp in Sources */,
+				8C41E9E52C85FEDC00D20334 /* BaseTextEditor.cpp in Sources */,
 				C15AD7592AC0370E002202C8 /* EncodeCodeFile.cpp in Sources */,
 				C15AD7212AC0370D002202C8 /* BaseSCTableGrid.cpp in Sources */,
 				C15AD73B2AC0370D002202C8 /* Fixed.cpp in Sources */,
@@ -1098,13 +1101,13 @@
 				C15AD72C2AC0370D002202C8 /* EncoderOperator.cpp in Sources */,
 				C15AD7302AC0370D002202C8 /* BaseMemoryPool3.cpp in Sources */,
 				C15AD7222AC0370D002202C8 /* BaseResFile.cpp in Sources */,
+				8C41E9DD2C8473E600D20334 /* BaseResFile.cpp in Sources */,
 				C12FF62F2B0A04C100758F3E /* KISA_SHA256.cpp in Sources */,
 				C12501142AEDDFAE00AB0052 /* BaseSCTcpSession.cpp in Sources */,
 				C15AD71D2AC0370D002202C8 /* BaseEventHandler.cpp in Sources */,
 				C15AD7272AC0370D002202C8 /* BaseNetConnector.cpp in Sources */,
 				C15AD72A2AC0370D002202C8 /* stdafx.cpp in Sources */,
 				C15AD7532AC0370E002202C8 /* Defines.cpp in Sources */,
-				C15AD7432AC0370D002202C8 /* BaseUIManager.cpp in Sources */,
 				C15AD7542AC0370E002202C8 /* BaseObject.cpp in Sources */,
 				C15AD71F2AC0370D002202C8 /* Vector3.cpp in Sources */,
 				C15AD73D2AC0370D002202C8 /* BaseStateMain.cpp in Sources */,
@@ -1122,6 +1125,7 @@
 				C15AD7512AC0370E002202C8 /* Matrix4.cpp in Sources */,
 				C15AD74E2AC0370E002202C8 /* BaseActionStack.cpp in Sources */,
 				C15AD72B2AC0370D002202C8 /* BaseStateManager.cpp in Sources */,
+				8C41E9D72C84731F00D20334 /* BaseSCHttpD.cpp in Sources */,
 				C15AD7202AC0370D002202C8 /* BaseResManager.cpp in Sources */,
 				C15AD7562AC0370E002202C8 /* BaseMemoryPool.cpp in Sources */,
 				C15AD7402AC0370D002202C8 /* BaseDStructure.cpp in Sources */,
@@ -1158,8 +1162,6 @@
 				C12A33CF2AB89FEB0094D3E6 /* BaseInterface.cpp in Sources */,
 				C12A32932AB895350094D3E6 /* BaseMemoryPool.cpp in Sources */,
 				C1E04FED2658B51C0058CD21 /* BaseResFile.cpp in Sources */,
-				C12A33382AB8959C0094D3E6 /* BaseSFuncDirectory.cpp in Sources */,
-				C1E04FD32658B51C0058CD21 /* BaseTextEditor.cpp in Sources */,
 				C12A33422AB8959C0094D3E6 /* BaseUIWindow.cpp in Sources */,
 				C12A32582AB894770094D3E6 /* base.cpp in Sources */,
 				C12A333D2AB8959C0094D3E6 /* Fixed.cpp in Sources */,
@@ -1208,6 +1210,7 @@
 				C12A334C2AB8959C0094D3E6 /* EncoderOperator.cpp in Sources */,
 				C12A336F2AB8959C0094D3E6 /* Quater.cpp in Sources */,
 				C12A330B2AB8959C0094D3E6 /* lodepng.cpp in Sources */,
+				8C41E9DA2C8473D800D20334 /* BaseSFuncDirectory.cpp in Sources */,
 				C12A337E2AB8959C0094D3E6 /* SPLine.cpp in Sources */,
 				C12A32C72AB895350094D3E6 /* BaseMemoryPool3.cpp in Sources */,
 				C12A33922AB8959C0094D3E6 /* BaseSystem.cpp in Sources */,
@@ -1226,7 +1229,6 @@
 			files = (
 				C12A33BA2AB8966A0094D3E6 /* BaseHttp.cpp in Sources */,
 				C12A334A2AB8959C0094D3E6 /* EncoderOperator.cpp in Sources */,
-				C12A33772AB8959C0094D3E6 /* BaseStateFunc.cpp in Sources */,
 				C12A327D2AB895350094D3E6 /* BaseSFuncXML.cpp in Sources */,
 				C12A33812AB8959C0094D3E6 /* BaseUIManager.cpp in Sources */,
 				C12A33722AB8959C0094D3E6 /* Matrix3.cpp in Sources */,
@@ -1236,7 +1238,6 @@
 				C12A33452AB8959C0094D3E6 /* BaseXML.cpp in Sources */,
 				C12A32912AB895350094D3E6 /* BaseMemoryPool.cpp in Sources */,
 				C12A33222AB8959C0094D3E6 /* hashstr.cpp in Sources */,
-				C104607A2644208D0077FB2A /* BaseTextEditor.cpp in Sources */,
 				C12A339A2AB8959C0094D3E6 /* seedx.cpp in Sources */,
 				C12A33272AB8959C0094D3E6 /* EncodeCodeFile.cpp in Sources */,
 				C12A32A12AB895350094D3E6 /* BaseFile.cpp in Sources */,
@@ -1273,6 +1274,7 @@
 				C12A329D2AB895350094D3E6 /* BaseDStructure.cpp in Sources */,
 				C12A338B2AB8959C0094D3E6 /* BaseStateManager.cpp in Sources */,
 				C12A32562AB894770094D3E6 /* base.cpp in Sources */,
+				8C41E9E22C84740D00D20334 /* BaseStateFunc.cpp in Sources */,
 				C12A334F2AB8959C0094D3E6 /* BaseTime.cpp in Sources */,
 				C12A33312AB8959C0094D3E6 /* BaseState.cpp in Sources */,
 				C12A33C82AB89FEB0094D3E6 /* StateManagerPnID.cpp in Sources */,
@@ -1301,7 +1303,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
@@ -1311,7 +1313,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = V8F8H7L35W;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_C_LANGUAGE_STANDARD = c17;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"VScriptBuild=1",
 					"BASELIBRARY_EXPORTS=1",
@@ -1344,7 +1346,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
@@ -1354,7 +1356,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = V8F8H7L35W;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_C_LANGUAGE_STANDARD = c17;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"VScriptBuild=1",
 					"BASELIBRARY_EXPORTS=1",
@@ -1445,7 +1447,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
@@ -1456,7 +1458,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = V8F8H7L35W;
 				ENABLE_HARDENED_RUNTIME = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_C_LANGUAGE_STANDARD = c17;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"_MAC=1",
 					"$(inherited)",
@@ -1491,7 +1493,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
@@ -1502,7 +1504,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = V8F8H7L35W;
 				ENABLE_HARDENED_RUNTIME = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_C_LANGUAGE_STANDARD = c17;
 				GCC_PREPROCESSOR_DEFINITIONS = "_MAC=1";
 				HEADER_SEARCH_PATHS = (
 					"\"/Volumes/SamSSD 1/archipin/libmicrohttpd/src/include\"",
