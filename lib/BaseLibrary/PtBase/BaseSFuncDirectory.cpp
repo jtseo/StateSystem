@@ -290,11 +290,13 @@ int BaseSFuncDirectory::DirectoryListGet_varIf()
 	const char *sel_str = (const char*)paramFallowGet(0);
 	    
 	STLString path = path_str;
+#ifdef _WIN32
 	if (sel_str == NULL)
 		path += "*.*";
 	else
 		path += sel_str;
-
+#endif
+    
 	STLVString files;
 	BaseSystem::GetFileList(path.c_str(), &files, NULL);
 	STLVString dates;
