@@ -1617,11 +1617,13 @@ UINT32 BaseNetManager::index_get_new_(char *_pData, UINT16 _nSize, char *_psocke
 			&& (*m_pstlVstConnector)[i].nPort == _nPort
 			&& (*m_pstlVstConnector)[i].pConnector != NULL)
 		{
-			nIndex			= (INT32)(*m_pstlVstConnector)[i].nIndex;
-			//pConnector		= (*m_pstlVstConnector)[i].pConnector;
-			//pConnector->send(sizeof(UINT32), (char*)&nIndex, BaseNetConnector::TYPE_INDEX_RES);
-			//pConnector->timeout_set(m_nTimeOut);
-			return nIndex;
+            PT_OFree((*m_pstlVstConnector)[i].pConnector);
+            (*m_pstlVstConnector)[i].pConnector = NULL;
+                    
+            STLMnstConnector::iterator it;
+            it = m_pstlMnstConnector->find((*m_pstlVstConnector)[i].nIndex);
+            m_pstlMnstConnector->erase(it);
+            break;
 		}
 	}
 
@@ -2074,6 +2076,7 @@ DEF_ThreadCallBack(BaseNetManager::update)
 
 			if(it == pManager->m_pstlMnstConnector->end())
 			{
+				printf("ResIndex:%d\n", nIndex);
 				if (pManager->client_index_set(nIndex))
 					it = pManager->m_pstlMnstConnector->find(nIndex);
 				else {
