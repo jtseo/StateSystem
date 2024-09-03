@@ -113,23 +113,3 @@ public:
 char* _strlwr_s( char* s, size_t _nSize);
 #endif
 
-
-class atomic_cnt
-{
-public:	
-	atomic_cnt(INT32 _init);
-	~atomic_cnt();
-	
-	int operator++();
-	int operator--();
-	int get() const;
-#ifndef _MAC
-#ifdef	ANDROID
-	//CRITICAL_SECTION	m_lock;
-	atomic_int* m_pnCnt;
-#endif
-	INT32		m_nCnt;	// Decrease after pop
-#else
-	atomic_int	*m_pnCnt;
-#endif
-};

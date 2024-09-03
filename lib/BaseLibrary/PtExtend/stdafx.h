@@ -51,7 +51,7 @@
 #include <assert.h>
 #include <algorithm>
 
-#include <stdatomic.h>
+//#include <stdatomic.h>
 #include "../PtBase/base.h"
 
 #include "../PtBase/Vector3.h"

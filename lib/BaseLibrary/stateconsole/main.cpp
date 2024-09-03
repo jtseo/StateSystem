@@ -120,7 +120,7 @@ int main(void)
 // #include "../PtBase/BaseResResource.h"
 // #include "../PtBase/BaseResManager.h"
 // #include "../PtBase/BaseSystem.h"
-#include <stdatomic.h>
+//#include <stdatomic.h>
 
 #include "../PtBase/base.h"
 #include "../PtBase/Vector3.h"
@@ -162,6 +162,10 @@ int main(int argc, const char *argv[])
 	if(argc >= 3)
 		variable->set_alloc("param2_str", (const char*)argv[2]);
 	
+    BaseConsolFilter::hide("SMain", "VScriptEditor");
+    //BaseConsolFilter::hide("SAction", "PopEvent");
+    BaseConsolFilter::hide("SAction", "PushEvent");
+    
 	while(1)
 	{
 		int current = BaseSystem::timeGetTime();

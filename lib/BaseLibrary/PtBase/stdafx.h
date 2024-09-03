@@ -52,7 +52,7 @@
 #include <assert.h>
 #include <algorithm>
 
-#include <stdatomic.h>
+//#include <stdatomic.h>
 #include "base.h"
 
 #include "Vector3.h"
