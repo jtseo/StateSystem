@@ -39,9 +39,9 @@
 void *s_buffer_a[MAX_SOCKET] = {0};
 int s_buffer_use_a[MAX_SOCKET] = {0};
 
-atomic_cnt *ps_buffer_top = NULL;
+std::atomic<int> *ps_buffer_top = NULL;
 
-BraceUpdate::BraceUpdate(atomic_cnt* _cnt, atomic_cnt* _double, void *_criticalsection):BraceInc(_cnt, _double){
+BraceUpdate::BraceUpdate(std::atomic<int>* _cnt, std::atomic<int>* _double, void *_criticalsection):BraceInc(_cnt, _double){
 	m_criticalsection = _criticalsection;
 	--*m_cnt;
 	--*m_cnt;
@@ -66,17 +66,17 @@ void BraceUpdate::criticalDestory(void *_criticalsection)
 	DeleteCriticalSection((CRITICAL_SECTION*)_criticalsection);
 }
 
-BraceInc::BraceInc(atomic_cnt* _cnt, atomic_cnt* _double) {
+BraceInc::BraceInc(std::atomic<int>* _cnt, std::atomic<int>* _double) {
 	m_cnt = _cnt;
 	m_double = _double;
 
-	while (m_double->get() > 0)
+	while (m_double->load() > 0)
 		BaseCircleQueue::qsleep(1);
 	++(*m_cnt);
 }
 
 void BraceInc::hold() {
-	while (m_cnt->get() > 0)
+	while (m_cnt->load() > 0)
 		BaseCircleQueue::qsleep(1);
 }
 
@@ -88,7 +88,7 @@ BraceInc::~BraceInc() {
 void *buff_alloc(int _size)
 {
 	if(ps_buffer_top == NULL)
-		ps_buffer_top = new atomic_cnt(-1);
+		ps_buffer_top = new std::atomic<int>(-1);
 	
 	if(MAX_QUEUE != _size)
 		return malloc(_size);
@@ -204,12 +204,12 @@ void BaseCircleQueue::init(UINT32 _nSize)
 	
 	if(m_puPosPush == NULL)
 	{
-		m_puPosPop = new atomic_cnt(-1);
-		m_puPosPush = new atomic_cnt(0);
-		m_pnCountPushed = new atomic_cnt(0);
-		m_pnCountPushed2 = new atomic_cnt(0);
-		m_pnUse = new atomic_cnt(0);
-		m_pnDouble = new atomic_cnt(0);
+		m_puPosPop = new std::atomic<int>(-1);
+		m_puPosPush = new std::atomic<int>(0);
+		m_pnCountPushed = new std::atomic<int>(0);
+		m_pnCountPushed2 = new std::atomic<int>(0);
+		m_pnUse = new std::atomic<int>(0);
+		m_pnDouble = new std::atomic<int>(0);
 	}
 	
 	memset(m_parrayQueue, 0, nSizeQueue*sizeof(void*));
@@ -219,7 +219,7 @@ void BaseCircleQueue::MakeDoubleInLock()
 {
 	BraceUpdate(m_pnUse, m_pnDouble, m_criticalsection);
 	
-	if(m_pnCountPushed2->get() < m_nSize)
+	if(m_pnCountPushed2->load() < m_nSize)
 		return;
 	
 	int nSizeQueue = m_nSize * 2;
@@ -270,11 +270,11 @@ void *BaseCircleQueue::top()
 {
 	BraceInc inc(m_pnUse, m_pnDouble);
 	
-	int cnt = m_pnCountPushed->get();
+	int cnt = m_pnCountPushed->load();
 	if(cnt <= 0)
 		return NULL;
 
-	UINT32 nPos = (UINT32)m_puPosPop->get();
+	UINT32 nPos = (UINT32)m_puPosPop->load();
 	nPos++;
 	nPos	= nPos % m_nSize;
 
@@ -295,7 +295,7 @@ void *BaseCircleQueue::pop()
 {
 	BraceInc inc(m_pnUse, m_pnDouble);
 	
-	if(m_pnCountPushed->get() <= 0)
+	if(m_pnCountPushed->load() <= 0)
 		return NULL;
 
 	//if(BaseSystem::LFDecrement(&m_nCountPushed) < 0)
@@ -357,7 +357,7 @@ INT32 BaseCircleQueue::size_data()
 	
 	if (!m_pnCountPushed)
 		return 0;
-	return (INT32)m_pnCountPushed->get();
+	return (INT32)m_pnCountPushed->load();
 }
 
 BaseCircleQueue* BaseCircleQueue::ms_queue = NULL;

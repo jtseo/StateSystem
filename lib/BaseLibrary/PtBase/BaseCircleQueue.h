@@ -1,10 +1,6 @@
 #pragma once
 
-#ifndef _WIN32
 #include <atomic>
-#endif
-
-class atomic_cnt;
 
 // Performance queue for multithread
 // but in case of queue overflow, it make bring a critical crush.
@@ -30,13 +26,13 @@ public:
 protected:
 	void MakeDoubleInLock();
 	void *m_criticalsection;
-	atomic_cnt	*m_pnUse;
-	atomic_cnt	*m_pnDouble;
+	std::atomic<int>	*m_pnUse;
+	std::atomic<int>	*m_pnDouble;
 	
-	atomic_cnt	*m_pnCountPushed;
-	atomic_cnt	*m_pnCountPushed2;
-	atomic_cnt	*m_puPosPush;
-	atomic_cnt	*m_puPosPop;
+	std::atomic<int>	*m_pnCountPushed;
+	std::atomic<int>	*m_pnCountPushed2;
+	std::atomic<int>	*m_puPosPush;
+	std::atomic<int>	*m_puPosPop;
 	
 	
 	UINT32				m_nSize;
@@ -55,10 +51,10 @@ private:
 class BraceInc
 {
 protected:
-	atomic_cnt* m_cnt;
-	atomic_cnt* m_double;
+	std::atomic<int>* m_cnt;
+	std::atomic<int>* m_double;
 public:
-	BraceInc(atomic_cnt* _cnt, atomic_cnt* _double);
+	BraceInc(std::atomic<int>* _cnt, std::atomic<int>* _double);
 	void hold();
 	~BraceInc();
 };
@@ -69,6 +65,6 @@ class BraceUpdate : public BraceInc
 public:
 	static void criticalInit(void *_criticalsection);
 	static void criticalDestory(void *_criticalsection);
-	BraceUpdate(atomic_cnt* _cnt, atomic_cnt* _double, void *_criticalsection);
+	BraceUpdate(std::atomic<int>* _cnt, std::atomic<int>* _double, void *_criticalsection);
 	~BraceUpdate();
 };
