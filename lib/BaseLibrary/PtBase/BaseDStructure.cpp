@@ -18,6 +18,7 @@
 #include <android/log.h>
 #endif
 #define APPNAME	"StateBaseLib"
+#include <atomic>
 
 std::vector<int>	BaseDStructure::sm_stlVTypeSize;
 STLVString	BaseDStructure::sm_stlVTypeName;
@@ -33,8 +34,8 @@ STLMnInt	BaseDStructure::sm_stlMnDebugProcessorLine;
 int			BaseDStructure::sm_nDefineOriginalSize = 0;
 STLVString	BaseDStructure::sm_stlVClasses;
 
-atomic_cnt	*s_lockUse = NULL;
-atomic_cnt *s_lockUpdate = NULL;
+std::atomic<int>	*s_lockUse = NULL;
+std::atomic<int>	*s_lockUpdate = NULL;
 
 #ifndef _WIN32
 #define CRITICAL_SECTION				pthread_mutex_t
@@ -109,8 +110,8 @@ void BaseDStructure::init_type()
 {
 	if (sm_stlVTypeName.size() == 0)
 	{
-		s_lockUse = new atomic_cnt(0);
-		s_lockUpdate = new atomic_cnt(0);
+		s_lockUse = new std::atomic<int>(0);
+		s_lockUpdate = new std::atomic<int>(0);
 		s_critical_que_section = new CRITICAL_SECTION;
 		
 		BraceInc inc(s_lockUse, s_lockUpdate);
