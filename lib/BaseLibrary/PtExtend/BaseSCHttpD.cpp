@@ -28,6 +28,49 @@ PtObjectCpp(BaseSCHttpD);
 STLVInt	BaseSCHttpD::s_func_hash_a;
 const char* BaseSCHttpD::s_class_name = "BaseSCHttpD";
 
+
+class SessionHttp{
+    MHD_Connection *connection;
+    const char *jsonData;
+    
+    PT_OPTHeader;
+public:
+    static SessionHttp sm_sample;
+    void init(){
+        connection = NULL;
+        jsonData = NULL;
+    }
+    virtual void release()
+    {
+        jsonData = NULL;
+    }
+    SessionHttp(){
+        init();
+    }
+    ~SessionHttp()
+    {
+        release();
+    }
+    void JsonSet(const char *json)
+    {
+        jsonData = json;
+    }
+    void ConnectionSet(MHD_Connection *_connection)
+    {
+        connection = _connection;
+    }
+    MHD_Connection *ConnectionGet(){
+        return connection;
+    }
+    const char *JsonGet(){
+        return jsonData;
+    }
+    
+};
+
+PT_OPTCPP(SessionHttp);
+SessionHttp SessionHttp::sm_sample;
+
 int BaseSCHttpD::GetObjectId()
 {
 	static int	s_iId = 0;
@@ -37,7 +80,7 @@ int BaseSCHttpD::GetObjectId()
 	return s_iId;
 }
 
-BaseSCHttpD::BaseSCHttpD()
+BaseSCHttpD::BaseSCHttpD():m_disconnectionQueue("httpd Queue")
 {
 	m_nObjectId = GetObjectId();
 
@@ -148,16 +191,14 @@ int BaseSCHttpD::listen_astrF()
 
 int BaseSCHttpD::serviceReturn_varF()
 {
-	struct MHD_Connection *connection;
+	struct SessionHttp *session;
 	struct MHD_Response *response;
-	connection = (struct MHD_Connection *)paramVariablePointGet();
+    session = (struct SessionHttp *)paramVariablePointGet();
 	const char *ret = (const char*)paramFallowGet(0);
-	if(ret == NULL)
+	if(session == NULL)
 		return 0;
-	const char *page = "[ { \"userId\": 1, \"id\": 1, \"title\": \"provident\", \"body\": \"quia\" } ]";
-	response = MHD_create_response_from_buffer(strlen(page), (void *)page, MHD_RESPMEM_PERSISTENT);
-	MHD_queue_response(connection, MHD_HTTP_OK, response);
-	MHD_destroy_response(response);
+    session->JsonSet(ret);
+    m_disconnectionQueue.push(session);
 	return 1;
 }
 
@@ -173,14 +214,13 @@ int BaseSCHttpD::listenStop_nF()
 
 int BaseSCHttpD::sessionClose_varF()
 {
-	void *con = paramVariablePointGet();
-	for(int i=0; i<m_sessions.size(); i++)
-		if(con == m_sessions[i])
-		{
-			m_sessions.erase(m_sessions.begin()+i);
-			return 1;
-		}
-	return 0;
+	INT64 *con = (INT64*)paramVariablePointGet();
+    
+    if(!con)
+        return 0;
+    
+    m_disconnectionQueue.push(con);
+	return 1;
 }
 //#SF_functionInsert
 
@@ -190,43 +230,61 @@ answer_to_connection (void *cls, struct MHD_Connection *connection,
 					  const char *version, const char *upload_data,
 					  size_t *upload_data_size, void **req_cls)
 {
+    SessionHttp *session;
+    PT_OAlloc(session, SessionHttp);
+    session->ConnectionSet(connection);
+    
+    PT_ThreadStart(THTYPE_BASE_TCP_SESSION);
 	BaseSCHttpD* httpd = (BaseSCHttpD*)cls;
 	//const char *page = "[ { \"userId\": 1, \"id\": 1, \"title\": \"provident\", \"body\": \"quia\" } ]";
 	
 	printf("requested\n");
 	
-	const char *page = "[ { \"userId\": 1, \"id\": 1, \"title\": \"provident\", \"body\": \"quia\" } ]";
+	//const char *page = "[ { \"userId\": 1, \"id\": 1, \"title\": \"provident\", \"body\": \"quia\" } ]";
 	
-	//struct MHD_Response *response;
-	//response = MHD_create_response_from_buffer(strlen(page), (void *)page, MHD_RESPMEM_PERSISTENT);
-	//MHD_queue_response(connection, MHD_HTTP_OK, response);
-	//MHD_destroy_response(response);
+    g_SendMessage(LOG_MSG, "TCP Request Receive %s", url);
 	STLString command = "API_";
 	command += (const char*)(url+1);
-	httpd->sessionAdd(connection);
-	BaseDStructureValue *evt = httpd->EventMakeThread(STRTOHASH(command.c_str()));
-	evt->set_point("API_connection", connection);
-	evt->set_alloc("API_method", method);
-	evt->set_alloc("JsonParam_strV", upload_data);
-	httpd->EventPostThread(evt);
-	
-	while(httpd->sessionGet(connection))
-		BaseSystem::Sleep(10);
-
+	//httpd->sessionAdd(connection); // in thread environment, it's not support.
+    if(command == "API_emailLogin")
+    {
+        BaseDStructureValue *evt = httpd->EventMakeThread(STRTOHASH(command.c_str()));
+        evt->set_point("API_connection", session);
+        evt->set_alloc("API_method", method);
+        evt->set_alloc("JsonParam_strV", upload_data);
+        httpd->EventPostThread(evt);
+        
+        while(httpd->sessionDisconnectTop() != session)
+            BaseSystem::Sleep(10);
+        
+        httpd->sessionDissconnectPop();
+    }
+        
+    struct MHD_Response *response;
+    
+    response = MHD_create_response_from_buffer(strlen(session->JsonGet()), (void *)session->JsonGet(), MHD_RESPMEM_PERSISTENT);
+    MHD_queue_response(connection, MHD_HTTP_OK, response);
+    MHD_destroy_response(response);
+    
+    PT_OFree(session);
+    session = NULL;
+    
+    PT_ThreadEnd(THTYPE_BASE_TCP_SESSION);
 	return MHD_YES;
 }
 
-bool BaseSCHttpD::sessionGet(void *_session)
+
+void *BaseSCHttpD::sessionDisconnectTop()
 {
-	for(int i=0;i < m_sessions.size(); i++)
-		if(_session == m_sessions[i])
-			return true;
-	return false;
+    void *point = m_disconnectionQueue.top();
+    if(point == NULL)
+        return NULL;
+    return point;
 }
 
-void BaseSCHttpD::sessionAdd(void *_session)
+void BaseSCHttpD::sessionDissconnectPop()
 {
-	m_sessions.push_back(_session);
+    m_disconnectionQueue.pop();
 }
 
 DEF_ThreadCallBack(BaseSCHttpD::update)
@@ -280,5 +338,6 @@ DEF_ThreadCallBack(BaseSCHttpD::update)
 		BaseSystem::Sleep(10);
 	}while(httpd->damonGet());
 	httpd->threadStop();
+    PT_ThreadEnd(THTYPE_BASE_TCP);
 	DEF_ThreadReturn;
 }

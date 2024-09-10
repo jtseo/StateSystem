@@ -36,11 +36,11 @@ public:
 	struct MHD_Daemon *damonGet(){ return m_daemon;}
 	void damonSet(struct MHD_Daemon *_demon) { m_daemon = _demon; }
 	void threadStop() { m_threadrunning = false; }
-	bool sessionGet(void *_session);
-	void sessionAdd(void *_session);
 protected:
     // support for text analysis
 public:
+    void *sessionDisconnectTop();
+    void sessionDissconnectPop();
 protected:
 	static DEF_ThreadCallBack(update);
 	
@@ -49,5 +49,7 @@ protected:
 	bool		m_threadrunning;
 	struct MHD_Daemon *m_daemon;
 	STLVpVoid	m_sessions;
+    
+    BaseCircleQueue m_disconnectionQueue;
 };
 
