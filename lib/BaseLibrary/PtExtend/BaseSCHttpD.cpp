@@ -260,11 +260,14 @@ answer_to_connection (void *cls, struct MHD_Connection *connection,
         httpd->sessionDissconnectPop();
     }
         
-    struct MHD_Response *response;
+    struct MHD_Response *response = NULL;
     
-    response = MHD_create_response_from_buffer(strlen(session->JsonGet()), (void *)session->JsonGet(), MHD_RESPMEM_PERSISTENT);
-    MHD_queue_response(connection, MHD_HTTP_OK, response);
-    MHD_destroy_response(response);
+	if (session->JsonGet() != NULL)
+	{
+		response = MHD_create_response_from_buffer(strlen(session->JsonGet()), (void*)session->JsonGet(), MHD_RESPMEM_PERSISTENT);
+		MHD_queue_response(connection, MHD_HTTP_OK, response);
+		MHD_destroy_response(response);
+	}
     
     PT_OFree(session);
     session = NULL;
