@@ -237,8 +237,8 @@ answer_to_connection (void *cls, struct MHD_Connection *connection,
     PT_ThreadStart(THTYPE_BASE_TCP_SESSION);
 	BaseSCHttpD* httpd = (BaseSCHttpD*)cls;
 	//const char *page = "[ { \"userId\": 1, \"id\": 1, \"title\": \"provident\", \"body\": \"quia\" } ]";
-	
-	printf("requested\n");
+	static int reqcnt = 0;
+	printf("requested: %d, %s: %s\n", reqcnt++, method, url);
 	
 	//const char *page = "[ { \"userId\": 1, \"id\": 1, \"title\": \"provident\", \"body\": \"quia\" } ]";
 	
