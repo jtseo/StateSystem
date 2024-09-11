@@ -807,7 +807,7 @@ namespace StateSystem
                         if (change)
                         {
                             VScriptState state_link = (VScriptState)m_hashStateButtons[key_n2];
-                            if (state_link.go.transform.position.x < pos_org.x)
+                            if (state_link == null || state_link.go.transform.position.x < pos_org.x)
                                 continue;
                         }
 
