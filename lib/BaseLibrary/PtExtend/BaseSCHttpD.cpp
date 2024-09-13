@@ -224,13 +224,53 @@ int BaseSCHttpD::sessionClose_varF()
 }
 //#SF_functionInsert
 
+#include <thread>
+#include <mutex>
+#include "../PtBase/hashstr.h"
+
+std::mutex mtx;
+STLMnInt s_stlMRecord;
+
+bool checkDos(const char *url, const char *method)
+{
+	std::unique_lock<std::mutex> lock(mtx);
+
+	STLString dummy = url;
+	dummy += method;
+
+	int hash = STRTOHASH(dummy.c_str());
+	STLMnInt::iterator it;
+	it = s_stlMRecord.find(hash);
+	if (it == s_stlMRecord.end())
+		s_stlMRecord[hash] = 0;
+
+	s_stlMRecord[hash]++;
+
+	if (s_stlMRecord[hash] > 100) {
+		
+		for (it = s_stlMRecord.begin(); it != s_stlMRecord.end(); it++)
+			it->second--;
+
+		return true;
+	}
+
+	return false;
+}
+
+
 static enum MHD_Result
 answer_to_connection (void *cls, struct MHD_Connection *connection,
 					  const char *url, const char *method,
 					  const char *version, const char *upload_data,
 					  size_t *upload_data_size, void **req_cls)
 {
-    SessionHttp *session;
+	if (checkDos(url, method))
+	{
+		printf(".");
+		return MHD_NO;
+	}
+
+	SessionHttp *session;
     PT_OAlloc(session, SessionHttp);
     session->ConnectionSet(connection);
     
