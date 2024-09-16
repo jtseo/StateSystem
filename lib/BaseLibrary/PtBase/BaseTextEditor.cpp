@@ -673,7 +673,11 @@ int BaseTextEditor::definePathSet_varF()
 int BaseTextEditor::defineClassPathGet_varF()
 {
     // it's will need to update for MacOS
+#ifdef _WIN32
 	const char* path = "../State/BaseStateClasses.define";
+#else
+    const char* path = "State/BaseStateClasses.define";
+#endif
 	if(!paramVariableSet(path))
 		return 0;
 	return 1;
