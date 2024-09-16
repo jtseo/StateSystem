@@ -621,6 +621,7 @@ int BaseSCCurl::EmailSend_varF()
 	const char *password = (const char*)paramFallowGet(2);
 	const char *title = (const char*)paramFallowGet(3);
 	const char *mail = (const char*)paramFallowGet(4);
+    const char *fromName = (const char *)paramFallowGet(5);
 	
 	if(!email || !server || !id || !password || !title || !mail)
 		return 0;
@@ -652,7 +653,17 @@ int BaseSCCurl::EmailSend_varF()
 	STLString str;
 	str = "Date: "; str += BaseTime::make_date(time, buf, 100); str += "\r\n";	contents->push_back(str);
 	str = "To: "; str += email; str += "\r\n";			contents->push_back(str);
-	str = "From: "; str += id; str += "\r\n";			contents->push_back(str);
+    if(!fromName){
+        str = "From: "; str += id; str += "\r\n";			
+        contents->push_back(str);
+    }else{
+        str = "From: ";
+        str += fromName;
+        str += " <";
+        str += id;
+        str += ">\r\n";
+        contents->push_back(str);
+    }
 	str = "Message-ID: <"; str+= strSerial.c_str(); str+="@oddeyesoft.com>\r\n";
 			contents->push_back(str);
 	str = "Subject: "; str+= title; str+= "\r\n";		contents->push_back(str);
@@ -669,7 +680,10 @@ int BaseSCCurl::EmailSend_varF()
 		// Set SMTP server and port
 		curl_easy_setopt(curl, CURLOPT_URL, server);
 		curl_easy_setopt(curl, CURLOPT_USE_SSL, CURLUSESSL_ALL);
-
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1L);
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 2L);
+        curl_easy_setopt(curl, CURLOPT_TIMEOUT, 30L);  // 30 seconds timeout
+        
 		// Set login credentials for Gmail
 		curl_easy_setopt(curl, CURLOPT_USERNAME, id);
 		curl_easy_setopt(curl, CURLOPT_PASSWORD, password);
@@ -685,7 +699,7 @@ int BaseSCCurl::EmailSend_varF()
 		curl_easy_setopt(curl, CURLOPT_READFUNCTION, payload_source);
 		curl_easy_setopt(curl, CURLOPT_READDATA, contents);
 		curl_easy_setopt(curl, CURLOPT_UPLOAD, 1L);
-		curl_easy_setopt(curl, CURLOPT_VERBOSE, 0);
+		//curl_easy_setopt(curl, CURLOPT_VERBOSE, 1);
 		//curl_easy_setopt(curl, CURLOPT_POSTFIELDS, mail);
 		
 		// Perform the send
