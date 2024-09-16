@@ -88,6 +88,7 @@ add_executable(stConsole
     PtExtend/BaseSCJson.cpp
     PtExtend/BaseStateSystem.cpp
     PtExtend/StateContext.cpp
+    PtExtend/UdpChannelServer.cpp
 )
 
 set(CMAKE_C_STANDARD 11)

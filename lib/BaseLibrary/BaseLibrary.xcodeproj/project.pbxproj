@@ -19,6 +19,11 @@
 		8C41E9E22C84740D00D20334 /* BaseStateFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C104606E2644208D0077FB2A /* BaseStateFunc.cpp */; };
 		8C41E9E42C84744A00D20334 /* BaseSCHttpDSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C41E9E32C84744A00D20334 /* BaseSCHttpDSession.cpp */; };
 		8C41E9E52C85FEDC00D20334 /* BaseTextEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C12A32ED2AB8959C0094D3E6 /* BaseTextEditor.cpp */; };
+		8C41E9E92C98799F00D20334 /* UdpChannelServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C41E9E82C98799F00D20334 /* UdpChannelServer.cpp */; };
+		8C41E9EA2C98799F00D20334 /* UdpChannelServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C41E9E82C98799F00D20334 /* UdpChannelServer.cpp */; };
+		8C41E9EB2C98799F00D20334 /* UdpChannelServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C41E9E82C98799F00D20334 /* UdpChannelServer.cpp */; };
+		8C41E9EC2C98799F00D20334 /* UdpChannelServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C41E9E82C98799F00D20334 /* UdpChannelServer.cpp */; };
+		8C41E9ED2C98799F00D20334 /* UdpChannelServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C41E9E82C98799F00D20334 /* UdpChannelServer.cpp */; };
 		8CBA66B52C6750CE00D395DA /* StateContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA66B42C6750CE00D395DA /* StateContext.cpp */; };
 		8CBA66B62C6750CE00D395DA /* StateContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA66B42C6750CE00D395DA /* StateContext.cpp */; };
 		8CBA66B72C6750CE00D395DA /* StateContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA66B42C6750CE00D395DA /* StateContext.cpp */; };
@@ -396,6 +401,8 @@
 
 /* Begin PBXFileReference section */
 		8C41E9E32C84744A00D20334 /* BaseSCHttpDSession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSCHttpDSession.cpp; path = PtExtend/BaseSCHttpDSession.cpp; sourceTree = SOURCE_ROOT; };
+		8C41E9E82C98799F00D20334 /* UdpChannelServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UdpChannelServer.cpp; path = PtExtend/UdpChannelServer.cpp; sourceTree = SOURCE_ROOT; };
+		8C41E9EE2C9879B100D20334 /* UdpChannelServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UdpChannelServer.h; path = PtExtend/UdpChannelServer.h; sourceTree = SOURCE_ROOT; };
 		8CB335FE2C83069200BA176A /* stdafx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = stdafx.h; path = PtBase/stdafx.h; sourceTree = SOURCE_ROOT; };
 		8CB336002C8308AD00BA176A /* pch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pch.h; path = ApStateSystem/pch.h; sourceTree = SOURCE_ROOT; };
 		8CB336012C8308F100BA176A /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stdafx.h; path = PtExtend/stdafx.h; sourceTree = SOURCE_ROOT; };
@@ -625,6 +632,7 @@
 		C1F7D7951BCE400200473CAE /* Header */ = {
 			isa = PBXGroup;
 			children = (
+				8C41E9EE2C9879B100D20334 /* UdpChannelServer.h */,
 				8CB336012C8308F100BA176A /* stdafx.h */,
 				8CB336002C8308AD00BA176A /* pch.h */,
 				8CB335FE2C83069200BA176A /* stdafx.h */,
@@ -673,6 +681,7 @@
 		C1F7D7961BCE401A00473CAE /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				8C41E9E82C98799F00D20334 /* UdpChannelServer.cpp */,
 				8CBA66BA2C67774F00D395DA /* StateContext.h */,
 				8CBA66B42C6750CE00D395DA /* StateContext.cpp */,
 				C1972A942C54AC1500787300 /* BaseStateSystem.h */,
@@ -936,6 +945,7 @@
 				C12A33A72AB895D60094D3E6 /* BaseResResource.cpp in Sources */,
 				C12A33982AB8959C0094D3E6 /* allocator.cpp in Sources */,
 				C12A33A42AB895D60094D3E6 /* BaseRecognitionPrjVector.cpp in Sources */,
+				8C41E9EB2C98799F00D20334 /* UdpChannelServer.cpp in Sources */,
 				C12A333E2AB8959C0094D3E6 /* Fixed.cpp in Sources */,
 				C12A33A62AB895D60094D3E6 /* BaseResDStructure.cpp in Sources */,
 				C12A33B22AB895D60094D3E6 /* BaseObject.cpp in Sources */,
@@ -1015,6 +1025,7 @@
 				C15AD6C72AC03400002202C8 /* SPLine.cpp in Sources */,
 				C15AD6CF2AC03400002202C8 /* BaseSpaceOrganizer.cpp in Sources */,
 				C15AD6972AC033B0002202C8 /* BaseEventHandler.cpp in Sources */,
+				8C41E9EC2C98799F00D20334 /* UdpChannelServer.cpp in Sources */,
 				C15AD6C12AC03400002202C8 /* lodepng.cpp in Sources */,
 				8C41E9DF2C8473EE00D20334 /* BaseResFile.cpp in Sources */,
 				C15AD69B2AC033B0002202C8 /* pch.cpp in Sources */,
@@ -1125,6 +1136,7 @@
 				C15AD74E2AC0370E002202C8 /* BaseActionStack.cpp in Sources */,
 				C15AD72B2AC0370D002202C8 /* BaseStateManager.cpp in Sources */,
 				8C41E9D72C84731F00D20334 /* BaseSCHttpD.cpp in Sources */,
+				8C41E9ED2C98799F00D20334 /* UdpChannelServer.cpp in Sources */,
 				C15AD7202AC0370D002202C8 /* BaseResManager.cpp in Sources */,
 				C15AD7562AC0370E002202C8 /* BaseMemoryPool.cpp in Sources */,
 				C15AD7402AC0370D002202C8 /* BaseDStructure.cpp in Sources */,
@@ -1180,6 +1192,7 @@
 				C12A336A2AB8959C0094D3E6 /* BaseWFile.cpp in Sources */,
 				C12A32C32AB895350094D3E6 /* BaseEventHandler.cpp in Sources */,
 				C12A328F2AB895350094D3E6 /* BaseCircleQueue.cpp in Sources */,
+				8C41E9EA2C98799F00D20334 /* UdpChannelServer.cpp in Sources */,
 				C15AD6D52AC03425002202C8 /* BaseSCMysql.cpp in Sources */,
 				C12A33332AB8959C0094D3E6 /* BaseState.cpp in Sources */,
 				C1E04FD62658B51C0058CD21 /* KISA_SHA256.cpp in Sources */,
@@ -1238,6 +1251,7 @@
 				C12A32912AB895350094D3E6 /* BaseMemoryPool.cpp in Sources */,
 				C12A33222AB8959C0094D3E6 /* hashstr.cpp in Sources */,
 				C12A339A2AB8959C0094D3E6 /* seedx.cpp in Sources */,
+				8C41E9E92C98799F00D20334 /* UdpChannelServer.cpp in Sources */,
 				C12A33272AB8959C0094D3E6 /* EncodeCodeFile.cpp in Sources */,
 				C12A32A12AB895350094D3E6 /* BaseFile.cpp in Sources */,
 				C12A32752AB895350094D3E6 /* BaseResFilterIP.cpp in Sources */,
