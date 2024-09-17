@@ -862,6 +862,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\PtExtend\BaseSCHash.h" />
     <ClInclude Include="..\PtExtend\BaseSCJson.h" />
     <ClInclude Include="..\PtExtend\BaseStateSystem.h" />
     <ClInclude Include="..\PtExtend\DevCashReader.h" />
@@ -949,6 +950,7 @@
     <ClInclude Include="Z:\Users\jtseo\coint\trunk\lib\BaseLibrary\PtBase\BaseSCDBFile.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\PtExtend\BaseSCHash.cpp" />
     <ClCompile Include="..\PtExtend\BaseSCJson.cpp" />
     <ClCompile Include="..\PtExtend\BaseStateSystem.cpp" />
     <ClCompile Include="..\PtExtend\DevCashReader.cpp" />

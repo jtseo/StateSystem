@@ -244,6 +244,9 @@
     <ClCompile Include="..\PtExtend\UdpChannelServer.cpp">
       <Filter>Extend</Filter>
     </ClCompile>
+    <ClCompile Include="..\PtExtend\BaseSCHash.cpp">
+      <Filter>Extend</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base.h">
@@ -499,6 +502,9 @@
       <Filter>Extend</Filter>
     </ClInclude>
     <ClInclude Include="..\PtExtend\UdpChannelServer.h">
+      <Filter>Extend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtExtend\BaseSCHash.h">
       <Filter>Extend</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,5 +1,5 @@
 #pragma once
-#include "BaseStateFunc.h"
+#include "../PtBase/BaseStateFunc.h"
 class BaseSCHash :
     public BaseStateFunc
 {
