@@ -30,3 +30,5 @@ UIStateSelector	selector
 UITitleManager	title manager
 StateContext	context
 GameChannelClient	support GameChannelClient
+UdpChannelServer	support class
+BaseSCHash	support class

@@ -1,0 +1,3 @@
+../BaseLibrary/PtExtend/UdpChannelServer
+L_SS_LC	ChannelGet_varF	INT32	EnumVariableDefine	get channel name & ip by param group(dev or pro)
+L_SS_LC	ChannelAdd_varF	INT32	EnumVariableDefine	add channel name & ip & type

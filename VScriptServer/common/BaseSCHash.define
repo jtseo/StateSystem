@@ -1,0 +1,3 @@
+../BaseLibrary/PtExtend/BaseSCHash
+L_SS_LC	Add_varF	INT32	EnumVariableDefine	add hash value
+L_SS_LC	Get_varF	INT32	EnumVariableDefine	get hash value

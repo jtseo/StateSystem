@@ -3,3 +3,4 @@ L_SS_LC	listen_astrF	STRING		opend socket for service
 L_SS_LC	serviceReturn_varF	INT32	EnumVariableDefine	auto added
 L_SS_LC	listenStop_nF	INT32		auto added
 L_SS_LC	sessionClose_varF	INT32	EnumVariableDefine	auto added
+L_SS_LC	APIRegist_strF	STRING		auto added
