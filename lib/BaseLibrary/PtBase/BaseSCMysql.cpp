@@ -323,8 +323,16 @@ int BaseSCMysql::querySelect_strF()
 		if(key_is(it->first.c_str()))
 		{
 			q->query += " " + it->first;
-			q->query += "=";
-			q->query += it->second;
+			if (it->first == "code")
+			{
+				q->query += " = '";
+				q->query += it->second;
+				q->query += "'";
+			}
+			else {
+				q->query += "=";
+				q->query += it->second;
+			}
 		}else if(it->first == "password"){
 			q->query += " password=SHA2('";
 			q->query += it->second;
