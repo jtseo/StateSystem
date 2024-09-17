@@ -24,6 +24,11 @@
 		8C41E9EB2C98799F00D20334 /* UdpChannelServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C41E9E82C98799F00D20334 /* UdpChannelServer.cpp */; };
 		8C41E9EC2C98799F00D20334 /* UdpChannelServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C41E9E82C98799F00D20334 /* UdpChannelServer.cpp */; };
 		8C41E9ED2C98799F00D20334 /* UdpChannelServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C41E9E82C98799F00D20334 /* UdpChannelServer.cpp */; };
+		8C41E9F02C99121900D20334 /* BaseSCHash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C41E9EF2C99121800D20334 /* BaseSCHash.cpp */; };
+		8C41E9F12C99121900D20334 /* BaseSCHash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C41E9EF2C99121800D20334 /* BaseSCHash.cpp */; };
+		8C41E9F22C99121900D20334 /* BaseSCHash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C41E9EF2C99121800D20334 /* BaseSCHash.cpp */; };
+		8C41E9F32C99121900D20334 /* BaseSCHash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C41E9EF2C99121800D20334 /* BaseSCHash.cpp */; };
+		8C41E9F42C99121900D20334 /* BaseSCHash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C41E9EF2C99121800D20334 /* BaseSCHash.cpp */; };
 		8CBA66B52C6750CE00D395DA /* StateContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA66B42C6750CE00D395DA /* StateContext.cpp */; };
 		8CBA66B62C6750CE00D395DA /* StateContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA66B42C6750CE00D395DA /* StateContext.cpp */; };
 		8CBA66B72C6750CE00D395DA /* StateContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA66B42C6750CE00D395DA /* StateContext.cpp */; };
@@ -403,6 +408,8 @@
 		8C41E9E32C84744A00D20334 /* BaseSCHttpDSession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSCHttpDSession.cpp; path = PtExtend/BaseSCHttpDSession.cpp; sourceTree = SOURCE_ROOT; };
 		8C41E9E82C98799F00D20334 /* UdpChannelServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UdpChannelServer.cpp; path = PtExtend/UdpChannelServer.cpp; sourceTree = SOURCE_ROOT; };
 		8C41E9EE2C9879B100D20334 /* UdpChannelServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UdpChannelServer.h; path = PtExtend/UdpChannelServer.h; sourceTree = SOURCE_ROOT; };
+		8C41E9EF2C99121800D20334 /* BaseSCHash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseSCHash.cpp; path = PtExtend/BaseSCHash.cpp; sourceTree = SOURCE_ROOT; };
+		8C41E9F52C99122600D20334 /* BaseSCHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseSCHash.h; path = PtExtend/BaseSCHash.h; sourceTree = SOURCE_ROOT; };
 		8CB335FE2C83069200BA176A /* stdafx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = stdafx.h; path = PtBase/stdafx.h; sourceTree = SOURCE_ROOT; };
 		8CB336002C8308AD00BA176A /* pch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pch.h; path = ApStateSystem/pch.h; sourceTree = SOURCE_ROOT; };
 		8CB336012C8308F100BA176A /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stdafx.h; path = PtExtend/stdafx.h; sourceTree = SOURCE_ROOT; };
@@ -632,6 +639,7 @@
 		C1F7D7951BCE400200473CAE /* Header */ = {
 			isa = PBXGroup;
 			children = (
+				8C41E9F52C99122600D20334 /* BaseSCHash.h */,
 				8C41E9EE2C9879B100D20334 /* UdpChannelServer.h */,
 				8CB336012C8308F100BA176A /* stdafx.h */,
 				8CB336002C8308AD00BA176A /* pch.h */,
@@ -681,6 +689,7 @@
 		C1F7D7961BCE401A00473CAE /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				8C41E9EF2C99121800D20334 /* BaseSCHash.cpp */,
 				8C41E9E82C98799F00D20334 /* UdpChannelServer.cpp */,
 				8CBA66BA2C67774F00D395DA /* StateContext.h */,
 				8CBA66B42C6750CE00D395DA /* StateContext.cpp */,
@@ -949,6 +958,7 @@
 				C12A333E2AB8959C0094D3E6 /* Fixed.cpp in Sources */,
 				C12A33A62AB895D60094D3E6 /* BaseResDStructure.cpp in Sources */,
 				C12A33B22AB895D60094D3E6 /* BaseObject.cpp in Sources */,
+				8C41E9F22C99121900D20334 /* BaseSCHash.cpp in Sources */,
 				C12A33432AB8959C0094D3E6 /* BaseUIWindow.cpp in Sources */,
 				C12A33B32AB895D60094D3E6 /* BaseResManager.cpp in Sources */,
 				C12A33A22AB895D60094D3E6 /* BaseMemoryPool.cpp in Sources */,
@@ -1057,6 +1067,7 @@
 				C15AD6BC2AC033BA002202C8 /* BaseResFile.cpp in Sources */,
 				C15AD6CE2AC03400002202C8 /* MD52.cpp in Sources */,
 				C15AD6A62AC033BA002202C8 /* BaseResDStructure.cpp in Sources */,
+				8C41E9F32C99121900D20334 /* BaseSCHash.cpp in Sources */,
 				C15AD69D2AC033B0002202C8 /* BaseDStructure.cpp in Sources */,
 				8C41E9E02C84740C00D20334 /* BaseStateFunc.cpp in Sources */,
 				C15AD6B22AC033BA002202C8 /* BaseStringTable.cpp in Sources */,
@@ -1124,6 +1135,7 @@
 				C15AD7472AC0370E002202C8 /* BaseStateFunc.cpp in Sources */,
 				C15AD7322AC0370D002202C8 /* BaseResDStructure.cpp in Sources */,
 				C15AD7392AC0370D002202C8 /* BaseTime.cpp in Sources */,
+				8C41E9F42C99121900D20334 /* BaseSCHash.cpp in Sources */,
 				C15AD7352AC0370D002202C8 /* BaseStateSpace.cpp in Sources */,
 				C15AD74B2AC0370E002202C8 /* BaseStringTable.cpp in Sources */,
 				C15AD7462AC0370E002202C8 /* BaseResResource.cpp in Sources */,
@@ -1219,6 +1231,7 @@
 				C12A33292AB8959C0094D3E6 /* EncodeCodeFile.cpp in Sources */,
 				C12A32872AB895350094D3E6 /* BaseSetString.cpp in Sources */,
 				C12A335B2AB8959C0094D3E6 /* BaseStringTable.cpp in Sources */,
+				8C41E9F12C99121900D20334 /* BaseSCHash.cpp in Sources */,
 				C12A334C2AB8959C0094D3E6 /* EncoderOperator.cpp in Sources */,
 				C12A336F2AB8959C0094D3E6 /* Quater.cpp in Sources */,
 				C12A330B2AB8959C0094D3E6 /* lodepng.cpp in Sources */,
@@ -1279,6 +1292,7 @@
 				C12A32812AB895350094D3E6 /* BaseSpaceOrganizer.cpp in Sources */,
 				C12A328D2AB895350094D3E6 /* BaseCircleQueue.cpp in Sources */,
 				C12A32C92AB895350094D3E6 /* BaseSCTableGrid.cpp in Sources */,
+				8C41E9F02C99121900D20334 /* BaseSCHash.cpp in Sources */,
 				C12A33542AB8959C0094D3E6 /* BaseTree.cpp in Sources */,
 				C12A33D22AB89FEB0094D3E6 /* pch.cpp in Sources */,
 				C13AC6F12B23ECE400A43D66 /* BaseSCJson.cpp in Sources */,
