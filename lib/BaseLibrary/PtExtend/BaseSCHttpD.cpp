@@ -99,6 +99,7 @@ int BaseSCHttpD::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, int
 		STDEF_SFREGIST(serviceReturn_varF);
 		STDEF_SFREGIST(listenStop_nF);
 		STDEF_SFREGIST(sessionClose_varF);
+		STDEF_SFREGIST(APIRegist_strF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -145,6 +146,7 @@ int BaseSCHttpD::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		STDEF_SFFUNCALL(serviceReturn_varF);
 		STDEF_SFFUNCALL(listenStop_nF);
 		STDEF_SFFUNCALL(sessionClose_varF);
+		STDEF_SFFUNCALL(APIRegist_strF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -222,6 +224,14 @@ int BaseSCHttpD::sessionClose_varF()
     m_disconnectionQueue.push(con);
 	return 1;
 }
+
+int BaseSCHttpD::APIRegist_strF()
+{
+    const char *api = (const char*)m_param_value;
+    
+    m_apiSet.insert(api);
+	return 1;
+}
 //#SF_functionInsert
 
 #include <thread>
@@ -286,7 +296,7 @@ answer_to_connection (void *cls, struct MHD_Connection *connection,
 	STLString command = "API_";
 	command += (const char*)(url+1);
 	//httpd->sessionAdd(connection); // in thread environment, it's not support.
-    if(command == "API_emailLogin")
+    if(httpd->apiCheck(command.c_str()))
     {
         BaseDStructureValue *evt = httpd->EventMakeThread(STRTOHASH(command.c_str()));
         evt->set_point("API_connection", session);
@@ -314,6 +324,14 @@ answer_to_connection (void *cls, struct MHD_Connection *connection,
     
     PT_ThreadEnd(THTYPE_BASE_TCP_SESSION);
 	return MHD_YES;
+}
+
+
+bool BaseSCHttpD::apiCheck(const char* _api)
+{
+    if(m_apiSet.find(_api) == m_apiSet.end())
+        return false;
+    return true;
 }
 
 
