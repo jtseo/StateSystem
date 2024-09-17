@@ -49,7 +49,9 @@ int UdpChannelServer::StateFuncRegist(STLString _class_name, STLVInt* _func_hash
 		//#SF_FuncRegistStart
 		//func_str = _class_name + ".text_info_cast_nF";	(*_func_hash)[Enumtext_info_cast_nF] = STRTOHASH(func_str.c_str());		BaseDStructure::processor_list_add(func_str.c_str(), _func, __FILE__, __LINE__);
 		//STDEF_SFREGIST(Open_varF);
-		//#SF_FuncRegistInsert
+		STDEF_SFREGIST(ChannelGet_varF);
+		STDEF_SFREGIST(ChannelAdd_varF);
+        //#SF_FuncRegistInsert
 
 		return _size;
 	}
@@ -65,6 +67,9 @@ UdpChannelServer::~UdpChannelServer()
 void UdpChannelServer::init()
 {
 	BaseStateFunc::init();
+    
+    for(int i=0; i<STD_ChannelType::Max; i++)
+        m_lastChannels[i] = -1;
 }
 
 void UdpChannelServer::release()
@@ -94,6 +99,8 @@ int UdpChannelServer::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		//#SF_FuncCallStart
 		if (m_func_hash == s_func_hash_a[Enum_ext_start])        return 0;
 		//STDEF_SFFUNCALL(Open_varF);
+		STDEF_SFFUNCALL(ChannelGet_varF);
+		STDEF_SFFUNCALL(ChannelAdd_varF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -120,4 +127,83 @@ int UdpChannelServer::Create()
     return 1;
 }
 
+
+int UdpChannelServer::m_typedef[] = {0, 0, 0, 0};
+STD_ChannelType UdpChannelServer::TypeGet(const char* _type)
+{
+    if(m_typedef[STD_ChannelType::None] == 0)
+    {
+        m_typedef[STD_ChannelType::None] = STRTOHASH("None");
+        m_typedef[STD_ChannelType::Pro] = STRTOHASH("Pro");
+        m_typedef[STD_ChannelType::Dev] = STRTOHASH("Dev");
+        m_typedef[STD_ChannelType::Enter] = STRTOHASH("Enter");
+    }
+    
+    int hash = STRTOHASH(_type);
+    for(int i=0;i < STD_ChannelType::Max; i++)
+    {
+        if(hash == m_typedef[i])
+            return (STD_ChannelType)i;
+    }
+    return STD_ChannelType::None;
+}
+
+int UdpChannelServer::ChannelGet(STD_ChannelType _type, int _last)
+{
+    int channel = 0;
+    for(int i=0; i<m_stlVChannel.size(); i++)
+    {
+        if(m_stlVChannel[i].type == _type)
+        {
+            channel = i;
+            if(i > _last)
+                break;
+        }
+    }
+    return channel;
+}
+
+int UdpChannelServer::ChannelGet_varF()
+{
+    const char* typeStr = (const char*)paramVariableGet();
+    
+    STD_ChannelType type = TypeGet(typeStr);
+    
+    if(m_stlVChannel.size() == 0)
+        return 0;
+    
+    int channel = ChannelGet(type, m_lastChannels[type]);
+    
+    if(m_lastChannels[type] == channel)
+        channel = ChannelGet(type, -1);
+    
+    m_lastChannels[type] = channel;
+    
+    paramFallowSet(0, m_stlVChannel[channel].name);
+    paramFallowSet(1, m_stlVChannel[channel].ip);
+	return 1;
+}
+
+
+int UdpChannelServer::ChannelAdd_varF()
+{
+    const char* type = (const char*)paramVariableGet();
+    const char* name = (const char*)paramFallowGet(0);
+    const char* ip = (const char*)paramFallowGet(1);
+    
+    STD_UdpChannel channel;
+    channel.type = TypeGet(type);
+    
+    strcpy_s(channel.name, 50, name);
+    strcpy_s(channel.ip, 20, ip);
+    
+    for(int i=0; i<m_stlVChannel.size(); i++)
+    {
+        if(strcmp(m_stlVChannel[i].ip, ip) == 0)
+            return 0;
+    }
+    m_stlVChannel.push_back(channel);
+    
+	return 1;
+}
 //#SF_functionInsert
