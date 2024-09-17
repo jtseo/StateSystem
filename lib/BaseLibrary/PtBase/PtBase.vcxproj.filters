@@ -241,6 +241,9 @@
     <ClCompile Include="..\PtExtend\StateContext.cpp">
       <Filter>Extend</Filter>
     </ClCompile>
+    <ClCompile Include="..\PtExtend\UdpChannelServer.cpp">
+      <Filter>Extend</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base.h">
@@ -493,6 +496,9 @@
       <Filter>etc</Filter>
     </ClInclude>
     <ClInclude Include="..\PtExtend\StateContext.h">
+      <Filter>Extend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PtExtend\UdpChannelServer.h">
       <Filter>Extend</Filter>
     </ClInclude>
   </ItemGroup>
