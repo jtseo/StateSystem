@@ -29,6 +29,7 @@
 		8C41E9F22C99121900D20334 /* BaseSCHash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C41E9EF2C99121800D20334 /* BaseSCHash.cpp */; };
 		8C41E9F32C99121900D20334 /* BaseSCHash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C41E9EF2C99121800D20334 /* BaseSCHash.cpp */; };
 		8C41E9F42C99121900D20334 /* BaseSCHash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C41E9EF2C99121800D20334 /* BaseSCHash.cpp */; };
+		8C41E9F62C99AB6500D20334 /* BaseSCMysql.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15AD6D12AC03425002202C8 /* BaseSCMysql.cpp */; };
 		8CBA66B52C6750CE00D395DA /* StateContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA66B42C6750CE00D395DA /* StateContext.cpp */; };
 		8CBA66B62C6750CE00D395DA /* StateContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA66B42C6750CE00D395DA /* StateContext.cpp */; };
 		8CBA66B72C6750CE00D395DA /* StateContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBA66B42C6750CE00D395DA /* StateContext.cpp */; };
@@ -1094,6 +1095,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C15AD75C2AC0371F002202C8 /* StateManagerPnID.cpp in Sources */,
+				8C41E9F62C99AB6500D20334 /* BaseSCMysql.cpp in Sources */,
 				C15AD7282AC0370D002202C8 /* ResTif.cpp in Sources */,
 				C15AD75D2AC03724002202C8 /* pch.cpp in Sources */,
 				C15AD7442AC0370D002202C8 /* BaseTextEditorText.cpp in Sources */,
@@ -1363,7 +1365,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = arm64;
+				VALID_ARCHS = "arm64 x86_64";
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
@@ -1404,7 +1406,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = arm64;
+				VALID_ARCHS = "arm64 x86_64";
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
@@ -1494,6 +1496,7 @@
 					"\"/Volumes/SamSSD 1/archipin/libmicrohttpd/src/include\"",
 					/opt/homebrew/opt/curl/include,
 					/opt/homebrew/include,
+					/opt/homebrew/Cellar/mysql/9.0.1_2/include/mysql,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1501,6 +1504,7 @@
 					/opt/homebrew/opt/curl/lib,
 					/opt/homebrew/lib,
 					/opt/homebrew/Cellar/opencv/4.10.0/lib,
+					/opt/homebrew/Cellar/mysql/9.0.1_2/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1509,6 +1513,7 @@
 					"-lgnutls",
 					"-lmicrohttpd",
 					"-lcurl",
+					"-lmysqlclient",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = arm64;
@@ -1537,6 +1542,7 @@
 					"\"/Volumes/SamSSD 1/archipin/libmicrohttpd/src/include\"",
 					/opt/homebrew/opt/curl/include,
 					/opt/homebrew/include,
+					/opt/homebrew/Cellar/mysql/9.0.1_2/include/mysql,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1544,6 +1550,7 @@
 					/opt/homebrew/opt/curl/lib,
 					/opt/homebrew/lib,
 					/opt/homebrew/Cellar/opencv/4.10.0/lib,
+					/opt/homebrew/Cellar/mysql/9.0.1_2/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MTL_FAST_MATH = YES;
@@ -1551,6 +1558,7 @@
 					"-lgnutls",
 					"-lmicrohttpd",
 					"-lcurl",
+					"-lmysqlclient",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = arm64;
