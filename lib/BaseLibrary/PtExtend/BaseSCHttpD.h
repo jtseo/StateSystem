@@ -15,6 +15,7 @@ class BaseSCHttpD :
         STDEF_SFENUM(listenStop_nF),
         STDEF_SFENUM(sessionClose_varF),
         STDEF_SFENUM(APIRegist_strF),
+        STDEF_SFENUM(ParamAdd_strF),
         //#SF_EnumInsert
         EnumExtentionMax
     };
@@ -32,6 +33,7 @@ public:
     int listenStop_nF();
     int sessionClose_varF();
     int APIRegist_strF();
+    int ParamAdd_strF();
     //#SF_FuncHeaderInsert
 
     // User defin area from here
@@ -44,6 +46,9 @@ public:
     void *sessionDisconnectTop();
     void sessionDissconnectPop();
     bool apiCheck(const char* _api);
+    STLVString paramsGet(){
+        return m_params;
+    }
 protected:
 	static DEF_ThreadCallBack(update);
 	
@@ -53,6 +58,7 @@ protected:
 	struct MHD_Daemon *m_daemon;
 	STLVpVoid	m_sessions;
     STLSString  m_apiSet;
+    STLVString  m_params;
     
     BaseCircleQueue m_disconnectionQueue;
 };

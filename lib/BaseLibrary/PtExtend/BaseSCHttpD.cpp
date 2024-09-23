@@ -100,6 +100,7 @@ int BaseSCHttpD::StateFuncRegist(STLString _class_name, STLVInt* _func_hash, int
 		STDEF_SFREGIST(listenStop_nF);
 		STDEF_SFREGIST(sessionClose_varF);
 		STDEF_SFREGIST(APIRegist_strF);
+		STDEF_SFREGIST(ParamAdd_strF);
         //#SF_FuncRegistInsert
 
 		return _size;
@@ -147,6 +148,7 @@ int BaseSCHttpD::FunctionCall(const char* _class_name, STLVInt& _func_hash)
 		STDEF_SFFUNCALL(listenStop_nF);
 		STDEF_SFFUNCALL(sessionClose_varF);
 		STDEF_SFFUNCALL(APIRegist_strF);
+		STDEF_SFFUNCALL(ParamAdd_strF);
 		//#SF_FuncCallInsert
 		return 0;
     }
@@ -232,6 +234,14 @@ int BaseSCHttpD::APIRegist_strF()
     m_apiSet.insert(api);
 	return 1;
 }
+
+int BaseSCHttpD::ParamAdd_strF()
+{
+    const char *param = (const char*)m_param_value;
+    
+    m_params.push_back(param);
+	return 1;
+}
 //#SF_functionInsert
 
 #include <thread>
@@ -302,6 +312,15 @@ answer_to_connection (void *cls, struct MHD_Connection *connection,
         evt->set_point("API_connection", session);
         evt->set_alloc("API_method", method);
         evt->set_alloc("JsonParam_strV", upload_data);
+        
+        STLVString params = httpd->paramsGet();
+        for(int i=0; i<params.size(); i++)
+        {
+            const char *param = MHD_lookup_connection_value(connection, MHD_GET_ARGUMENT_KIND, params[i].c_str());
+            if(param)
+                evt->set_alloc(params[i].c_str(), param);
+        }
+        
         httpd->EventPostThread(evt);
         
         while(httpd->sessionDisconnectTop() != session)
