@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 //#include "../PtBase/stdafx.h"
 
 #include "../PtBase/BaseStateFunc.h"
@@ -284,6 +284,8 @@ int BaseSCJson::MassMerge_astrF()
 int BaseSCJson::JsonSet_varF()
 {
 	const char* json = (const char*)paramVariableGet();
+    if(!json)
+        return 0;
 	if (!m_json.set(json))
 		return 0;
 	return 1;
