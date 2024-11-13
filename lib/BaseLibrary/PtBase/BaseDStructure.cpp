@@ -19,6 +19,9 @@
 #endif
 #define APPNAME	"StateBaseLib"
 #include <atomic>
+#ifndef _WIN32
+#include <pthread.h>
+#endif
 
 std::vector<int>	BaseDStructure::sm_stlVTypeSize;
 STLVString	BaseDStructure::sm_stlVTypeName;

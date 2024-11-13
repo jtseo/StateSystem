@@ -135,6 +135,7 @@ inline void sprintf_s(char *_strBuf, int _nSize, const char *_strFmt, ...)
 #include "BaseCircleQueue.h"
 #include "BaseMemoryPool3.h"
 
+#include <cstddef>
 #include <cstdlib>
 #include <exception>
 #include <assert.h>
