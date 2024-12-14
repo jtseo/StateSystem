@@ -21,6 +21,9 @@ class BaseSFuncDirectory :
         STDEF_SFENUM(FileSave_varF),
         STDEF_SFENUM(ListCasting_varF),
         STDEF_SFENUM(FileUpdated_varIf),
+        STDEF_SFENUM(MemoryCheck_nF),
+        STDEF_SFENUM(MemLogStart_nF),
+        STDEF_SFENUM(MemLogEnd_nF),
         //#SF_EnumInsert
         EnumExtentionMax
     };
@@ -42,6 +45,9 @@ public:
     int FileSave_varF();
     int ListCasting_varF();
     int FileUpdated_varIf();
+    int MemoryCheck_nF();
+    int MemLogStart_nF();
+    int MemLogEnd_nF();
     //#SF_FuncHeaderInsert
     int fileCast_nF();
     int folerCreate_varF();
