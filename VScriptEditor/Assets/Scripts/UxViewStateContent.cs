@@ -3138,7 +3138,7 @@ namespace StateSystem
 
             List<int> extValues = new List<int>();
 
-            if(_str_value != null && _str_value.Length > 1) {
+            if(_str_value != null && _str_value.Length > 1 && m_dstExtVariable != null) {
                 int exKey = m_dstExtVariable.key_first_get();
                 string value = "";
                 while (exKey != 0)

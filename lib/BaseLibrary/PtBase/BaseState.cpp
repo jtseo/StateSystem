@@ -5424,6 +5424,28 @@ STDEF_FUNC(BaseVariableSetHash_anF)
 	STDEF_VARIABLE_ACCUM(BaseVariableSetHash_anF, SetHash, pManager);
 }
 
+STDEF_FUNC(BaseStringReplace_varF)
+{
+	const char* strBuffer;
+	const int* pnHash;
+	STDEF_GETLOCAL_R(_pdsvBase, BaseStringReplace_varF, pnHash);
+
+	BaseDStructureValue* pVariable = ((BaseState*)_pdsvBase->m_pVoidParam)->variable_get();
+
+	if (!pVariable->get(*pnHash, (const void**)& strBuffer))
+		return 0;
+
+	int nLen = (int)strlen(strBuffer) + 1024;
+	char* strOut = PT_Alloc(char, nLen);
+	strcpy_s(strOut, nLen, strBuffer);
+	BaseStringTable::cut_str(' ',strOut);
+	
+	pVariable->set_alloc(*pnHash, (const void*)strOut);
+	PT_Free(strOut);
+
+	return 1;
+}
+
 STDEF_FUNC(BaseVariableStringUpdate_anF)
 {
 	STDEF_Manager(pManager);

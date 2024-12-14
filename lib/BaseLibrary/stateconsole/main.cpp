@@ -163,7 +163,7 @@ int main(int argc, const char *argv[])
 		variable->set_alloc("param2_str", (const char*)argv[2]);
 	
     BaseConsolFilter::hide("SMain", "VScriptEditor");
-    //BaseConsolFilter::hide("SAction", "PopEvent");
+    BaseConsolFilter::hide("SAction", "PopEvent");
     BaseConsolFilter::hide("SAction", "PushEvent");
     
 	while(1)
@@ -180,10 +180,10 @@ int main(int argc, const char *argv[])
 		//printf(".");
 		
 		if (mpool_get().is_terminated())
-			return 1;
+            break;
 
 		if (manager->system_terminate_check())
-			return 1;
+            break;
 
 		manager_update(manager);
 		BaseSystem::Sleep(50);
