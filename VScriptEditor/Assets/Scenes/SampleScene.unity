@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10610,7 +10609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_OpenState: StateName
-  m_firstUI: 1
+  m_firstUI: 0
   m_selectList: []
   m_selectIdx: 0
   m_defaultTexture: {fileID: 0}
@@ -14505,7 +14504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_OpenState: StateName
-  m_firstUI: 0
+  m_firstUI: 1
   m_selectList: []
   m_selectIdx: 0
   m_defaultTexture: {fileID: 0}
@@ -19931,7 +19930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebugMode: 1
   VScriptIP: localhost
-  ApplicationName: VScriptEditor2
+  ApplicationName: VScriptEditor
 --- !u!114 &1055851647
 MonoBehaviour:
   m_ObjectHideFlags: 0
