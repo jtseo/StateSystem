@@ -322,7 +322,11 @@ int BaseSFuncDirectory::FileWritableCheck_nIf()
 {
 	const char* filepath = (const char*)paramFallowGet(0);
 
-	FILE* pf = fopen(filepath, "r+");
+	char buf[255];
+	strcpy_s(buf, 255, filepath);
+	BaseSystem::path_fix(buf, 255);
+	
+	FILE* pf = fopen(buf, "r+");
 
 	if (!pf) {
 		return 0;
@@ -331,7 +335,7 @@ int BaseSFuncDirectory::FileWritableCheck_nIf()
 	fclose(pf);
 	return 1;
 
-	std::fstream file(filepath, std::ios::in | std::ios::out | std::ios::app);
+	std::fstream file(buf, std::ios::in | std::ios::out | std::ios::app);
 
 	// Check if the file is open
 	if (!file.is_open()) {
@@ -353,8 +357,11 @@ int BaseSFuncDirectory::FileLoad_varF()
 {
 	const char* filepath = (const char*)paramFallowGet(0);
 
+	char buf[255];
+	strcpy_s(buf, 255, filepath);
+	BaseSystem::path_fix(buf, 255);
 	BaseFile file;
-	if (file.OpenFile(filepath, BaseFile::OPEN_READ))
+	if (file.OpenFile(buf, BaseFile::OPEN_READ))
 		return 0;
 
 	UINT32 size_n = file.get_size_file();
@@ -394,7 +401,11 @@ int BaseSFuncDirectory::FileSave_varF()
 
 	BaseFile file;
     
-	if (file.OpenFile(filepath, BaseFile::OPEN_WRITE))
+	char buf[255];
+	strcpy_s(buf, 255, filepath);
+	BaseSystem::path_fix(buf, 255);
+	
+	if (file.OpenFile(buf, BaseFile::OPEN_WRITE))
 		return 0;
 
 	if (largeable)
