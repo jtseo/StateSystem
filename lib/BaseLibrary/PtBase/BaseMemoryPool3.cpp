@@ -1052,6 +1052,9 @@ void *BaseMemoryPoolMultiThread::malloc(size_t _nSize, const char *_strFileName,
 
 void BaseMemoryPoolMultiThread::observe_push(void* _point)
 {
+	if(_point == NULL)
+		return;
+	
 	BaseMemoryPoolSingle* pPoolSingle = get_single();
 #ifdef _DEBUG
 	pPoolSingle->observe_push(_point);
@@ -1273,29 +1276,29 @@ void BaseMemoryPoolMultiThread::auto_update()
 	if(BaseSystem::timeGetTime() < m_auto_freetime)
 		return;
 	
-	if(m_auto_free_qp == NULL || m_auto_ofree_qp == NULL || (m_auto_free_qp->size_data() == 0
-	   && m_auto_ofree_qp->size_data() == 0))
-		return;
-	
 	void *point = NULL;
-	do{
-		void *p;
-		point = m_auto_free_qp->pop();
-		if(point == NULL)
-			break;
-		p = point;
-		PT_Free(p);
-	}while(point);
-	
-	if(m_auto_ofree_qp->size_data() == 0)
-		return;
-	
-	do{
-		BaseObject *p;
-		point = m_auto_ofree_qp->pop();
-		if(point == NULL)
-			break;
-		p = (BaseObject*)point;
-		PT_OFree(p);
-	}while(point);
+	if(m_auto_free_qp != NULL && m_auto_free_qp->size_data() > 0)
+	{
+		
+		do{
+			void *p;
+			point = m_auto_free_qp->pop();
+			if(point == NULL)
+				break;
+			p = point;
+			PT_Free(p);
+		}while(point);
+	}
+	   
+	if(m_auto_ofree_qp != NULL && m_auto_ofree_qp->size_data() > 0)
+	{
+		do{
+			BaseObject *p;
+			point = m_auto_ofree_qp->pop();
+			if(point == NULL)
+				break;
+			p = (BaseObject*)point;
+			PT_OFree(p);
+		}while(point);
+	}
 }
