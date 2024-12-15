@@ -66,7 +66,7 @@ void StateManagerPnID::release_manager(bool _reset)
 #include "../PtBase/BaseSFuncDirectory.h"
 #include "../PtExtend/BaseSCJson.h"
 #include "../PtExtend/BaseStateSystem.h"
-#include "../PtBase/BaseSCMysql.h"
+//#include "../PtBase/BaseSCMysql.h"
 //#include "../PtBase/BaseSCCurl.h"
 //#include "../PtExtend/DevCashReader.h"
 
@@ -80,7 +80,7 @@ StateManagerPnID::StateManagerPnID(void* _applet) :BaseStateManager(_applet)
 	BaseSFuncDirectory dir;
 	BaseSCJson json;
 	BaseStateSystem bsy;
-	BaseSCMysql sql;
+	//BaseSCMysql sql;
 	BaseSCTcp tcp;
 	//BaseSCCurl curl;
 	//DevCashReader cash;

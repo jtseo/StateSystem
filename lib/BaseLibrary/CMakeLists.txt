@@ -45,8 +45,8 @@ add_executable(stConsole
     PtBase/BaseResGrid.cpp
     PtBase/BaseResManager.cpp
     PtBase/BaseResResource.cpp
-    PtBase/BaseSCCurl.cpp
-    PtBase/BaseSCMysql.cpp
+ #   PtBase/BaseSCCurl.cpp
+ #   PtBase/BaseSCMysql.cpp
     PtBase/BaseSCTableGrid.cpp
     PtBase/BaseSCTcp.cpp
     PtBase/BaseSCTcpSession.cpp
@@ -83,8 +83,8 @@ add_executable(stConsole
     PtBase/md5.cpp
     PtBase/seedx.cpp
     PtBase/BaseXML.cpp
-    PtExtend/BaseSCHttpD.cpp
-    PtExtend/BaseSCHttpDSession.cpp
+ #   PtExtend/BaseSCHttpD.cpp
+ #   PtExtend/BaseSCHttpDSession.cpp
     PtExtend/BaseSCJson.cpp
     PtExtend/BaseStateSystem.cpp
     PtExtend/StateContext.cpp
@@ -93,10 +93,10 @@ add_executable(stConsole
 
 set(CMAKE_C_STANDARD 11)
 #set(CMAKE_BUILD_TYPE Debug)
-# set(CMAKE_BUILD_TYPE Debug)
+# set(CMAKE_BUILD_TYPE Debug)F
 
 # Link libraries (optional)
-target_link_libraries(stConsole mysqlclient ssl crypto microhttpd curl) 
+target_link_libraries(stConsole ssl crypto microhttpd curl pthread) 
 
 #target_link_libraries(stConsole PRIVATE 
 #    /opt/homebrew/Cellar/libmicrohttpd/1.0.1/lib/libmicrohttpd.12.dylib
