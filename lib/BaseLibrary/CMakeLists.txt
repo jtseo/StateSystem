@@ -21,7 +21,7 @@ file(GLOB SOURCES "*.cpp")
 #include_directories(/opt/homebrew/Cellar/libmicrohttpd/1.0.1/include/)
 #include_directories(/opt/homebrew/Cellar/mysql-client/9.0.1/include/mysql/)
 include_directories(/usr/include/)
-include_directories(/usr/include/mysql/)
+include_directories(/usr/include/mariadb/)
 
 # Add executable
 add_executable(stConsole 
@@ -96,7 +96,7 @@ set(CMAKE_C_STANDARD 11)
 # set(CMAKE_BUILD_TYPE Debug)
 
 # Link libraries (optional)
-target_link_libraries(stConsole mariadb mysqlclient ssl crypto microhttpd curl pthread) 
+target_link_libraries(stConsole mariadb ssl crypto microhttpd curl pthread) 
 
 #target_link_libraries(stConsole PRIVATE 
 #    /opt/homebrew/Cellar/libmicrohttpd/1.0.1/lib/libmicrohttpd.12.dylib

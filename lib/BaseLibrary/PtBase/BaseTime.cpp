@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "BaseTime.h"
 #include "BaseFile.h"
+#include <ctime>
 
 int BaseTime::dayinmonth[12] = {
 	31,
