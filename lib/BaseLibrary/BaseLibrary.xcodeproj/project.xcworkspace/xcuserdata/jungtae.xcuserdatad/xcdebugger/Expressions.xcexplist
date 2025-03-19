@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "BaseNetManager::release():BaseNetConnector.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "BaseSocket::bind():BaseSocket.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "errno">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BaseCircleQueue::pop():BaseCircleQueue.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_parrayQueue+nPos+2">
+            </PersistentString>
+            <PersistentString
+               value = "m_pnCountPushed">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BaseSocket::close_():BaseSocket.cpp">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

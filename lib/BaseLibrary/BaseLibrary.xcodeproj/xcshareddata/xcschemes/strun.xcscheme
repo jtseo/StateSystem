@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1430"
+   LastUpgradeVersion = "1540"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
-      buildImplicitDependencies = "YES">
+      buildImplicitDependencies = "YES"
+      buildArchitectures = "Automatic">
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -14,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C15AD7152AC036D3002202C8"
-               BuildableName = "stateconsole"
-               BlueprintName = "stateconsole"
+               BlueprintIdentifier = "C1E04FAF2658B4090058CD21"
+               BuildableName = "strun"
+               BlueprintName = "strun"
                ReferencedContainer = "container:BaseLibrary.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,49 +29,25 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
-      <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C15AD6F52AC03646002202C8"
-               BuildableName = "stateconsoleUITests.xctest"
-               BlueprintName = "stateconsoleUITests"
-               ReferencedContainer = "container:BaseLibrary.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C15AD6EB2AC03646002202C8"
-               BuildableName = "stateconsoleTests.xctest"
-               BlueprintName = "stateconsoleTests"
-               ReferencedContainer = "container:BaseLibrary.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
-      useCustomWorkingDirectory = "YES"
-      customWorkingDirectory = "/Users/jungtae/projects/fursys/fursys_AS/fursysCam/strun"
+      useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "YES">
+      allowLocationSimulation = "YES"
+      viewDebuggingEnabled = "No">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C15AD7152AC036D3002202C8"
-            BuildableName = "stateconsole"
-            BlueprintName = "stateconsole"
+            BlueprintIdentifier = "C1E04FAF2658B4090058CD21"
+            BuildableName = "strun"
+            BlueprintName = "strun"
             ReferencedContainer = "container:BaseLibrary.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -85,9 +62,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C15AD7152AC036D3002202C8"
-            BuildableName = "stateconsole"
-            BlueprintName = "stateconsole"
+            BlueprintIdentifier = "C1E04FAF2658B4090058CD21"
+            BuildableName = "strun"
+            BlueprintName = "strun"
             ReferencedContainer = "container:BaseLibrary.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

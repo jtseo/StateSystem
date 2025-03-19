@@ -10,7 +10,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;cp -R /Users/jungtae/Library/Developer/Xcode/DerivedData/BaseLibrary-bxdidjrwiykhztfirkfqhtqoxbcr/Build/Products/Debug/ApStateSystem.bundle &quot;/Users/jungtae/projects/StateSystem/lib/VScriptEditor64.app/Contents/PlugIns&quot;&#10;cp -R /Users/jungtae/Library/Developer/Xcode/DerivedData/BaseLibrary-bxdidjrwiykhztfirkfqhtqoxbcr/Build/Products/Debug/ApStateSystem.bundle &quot;/Users/jungtae/projects/GameServerSample/Assets/VLogger/Plugins/OSX&quot;&#10;">
+               scriptText = "# Example: Copy MyLib.framework to a custom folder &#10;DEST=&quot;/Users/jungtae/projects/StateSystem/lib/VScriptEditor_org.app/Contents/PlugIns&quot;&#10;&#10;# This path uses Xcode variables to locate the build product.&#10;SOURCE=&quot;${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.bundle&quot;&#10;&#10;# Copy recursively (-R) to preserve the structure&#10;cp -R &quot;${SOURCE}&quot; &quot;${DEST}&quot;&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
@@ -61,7 +61,7 @@
       <PathRunnable
          runnableDebuggingMode = "0"
          BundleIdentifier = "com.oddeyesoft.VScriptEditor"
-         FilePath = "/Users/jungtae/projects/StateSystem/lib/VScriptEditor64.app">
+         FilePath = "/Users/jungtae/projects/StateSystem/lib/VScriptEditor_org.app">
       </PathRunnable>
       <LocationScenarioReference
          identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
