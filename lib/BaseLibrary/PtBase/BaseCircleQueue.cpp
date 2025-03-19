@@ -313,6 +313,7 @@ void *BaseCircleQueue::pop()
 	pRet	= *(m_parrayQueue+nPos);
 	if(pRet == 0)
 	{
+        int cnt = 0;
 		do{
  			pRet	= *(m_parrayQueue+nPos);
 			// push Thread중 나중에 시작한 Thread가 값을 넣고 m_nCountPush를 증가시켜 
@@ -320,8 +321,9 @@ void *BaseCircleQueue::pop()
 			// 값을 넣어 줄 때 까지 기다린다.
 			qsleep(1);
 
+            cnt++;
 			//g_SendMessage(LOG_MSG, "pop");
-		}while(pRet == NULL);
+		}while(pRet == NULL && cnt < 100);            
 	}
 	*(m_parrayQueue+nPos)	= NULL;
 	
