@@ -232,6 +232,11 @@ int BaseSocket::bind()
 		struct sockaddr *sAddr;
 		sAddr	= (struct sockaddr*)m_sLocal;
 		/* Bind address to socket */
+        int enable = 1;
+        if (setsockopt(m_socket, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(enable)) < 0) {
+            fprintf(stderr, "Failed to set SO_REUSEADDR\n");
+            return 0;
+        }
 
 		int result = 0, cnt = 0;
 		do {
@@ -240,7 +245,7 @@ int BaseSocket::bind()
 				break;
 			BaseSystem::Sleep(100);
 			cnt++;
-		} while (result == -1 && errno == 48 && cnt <= 10); // if 48(already using), some of other thread is using this port and can closing so try while a second.
+		} while (result == -1 && (errno == 48 || errno == 60) && cnt <= 10); // if 48(already using), some of other thread is using this port and can closing so try while a second.
 
 		if (result == -1)
 		{
