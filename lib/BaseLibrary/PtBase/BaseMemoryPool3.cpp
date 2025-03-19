@@ -14,7 +14,7 @@
 #include <math.h>
 #include <vector>
 
-#if defined(ANDROID) || defined(_IOS) || defined(_MAC)
+#if defined(ANDROID) || defined(_IOS)// || defined(_MAC)
 #define DEF_MOBILE
 #endif
 
@@ -292,7 +292,7 @@ bool BaseMemoryPoolBlock::increase_free_mem(const char* _filename, int _line)
 	return true;
 }
 
-void BaseMemoryPoolBlock::display_info()
+void BaseMemoryPoolBlock::display_info(bool _clear)
 {
 	INT32 nCountAllocated	= 0;
 	for(unsigned i=0; i<__MEMORYPOOL_SIZE_BLOCK; i++)
@@ -515,7 +515,7 @@ void BaseMemoryPoolSingle::leak_check(const void* xpPoint)
 	}
 }
 
-void BaseMemoryPoolSingle::leak_display()
+void BaseMemoryPoolSingle::leak_display(bool _clear)
 {
 	for(INT32 i=0; i<s_iAllocatedLength; i++){
 		//g_SendMessage(LOG_MSG, "%s(%d) : #%d memory leak detected.\n", s_stlVpAllocatedFile[i], s_stlVpAllocatedLine[i], s_stlVpAllocatedSerial[i]);
@@ -527,11 +527,12 @@ void BaseMemoryPoolSingle::leak_display()
 #ifdef WIN32
 			OutputDebugStringA(strBuff);
 #endif
-			// printf("%s", strBuff);
+			printf("%s", strBuff);
 		}
 	}
 
-	leak_info_clear();
+    if(_clear)
+        leak_info_clear();
 }
 
 
@@ -631,18 +632,18 @@ void *BaseMemoryPoolSingle::malloc(size_t _nSize, const char *_strFileName, INT3
 	return (void*)pRet;
 }
 
-void BaseMemoryPoolSingle::display_info()
+void BaseMemoryPoolSingle::display_info(bool _clear)
 {
 //	if(!m_bCalledClear)
 //		leak_info_clear();
 
 	for(INT32 i=0; i<__MEMORYPOOL_SIZE_LAYER; i++)
 	{	
-		m_sMemoryLayer[i].display_info();
+		m_sMemoryLayer[i].display_info(_clear);
 	}
 
 #ifdef _DEBUG
-	leak_display();
+	leak_display(_clear);
 #endif
 }
 
@@ -824,9 +825,10 @@ static bool s_bInitialized	= false;
 static bool s_bTerminated	= false;
 CRITICAL_SECTION s_critical_section;
 
-static UINT32 m_auto_freetime;
 static BaseCircleQueue* m_auto_free_qp = NULL;// ("auto free table", 1);
+static BaseCircleQueue* m_auto_free_time = NULL;// ("auto free table", 1);
 static BaseCircleQueue* m_auto_ofree_qp = NULL;// ("auto O free table", 1);
+static BaseCircleQueue* m_auto_ofree_time = NULL;// ("auto O free table", 1);
 
 BaseMemoryPoolMultiThread::BaseMemoryPoolMultiThread()
 {
@@ -840,8 +842,10 @@ void BaseMemoryPoolMultiThread::init()
 	s_bInitialized	= true;
 	InitializeCriticalSection(&s_critical_section);
 
-	m_auto_free_qp = new BaseCircleQueue("auto free table", 1);
-	m_auto_free_qp = new BaseCircleQueue("auto O free table", 1);
+    m_auto_free_qp = new BaseCircleQueue("auto free table", 1);
+	m_auto_free_time = new BaseCircleQueue("auto free time table", 1);
+    m_auto_ofree_qp = new BaseCircleQueue("auto O free table", 1);
+	m_auto_ofree_time = new BaseCircleQueue("auto O free time table", 1);
 
 	atexit(BaseMemoryPoolMultiThread::free_all);
 	s_pstlMMemoryPoolSingle = new std::map<int, BaseMemoryPoolSingle*>;
@@ -1218,7 +1222,7 @@ void BaseMemoryPoolMultiThread::leak_old_display(int _time)
 #endif
 }
 
-void BaseMemoryPoolMultiThread::display_info()
+void BaseMemoryPoolMultiThread::display_info(bool _clear)
 {
 	for(UINT32 i=0; i<s_pstlVMemoryPoolSingle->size(); i++)
 	{
@@ -1226,7 +1230,7 @@ void BaseMemoryPoolMultiThread::display_info()
 		nType	= s_pstlVMemoryPoolSingle->at(i)->get_reserved_type();
 		g_SendMessage(LOG_MSG_MEM_LEAK, "Thread type %d\n", nType);
 		//printf("Thread type %d\n", nType);
-		s_pstlVMemoryPoolSingle->at(i)->display_info();
+		s_pstlVMemoryPoolSingle->at(i)->display_info(_clear);
 	}
 }
 
@@ -1262,43 +1266,50 @@ void BaseMemoryPoolMultiThread::free_mem(INT64 _ref)
 void BaseMemoryPoolMultiThread::auto_free(void *_point)
 {
 	m_auto_free_qp->push(_point);
-	m_auto_freetime = BaseSystem::timeGetTime() + 50; // 50 mili sec later will be free
+    int t = BaseSystem::timeGetTime() + 50; // 50 mili sec later will be free
+    m_auto_free_time->push((void*)t);
 }
 
 void BaseMemoryPoolMultiThread::auto_ofree(void *_point)
 {
 	m_auto_ofree_qp->push(_point);
-	m_auto_freetime = BaseSystem::timeGetTime() + 50; // 50 mili  sec later will be free
+    long t = BaseSystem::timeGetTime() + 50; // 50 mili sec later will be free
+    m_auto_ofree_time->push((void*)t);
 }
 
 void BaseMemoryPoolMultiThread::auto_update()
 {
-	if(BaseSystem::timeGetTime() < m_auto_freetime)
-		return;
-	
-	void *point = NULL;
-	if(m_auto_free_qp != NULL && m_auto_free_qp->size_data() > 0)
-	{
-		
-		do{
-			void *p;
-			point = m_auto_free_qp->pop();
-			if(point == NULL)
-				break;
-			p = point;
-			PT_Free(p);
-		}while(point);
-	}
-	   
+    if(m_auto_free_qp == NULL || m_auto_free_qp->size_data() == 0)
+    {
+        long t = (long)m_auto_free_time->top();
+        while(BaseSystem::timeGetTime() >= t)
+        {
+            void *point = NULL;
+            m_auto_free_time->pop();
+            point = m_auto_free_qp->pop();
+            if(point == NULL)
+                break;
+            PT_Free(point);
+            
+            if(m_auto_free_qp->size_data() == 0)
+                break;
+            t = (long)m_auto_free_time->top();
+        }
+    }
+    
 	if(m_auto_ofree_qp != NULL && m_auto_ofree_qp->size_data() > 0)
 	{
-		do{
-			BaseObject *p;
-			point = m_auto_ofree_qp->pop();
+        long t = (long)m_auto_ofree_time->top();
+        
+		while(t <= BaseSystem::timeGetTime()){
+			BaseObject *point = (BaseObject*)m_auto_ofree_qp->pop();
+            m_auto_ofree_time->pop();
 			if(point == NULL)
 				break;
-			p = (BaseObject*)point;
-			PT_OFree(p);
-		}while(point);
+			PT_OFree(point);
+            if(m_auto_ofree_time->size_data() == 0)
+                break;
+            t = (long)m_auto_ofree_time->top();
+		}
 	}
 }

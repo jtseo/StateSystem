@@ -18,7 +18,7 @@ public:
 	INT32 get_size_item(){
 		return m_nSizeOfItem;
 	}
-	void display_info();
+	void display_info(bool _clear = true);
 protected:
 	void init(INT32 _nSizeOfItem, INT32 _nInitCount, const char *_strFileName, int _nLine);
 	void release();
@@ -67,7 +67,7 @@ public:
 	{
 		return m_nThreadIndex;
 	}
-	void display_info();
+	void display_info(bool _clear = true);
 protected:
 	unsigned short m_nThreadIndex;
 	void	free_(void *_point);
@@ -117,7 +117,7 @@ public:
 private:
 	void *leak_check_in(INT32 xiLine, const char *xpFilename, void *xpPoint);
 	bool leak_check_out(void *xpPoint);
-	void leak_display();
+	void leak_display(bool _clear = true);
 	void leak_info_clear();
 public:
 	void leak_old_display(int _time);
@@ -169,7 +169,7 @@ public:
 	void start(INT32 _nReservedType);
 	
 	void leak_old_display(int _time);
-	void display_info();
+	void display_info(bool _clear = true);
 	void leak_check(const void* _point);
 	static void free_all();
 	static void terminate(bool _bTerminated = true);
