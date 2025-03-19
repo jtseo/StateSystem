@@ -540,12 +540,12 @@ int BaseSFuncDirectory::MemoryCheck_nF()
 
 int BaseSFuncDirectory::MemLogStart_nF()
 {
-	mpool_get().display_info();
+	mpool_get().display_info(true);
 	return 1;
 }
 int BaseSFuncDirectory::MemLogEnd_nF()
 {
-	mpool_get().display_info();
+	mpool_get().display_info(false);
 	return 1;
 }
 //#SF_functionInsert
