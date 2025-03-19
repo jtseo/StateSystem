@@ -65,3 +65,5 @@ lib/BaseLibrary/ConsoleUnityTest/x64
 lib/BaseLibrary/build
 lib/VScriptEditor64_old.app
 lib/BaseLibrary/CMakeLists.txt
+lib/VScriptEditor_org copy.app
+lib/VScriptEditor_org.app
