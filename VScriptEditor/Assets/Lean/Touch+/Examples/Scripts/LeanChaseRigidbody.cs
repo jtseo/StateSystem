@@ -57,7 +57,7 @@ namespace Lean.Touch
 				// Apply the velocity
 				velocity *= LeanTouch.GetDampenFactor(Dampening, Time.fixedDeltaTime);
 
-				cachedRigidbody.velocity = velocity;
+				cachedRigidbody.linearVelocity = velocity;
 
 				/*
 				if (Rotation == true && direction != Vector3.zero)

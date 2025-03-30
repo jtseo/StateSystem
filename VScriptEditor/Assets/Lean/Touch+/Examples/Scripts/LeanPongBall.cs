@@ -47,7 +47,7 @@ namespace Lean.Touch
 			speed += Acceleration * Time.deltaTime;
 
 			// Reset velocity magnitude to new speed
-			body.velocity = body.velocity.normalized * speed;
+			body.linearVelocity = body.linearVelocity.normalized * speed;
 		}
 
 		private void ResetPositionAndVelocity()
@@ -59,14 +59,14 @@ namespace Lean.Touch
 			speed = StartSpeed;
 
 			// If moving right, reset velocity to the left
-			if (body.velocity.x > 0.0f)
+			if (body.linearVelocity.x > 0.0f)
 			{
-				body.velocity = new Vector3(-speed, Random.Range(-Spread, Spread), 0.0f);
+				body.linearVelocity = new Vector3(-speed, Random.Range(-Spread, Spread), 0.0f);
 			}
 			// If moving left, reset velocity to the right
 			else
 			{
-				body.velocity = new Vector3(speed, Random.Range(-Spread, Spread), 0.0f);
+				body.linearVelocity = new Vector3(speed, Random.Range(-Spread, Spread), 0.0f);
 			}
 		}
 	}

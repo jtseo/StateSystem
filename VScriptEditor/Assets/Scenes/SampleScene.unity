@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -42,8 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -66,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 0
@@ -230,6 +227,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &16295889
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,10 +760,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -780,7 +776,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -1148,6 +1144,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &80433361
 GameObject:
   m_ObjectHideFlags: 0
@@ -1308,10 +1305,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -1326,7 +1321,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -1356,10 +1351,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -1374,7 +1367,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -1715,6 +1708,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!21 &120932339
 Material:
   serializedVersion: 8
@@ -1747,6 +1741,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!224 &122955254 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1733345796897691388, guid: a47d679554ec8fb49a2521a799eacd81,
@@ -1763,10 +1758,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -1781,7 +1774,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -1833,6 +1826,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &135064447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1891,7 +1885,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e9b493fd053bac04da3370a94128018c, type: 3}
+    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -2050,8 +2044,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: File Open
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c96251e20a47f4acfbe3c89aa438b90f, type: 2}
+  m_sharedMaterial: {fileID: -7377437915827501628, guid: c96251e20a47f4acfbe3c89aa438b90f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2091,15 +2086,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -2135,10 +2132,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -2153,7 +2148,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -2183,10 +2178,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -2201,7 +2194,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -2306,10 +2299,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -2324,7 +2315,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -2478,8 +2469,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: <
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c96251e20a47f4acfbe3c89aa438b90f, type: 2}
+  m_sharedMaterial: {fileID: -7377437915827501628, guid: c96251e20a47f4acfbe3c89aa438b90f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2519,15 +2511,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -2664,6 +2658,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &182831982
 GameObject:
   m_ObjectHideFlags: 0
@@ -2764,15 +2759,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -2887,22 +2884,30 @@ MonoBehaviour:
   m_ItemText: {fileID: 1446275144}
   m_ItemImage: {fileID: 0}
   m_Value: 0
+  m_MultiSelect: 0
   m_Options:
     m_Options:
     - m_Text: Transition
       m_Image: {fileID: 0}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
     - m_Text: Add
       m_Image: {fileID: 0}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
     - m_Text: Dummy
       m_Image: {fileID: 0}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
     - m_Text: Release
       m_Image: {fileID: 0}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
     - m_Text: Call
       m_Image: {fileID: 0}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
     - m_Text: Return
       m_Image: {fileID: 0}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
     - m_Text: LinkCopy
       m_Image: {fileID: 0}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2962,13 +2967,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29,
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
         type: 2}
     - target: {fileID: 2590940466674840501, guid: 95d10ab6e017c6f48b15597de704aedd,
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 2590940466674840501, guid: 95d10ab6e017c6f48b15597de704aedd,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2590940466674840501, guid: 95d10ab6e017c6f48b15597de704aedd,
+        type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 3576670865725929416, guid: 95d10ab6e017c6f48b15597de704aedd,
         type: 3}
       propertyPath: m_Pivot.x
@@ -3474,8 +3489,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Function name...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c96251e20a47f4acfbe3c89aa438b90f, type: 2}
+  m_sharedMaterial: {fileID: -7377437915827501628, guid: c96251e20a47f4acfbe3c89aa438b90f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3515,15 +3531,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 1
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -3608,8 +3626,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: History
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c96251e20a47f4acfbe3c89aa438b90f, type: 2}
+  m_sharedMaterial: {fileID: -7377437915827501628, guid: c96251e20a47f4acfbe3c89aa438b90f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3649,15 +3668,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -3828,8 +3849,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3869,15 +3890,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -3961,7 +3984,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e9b493fd053bac04da3370a94128018c, type: 3}
+    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -4070,7 +4093,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e9b493fd053bac04da3370a94128018c, type: 3}
+    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -4246,10 +4269,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -4264,7 +4285,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -4316,6 +4337,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &255527035
 GameObject:
   m_ObjectHideFlags: 0
@@ -4514,10 +4536,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -4532,7 +4552,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -4562,10 +4582,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -4580,7 +4598,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -4752,10 +4770,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -4770,7 +4786,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -5481,10 +5497,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -5499,7 +5513,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -5848,6 +5862,9 @@ LineRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5967,6 +5984,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!128 &318482690
 Font:
   m_ObjectHideFlags: 0
@@ -6034,17 +6052,27 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29,
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
         type: 2}
     - target: {fileID: 6753206788574863679, guid: 97df2ebe186c658479dd7c8185ecd2af,
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 6753206788574863679, guid: 97df2ebe186c658479dd7c8185ecd2af,
         type: 3}
       propertyPath: m_HorizontalAlignment
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753206788574863679, guid: 97df2ebe186c658479dd7c8185ecd2af,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753206788574863679, guid: 97df2ebe186c658479dd7c8185ecd2af,
+        type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 7488685148802940523, guid: 97df2ebe186c658479dd7c8185ecd2af,
         type: 3}
@@ -6413,10 +6441,13 @@ MonoBehaviour:
   m_GlobalFontAsset: {fileID: 0}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
+  m_KeepTextSelectionVisible: 0
   m_RestoreOriginalTextOnEscape: 1
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 0
+  isAlert: 0
   m_InputValidator: {fileID: 0}
+  m_ShouldActivateOnSelect: 1
 --- !u!114 &326224002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6635,7 +6666,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000040601408, y: 0.00048219867}
+  m_AnchoredPosition: {x: 0.00010108948, y: 0.00048219867}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &343425517
@@ -6696,10 +6727,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -6714,7 +6743,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -6886,6 +6915,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!28 &364135297
 Texture2D:
   m_ObjectHideFlags: 0
@@ -6896,10 +6926,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -6914,7 +6942,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -6966,6 +6994,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &366982108
 GameObject:
   m_ObjectHideFlags: 0
@@ -7127,8 +7156,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7168,15 +7197,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -7641,10 +7672,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -7659,7 +7688,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -7807,6 +7836,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &416527316
 GameObject:
   m_ObjectHideFlags: 0
@@ -7964,10 +7994,13 @@ MonoBehaviour:
   m_GlobalFontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
+  m_KeepTextSelectionVisible: 0
   m_RestoreOriginalTextOnEscape: 1
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 0
+  isAlert: 0
   m_InputValidator: {fileID: 0}
+  m_ShouldActivateOnSelect: 1
 --- !u!114 &416527319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8016,10 +8049,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -8034,7 +8065,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -8266,10 +8297,13 @@ MonoBehaviour:
   m_GlobalFontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
+  m_KeepTextSelectionVisible: 0
   m_RestoreOriginalTextOnEscape: 1
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 0
+  isAlert: 0
   m_InputValidator: {fileID: 0}
+  m_ShouldActivateOnSelect: 1
 --- !u!114 &426822435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8611,6 +8645,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!28 &443556999
 Texture2D:
   m_ObjectHideFlags: 0
@@ -8621,10 +8656,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -8639,7 +8672,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -8943,15 +8976,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 1
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -9088,6 +9123,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &459914159
 GameObject:
   m_ObjectHideFlags: 0
@@ -9147,8 +9183,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Log Enable
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c96251e20a47f4acfbe3c89aa438b90f, type: 2}
+  m_sharedMaterial: {fileID: -7377437915827501628, guid: c96251e20a47f4acfbe3c89aa438b90f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9188,15 +9225,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -9532,7 +9571,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1310433179}
   m_HandleRect: {fileID: 1310433178}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -10140,6 +10179,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &550238303
 GameObject:
   m_ObjectHideFlags: 0
@@ -10330,10 +10370,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -10348,7 +10386,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -10428,8 +10466,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10469,15 +10507,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -10535,6 +10575,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &572854643
 GameObject:
   m_ObjectHideFlags: 0
@@ -10763,6 +10804,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!21 &573407971
 Material:
   serializedVersion: 8
@@ -10795,6 +10837,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &574976228
 GameObject:
   m_ObjectHideFlags: 0
@@ -10880,10 +10923,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -10898,7 +10939,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -10977,8 +11018,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Group ID
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c96251e20a47f4acfbe3c89aa438b90f, type: 2}
+  m_sharedMaterial: {fileID: -7377437915827501628, guid: c96251e20a47f4acfbe3c89aa438b90f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11018,15 +11060,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -11381,8 +11425,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Function Editor
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c96251e20a47f4acfbe3c89aa438b90f, type: 2}
+  m_sharedMaterial: {fileID: -7377437915827501628, guid: c96251e20a47f4acfbe3c89aa438b90f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11422,15 +11467,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -11466,10 +11513,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -11484,7 +11529,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -11668,8 +11713,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: State name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c96251e20a47f4acfbe3c89aa438b90f, type: 2}
+  m_sharedMaterial: {fileID: -7377437915827501628, guid: c96251e20a47f4acfbe3c89aa438b90f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11709,15 +11755,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -11753,10 +11801,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -11771,7 +11817,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -11929,6 +11975,38 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Message
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059546962918837208, guid: 97df2ebe186c658479dd7c8185ecd2af,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 6059546962918837208, guid: 97df2ebe186c658479dd7c8185ecd2af,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753206788574863679, guid: 97df2ebe186c658479dd7c8185ecd2af,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 6753206788574863679, guid: 97df2ebe186c658479dd7c8185ecd2af,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6753206788574863679, guid: 97df2ebe186c658479dd7c8185ecd2af,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753206788574863679, guid: 97df2ebe186c658479dd7c8185ecd2af,
+        type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 7488685148802940523, guid: 97df2ebe186c658479dd7c8185ecd2af,
         type: 3}
@@ -12104,10 +12182,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -12122,7 +12198,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -12249,6 +12325,27 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753206788574863679, guid: 97df2ebe186c658479dd7c8185ecd2af,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 6753206788574863679, guid: 97df2ebe186c658479dd7c8185ecd2af,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6753206788574863679, guid: 97df2ebe186c658479dd7c8185ecd2af,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753206788574863679, guid: 97df2ebe186c658479dd7c8185ecd2af,
+        type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 7488685148802940523, guid: 97df2ebe186c658479dd7c8185ecd2af,
         type: 3}
@@ -12510,10 +12607,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -12528,7 +12623,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -13418,8 +13513,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13459,15 +13554,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -13791,10 +13888,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -13809,7 +13904,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -13936,6 +14031,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &729189683
 GameObject:
   m_ObjectHideFlags: 0
@@ -14100,10 +14196,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -14118,7 +14212,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -14170,6 +14264,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &746066986
 GameObject:
   m_ObjectHideFlags: 0
@@ -14541,6 +14636,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &787977836
 GameObject:
   m_ObjectHideFlags: 0
@@ -14775,7 +14871,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -20.000122}
+  m_AnchoredPosition: {x: 0, y: -20.000183}
   m_SizeDelta: {x: 0, y: -40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &804835291
@@ -14875,8 +14971,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c96251e20a47f4acfbe3c89aa438b90f, type: 2}
+  m_sharedMaterial: {fileID: -7377437915827501628, guid: c96251e20a47f4acfbe3c89aa438b90f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14916,15 +15013,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 3
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 1
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -15108,6 +15207,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &811881784
 GameObject:
   m_ObjectHideFlags: 0
@@ -15563,7 +15663,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: X
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a80bc256c9bc026479749dc7513c2cee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -15604,15 +15704,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -15627,7 +15729,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &822752292
@@ -16053,10 +16155,13 @@ MonoBehaviour:
   m_GlobalFontAsset: {fileID: 0}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
+  m_KeepTextSelectionVisible: 0
   m_RestoreOriginalTextOnEscape: 1
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 0
+  isAlert: 0
   m_InputValidator: {fileID: 0}
+  m_ShouldActivateOnSelect: 1
 --- !u!114 &838968962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16274,15 +16379,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -16427,7 +16534,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1643839858}
   m_Direction: 3
   m_Value: 1.0000002
-  m_Size: 0.44295987
+  m_Size: 0.49219495
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -16868,15 +16975,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -16956,10 +17065,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -16974,7 +17081,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -17078,6 +17185,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &908966027
 GameObject:
   m_ObjectHideFlags: 0
@@ -17137,8 +17245,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -17178,15 +17286,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -17663,6 +17773,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!28 &933806801
 Texture2D:
   m_ObjectHideFlags: 0
@@ -17673,10 +17784,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -17691,7 +17800,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -18175,10 +18284,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -18193,7 +18300,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -18272,8 +18379,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c96251e20a47f4acfbe3c89aa438b90f, type: 2}
+  m_sharedMaterial: {fileID: -7377437915827501628, guid: c96251e20a47f4acfbe3c89aa438b90f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -18313,15 +18421,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 3
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 1
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -18608,6 +18718,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &978113053
 GameObject:
   m_ObjectHideFlags: 0
@@ -18864,8 +18975,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: State name search
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c96251e20a47f4acfbe3c89aa438b90f, type: 2}
+  m_sharedMaterial: {fileID: -7377437915827501628, guid: c96251e20a47f4acfbe3c89aa438b90f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -18905,15 +19017,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 1
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -19136,10 +19250,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -19154,7 +19266,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -19260,10 +19372,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -19278,7 +19388,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -19357,8 +19467,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Number
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19398,15 +19508,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -19597,8 +19709,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19638,15 +19750,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -20049,10 +20163,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -20067,7 +20179,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -20194,6 +20306,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1069541679
 GameObject:
   m_ObjectHideFlags: 0
@@ -20253,7 +20366,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Fix Link
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a80bc256c9bc026479749dc7513c2cee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -20294,15 +20407,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -20317,7 +20432,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1069541682
@@ -20465,6 +20580,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1001 &1088677491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20578,6 +20694,22 @@ PrefabInstance:
       propertyPath: m_text
       value: Server
       objectReference: {fileID: 0}
+    - target: {fileID: 5550991711423494901, guid: 36170fda2a4491440ab8fc8c6f24b446,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 5550991711423494901, guid: 36170fda2a4491440ab8fc8c6f24b446,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5550991711423494901, guid: 36170fda2a4491440ab8fc8c6f24b446,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5552895257482590691, guid: 36170fda2a4491440ab8fc8c6f24b446,
         type: 3}
       propertyPath: m_Options.m_Options.Array.data[0].m_Text
@@ -20598,10 +20730,52 @@ PrefabInstance:
       propertyPath: m_Name
       value: ServerSelect
       objectReference: {fileID: 0}
+    - target: {fileID: 8213360177601205402, guid: 36170fda2a4491440ab8fc8c6f24b446,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 8213360177601205402, guid: 36170fda2a4491440ab8fc8c6f24b446,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 8213360177601205402, guid: 36170fda2a4491440ab8fc8c6f24b446,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8213360177601205402, guid: 36170fda2a4491440ab8fc8c6f24b446,
+        type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 8851056575581879048, guid: 36170fda2a4491440ab8fc8c6f24b446,
         type: 3}
       propertyPath: m_text
       value: Local
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851056575581879048, guid: 36170fda2a4491440ab8fc8c6f24b446,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 8851056575581879048, guid: 36170fda2a4491440ab8fc8c6f24b446,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 8851056575581879048, guid: 36170fda2a4491440ab8fc8c6f24b446,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851056575581879048, guid: 36170fda2a4491440ab8fc8c6f24b446,
+        type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20712,7 +20886,7 @@ GameObject:
   - component: {fileID: 1095226598}
   - component: {fileID: 1095226600}
   m_Layer: 5
-  m_Name: TMP SubMeshUI [NanumGothic-Regular SDF Material + LiberationSans SDF Atlas]
+  m_Name: 'TMP SubMeshUI [NanumGothic-Regular SDF Material + LiberationSans SDF Atlas]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20777,6 +20951,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!21 &1103319732
 Material:
   serializedVersion: 8
@@ -20809,6 +20984,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!28 &1104095191
 Texture2D:
   m_ObjectHideFlags: 0
@@ -20819,10 +20995,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -20837,7 +21011,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -20867,10 +21041,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -20885,7 +21057,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -21350,7 +21522,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -21391,15 +21563,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 3
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 1
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -21414,7 +21588,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1116077199
@@ -21920,6 +22094,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!28 &1137110337
 Texture2D:
   m_ObjectHideFlags: 0
@@ -21930,10 +22105,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -21948,7 +22121,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -22375,10 +22548,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -22393,7 +22564,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -22445,6 +22616,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1174173753
 GameObject:
   m_ObjectHideFlags: 0
@@ -23195,7 +23367,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 665, y: -19.999878}
+  m_AnchoredPosition: {x: 664.99994, y: -19.999878}
   m_SizeDelta: {x: -1330, y: -40.000015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1195634808
@@ -23326,8 +23498,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Cancel
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23367,15 +23539,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -23433,6 +23607,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!21 &1206582290
 Material:
   serializedVersion: 8
@@ -23465,6 +23640,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!128 &1207819686
 Font:
   m_ObjectHideFlags: 0
@@ -23715,8 +23891,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c96251e20a47f4acfbe3c89aa438b90f, type: 2}
+  m_sharedMaterial: {fileID: -7377437915827501628, guid: c96251e20a47f4acfbe3c89aa438b90f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23756,15 +23933,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 3
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 1
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -23875,10 +24054,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -23893,7 +24070,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -23973,8 +24150,8 @@ MonoBehaviour:
   m_text: aslfj awfoei jar aoirj oaierjv oaei jrvo;ej rv;oijer vzos;ij  alwe aslfj
     ao iavrij osdij oijdg i
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -24014,15 +24191,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -24212,8 +24391,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -24253,15 +24432,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 3
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 1
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -24426,6 +24607,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1264086267
 GameObject:
   m_ObjectHideFlags: 0
@@ -24561,6 +24743,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1001 &1265134329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24569,6 +24752,27 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1264086268}
     m_Modifications:
+    - target: {fileID: 2777930084064837269, guid: e4df7de0abf904b1a93e87d9a68a64c3,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 2777930084064837269, guid: e4df7de0abf904b1a93e87d9a68a64c3,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 2777930084064837269, guid: e4df7de0abf904b1a93e87d9a68a64c3,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777930084064837269, guid: e4df7de0abf904b1a93e87d9a68a64c3,
+        type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 3825569238581613515, guid: e4df7de0abf904b1a93e87d9a68a64c3,
         type: 3}
       propertyPath: m_Pivot.x
@@ -24673,6 +24877,69 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InputPass
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317637455852892129, guid: e4df7de0abf904b1a93e87d9a68a64c3,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 5317637455852892129, guid: e4df7de0abf904b1a93e87d9a68a64c3,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5317637455852892129, guid: e4df7de0abf904b1a93e87d9a68a64c3,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317637455852892129, guid: e4df7de0abf904b1a93e87d9a68a64c3,
+        type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
+    - target: {fileID: 7734039621545002354, guid: e4df7de0abf904b1a93e87d9a68a64c3,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 7734039621545002354, guid: e4df7de0abf904b1a93e87d9a68a64c3,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 7734039621545002354, guid: e4df7de0abf904b1a93e87d9a68a64c3,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7734039621545002354, guid: e4df7de0abf904b1a93e87d9a68a64c3,
+        type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
+    - target: {fileID: 8648927563267134581, guid: e4df7de0abf904b1a93e87d9a68a64c3,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 8648927563267134581, guid: e4df7de0abf904b1a93e87d9a68a64c3,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 8648927563267134581, guid: e4df7de0abf904b1a93e87d9a68a64c3,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8648927563267134581, guid: e4df7de0abf904b1a93e87d9a68a64c3,
+        type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24898,6 +25165,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!21 &1277543983
 Material:
   serializedVersion: 8
@@ -24930,6 +25198,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!28 &1280979243
 Texture2D:
   m_ObjectHideFlags: 0
@@ -24940,10 +25209,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -24958,7 +25225,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -25097,10 +25364,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -25115,7 +25380,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -25269,8 +25534,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: OK
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -25310,15 +25575,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -25481,6 +25748,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1307067364
 GameObject:
   m_ObjectHideFlags: 0
@@ -25768,10 +26036,13 @@ MonoBehaviour:
   m_GlobalFontAsset: {fileID: 0}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
+  m_KeepTextSelectionVisible: 0
   m_RestoreOriginalTextOnEscape: 1
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 0
+  isAlert: 0
   m_InputValidator: {fileID: 0}
+  m_ShouldActivateOnSelect: 1
 --- !u!114 &1307746983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26097,6 +26368,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1320805561
 GameObject:
   m_ObjectHideFlags: 0
@@ -26182,10 +26454,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -26200,7 +26470,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -26305,10 +26575,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -26323,7 +26591,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -26375,6 +26643,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1351078354
 GameObject:
   m_ObjectHideFlags: 0
@@ -26520,10 +26789,13 @@ MonoBehaviour:
   m_GlobalFontAsset: {fileID: 0}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
+  m_KeepTextSelectionVisible: 0
   m_RestoreOriginalTextOnEscape: 1
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 0
+  isAlert: 0
   m_InputValidator: {fileID: 0}
+  m_ShouldActivateOnSelect: 1
 --- !u!114 &1351078357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26594,6 +26866,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!128 &1352802671
 Font:
   m_ObjectHideFlags: 0
@@ -26634,10 +26907,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -26652,7 +26923,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -26946,6 +27217,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1380858726
 GameObject:
   m_ObjectHideFlags: 0
@@ -27031,10 +27303,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -27049,7 +27319,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -27526,10 +27796,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -27544,7 +27812,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -27856,8 +28124,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Apply
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -27897,15 +28165,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -27990,8 +28260,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: File Save
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c96251e20a47f4acfbe3c89aa438b90f, type: 2}
+  m_sharedMaterial: {fileID: -7377437915827501628, guid: c96251e20a47f4acfbe3c89aa438b90f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -28031,15 +28302,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -28087,13 +28360,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29,
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
         type: 2}
     - target: {fileID: 2590940466674840501, guid: 95d10ab6e017c6f48b15597de704aedd,
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 2590940466674840501, guid: 95d10ab6e017c6f48b15597de704aedd,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2590940466674840501, guid: 95d10ab6e017c6f48b15597de704aedd,
+        type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 3576670865725929416, guid: 95d10ab6e017c6f48b15597de704aedd,
         type: 3}
       propertyPath: m_Pivot.x
@@ -28327,15 +28610,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -28393,6 +28678,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!28 &1461713310
 Texture2D:
   m_ObjectHideFlags: 0
@@ -28403,10 +28689,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -28421,7 +28705,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -28552,6 +28836,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1467324971
 GameObject:
   m_ObjectHideFlags: 0
@@ -28764,10 +29049,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -28782,7 +29065,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -29066,10 +29349,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -29084,7 +29365,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -29399,8 +29680,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: OK
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -29440,15 +29721,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -29624,10 +29907,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -29642,7 +29923,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -29702,10 +29983,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -29720,7 +29999,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -29750,10 +30029,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -29768,7 +30045,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -30061,6 +30338,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!21 &1544246195
 Material:
   serializedVersion: 8
@@ -30093,6 +30371,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1556222832
 GameObject:
   m_ObjectHideFlags: 0
@@ -30234,6 +30513,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!21 &1560692477
 Material:
   serializedVersion: 8
@@ -30266,6 +30546,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1561686842
 GameObject:
   m_ObjectHideFlags: 0
@@ -30445,10 +30726,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -30463,7 +30742,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -31320,8 +31599,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -31361,15 +31640,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 3
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 1
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -31574,6 +31855,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1641096258
 GameObject:
   m_ObjectHideFlags: 0
@@ -31910,6 +32192,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1662473578
 GameObject:
   m_ObjectHideFlags: 0
@@ -32026,7 +32309,7 @@ GameObject:
   - component: {fileID: 1671852085}
   - component: {fileID: 1671852087}
   m_Layer: 24
-  m_Name: TMP SubMeshUI [NANUMGOTHIC SDF Material + NANUMGOTHIC SDF Atlas]
+  m_Name: 'TMP SubMeshUI [NANUMGOTHIC SDF Material + NANUMGOTHIC SDF Atlas]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32166,6 +32449,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!128 &1700277366
 Font:
   m_ObjectHideFlags: 0
@@ -32285,8 +32569,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Enter hash string...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -32326,15 +32610,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 1
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -32615,8 +32901,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Enter number ...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -32656,15 +32942,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 1
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -32722,6 +33010,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!21 &1738884530
 Material:
   serializedVersion: 8
@@ -32754,6 +33043,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1740025564
 GameObject:
   m_ObjectHideFlags: 0
@@ -32843,10 +33133,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -32861,7 +33149,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -33482,6 +33770,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1817162130
 GameObject:
   m_ObjectHideFlags: 0
@@ -33616,8 +33905,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Group Type
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c96251e20a47f4acfbe3c89aa438b90f, type: 2}
+  m_sharedMaterial: {fileID: -7377437915827501628, guid: c96251e20a47f4acfbe3c89aa438b90f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -33657,15 +33947,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -33750,8 +34042,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Hash Cvt
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c96251e20a47f4acfbe3c89aa438b90f, type: 2}
+  m_sharedMaterial: {fileID: -7377437915827501628, guid: c96251e20a47f4acfbe3c89aa438b90f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -33791,15 +34084,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -34191,8 +34486,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -34232,15 +34527,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -34276,10 +34573,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -34294,7 +34589,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -34577,6 +34872,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1863715597
 GameObject:
   m_ObjectHideFlags: 0
@@ -34684,6 +34980,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1868189218
 GameObject:
   m_ObjectHideFlags: 0
@@ -34958,7 +35255,7 @@ GameObject:
   - component: {fileID: 1902857653}
   - component: {fileID: 1902857655}
   m_Layer: 24
-  m_Name: TMP SubMeshUI [NanumGothic-Regular SDF Material + LiberationSans SDF Atlas]
+  m_Name: 'TMP SubMeshUI [NanumGothic-Regular SDF Material + LiberationSans SDF Atlas]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35023,6 +35320,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!128 &1916510218
 Font:
   m_ObjectHideFlags: 0
@@ -35064,7 +35362,7 @@ GameObject:
   - component: {fileID: 1920403484}
   - component: {fileID: 1920403486}
   m_Layer: 5
-  m_Name: TMP SubMeshUI [NanumGothic-Regular SDF Material + LiberationSans SDF Atlas]
+  m_Name: 'TMP SubMeshUI [NanumGothic-Regular SDF Material + LiberationSans SDF Atlas]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35265,8 +35563,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Value(str or int)...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c96251e20a47f4acfbe3c89aa438b90f, type: 2}
+  m_sharedMaterial: {fileID: -7377437915827501628, guid: c96251e20a47f4acfbe3c89aa438b90f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -35306,15 +35605,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 1
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -35350,10 +35651,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -35368,7 +35667,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -35543,10 +35842,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -35561,7 +35858,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -35613,6 +35910,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!128 &1959957379
 Font:
   m_ObjectHideFlags: 0
@@ -35892,13 +36190,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29,
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
         type: 2}
     - target: {fileID: 2590940466674840501, guid: 95d10ab6e017c6f48b15597de704aedd,
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 2590940466674840501, guid: 95d10ab6e017c6f48b15597de704aedd,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2590940466674840501, guid: 95d10ab6e017c6f48b15597de704aedd,
+        type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 3576670865725929416, guid: 95d10ab6e017c6f48b15597de704aedd,
         type: 3}
       propertyPath: m_Pivot.x
@@ -36140,10 +36448,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -36158,7 +36464,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -36210,6 +36516,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1984005376
 GameObject:
   m_ObjectHideFlags: 0
@@ -37037,8 +37344,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: '>'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c96251e20a47f4acfbe3c89aa438b90f, type: 2}
+  m_sharedMaterial: {fileID: -7377437915827501628, guid: c96251e20a47f4acfbe3c89aa438b90f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -37078,15 +37386,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -37348,10 +37658,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -37366,7 +37674,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -37550,8 +37858,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ' VScript v240201'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -37591,15 +37899,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -37901,13 +38211,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29,
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
         type: 2}
     - target: {fileID: 702470523232419255, guid: f3b705a3fdd6d484195ac13547dd1c10,
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 702470523232419255, guid: f3b705a3fdd6d484195ac13547dd1c10,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 702470523232419255, guid: f3b705a3fdd6d484195ac13547dd1c10,
+        type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 2128187613105495843, guid: f3b705a3fdd6d484195ac13547dd1c10,
         type: 3}
       propertyPath: m_Name
@@ -37917,35 +38237,65 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29,
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
         type: 2}
     - target: {fileID: 2241483989919495446, guid: f3b705a3fdd6d484195ac13547dd1c10,
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 2241483989919495446, guid: f3b705a3fdd6d484195ac13547dd1c10,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2241483989919495446, guid: f3b705a3fdd6d484195ac13547dd1c10,
+        type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 5006669022291760250, guid: f3b705a3fdd6d484195ac13547dd1c10,
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29,
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
         type: 2}
     - target: {fileID: 5006669022291760250, guid: f3b705a3fdd6d484195ac13547dd1c10,
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5006669022291760250, guid: f3b705a3fdd6d484195ac13547dd1c10,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5006669022291760250, guid: f3b705a3fdd6d484195ac13547dd1c10,
+        type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 6959701968466723167, guid: f3b705a3fdd6d484195ac13547dd1c10,
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29,
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
         type: 2}
     - target: {fileID: 6959701968466723167, guid: f3b705a3fdd6d484195ac13547dd1c10,
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6959701968466723167, guid: f3b705a3fdd6d484195ac13547dd1c10,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6959701968466723167, guid: f3b705a3fdd6d484195ac13547dd1c10,
+        type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 8835799211967164943, guid: f3b705a3fdd6d484195ac13547dd1c10,
         type: 3}
       propertyPath: m_Pivot.x
@@ -38079,10 +38429,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -38097,7 +38445,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -38187,10 +38535,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 0
   m_Height: 0
   m_CompleteImageSize: 0
@@ -38205,7 +38551,7 @@ Texture2D:
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
   m_AlphaIsTransparency: 0
-  m_ImageCount: 0
+  m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
     serializedVersion: 2
@@ -38284,8 +38630,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -38325,15 +38671,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -38494,7 +38842,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29,
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
         type: 2}
     - target: {fileID: 835850068712813985, guid: 900160f1497a74e9abd77a2ae44f6ced,
         type: 3}
@@ -38505,7 +38853,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 835850068712813985, guid: 900160f1497a74e9abd77a2ae44f6ced,
         type: 3}
       propertyPath: m_TextStyleHashCode
@@ -38528,14 +38876,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 835850068712813985, guid: 900160f1497a74e9abd77a2ae44f6ced,
         type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 835850068712813985, guid: 900160f1497a74e9abd77a2ae44f6ced,
+        type: 3}
       propertyPath: m_textInfo.characterCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 835850068712813985, guid: 900160f1497a74e9abd77a2ae44f6ced,
+        type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 3018419833076297523, guid: 900160f1497a74e9abd77a2ae44f6ced,
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29,
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
         type: 2}
     - target: {fileID: 3018419833076297523, guid: 900160f1497a74e9abd77a2ae44f6ced,
         type: 3}
@@ -38546,7 +38904,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3018419833076297523, guid: 900160f1497a74e9abd77a2ae44f6ced,
         type: 3}
       propertyPath: m_TextStyleHashCode
@@ -38561,6 +38919,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018419833076297523, guid: 900160f1497a74e9abd77a2ae44f6ced,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018419833076297523, guid: 900160f1497a74e9abd77a2ae44f6ced,
+        type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 3018419833218689324, guid: 900160f1497a74e9abd77a2ae44f6ced,
         type: 3}
@@ -38721,7 +39089,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: c27dda79fd4fb4b41a078ba82d95fc29,
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
         type: 2}
     - target: {fileID: 7323448341989736100, guid: 900160f1497a74e9abd77a2ae44f6ced,
         type: 3}
@@ -38732,7 +39100,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: c27dda79fd4fb4b41a078ba82d95fc29, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 7323448341989736100, guid: 900160f1497a74e9abd77a2ae44f6ced,
         type: 3}
       propertyPath: m_TextStyleHashCode
@@ -38751,6 +39119,11 @@ PrefabInstance:
     - target: {fileID: 7323448341989736100, guid: 900160f1497a74e9abd77a2ae44f6ced,
         type: 3}
       propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323448341989736100, guid: 900160f1497a74e9abd77a2ae44f6ced,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7323448341989736100, guid: 900160f1497a74e9abd77a2ae44f6ced,

@@ -78,7 +78,7 @@ namespace Lean.Touch
 				var factor = LeanTouch.GetDampenFactor(Dampening, Time.fixedDeltaTime);
 
 				// Apply the velocity
-				cachedRigidbody.velocity = velocity * factor;
+				cachedRigidbody.linearVelocity = velocity * factor;
 			}
 		}
 

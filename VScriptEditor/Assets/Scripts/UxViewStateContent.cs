@@ -144,7 +144,7 @@ namespace StateSystem
             }
             m_dstMain.release(key);
 
-            int nKey, key_rename = 0;
+            int nKey;//, key_rename = 0;
             nKey = m_dstLink.key_first_get();
 
             do

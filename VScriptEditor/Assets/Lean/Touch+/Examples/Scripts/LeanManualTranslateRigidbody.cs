@@ -100,7 +100,7 @@ namespace Lean.Touch
 
 			if (rigidbody != null)
 			{
-				rigidbody.velocity += (remainingDelta - newDelta) / Time.fixedDeltaTime;
+				rigidbody.linearVelocity += (remainingDelta - newDelta) / Time.fixedDeltaTime;
 			}
 
 			remainingDelta = newDelta;
@@ -115,7 +115,7 @@ namespace Lean.Touch
 
 				if (rigidbody != null)
 				{
-					rigidbody.velocity = Vector3.zero;
+					rigidbody.linearVelocity = Vector3.zero;
 				}
 			}
 		}
