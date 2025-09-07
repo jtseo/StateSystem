@@ -1496,7 +1496,7 @@
 					"\"/Volumes/SamSSD 1/archipin/libmicrohttpd/src/include\"",
 					/opt/homebrew/opt/curl/include,
 					/opt/homebrew/include,
-					/opt/homebrew/Cellar/mysql/9.0.1_2/include/mysql,
+					/opt/homebrew/include/mysql,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1504,7 +1504,6 @@
 					/opt/homebrew/opt/curl/lib,
 					/opt/homebrew/lib,
 					/opt/homebrew/Cellar/opencv/4.10.0/lib,
-					/opt/homebrew/Cellar/mysql/9.0.1_2/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1542,7 +1541,7 @@
 					"\"/Volumes/SamSSD 1/archipin/libmicrohttpd/src/include\"",
 					/opt/homebrew/opt/curl/include,
 					/opt/homebrew/include,
-					/opt/homebrew/Cellar/mysql/9.0.1_2/include/mysql,
+					/opt/homebrew/include/mysql,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1550,7 +1549,6 @@
 					/opt/homebrew/opt/curl/lib,
 					/opt/homebrew/lib,
 					/opt/homebrew/Cellar/opencv/4.10.0/lib,
-					/opt/homebrew/Cellar/mysql/9.0.1_2/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MTL_FAST_MATH = YES;

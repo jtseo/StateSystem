@@ -7,7 +7,7 @@
     <key>CFBundleExecutable</key>
     <string>VScriptEditor</string>
     <key>CFBundleGetInfoString</key>
-    <string>Unity Player version 2022.3.25f1 (530ae0ba3889). (c) 2005-2024 Unity Technologies. All rights reserved.</string>
+    <string>Unity Player version 6000.0.32f1 (b2e806cf271c). (c) 2005-2024 Unity Technologies. All rights reserved.</string>
     <key>CFBundleIconFile</key>
     <string>PlayerIcon.icns</string>
     <key>CFBundleIdentifier</key>
@@ -29,7 +29,7 @@
     <key>LSApplicationCategoryType</key>
     <string>public.app-category.games</string>
     <key>LSMinimumSystemVersion</key>
-    <string>10.13.0</string>
+    <string>11.0</string>
     <key>NSAppTransportSecurity</key>
     <dict>
       <key>NSAllowsArbitraryLoads</key>
@@ -40,6 +40,6 @@
     <key>NSPrincipalClass</key>
     <string>PlayerApplication</string>
     <key>UnityBuildNumber</key>
-    <string>530ae0ba3889</string>
+    <string>b2e806cf271c</string>
   </dict>
 </plist>

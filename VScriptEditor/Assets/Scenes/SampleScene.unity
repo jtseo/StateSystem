@@ -10650,7 +10650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_OpenState: StateName
-  m_firstUI: 0
+  m_firstUI: 1
   m_selectList: []
   m_selectIdx: 0
   m_defaultTexture: {fileID: 0}
@@ -14599,7 +14599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_OpenState: StateName
-  m_firstUI: 1
+  m_firstUI: 0
   m_selectList: []
   m_selectIdx: 0
   m_defaultTexture: {fileID: 0}
@@ -20044,7 +20044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebugMode: 1
   VScriptIP: localhost
-  ApplicationName: VScriptEditor
+  ApplicationName: VScriptEditor2
 --- !u!114 &1055851647
 MonoBehaviour:
   m_ObjectHideFlags: 0
